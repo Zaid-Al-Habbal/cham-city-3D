@@ -8,6 +8,9 @@
 #include "Light.h"
 #include "Controller.h"
 
+#define showMe(x) std::cout << #x << " is " << x  << endl;
+
+
 class Renderer : public Scene
 {
 private:

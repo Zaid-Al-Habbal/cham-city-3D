@@ -1,6 +1,8 @@
 #include "Controller.h"
 #include <stb_image.h>
 
+bool nightMode = false;
+
 Controller::Controller(unsigned int width, unsigned int height):
     camera(glm::vec3(0.0f, 0.0f, 3.0f)),
     window(nullptr),
@@ -66,6 +68,9 @@ bool Controller::initializeWindow(const std::string& title) {
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
     glfwSetCursorPosCallback(window, mouse_callback);
     glfwSetScrollCallback(window, scroll_callback);
+    // Set the mouse button callback
+    glfwSetMouseButtonCallback(window, mouse_button_callback);
+
 
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     glfwSetWindowUserPointer(window, this);
@@ -78,20 +83,32 @@ bool Controller::initializeWindow(const std::string& title) {
     return true;
 }
 
+// Mouse button callback function
+void Controller::mouse_button_callback(GLFWwindow* window, int button, int action, int mods) {
+    if (button == GLFW_MOUSE_BUTTON_LEFT) {
+        if (action == GLFW_PRESS) {
+            nightMode^=1;
+        }
+    }
+}
+
 void Controller::processInput() {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
         camera.ProcessKeyboard(FORWARD, deltaTime);
+
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
         camera.ProcessKeyboard(BACKWARD, deltaTime);
+
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
         camera.ProcessKeyboard(LEFT, deltaTime);
+
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
         camera.ProcessKeyboard(RIGHT, deltaTime);
-    if (glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS)
-        isNight = !isNight;
+
+    isNight = nightMode;
 }
 
 void Controller::updateDeltaTime() {
