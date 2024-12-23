@@ -4,7 +4,7 @@
 bool nightMode = false;
 
 Controller::Controller(unsigned int width, unsigned int height):
-    camera(glm::vec3(0.0f, 0.0f, 3.0f)),
+    camera(glm::vec3(2000.0f, 0.0f, 3.0f)),
     window(nullptr),
     deltaTime(0.0f),
     lastFrame(0.0f),

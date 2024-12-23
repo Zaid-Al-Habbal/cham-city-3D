@@ -13,15 +13,19 @@ public:
     
     //Shaders:
     MAIN = "main",
-    SKYBOX = "skybox"
+    SKYBOX = "skybox",
 
     
     //Textures
+    ASPHALT = "asphalt",
+    ASPHALT_SPEC = "asphaltSpec",
 
 
     //Objects:
+    STREET_LAND = "streetLand",
     
-    ;
+    
+    STREND = "strend";
 };
 
 #endif

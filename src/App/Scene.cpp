@@ -1,5 +1,7 @@
 #include "App/Scene.h"
 
+#define PB   push_back
+
 using namespace glm;
 
 Scene::Scene()
@@ -7,9 +9,41 @@ Scene::Scene()
     const glm::mat4 MODEL(1.0f);
     const glm::vec3 X(1.0f, 0.0f, 0.0f), Y(0.0f, 1.0f, 0.0f), Z(0.0f, 0.0f, 1.0f);
 
-    
+    //STREET_LAND:
+    toruses[STREET_LAND] = Torus(1.0f, 0.5f, 4, 2, false, 2);
+    mat4 appModel = MODEL;
+    appModel = translate(appModel, vec3(-2.0, -2.0, -2.0));
+    appModel = scale(appModel, vec3(2500.0f, 2000.0f, 2000.0f));
+    models[STREET_LAND].PB(appModel);
+    torusBuffers(STREET_LAND);
 
 
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void Scene::torusBuffers(string name)
+{
+    //..vbo:
+    VBO vbo(toruses[name].getInterleavedVertices(), toruses[name].getInterleavedVertexSize());
+    //..instanceVBO:
+    VBO instanceVBO(models[name], (int)models[name].size());
+    //..vao:
+    vaos[name] = VAO() ; vaos[name].init(vbo, instanceVBO);
+    //..ebo:
+    ebos[name] = EBO(toruses[name].getIndices(), toruses[name].getIndexSize());
 }
 
 void Scene::cubeBuffers(string name)

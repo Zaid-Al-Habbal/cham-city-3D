@@ -46,6 +46,7 @@ public:
     Scene();
 
     void cubeBuffers(string name);
+    void torusBuffers(string name);
     void threeDmodelBuffers(string name);
     
 };

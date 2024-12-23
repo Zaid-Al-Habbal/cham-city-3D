@@ -24,7 +24,8 @@ void Renderer::render(Controller& controller)
 
     //MAIN
     shaders[MAIN].use();
-    glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 1000.0f);
+    glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom),
+     (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
     glm::mat4 view = camera.GetViewMatrix();
     shaders[MAIN].setMat4("projection", projection);
     shaders[MAIN].setMat4("view", view);
@@ -35,6 +36,11 @@ void Renderer::render(Controller& controller)
     //Light:
     light.update(camera.Position, camera.Front);
     light.turnOnSpot();
+
+
+    //STREET_LAND:
+    TextureManager::enable(shaders[MAIN], textures[ASPHALT], textures[ASPHALT_SPEC], 2000.0f);
+    draw(STREET_LAND, toruses[STREET_LAND].getIndexCount());
 
     
     

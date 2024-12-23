@@ -19,5 +19,9 @@ void ResourceManager::setTextures()
 {   
     stbi_set_flip_vertically_on_load(true);
 
+    //ASPHALT
+    textures[ASPHALT] = TextureManager("../resources/textures/asphalt_01_diff_1k.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+    textures[ASPHALT_SPEC] = TextureManager("../resources/textures/asphalt_01_rough_1k.png", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGBA, GL_UNSIGNED_BYTE);
+    
     
 }
