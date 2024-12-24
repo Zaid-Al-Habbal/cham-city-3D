@@ -9,28 +9,28 @@ Light::Light(Shader shader, bool enableDir, int numOfPoints, bool enableSpot)
     this->numOfPoints = numOfPoints;
     this->enableSpot = enableSpot;
     //DirLight:
-    this->dirLightColor = glm::vec3(1.0f);
-    this->dirLightDirection = glm::vec3(0.0f, -100.0f, 100.0f);
-    this->dirLightSpecular = glm::vec3(1.0f);
+    dirLightColor = glm::vec3(1.0f);
+    dirLightDirection = glm::vec3(0.0f, -1000.0f, 1000.0f);
+    dirLightSpecular = glm::vec3(1.0f);
     //PointLight:
     for(int i=0; i<numOfPoints; i++){
-        this->pointLightColor[i]= glm::vec3(1.0f);
-        this->pointLightSpecular[i]=glm::vec3(1.0f);
-        this->pointLightConstant[i] =1.0f;
-        this->pointLightLinear[i]=0.09f;
-        this->pointLightQuadratic[i] = 0.032f;
-        this->pointLightPosition[i] = glm::vec3( 0.7f,  0.2f,  2.0f); 
+        pointLightColor[i]= glm::vec3(1.0f);
+        pointLightSpecular[i]=glm::vec3(1.0f);
+        pointLightConstant[i] =1.0f;
+        pointLightLinear[i]=0.0014f;
+        pointLightQuadratic[i] = 0.000007f;
+        pointLightPosition[i] = glm::vec3( 0.7f,  0.2f,  2.0f); 
         
     }
     //SpotLight:
     this->spotLightColor = glm::vec3(1.0f);
     
-    this->spotLightSpecular = glm::vec3(1.0f);
-    this->spotLightConstant = 1.0f;
-    this->spotLightLinear = 0.09f;
-    this->spotLightQuadratic = 0.032f;
-    this->spotLightCutOff = 12.5f;
-    this->spotLightOuterCutOff = 17.5f;
+    spotLightSpecular = glm::vec3(1.0f);
+    spotLightConstant = 1.0f;
+    spotLightLinear = 0.09f;
+    spotLightQuadratic = 0.032f;
+    spotLightCutOff = 12.5f;
+    spotLightOuterCutOff = 17.5f;
     
     myShader.use();
     //Dir light

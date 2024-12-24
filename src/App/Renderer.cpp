@@ -9,7 +9,7 @@ Renderer::Renderer()
     //shaders:
     shaders = resourceManager.shaders;
     //light
-    light = Light(shaders[MAIN], true, 0, true);
+    light = Light(shaders[MAIN], true, 0, false);
 
 }
 
@@ -20,9 +20,9 @@ void Renderer::render(Controller& controller)
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // also clear the depth buffer now!
     
-    glGetError();
+    camera.printPos();
 
-    //MAIN
+    //Config MAIN shader:
     shaders[MAIN].use();
     glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom),
      (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
@@ -33,13 +33,17 @@ void Renderer::render(Controller& controller)
     shaders[MAIN].setFloat("alpha", 1.0f);
     
 
-    //Light:
+    //config Light:
     light.update(camera.Position, camera.Front);
-    light.turnOnSpot();
+
+    //Light for outside world
+    light.turnOnDir();
+    // light.turnOnPoint();
+    // light.turnOnSpot();
 
 
     //STREET_LAND:
-    TextureManager::enable(shaders[MAIN], textures[ASPHALT], textures[ASPHALT_SPEC], 2000.0f);
+    TextureManager::enable(shaders[MAIN], textures[ASPHALT], textures[ASPHALT_SPEC], 100.0f);
     draw(STREET_LAND, toruses[STREET_LAND].getIndexCount());
 
     
@@ -50,6 +54,16 @@ void Renderer::render(Controller& controller)
 
     
 }
+
+
+
+
+
+
+
+
+
+
 
 
 void Renderer::draw(string objectName, int numOfVertices)
