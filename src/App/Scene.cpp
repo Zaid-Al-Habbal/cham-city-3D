@@ -8,15 +8,58 @@ Scene::Scene()
 {
     const glm::mat4 MODEL(1.0f);
     const glm::vec3 X(1.0f, 0.0f, 0.0f), Y(0.0f, 1.0f, 0.0f), Z(0.0f, 0.0f, 1.0f);
-
-    //STREET_LAND:
-    toruses[STREET_LAND] = Torus(1.0f, 0.5f, 4, 2, false, 2);
     mat4 appModel = MODEL;
-    appModel = translate(appModel, vec3(-2.0, -2.0, -2.0));
-    appModel = scale(appModel, vec3(2500.0f, 2000.0f, 2000.0f));
-    models[STREET_LAND].PB(appModel);
-    torusBuffers(STREET_LAND);
 
+    //SPECIAL_BUILDING:
+    //..Left:
+    cubes[SPECIAL_BUILDING] = Cubesphere(1000.0f, 1,false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3700.0f, 2600.0f, 1100.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 3.5f));
+    models[SPECIAL_BUILDING].PB(appModel);
+    //..right:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-2850.0f, 2580.0f, -2500.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(0.5f, 1.07f, 2.0f));
+    models[SPECIAL_BUILDING].PB(appModel);
+    //..center:
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 2400.0f));
+    models[SPECIAL_BUILDING].PB(appModel);
+
+    cubeBuffers(SPECIAL_BUILDING);
+
+    //SPECIAL_VIEW:
+    //..Left:
+    cylinders[SPECIAL_VIEW] = Cylinder(1000*1.0f, 1000*1.0f, 1000*1.0f, 3, 10, false, 3);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4200.0f, 2400.0f, 1105.0f));
+    appModel = rotate(appModel, radians(85.0f), Z);
+    appModel = scale(appModel, vec3(0.79f, 0.93f, 4.05f));
+    models[SPECIAL_VIEW].PB(appModel);
+    //..center:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(1950.0f, 2375.0f, -2860.0f));
+    appModel = rotate(appModel, radians(-90.0f), Y);
+    appModel = rotate(appModel, radians(85.0f), Z);
+    appModel = scale(appModel, vec3(0.82f, 0.3f, 2.31f));
+    models[SPECIAL_VIEW].PB(appModel);
+    //..right:
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 2077.0f));
+    models[SPECIAL_VIEW].PB(appModel);
+
+    cylinderBuffers(SPECIAL_VIEW);
+
+
+
+    //ROOF BUILDING:
+    toruses[ROOF_BUILDING] = Torus(1.0f, 0.3f, 4, 5, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-500.0, 3500.0, 500.0));
+    appModel = scale(appModel, vec3(4100.0f, 2000.0f, 3100.0f));
+    appModel = rotate(appModel, radians(45.0f), Y);
+    models[ROOF_BUILDING].PB(appModel);
+    torusBuffers(ROOF_BUILDING);
 
 
 }
@@ -29,9 +72,29 @@ Scene::Scene()
 
 
 
+void Scene::coneBuffers(string name)
+{
+    //..vbo:
+    VBO vbo(cones[name].getInterleavedVertices(), cones[name].getInterleavedVertexSize());
+    //..instanceVBO:
+    VBO instanceVBO(models[name], (int)models[name].size());
+    //..vao:
+    vaos[name] = VAO() ; vaos[name].init(vbo, instanceVBO);
+    //..ebo:
+    ebos[name] = EBO(cones[name].getIndices(), cones[name].getIndexSize());
+}
 
-
-
+void Scene::cylinderBuffers(string name)
+{
+    //..vbo:
+    VBO vbo(cylinders[name].getInterleavedVertices(), cylinders[name].getInterleavedVertexSize());
+    //..instanceVBO:
+    VBO instanceVBO(models[name], (int)models[name].size());
+    //..vao:
+    vaos[name] = VAO() ; vaos[name].init(vbo, instanceVBO);
+    //..ebo:
+    ebos[name] = EBO(cylinders[name].getIndices(), cylinders[name].getIndexSize());
+}
 
 
 void Scene::torusBuffers(string name)

@@ -9,9 +9,9 @@ Light::Light(Shader shader, bool enableDir, int numOfPoints, bool enableSpot)
     this->numOfPoints = numOfPoints;
     this->enableSpot = enableSpot;
     //DirLight:
-    dirLightColor = glm::vec3(1.0f);
-    dirLightDirection = glm::vec3(0.0f, -1000.0f, 1000.0f);
-    dirLightSpecular = glm::vec3(1.0f);
+    dirLightColor = glm::vec3(1.0f, 0.95f, 0.9f);
+    dirLightDirection = glm::vec3(459.861f, 3192.14f, 12548.9f);
+    dirLightSpecular = glm::vec3(0.7f, 0.7f, 0.7f);
     //PointLight:
     for(int i=0; i<numOfPoints; i++){
         pointLightColor[i]= glm::vec3(1.0f);
@@ -57,7 +57,7 @@ void Light::turnOnDir()
 {
     myShader.use();
     this->dirLightDiffuse = this->dirLightColor * glm::vec3(0.8f);
-    this->dirLightAmbient = this->dirLightDiffuse * glm::vec3(0.2f);
+    this->dirLightAmbient = this->dirLightColor * glm::vec3(0.8f);
     myShader.setVec3("dirLight.direction", dirLightDirection);
     myShader.setVec3("dirLight.specular", dirLightSpecular);
     myShader.setVec3("dirLight.ambient", dirLightAmbient);

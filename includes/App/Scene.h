@@ -47,6 +47,8 @@ public:
 
     void cubeBuffers(string name);
     void torusBuffers(string name);
+    void cylinderBuffers(string name);
+    void coneBuffers(string name);
     void threeDmodelBuffers(string name);
     
 };

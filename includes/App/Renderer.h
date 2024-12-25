@@ -26,7 +26,7 @@ private:
 public:
     Renderer();
     void render(Controller& controller);
-    void draw(string ObjectName, int numOfVertices);
+    void draw(string ObjectName, int numOfVertices, int offset);
     void draw3Dmodel(string modelName);
 
 };

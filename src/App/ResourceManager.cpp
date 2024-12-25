@@ -18,10 +18,10 @@ void ResourceManager::setShaders()
 void ResourceManager::setTextures()
 {   
     stbi_set_flip_vertically_on_load(true);
-
-    //ASPHALT
-    textures[ASPHALT] = TextureManager("../resources/textures/Ground-0260.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
-    textures[ASPHALT_SPEC] = TextureManager("../resources/textures/asphalt_01_rough_1k.png", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGBA, GL_UNSIGNED_BYTE);
+        
+    //CONCRETE:
+    textures[CONCRETE] = TextureManager("../resources/textures/concrete_wall_004_diff_1k.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+    textures[CONCRETE_SPEC] = TextureManager("../resources/textures/concrete_wall_004_spec_1k.png", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGBA, GL_UNSIGNED_BYTE);
     
     
 }

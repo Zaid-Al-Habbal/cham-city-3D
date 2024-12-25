@@ -1,6 +1,8 @@
 #include "App/Renderer.h"
 #include "Light.h"
 
+using namespace glm;
+
 Renderer::Renderer()
 {
     ResourceManager resourceManager;
@@ -25,7 +27,7 @@ void Renderer::render(Controller& controller)
     //Config MAIN shader:
     shaders[MAIN].use();
     glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom),
-     (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 10000.0f);
+     (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 20000.0f);
     glm::mat4 view = camera.GetViewMatrix();
     shaders[MAIN].setMat4("projection", projection);
     shaders[MAIN].setMat4("view", view);
@@ -38,15 +40,22 @@ void Renderer::render(Controller& controller)
 
     //Light for outside world
     light.turnOnDir();
-    // light.turnOnPoint();
+    // light.pointLightPosition[0] = vec3(4627.41f, 3228.25f, 1041.81f);
+    light.turnOnPoint();
     // light.turnOnSpot();
 
 
-    //STREET_LAND:
-    TextureManager::enable(shaders[MAIN], textures[ASPHALT], textures[ASPHALT_SPEC], 100.0f);
-    draw(STREET_LAND, toruses[STREET_LAND].getIndexCount());
+    //ROOF BUILDING:
+    TextureManager::enable(shaders[MAIN], textures[CONCRETE], textures[CONCRETE_SPEC], 16.0f);
+    draw(ROOF_BUILDING, toruses[ROOF_BUILDING].getIndexCount(), 0);
 
-    
+
+    //SPECIAL_BUILDINGs:
+    draw(SPECIAL_BUILDING, cubes[SPECIAL_BUILDING].getIndexCount(), 0);
+
+    //SPECIAL_VIEWs:
+    draw(SPECIAL_VIEW, cylinders[SPECIAL_VIEW].getIndexCount(), 0);
+
     
     // draw skybox as last
     skybox.setEnvironment(!controller.isNight);
@@ -66,10 +75,10 @@ void Renderer::render(Controller& controller)
 
 
 
-void Renderer::draw(string objectName, int numOfVertices)
+void Renderer::draw(string objectName, int numOfVertices, int offset)
 {
     vaos[objectName].Bind(); ebos[objectName].Bind();
-    glDrawElementsInstanced(GL_TRIANGLES, numOfVertices, GL_UNSIGNED_INT, (void*)0, models[objectName].size());  
+    glDrawElementsInstanced(GL_TRIANGLES, numOfVertices, GL_UNSIGNED_INT, (void*)(offset*sizeof(float)), models[objectName].size());  
 
 }
 

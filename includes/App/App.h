@@ -17,14 +17,18 @@ public:
 
     
     //Textures
-    ASPHALT = "asphalt",
-    ASPHALT_SPEC = "asphaltSpec",
+    CONCRETE = "concrete",
+    CONCRETE_SPEC = "concreteSpec",
 
 
     //Objects:
-    STREET_LAND = "streetLand",
-    
-    
+    SPECIAL_BUILDING = "specialBuilding",
+    BACK_WALL = "backWall",
+    ROOF_BUILDING = "roofBuilding",
+    SPECIAL_VIEW = "specialVIEW",
+
+
+
     STREND = "strend";
 };
 
