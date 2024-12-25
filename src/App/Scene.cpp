@@ -50,8 +50,6 @@ Scene::Scene()
 
     cylinderBuffers(SPECIAL_VIEW);
 
-
-
     //ROOF BUILDING:
     toruses[ROOF_BUILDING] = Torus(1.0f, 0.3f, 4, 5, false, 2);
     appModel = MODEL;
@@ -61,6 +59,25 @@ Scene::Scene()
     models[ROOF_BUILDING].PB(appModel);
     torusBuffers(ROOF_BUILDING);
 
+    //CYL_BUILDING:
+    cylinders[CYL_BUILDING] = Cylinder(800*1.0f, 800*1.0f, 800*2.0f, 18, 1, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3720.0, 2370.0, -1745.0));
+    appModel = rotate(appModel, radians(-205.0f), Y);
+    models[CYL_BUILDING].PB(appModel);
+    cylinderBuffers(CYL_BUILDING);
+
+    //CYL_ADDITIONAL:
+    cylinders[CYL_ADDITIONAL] = Cylinder(800*1.0f, 800*1.0f, 100*2.0f, 36, 1, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3720.0, 3300.0, -1750.0));
+    appModel = rotate(appModel, radians(-205.0f), Y);
+    models[CYL_ADDITIONAL].PB(appModel);
+
+    appModel = translate(appModel, vec3(0.0f, -1835.0f, 0.0f));
+    models[CYL_ADDITIONAL].PB(appModel);
+
+    cylinderBuffers(CYL_ADDITIONAL);
 
 }
 

@@ -22,7 +22,7 @@ void Renderer::render(Controller& controller)
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // also clear the depth buffer now!
     
-    camera.printPos();
+    // camera.printPos();
 
     //Config MAIN shader:
     shaders[MAIN].use();
@@ -44,7 +44,7 @@ void Renderer::render(Controller& controller)
     light.turnOnPoint();
     // light.turnOnSpot();
 
-
+    
     //ROOF BUILDING:
     TextureManager::enable(shaders[MAIN], textures[CONCRETE], textures[CONCRETE_SPEC], 16.0f);
     draw(ROOF_BUILDING, toruses[ROOF_BUILDING].getIndexCount(), 0);
@@ -56,10 +56,21 @@ void Renderer::render(Controller& controller)
     //SPECIAL_VIEWs:
     draw(SPECIAL_VIEW, cylinders[SPECIAL_VIEW].getIndexCount(), 0);
 
-    
+    //CYL_BUILDING  #ALPHA:
+    shaders[MAIN].setFloat("alpha", 0.6f);
+    TextureManager::enable(shaders[MAIN], textures[BLUE_WINDOW], textures[BLUE_WINDOW], 6.0f);
+    draw(CYL_BUILDING, cylinders[CYL_BUILDING].getIndexCount(), 24);
+    shaders[MAIN].setFloat("alpha", 1.0f);
+
+    //CYL_ADDITIONAL:
+    TextureManager::enable(shaders[MAIN], textures[LIGHT_METAL], textures[LIGHT_METAL_SPEC], 200.0f);
+    draw(CYL_ADDITIONAL, cylinders[CYL_ADDITIONAL].getIndexCount(), 0);
+
     // draw skybox as last
     skybox.setEnvironment(!controller.isNight);
+
     skybox.draw(shaders[SKYBOX], view, projection);
+    
 
     
 }

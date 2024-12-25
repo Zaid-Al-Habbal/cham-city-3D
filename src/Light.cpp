@@ -10,7 +10,7 @@ Light::Light(Shader shader, bool enableDir, int numOfPoints, bool enableSpot)
     this->enableSpot = enableSpot;
     //DirLight:
     dirLightColor = glm::vec3(1.0f, 0.95f, 0.9f);
-    dirLightDirection = glm::vec3(459.861f, 3192.14f, 12548.9f);
+    dirLightDirection = glm::vec3(-470.0f, -1205.6f, 12181.2f);
     dirLightSpecular = glm::vec3(0.7f, 0.7f, 0.7f);
     //PointLight:
     for(int i=0; i<numOfPoints; i++){
