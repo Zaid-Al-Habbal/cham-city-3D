@@ -74,12 +74,12 @@ void TextureManager::Delete()
 	glDeleteTextures(1, &ID);
 }
 
-void TextureManager::enable(Shader mainShader, TextureManager diffuseTex, TextureManager specularTex, float textureCnt)
+void TextureManager::enable(Shader mainShader, TextureManager diffuseTex, TextureManager specularTex, int textureCnt)
 {
     diffuseTex.Bind();
-    specularTex.Bind();
     diffuseTex.texUnit(mainShader, "texture.diffuse1", 0);
+    specularTex.Bind();
     specularTex.texUnit(mainShader, "texture.specular1", 1);
-    mainShader.setFloat("textureCnt", textureCnt);
+    mainShader.setInt("textureCnt", textureCnt);
 
 }

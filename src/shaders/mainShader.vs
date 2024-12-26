@@ -11,7 +11,7 @@ out vec2 TexCoords;
 uniform mat4 view;
 uniform mat4 projection;
 
-uniform float textureCnt;
+uniform int textureCnt;
 
 void main(){
     gl_Position = projection * view * aInstanceModel * vec4(aPos, 1.0);

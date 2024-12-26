@@ -21,9 +21,22 @@ public:
     CONCRETE_SPEC = "concreteSpec",
 
     BLUE_WINDOW = "blueWindow",
+    BLUE_WINDOW_SPEC = "blueWindowSpec",
+
     LIGHT_METAL = "lightMetal",
     LIGHT_METAL_SPEC = "lightMetalSpec",
 
+    TILE_WINDOW ="tileWindow",
+    TILE_WINDOW_SPEC ="tileWindowSpec",
+
+    GRAY_BRICK = "grayBrick",
+    GRAY_BRICK_SPEC = "grayBrickSpec",
+
+    WHITE_WINDOW = "whiteWindow",
+    WHITE_WINDOW_SPEC = "whiteWindowSpec",
+
+    BLUR_WINDOW = "blurWindow",
+    BLUR_WINDOW_SPEC = "blurWindowSpec",
 
     //Objects:
     SPECIAL_BUILDING = "specialBuilding",
@@ -32,6 +45,7 @@ public:
     SPECIAL_VIEW = "specialVIEW",
     CYL_BUILDING = "cylBuilding",
     CYL_ADDITIONAL = "cylAdditional",
+    GLASS_ROOF = "glassRoof",
 
 
     STREND = "strend";
