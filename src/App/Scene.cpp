@@ -20,12 +20,12 @@ Scene::Scene()
     models[SPECIAL_BUILDING].PB(appModel);
     //..right:
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-2850.0f, 1100.0f, -2500.0f));
+    appModel = translate(appModel, vec3(-3450.0f, 1100.0f, -2500.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
     appModel = scale(appModel, vec3(1.0f, 3.57f, 2.0f));
     models[SPECIAL_BUILDING].PB(appModel);
     //..center:
-    appModel = translate(appModel, vec3(0.0f, 0.0f, 2400.0f));
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 2800.0f));
     models[SPECIAL_BUILDING].PB(appModel);
     //..back-left:
     appModel = translate(appModel, vec3(-6270.0f, 100.0f, -1200.0f));
@@ -48,13 +48,13 @@ Scene::Scene()
     models[SPECIAL_VIEW].PB(appModel);
     //..center:
     appModel = MODEL;
-    appModel = translate(appModel, vec3(1950.0f, 1375.0f, -3260.0f));
+    appModel = translate(appModel, vec3(2200.0f, 1375.0f, -3260.0f));
     appModel = rotate(appModel, radians(-90.0f), Y);
     appModel = rotate(appModel, radians(85.0f), Z);
     appModel = scale(appModel, vec3(0.82f, 0.3f, 2.31f));
     models[SPECIAL_VIEW].PB(appModel);
     //..right:
-    appModel = translate(appModel, vec3(0.0f, 0.0f, 2077.0f));
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 2430.0f));
     models[SPECIAL_VIEW].PB(appModel);
 
     cylinderBuffers(SPECIAL_VIEW);
@@ -91,10 +91,28 @@ Scene::Scene()
     //GLASS_ROOF:
     cubes[GLASS_ROOF] = Cubesphere(1000.0f, 1, false);
     appModel = MODEL;
-    appModel = translate(appModel, vec3(0.0f, 0.0f, -4000.0f));
+    appModel = translate(appModel, vec3(0.0f, 2950.0f, 400.0f));
+    appModel = scale(appModel, vec3(4.3f, 0.1f, 3.2f));
     models[GLASS_ROOF].PB(appModel);
     cubeBuffers(GLASS_ROOF);
 
+    //ENTRY:
+    toruses[ENTRY] = Torus(1000*1.6f, 1000*0.5f, 4, 7, false, 3);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-650.0f, 100.0f, -3020.0f));
+    appModel = rotate(appModel, radians(10.0f), X);
+    appModel = scale(appModel, vec3(1.16f, 2.1f, 1.0f));
+    appModel = rotate(appModel, radians(45.0f), Z);
+    models[ENTRY].PB(appModel);
+    torusBuffers(ENTRY);
+
+    //ENTRY_BLOOR:
+    cubes[ENTRY_BLOOR] = Cubesphere(1.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-650.0f, 650.0f, -3020.0f));
+    models[ENTRY_BLOOR].PB(appModel);
+    cubeBuffers(ENTRY_BLOOR);
+    
 }
 
 

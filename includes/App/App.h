@@ -26,19 +26,20 @@ public:
     LIGHT_METAL = "lightMetal",
     LIGHT_METAL_SPEC = "lightMetalSpec",
 
-    TILE_WINDOW ="tileWindow",
-    TILE_WINDOW_SPEC ="tileWindowSpec",
-
     GRAY_BRICK = "grayBrick",
     GRAY_BRICK_SPEC = "grayBrickSpec",
 
     WHITE_WINDOW = "whiteWindow",
     WHITE_WINDOW_SPEC = "whiteWindowSpec",
 
-    BLUR_WINDOW = "blurWindow",
-    BLUR_WINDOW_SPEC = "blurWindowSpec",
+    BLOOR = "bloor",
+    BLOOR_SPEC = "bloorSpec",
+
+    BLACK_TILE = "blackTile",
+    BLACK_TILE_SPEC = "blackTileSpec",
 
     //Objects:
+    //..Outside The mall:
     SPECIAL_BUILDING = "specialBuilding",
     BACK_WALL = "backWall",
     ROOF_BUILDING = "roofBuilding",
@@ -46,6 +47,8 @@ public:
     CYL_BUILDING = "cylBuilding",
     CYL_ADDITIONAL = "cylAdditional",
     GLASS_ROOF = "glassRoof",
+    ENTRY = "entry",
+    ENTRY_BLOOR = "entryBloor",
 
 
     STREND = "strend";

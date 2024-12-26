@@ -34,21 +34,20 @@ void Renderer::render(Controller& controller)
     shaders[MAIN].setFloat("shininess", 32.0f);
     shaders[MAIN].setFloat("alpha", 1.0f);
     
-
     //config Light:
     light.update(camera.Position, camera.Front);
 
-    //Light for outside world
+    //---------------------------------------------------------------------------------------
+    //OUTSIDE THE MALL:
+
+    //Light
     light.turnOnDir();
-    // light.pointLightPosition[0] = vec3(4627.41f, 3228.25f, 1041.81f);
-    light.turnOnPoint();
+    // light.turnOnPoint();
     // light.turnOnSpot();
 
-    
     //ROOF BUILDING:
     TextureManager::enable(shaders[MAIN], textures[GRAY_BRICK], textures[GRAY_BRICK_SPEC], 40);
     draw(ROOF_BUILDING, toruses[ROOF_BUILDING].getIndexCount(), 0);
-
 
     //SPECIAL_BUILDINGs:
     draw(SPECIAL_BUILDING, cubes[SPECIAL_BUILDING].getIndexCount(), 0);
@@ -56,28 +55,37 @@ void Renderer::render(Controller& controller)
     //SPECIAL_VIEWs:
     draw(SPECIAL_VIEW, cylinders[SPECIAL_VIEW].getIndexCount(), 0);
 
+    //CYL_ADDITIONAL:
+    TextureManager::enable(shaders[MAIN], textures[LIGHT_METAL], textures[LIGHT_METAL_SPEC], 10);
+    draw(CYL_ADDITIONAL, cylinders[CYL_ADDITIONAL].getIndexCount(), 30);
+
+    //ENTRY:
+    TextureManager::enable(shaders[MAIN], textures[BLACK_TILE], textures[BLACK_TILE_SPEC], 4);
+    draw(ENTRY, toruses[ENTRY].getIndexCount(), 0);
+
+
+
+    //---------------------------------------------------------------------------------------
+    // SKYBOX:
+    skybox.setEnvironment(!controller.isNight);
+    skybox.draw(shaders[SKYBOX], view, projection);
+    
+    //************************************************************************************ */
+    // ALPHA objects:
+
     //CYL_BUILDING  #ALPHA:
     shaders[MAIN].setFloat("alpha", 0.6f);
     TextureManager::enable(shaders[MAIN], textures[BLUE_WINDOW], textures[BLUE_WINDOW_SPEC], 16);
     draw(CYL_BUILDING, cylinders[CYL_BUILDING].getIndexCount(), 30);
     shaders[MAIN].setFloat("alpha", 1.0f);
 
-    //CYL_ADDITIONAL:
-    TextureManager::enable(shaders[MAIN], textures[LIGHT_METAL], textures[LIGHT_METAL_SPEC], 10);
-    draw(CYL_ADDITIONAL, cylinders[CYL_ADDITIONAL].getIndexCount(), 30);
-
-    //GLASS_ROOF:
-    shaders[MAIN].setFloat("alpha", 0.3f);
-    TextureManager::enable(shaders[MAIN], textures[BLUR_WINDOW], textures[BLUR_WINDOW_SPEC], 1);
+    //GLASS_ROOF #ALPHA:
+    shaders[MAIN].setFloat("alpha", 0.6f);
+    shaders[MAIN].setFloat("shininess", 128.0f);
+    TextureManager::enable(shaders[MAIN], textures[WHITE_WINDOW], textures[WHITE_WINDOW_SPEC], 8);
     draw(GLASS_ROOF, cubes[GLASS_ROOF].getIndexCount(), 0);
     shaders[MAIN].setFloat("alpha", 1.0f);
-
-
-    // draw skybox:
-    skybox.setEnvironment(!controller.isNight);
-    skybox.draw(shaders[SKYBOX], view, projection);
-    
-    // ALPHA objects:
+    shaders[MAIN].setFloat("shininess", 32.0f);
     
 }
 
