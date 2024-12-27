@@ -23,6 +23,6 @@ public:
 	// Deletes a texture
 	void Delete();
 	//enable material:
-	static void enable(Shader mainShader, TextureManager diffuseTex, TextureManager specularTex, int textureCnt);
+	static void enable(Shader mainShader, TextureManager diffuseTex, TextureManager specularTex, float textureCnt);
 };
 #endif

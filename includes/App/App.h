@@ -41,6 +41,10 @@ public:
 
     GRAY_TILES = "grayTiles",     
     GRAY_TILES_SPEC = "grayTilesSpec",
+    
+    WHITE_TILES = "whiteTiles",     
+    WHITE_TILES_SPEC = "whiteTilesSpec",
+    
 
     //Objects:
 
@@ -56,6 +60,7 @@ public:
     ENTRY = "entry",
     ENTRY_BLOOR = "entryBloor",
     SIDE_WALK = "sideWalk",
+    GROUND = "ground",
 
 
     STREND = "strend";

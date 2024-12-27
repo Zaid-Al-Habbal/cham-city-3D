@@ -27,7 +27,7 @@ void Renderer::render(Controller& controller)
     
     // camera.printPos();
 
-    //Config MAIN shader:
+    //Config REF shader:
     shaders[REF].use();
     glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom),
      (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 20000.0f);
@@ -75,10 +75,27 @@ void Renderer::render(Controller& controller)
     draw(ENTRY, toruses[ENTRY].getIndexCount(), 0);
 
     //SIDE_WALK:
-    TextureManager::enable(shaders[REF], textures[GRAY_TILES], textures[GRAY_TILES_SPEC], 16);
+    TextureManager::enable(shaders[REF], textures[GRAY_TILES], textures[GRAY_TILES_SPEC], 8);
     shaders[REF].setFloat("refVal", 0.07f);
     draw(SIDE_WALK, cubes[SIDE_WALK].getIndexCount(), 0);
 
+    /*********************************************************************************************** */
+    //INSIDE THE MALL:
+    //Config MAIN shader:
+    shaders[MAIN].use();
+
+    shaders[MAIN].setInt("environmentMap", 2);
+    shaders[MAIN].setMat4("projection", projection);
+    shaders[MAIN].setMat4("view", view);
+    shaders[MAIN].setFloat("shininess", 32.0f);
+    shaders[MAIN].setFloat("alpha", 1.0f);
+    shaders[MAIN].setFloat("refVal", 0.0f);
+
+
+
+    //GROUND:
+    TextureManager::enable(shaders[MAIN], textures[WHITE_TILES], textures[WHITE_TILES_SPEC], 1);
+    draw(GROUND, cubes[GROUND].getIndexCount(), 0);
 
     //---------------------------------------------------------------------------------------
     // SKYBOX:
