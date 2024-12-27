@@ -15,7 +15,7 @@ class Renderer : public Scene
 {
 private:
     Skybox skybox;     // skybox.setEnvironment(false); // evening
-    Light light;
+    Light refLight, mainLight;
     map<string, TextureManager> textures;
     map<string, Shader> shaders;
 

@@ -12,6 +12,7 @@ public:
     const string
     
     //Shaders:
+    REF = "reflection",
     MAIN = "main",
     SKYBOX = "skybox",
 
@@ -38,8 +39,13 @@ public:
     BLACK_TILE = "blackTile",
     BLACK_TILE_SPEC = "blackTileSpec",
 
+    GRAY_TILES = "grayTiles",     
+    GRAY_TILES_SPEC = "grayTilesSpec",
+
     //Objects:
+
     //..Outside The mall:
+
     SPECIAL_BUILDING = "specialBuilding",
     BACK_WALL = "backWall",
     ROOF_BUILDING = "roofBuilding",
@@ -49,6 +55,7 @@ public:
     GLASS_ROOF = "glassRoof",
     ENTRY = "entry",
     ENTRY_BLOOR = "entryBloor",
+    SIDE_WALK = "sideWalk",
 
 
     STREND = "strend";

@@ -8,6 +8,8 @@ ResourceManager::ResourceManager()
 
 void ResourceManager::setShaders()
 {
+    //REF:
+    shaders[REF] = Shader("../src/shaders/reflectionShader.vs", "../src/shaders/reflectionShader.fs");
     //MAIN:
     shaders[MAIN] = Shader("../src/shaders/mainShader.vs", "../src/shaders/mainShader.fs");
     //SKYBOX:
@@ -46,5 +48,9 @@ void ResourceManager::setTextures()
     //BLACK_TILE:
     textures[BLACK_TILE] = TextureManager("../resources/textures/Tiles108_1K-diff.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
     textures[BLACK_TILE_SPEC] = TextureManager("../resources/textures/Tiles108_1K-spec.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+    
+    //BLOOR:
+    textures[GRAY_TILES] = TextureManager("../resources/textures/PavingStones127_1K-diff.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[GRAY_TILES_SPEC] = TextureManager("../resources/textures/PavingStones127_1K-spec.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
     
 }

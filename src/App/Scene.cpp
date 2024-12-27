@@ -91,8 +91,8 @@ Scene::Scene()
     //GLASS_ROOF:
     cubes[GLASS_ROOF] = Cubesphere(1000.0f, 1, false);
     appModel = MODEL;
-    appModel = translate(appModel, vec3(0.0f, 2950.0f, 400.0f));
-    appModel = scale(appModel, vec3(4.3f, 0.1f, 3.2f));
+    appModel = translate(appModel, vec3(-530.0f, 2950.0f, 400.0f));
+    appModel = scale(appModel, vec3(4.46f, 0.1f, 3.2f));
     models[GLASS_ROOF].PB(appModel);
     cubeBuffers(GLASS_ROOF);
 
@@ -107,12 +107,39 @@ Scene::Scene()
     torusBuffers(ENTRY);
 
     //ENTRY_BLOOR:
-    cubes[ENTRY_BLOOR] = Cubesphere(1.0f, 1, false);
+    cubes[ENTRY_BLOOR] = Cubesphere(1000.0f, 1, false);
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-650.0f, 650.0f, -3020.0f));
+    appModel = translate(appModel, vec3(-650.0f, 950.0f, -2620.0f));
+    appModel = rotate(appModel, radians(20.0f), X);
+    appModel = scale(appModel, vec3(1.67f, 1.5f, 0.04f));
     models[ENTRY_BLOOR].PB(appModel);
+
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(100.0f, -415.0f, -2930.0f));
+    appModel = scale(appModel, vec3(0.40f, 1.0f, 0.04f));
+    models[ENTRY_BLOOR].PB(appModel);
+    appModel = translate(appModel, vec3(-3700.0f, 0.0f, 0.0f));
+    models[ENTRY_BLOOR].PB(appModel);
+
     cubeBuffers(ENTRY_BLOOR);
+
+    //SIDE_WALK:
+    cubes[SIDE_WALK] = Cubesphere(1000.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-400.0f, -1070.0f, -3020.0f));
+    curModel = appModel; 
+    appModel = scale(appModel, vec3(11.15f, 0.15f, 3.8f)); 
+    models[SIDE_WALK].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, -0.0f, 2120.0f));
+    models[SIDE_WALK].PB(appModel);
+    appModel = translate(appModel, vec3(430.0f, 0.0f, -1060.0f));
+    appModel = scale(appModel, vec3(0.25f, 1.0f, 0.84f)); 
+    models[SIDE_WALK].PB(appModel);
+    appModel = translate(appModel, vec3(-3450.0f, 0.0f, 0.0f));
+    models[SIDE_WALK].PB(appModel);
     
+
+    cubeBuffers(SIDE_WALK); 
 }
 
 

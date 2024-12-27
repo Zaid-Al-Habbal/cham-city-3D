@@ -11,10 +11,10 @@ class Skybox {
 private:
     unsigned int VAO, VBO;
     unsigned int cubemapTextureMorning, cubemapTextureEvening;
-    unsigned int currentTexture;
     unsigned int loadCubemap(const std::vector<std::string>& faces);
 
 public:
+    unsigned int currentTexture;
     Skybox();
     ~Skybox();
     void draw(Shader shader, const glm::mat4& view, const glm::mat4& projection);

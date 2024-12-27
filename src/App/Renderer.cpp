@@ -10,8 +10,11 @@ Renderer::Renderer()
     textures = resourceManager.textures;
     //shaders:
     shaders = resourceManager.shaders;
-    //light
-    light = Light(shaders[MAIN], true, 0, false);
+
+    //MAIN SHADER Light
+    mainLight = Light(shaders[MAIN], true, 0, false);
+    //REF SHADER Light:
+    refLight = Light(shaders[REF], true, 0, false);
 
 }
 
@@ -25,28 +28,35 @@ void Renderer::render(Controller& controller)
     // camera.printPos();
 
     //Config MAIN shader:
-    shaders[MAIN].use();
+    shaders[REF].use();
     glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom),
      (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 20000.0f);
     glm::mat4 view = camera.GetViewMatrix();
-    shaders[MAIN].setMat4("projection", projection);
-    shaders[MAIN].setMat4("view", view);
-    shaders[MAIN].setFloat("shininess", 32.0f);
-    shaders[MAIN].setFloat("alpha", 1.0f);
+
+    //for reflection:
+    glActiveTexture(GL_TEXTURE2);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, skybox.currentTexture);
+
+    shaders[REF].setInt("environmentMap", 2);
+    shaders[REF].setMat4("projection", projection);
+    shaders[REF].setMat4("view", view);
+    shaders[REF].setFloat("shininess", 32.0f);
+    shaders[REF].setFloat("alpha", 1.0f);
+    shaders[REF].setFloat("refVal", 0.0f);
     
-    //config Light:
-    light.update(camera.Position, camera.Front);
+    //config refLight:
+    refLight.update(camera.Position, camera.Front);
 
     //---------------------------------------------------------------------------------------
     //OUTSIDE THE MALL:
 
-    //Light
-    light.turnOnDir();
-    // light.turnOnPoint();
-    // light.turnOnSpot();
+    //refLight
+    refLight.turnOnDir();
+    // refLight.turnOnPoint();
+    // refLight.turnOnSpot();
 
     //ROOF BUILDING:
-    TextureManager::enable(shaders[MAIN], textures[GRAY_BRICK], textures[GRAY_BRICK_SPEC], 40);
+    TextureManager::enable(shaders[REF], textures[GRAY_BRICK], textures[GRAY_BRICK_SPEC], 40);
     draw(ROOF_BUILDING, toruses[ROOF_BUILDING].getIndexCount(), 0);
 
     //SPECIAL_BUILDINGs:
@@ -56,13 +66,18 @@ void Renderer::render(Controller& controller)
     draw(SPECIAL_VIEW, cylinders[SPECIAL_VIEW].getIndexCount(), 0);
 
     //CYL_ADDITIONAL:
-    TextureManager::enable(shaders[MAIN], textures[LIGHT_METAL], textures[LIGHT_METAL_SPEC], 10);
+    TextureManager::enable(shaders[REF], textures[LIGHT_METAL], textures[LIGHT_METAL_SPEC], 10);
     draw(CYL_ADDITIONAL, cylinders[CYL_ADDITIONAL].getIndexCount(), 30);
 
     //ENTRY:
-    TextureManager::enable(shaders[MAIN], textures[BLACK_TILE], textures[BLACK_TILE_SPEC], 4);
+    TextureManager::enable(shaders[REF], textures[BLACK_TILE], textures[BLACK_TILE_SPEC], 4);
+    shaders[REF].setFloat("refVal", 0.1f);
     draw(ENTRY, toruses[ENTRY].getIndexCount(), 0);
 
+    //SIDE_WALK:
+    TextureManager::enable(shaders[REF], textures[GRAY_TILES], textures[GRAY_TILES_SPEC], 16);
+    shaders[REF].setFloat("refVal", 0.07f);
+    draw(SIDE_WALK, cubes[SIDE_WALK].getIndexCount(), 0);
 
 
     //---------------------------------------------------------------------------------------
@@ -73,19 +88,26 @@ void Renderer::render(Controller& controller)
     //************************************************************************************ */
     // ALPHA objects:
 
+    shaders[REF].use();
+    shaders[REF].setFloat("refVal", 0.8f);
     //CYL_BUILDING  #ALPHA:
-    shaders[MAIN].setFloat("alpha", 0.6f);
-    TextureManager::enable(shaders[MAIN], textures[BLUE_WINDOW], textures[BLUE_WINDOW_SPEC], 16);
+    shaders[REF].setFloat("alpha", 0.75f);
+    TextureManager::enable(shaders[REF], textures[BLUE_WINDOW], textures[BLUE_WINDOW_SPEC], 16);
     draw(CYL_BUILDING, cylinders[CYL_BUILDING].getIndexCount(), 30);
-    shaders[MAIN].setFloat("alpha", 1.0f);
 
     //GLASS_ROOF #ALPHA:
-    shaders[MAIN].setFloat("alpha", 0.6f);
-    shaders[MAIN].setFloat("shininess", 128.0f);
-    TextureManager::enable(shaders[MAIN], textures[WHITE_WINDOW], textures[WHITE_WINDOW_SPEC], 8);
+    shaders[REF].setFloat("shininess", 128.0f);
+    TextureManager::enable(shaders[REF], textures[WHITE_WINDOW], textures[WHITE_WINDOW_SPEC], 8);
     draw(GLASS_ROOF, cubes[GLASS_ROOF].getIndexCount(), 0);
-    shaders[MAIN].setFloat("alpha", 1.0f);
-    shaders[MAIN].setFloat("shininess", 32.0f);
+    shaders[REF].setFloat("shininess", 32.0f);
+
+    //ENTRY_BLOOR: $ALPHA:
+    shaders[REF].setFloat("refVal", 0.5f);
+    shaders[REF].setFloat("alpha", 0.1f);
+    TextureManager::enable(shaders[REF], textures[BLOOR], textures[BLOOR_SPEC], 1);
+    draw(ENTRY_BLOOR, cubes[ENTRY_BLOOR].getIndexCount(), 0);
+
+
     
 }
 
