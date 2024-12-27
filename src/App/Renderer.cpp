@@ -60,7 +60,7 @@ void Renderer::render(Controller& controller)
     draw(ROOF_BUILDING, toruses[ROOF_BUILDING].getIndexCount(), 0);
 
     //SPECIAL_BUILDINGs:
-    draw(SPECIAL_BUILDING, cubes[SPECIAL_BUILDING].getIndexCount(), 0);
+    draw(SPECIAL_BUILDING, cubes[SPECIAL_BUILDING].getIndexCount(), 6);
 
     //SPECIAL_VIEWs:
     draw(SPECIAL_VIEW, cylinders[SPECIAL_VIEW].getIndexCount(), 0);

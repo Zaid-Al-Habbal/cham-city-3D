@@ -14,44 +14,47 @@ Scene::Scene()
     //..Left:
     cubes[SPECIAL_BUILDING] = Cubesphere(1000.0f, 1,false);
     appModel = MODEL;
-    appModel = translate(appModel, vec3(3700.0f, 1100.0f, 1100.0f));
+    appModel = translate(appModel, vec3(3700.0f, 1100.0f, 1500.0f));
+    appModel = rotate(appModel, radians(180.0f), Y);
     appModel = scale(appModel, vec3(1.0f, 3.57f, 3.5f));
     mat curModel = appModel;
     models[SPECIAL_BUILDING].PB(appModel);
     //..right:
     appModel = MODEL;
     appModel = translate(appModel, vec3(-3450.0f, 1100.0f, -2500.0f));
-    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = rotate(appModel, radians(270.0f), Y);
     appModel = scale(appModel, vec3(1.0f, 3.57f, 2.0f));
     models[SPECIAL_BUILDING].PB(appModel);
     //..center:
-    appModel = translate(appModel, vec3(0.0f, 0.0f, 2800.0f));
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -2800.0f));
     models[SPECIAL_BUILDING].PB(appModel);
     //..back-left:
-    appModel = translate(appModel, vec3(-6270.0f, 100.0f, -1200.0f));
+    appModel = translate(appModel, vec3(6270.0f, 100.0f, 1200.0f));
+    appModel = rotate(appModel, radians(180.0f), Y);
     appModel = scale(appModel, vec3(1.0f, 1.16f, 3.2f));
     models[SPECIAL_BUILDING].PB(appModel);
     //..back-right:
-    appModel = translate(curModel, vec3(-8200.0f, 75.0f, -100.0f));
-    appModel = scale(appModel, vec3(1.0f, 1.12f, 1.4f));
+    appModel = translate(curModel, vec3(8200.0f, 75.0f, 200.0f));
+    appModel = rotate(appModel, radians(180.0f), Y);
+    appModel = scale(appModel, vec3(1.0f, 1.12f, 1.55f));
     models[SPECIAL_BUILDING].PB(appModel);
 
     cubeBuffers(SPECIAL_BUILDING);
 
     //SPECIAL_VIEW:
     //..Left:
-    cylinders[SPECIAL_VIEW] = Cylinder(2200*1.0f, 2200*1.0f, 990*1.0f, 3, 10, false, 3);
+    cylinders[SPECIAL_VIEW] = Cylinder(2200*1.0f, 2200*1.0f, 1000*1.0f, 3, 10, false, 3);
     appModel = MODEL;
-    appModel = translate(appModel, vec3(4130.0f, 1375.0f, 1110.0f));
-    appModel = rotate(appModel, radians(85.0f), Z);
-    appModel = scale(appModel, vec3(0.82f, 0.5f, 4.05f));
+    appModel = translate(appModel, vec3(4400.0f, 1375.0f, 1510.0f));
+    appModel = rotate(appModel, radians(95.0f), Z);
+    appModel = scale(appModel, vec3(0.82f, 0.1f, 4.05f));
     models[SPECIAL_VIEW].PB(appModel);
     //..center:
     appModel = MODEL;
     appModel = translate(appModel, vec3(2200.0f, 1375.0f, -3260.0f));
     appModel = rotate(appModel, radians(-90.0f), Y);
     appModel = rotate(appModel, radians(85.0f), Z);
-    appModel = scale(appModel, vec3(0.82f, 0.3f, 2.31f));
+    appModel = scale(appModel, vec3(0.82f, 0.1f, 2.31f));
     models[SPECIAL_VIEW].PB(appModel);
     //..right:
     appModel = translate(appModel, vec3(0.0f, 0.0f, 2430.0f));
@@ -71,7 +74,7 @@ Scene::Scene()
     //CYL_BUILDING:
     cylinders[CYL_BUILDING] = Cylinder(709*1.0f, 709*1.0f, 1700*2.0f, 12, 1, false, 2);
     appModel = MODEL;
-    appModel = translate(appModel, vec3(3520.0, 1100.0, -1640.0));
+    appModel = translate(appModel, vec3(3620.0, 1100.0, -1240.0));
     appModel = rotate(appModel, radians(-230.0f), Y);
     models[CYL_BUILDING].PB(appModel);
     cylinderBuffers(CYL_BUILDING);
@@ -79,7 +82,7 @@ Scene::Scene()
     //CYL_ADDITIONAL:
     cylinders[CYL_ADDITIONAL] = Cylinder(710*1.0f, 710*1.0f, 150*2.0f, 36, 1, true, 2);
     appModel = MODEL;
-    appModel = translate(appModel, vec3(3520.0, 2965.0, -1640.0));
+    appModel = translate(appModel, vec3(3620.0, 2965.0, -1240.0));
     appModel = rotate(appModel, radians(-210.0f), Y);
     models[CYL_ADDITIONAL].PB(appModel);
 
@@ -97,11 +100,11 @@ Scene::Scene()
     cubeBuffers(GLASS_ROOF);
 
     //ENTRY:
-    toruses[ENTRY] = Torus(1000*1.6f, 1000*0.5f, 4, 7, false, 3);
+    toruses[ENTRY] = Torus(900*1.6f, 900*0.5f, 4, 7, false, 3);
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-650.0f, 100.0f, -3020.0f));
+    appModel = translate(appModel, vec3(-650.0f, 100.0f, -2220.0f));
     appModel = rotate(appModel, radians(10.0f), X);
-    appModel = scale(appModel, vec3(1.16f, 2.1f, 1.0f));
+    appModel = scale(appModel, vec3(1.252f, 2.3f, 1.0f));
     appModel = rotate(appModel, radians(45.0f), Z);
     models[ENTRY].PB(appModel);
     torusBuffers(ENTRY);
