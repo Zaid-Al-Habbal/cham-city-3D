@@ -12,7 +12,7 @@ Renderer::Renderer()
     shaders = resourceManager.shaders;
 
     //MAIN SHADER Light
-    mainLight = Light(shaders[MAIN], true, 0, false);
+    mainLight = Light(shaders[MAIN], true, 1, false);
     //REF SHADER Light:
     refLight = Light(shaders[REF], true, 0, false);
 
@@ -21,17 +21,19 @@ Renderer::Renderer()
 
 void Renderer::render(Controller& controller)
 {
-    Camera camera = controller.getCamera();
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // also clear the depth buffer now!
+    
+    //camera
+    Camera camera = controller.getCamera();
+    glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom),
+     (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 25000.0f);
+    glm::mat4 view = camera.GetViewMatrix();
     
     // camera.printPos();
 
     //Config REF shader:
     shaders[REF].use();
-    glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom),
-     (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 20000.0f);
-    glm::mat4 view = camera.GetViewMatrix();
 
     //for reflection:
     glActiveTexture(GL_TEXTURE2);
@@ -81,6 +83,7 @@ void Renderer::render(Controller& controller)
 
     /*********************************************************************************************** */
     //INSIDE THE MALL:
+
     //Config MAIN shader:
     shaders[MAIN].use();
 
@@ -89,12 +92,16 @@ void Renderer::render(Controller& controller)
     shaders[MAIN].setMat4("view", view);
     shaders[MAIN].setFloat("shininess", 32.0f);
     shaders[MAIN].setFloat("alpha", 1.0f);
-    shaders[MAIN].setFloat("refVal", 0.0f);
 
+    //config mainLight:
+    refLight.update(camera.Position, camera.Front);
 
+    //change mainLight:
+    mainLight.pointLightPosition[0] = vec3(-826.942f, 2700.077f, 4790.807f);
+    mainLight.turnOnPoint();
 
     //GROUND:
-    TextureManager::enable(shaders[MAIN], textures[WHITE_TILES], textures[WHITE_TILES_SPEC], 1);
+    TextureManager::enable(shaders[MAIN], textures[WHITE_TILES], textures[WHITE_TILES_SPEC], 4);
     draw(GROUND, cubes[GROUND].getIndexCount(), 0);
 
     //---------------------------------------------------------------------------------------

@@ -14,11 +14,11 @@ int main()
 {
     //Controller:
     Controller controller;
-    if (!controller.initializeWindow("Learning CG")) return -1;
+    if (!controller.initializeWindow("Cham City 3D")) return -1;
     controller.initializeOpenGLSettings();
     
     //Renderer:
-    Renderer renderer;
+    Renderer renderer;       
     
     // render loop:
     while(!controller.shouldClose()){
