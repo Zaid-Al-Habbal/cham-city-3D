@@ -14,7 +14,7 @@ Renderer::Renderer()
     shaders = resourceManager.shaders;
 
     //MAIN SHADER Light
-    mainLight = Light(shaders[MAIN], true, 1, false);
+    mainLight = Light(shaders[MAIN], false, 1, false);
     //REF SHADER Light:
     refLight = Light(shaders[REF], true, 0, false);
 
@@ -38,7 +38,7 @@ void Renderer::render(Controller& controller)
      (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 25000.0f);
     glm::mat4 view = camera.GetViewMatrix();
     
-    // camera.printPos();
+    camera.printPos();
 
     //Config REF shader:
     shaders[REF].use();
@@ -56,6 +56,7 @@ void Renderer::render(Controller& controller)
     
     //config refLight:
     refLight.update(camPos, camFro);
+    refLight.numOfPoints = 0;
 
     //---------------------------------------------------------------------------------------
     //OUTSIDE THE MALL:
@@ -102,11 +103,18 @@ void Renderer::render(Controller& controller)
     shaders[MAIN].setFloat("alpha", 1.0f);
 
     //config mainLight:
-    refLight.update(camera.Position, camera.Front);
+    mainLight.update(camera.Position, camera.Front);
 
     //change mainLight:
-    mainLight.pointLightPosition[0] = vec3(-826.942f, 2700.077f, 4790.807f);
+    mainLight.numOfPoints = 4;
+    mainLight.pointLightPosition[0] = vec3(-12638.7f, 4000.587f, -1872.75f);
+    mainLight.pointLightPosition[1] = vec3(-11387.6f, 4000.864f, 7564.3f);
+    mainLight.pointLightPosition[2] = vec3(1734.2f, 4000.029f, 7617.22f);
+    mainLight.pointLightPosition[3] = vec3(1745.84f, 4000.76f, -2104.92f);
+    
     mainLight.turnOnPoint();
+    mainLight.turnOnDir();
+
 
     //GROUND:
     TextureManager::enable(shaders[MAIN], textures[WHITE_TILES], textures[WHITE_TILES_SPEC], 4);

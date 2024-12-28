@@ -13,12 +13,12 @@ Light::Light(Shader shader, bool enableDir, int numOfPoints, bool enableSpot)
     dirLightDirection = glm::vec3(-470.0f, -1205.6f, 12181.2f);
     dirLightSpecular = glm::vec3(0.5f, 0.5f, 0.5f);
     //PointLight:
-    for(int i=0; i<numOfPoints; i++){
+    for(int i=0; i<6; i++){
         pointLightColor[i]= glm::vec3(1.0f);
-        pointLightSpecular[i]=glm::vec3(1.0f);
+        pointLightSpecular[i]=glm::vec3(0.5f, 0.5f, 0.5f);
         pointLightConstant[i] =1.0f;
-        pointLightLinear[i]= 	 	0.00014f;
-        pointLightQuadratic[i] = 0.0000007f;
+        pointLightLinear[i]= 	 	0.15* 0.0014f;
+        pointLightQuadratic[i] = 0.000005* 0.000007f;
         pointLightPosition[i] = glm::vec3( 0.7f,  0.2f,  2.0f); 
         
     }
