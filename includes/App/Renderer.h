@@ -18,6 +18,8 @@ private:
     Light refLight, mainLight;
     map<string, TextureManager> textures;
     map<string, Shader> shaders;
+    ISoundEngine* engine;
+
 
     const unsigned int SCR_WIDTH = 800;
     const unsigned int SCR_HEIGHT = 600;

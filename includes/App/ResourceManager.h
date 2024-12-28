@@ -7,6 +7,10 @@
 #include "App.h"
 #include "shader.h"
 #include "TextureManager.h"
+#include <irrKlang.h>
+#pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
+
+using namespace irrklang;
 
 using namespace std;
 
@@ -16,10 +20,12 @@ public:
 
     map<string, Shader> shaders;
     map<string, TextureManager> textures;
+    ISoundEngine* engine;
 
     ResourceManager();
     void setShaders();
     void setTextures();
+    void setAudio();
 };
 
 #endif

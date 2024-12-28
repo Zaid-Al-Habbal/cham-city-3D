@@ -4,10 +4,6 @@
 #include "Controller.h"
 #include "App/Renderer.h"
 
-#include <irrKlang.h>
-
-using namespace irrklang;
-
 using namespace std;
 
 int main()

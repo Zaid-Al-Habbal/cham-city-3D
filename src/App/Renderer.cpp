@@ -6,6 +6,8 @@ using namespace glm;
 Renderer::Renderer()
 {
     ResourceManager resourceManager;
+    
+    engine = resourceManager.engine;
     //texture:
     textures = resourceManager.textures;
     //shaders:
@@ -26,6 +28,12 @@ void Renderer::render(Controller& controller)
     
     //camera
     Camera camera = controller.getCamera();
+    vec3 camFro = camera.Front;
+    vec3 camPos = camera.Position;
+    vec3 camUp = camera.Up;
+    engine->setListenerPosition(vec3df(camPos.x, camPos.y, camPos.z),
+     vec3df(camFro.x, camFro.y, camFro.z), vec3df(0,0,0),
+      vec3df(camUp.x, camUp.y, camUp.z));       
     glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom),
      (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 25000.0f);
     glm::mat4 view = camera.GetViewMatrix();
@@ -47,7 +55,7 @@ void Renderer::render(Controller& controller)
     shaders[REF].setFloat("refVal", 0.0f);
     
     //config refLight:
-    refLight.update(camera.Position, camera.Front);
+    refLight.update(camPos, camFro);
 
     //---------------------------------------------------------------------------------------
     //OUTSIDE THE MALL:

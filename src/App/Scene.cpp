@@ -14,14 +14,14 @@ Scene::Scene()
     //..Left:
     cubes[SPECIAL_BUILDING] = Cubesphere(1000.0f, 1,false);
     appModel = MODEL;
-    appModel = translate(appModel, vec3(4000.0f, 1100.0f, 4100.0f));
+    appModel = translate(appModel, vec3(4000.0f, 1050.0f, 4100.0f));
     appModel = rotate(appModel, radians(180.0f), Y);
     appModel = scale(appModel, vec3(2.0f, 3.57f, 2*3.5f));
     mat curModel = appModel;
     models[SPECIAL_BUILDING].PB(appModel);
     //..right:
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-9450.0f, 1100.0f, -2940.0f));
+    appModel = translate(appModel, vec3(-9450.0f, 1050.0f, -2940.0f));
     appModel = rotate(appModel, radians(270.0f), Y);
     appModel = scale(appModel, vec3(1.5*1.0f, 3.57f, 1.2*2*2.0f));
     models[SPECIAL_BUILDING].PB(appModel);

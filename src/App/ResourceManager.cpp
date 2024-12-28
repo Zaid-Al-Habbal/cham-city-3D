@@ -4,6 +4,18 @@ ResourceManager::ResourceManager()
 {
     setShaders();
     setTextures();
+    setAudio();
+}
+
+void ResourceManager::setAudio()
+{
+    //ENGINE:
+    engine = createIrrKlangDevice();
+    ISound* music =engine->play3D("../resources/audio/song.ogg", vec3df(-826.942f, 1164.53f, 190.807f),
+                              true, false, true);
+    
+    music->setMinDistance(3000.0f);
+
 }
 
 void ResourceManager::setShaders()
