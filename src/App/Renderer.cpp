@@ -62,8 +62,25 @@ void Renderer::render(Controller& controller)
     //OUTSIDE THE MALL:
 
     //refLight
-    refLight.turnOnDir();
-    // refLight.turnOnPoint();
+    if(controller.isNight){
+        refLight.numOfPoints = 3;
+        refLight.pointLightSpecular[0] = refLight.pointLightSpecular[1] =
+        refLight.pointLightSpecular[2] = vec3(0.05f);
+        refLight.pointLightPosition[0] = vec3(1433.98f, 1437.68f, -7595.11f);
+        refLight.pointLightPosition[1] = vec3(8055.57f, 1024.51f, 4461.24f);
+        refLight.pointLightPosition[2] = vec3(-10006.6f, 1314.37f, -5178.68f);
+        
+        refLight.pointLightColor[0] = refLight.pointLightColor[1] =
+        refLight.pointLightColor[2] = Color::Blue;
+        
+        refLight.turnOnPoint(); 
+        refLight.dirLightColor = vec3(0.5f); 
+        refLight.turnOnDir();
+
+    }
+    else{
+        refLight.turnOnDir();
+    }
     // refLight.turnOnSpot();
 
     //ROOF BUILDING:

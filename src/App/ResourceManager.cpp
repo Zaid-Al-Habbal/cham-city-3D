@@ -11,10 +11,10 @@ void ResourceManager::setAudio()
 {
     //ENGINE:
     engine = createIrrKlangDevice();
-    ISound* music =engine->play3D("../resources/audio/mall.wav", vec3df(-4500.0f, -492.199f, 4037.31f),
-                              true, false, true);
+    // ISound* music =engine->play3D("../resources/audio/mall.wav", vec3df(-4500.0f, -492.199f, 4037.31f),
+    //                           true, false, true);
     
-    music->setMinDistance(3000.0f);
+    // music->setMinDistance(2000.0f);
 
 }
 

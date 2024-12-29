@@ -22,8 +22,8 @@ public:
     // directional light:
     glm::vec3 dirLightColor, dirLightDirection, dirLightAmbient, dirLightDiffuse, dirLightSpecular;
     // Point light:
-    glm::vec3 pointLightColor[6], pointLightAmbient[6], pointLightDiffuse[6], pointLightSpecular[6], pointLightPosition[6];
-    float pointLightConstant[6], pointLightLinear[6], pointLightQuadratic[6];
+    glm::vec3 pointLightColor[8], pointLightAmbient[8], pointLightDiffuse[8], pointLightSpecular[8], pointLightPosition[8];
+    float pointLightConstant[8], pointLightLinear[8], pointLightQuadratic[8];
     // Spot light:
     glm::vec3 spotLightColor, spotLightPosition, spotLightDirection, spotLightAmbient, spotLightDiffuse, spotLightSpecular;
     float spotLightConstant, spotLightLinear, spotLightQuadratic, spotLightCutOff,spotLightOuterCutOff;

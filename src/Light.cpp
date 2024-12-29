@@ -1,4 +1,5 @@
 #include "Light.h"
+#include "color.hpp"
 
 Light::Light(){}
 
@@ -13,17 +14,17 @@ Light::Light(Shader shader, bool enableDir, int numOfPoints, bool enableSpot)
     dirLightDirection = glm::vec3(-470.0f, -1205.6f, 12181.2f);
     dirLightSpecular = glm::vec3(0.5f, 0.5f, 0.5f);
     //PointLight:
-    for(int i=0; i<6; i++){
+    for(int i=0; i<8; i++){
         pointLightColor[i]= glm::vec3(1.0f);
-        pointLightSpecular[i]=glm::vec3(0.5f, 0.5f, 0.5f);
+        pointLightSpecular[i]=glm::vec3(0.6f, 0.6f, 0.6f);
         pointLightConstant[i] =1.0f;
-        pointLightLinear[i]= 	 	0.15* 0.0014f;
-        pointLightQuadratic[i] = 0.000005* 0.000007f;
+        pointLightLinear[i]= 	 	0.12* 0.0014f;
+        pointLightQuadratic[i] = 0.0000005* 0.000007f;
         pointLightPosition[i] = glm::vec3( 0.7f,  0.2f,  2.0f); 
         
     }
     //SpotLight:
-    this->spotLightColor = glm::vec3(1.0f);
+    this->spotLightColor = Color::Blue;
     
     spotLightSpecular = glm::vec3(1.0f);
     spotLightConstant = 1.0f;
@@ -46,8 +47,8 @@ Light::Light(Shader shader, bool enableDir, int numOfPoints, bool enableSpot)
 }
 void Light::update(glm::vec3 cameraPos, glm::vec3 cameraFront)
 {
-    spotLightPosition = cameraPos;
-    spotLightDirection = cameraFront;
+    spotLightPosition = glm::vec3(1433.98f, 1437.68f, -7595.11f);;
+    spotLightDirection = glm::vec3(1433.98f, 2437.68f, -7595.11f);;
     //viewPos:
     viewPos = cameraPos;
     myShader.setVec3("viewPos", viewPos);

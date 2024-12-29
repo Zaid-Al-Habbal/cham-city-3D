@@ -41,7 +41,7 @@ struct PointLight {
     vec3 diffuse;
     vec3 specular;
 };
-#define NR_POINT_LIGHTS 6
+#define NR_POINT_LIGHTS 8
 uniform PointLight pointLights[NR_POINT_LIGHTS];
 uniform int numOfPoints;
 
