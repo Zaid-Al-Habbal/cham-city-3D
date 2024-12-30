@@ -154,7 +154,112 @@ Scene::Scene()
     models[GROUND].PB(appModel);
     cubeBuffers(GROUND); 
 
+    //SUITE_SHOP
+    cubes[SUITE_SHOP] = Cubesphere(500.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(320.0f, -300.0f, -2850.0f));
+    appModel = rotate(appModel, radians(-90.0f), Y);
+    appModel = scale(appModel, vec3(3.0f, 2.1f, 9.2f)); 
+    models[SUITE_SHOP].PB(appModel);
+    cubeBuffers(SUITE_SHOP);
 
+    //CIRCLE_LIGHT:
+    cylinders[CIRCLE_LIGHT] = Cylinder(60.0f, 60.0f, 10.0f, 36, 1, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(0.0f, 280.0f, -2900.0f));
+    models[CIRCLE_LIGHT].PB(appModel);
+    appModel = translate(appModel, vec3(-1500.0f, 0.0f, 0.0f));
+    models[CIRCLE_LIGHT].PB(appModel);
+    appModel = translate(appModel, vec3(3000.0f, 0.0f, 0.0f));
+    models[CIRCLE_LIGHT].PB(appModel);
+    cylinderBuffers(CIRCLE_LIGHT);
+
+    //CLOTHS_PLACE:
+    cylinders[CLOTHS_PLACE] = Cylinder(10.0f, 10.0f, 3600.0f, 36, 1, true, 1);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(400.0f, -500.0f, -3550.0f));
+    models[CLOTHS_PLACE].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 800.0f));
+    models[CLOTHS_PLACE].PB(appModel);
+    cylinderBuffers(CLOTHS_PLACE);
+
+    //First Line:
+    //SUITE1_OBJ:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-1350.0f, -710.0f, -3550.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(500.0f, 500.0f, 500.0f));
+    models[SUITE1_OBJ].PB(appModel);
+    for(int i=0; i<70; i++){
+        appModel = translate(appModel, vec3(0.0f, 0.0f, 0.05f));
+        models[SUITE1_OBJ].PB(appModel);
+    }
+
+    //SUITE2_OBJ:
+    for(int i=0; i<70; i++){
+        appModel = translate(appModel, vec3(0.0f, 0.0f, 0.05f));
+        models[SUITE2_OBJ].PB(appModel);
+    }
+
+    //Second Line:
+    //SUITE2_OBJ:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-1350.0f, -710.0f, -2750.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(500.0f, 500.0f, 500.0f));
+    models[SUITE2_OBJ].PB(appModel);
+
+    for(int i=0; i<70; i++){
+        appModel = translate(appModel, vec3(0.0f, 0.0f, 0.05f));
+        models[SUITE2_OBJ].PB(appModel);
+    }
+
+    //SUITE1_OBJ:
+    for(int i=0; i<70; i++){
+        appModel = translate(appModel, vec3(0.0f, 0.0f, 0.05f));
+        models[SUITE1_OBJ].PB(appModel);
+    }
+    squareBuffers(SUITE1_OBJ);
+    squareBuffers(SUITE2_OBJ);
+
+    //CASHIER:
+    cubes[CASHIER] = Cubesphere(200.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-2050.0f, -710.0f, -3050.0f));
+    appModel = rotate(appModel, radians(180.0f), Y);
+    appModel = scale(appModel, vec3(1.0f, 1.4f, 4.0f));
+    models[CASHIER].PB(appModel);
+    cubeBuffers(CASHIER);
+
+    //SCREEN:
+    cubes[SCREEN] =Cubesphere(50.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-2050.0f, -460.0f, -3050.0f));
+    appModel = rotate(appModel, radians(189.0f), Y);
+    appModel = scale(appModel, vec3(0.1f, 1.6f, 2.8f));
+    models[SCREEN].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, -35.0f, 0.0f));
+    appModel = scale(appModel, vec3(2.0f, 0.6f, 0.2f));
+    models[SCREEN].PB(appModel);
+    cubeBuffers(SCREEN);
+
+    //MIRROR:
+    cubes[MIRROR] = Cubesphere(100.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2940.0f, -350.0f, -3050.0f));
+    appModel = rotate(appModel, radians(180.0f), Z);
+    appModel = scale(appModel, vec3(0.1f, 8.0f, 4.0f));
+    models[MIRROR].PB(appModel);
+    cubeBuffers(MIRROR);
+
+    //SHOP_BLOOR
+    cubes[SHOP_BLOOR] = Cubesphere(100.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(550.0f, -280.0f, -2050.0f));
+    appModel = scale(appModel, vec3(41.0f, 9.8f, 0.05f));
+    models[SHOP_BLOOR].PB(appModel);
+    cubeBuffers(SHOP_BLOOR);
+    
 }
 
 
@@ -164,6 +269,31 @@ Scene::Scene()
 
 
 
+
+void Scene::squareBuffers(string name)
+{
+    GLsizeiptr num = 32 * sizeof(float);
+    std::vector<float> vertices = {
+        // positions          // colors           // texture coords
+        0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // top right
+        0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // bottom right
+        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,   // bottom left
+        -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f    // top left            
+    }; 
+    //..vbo:
+    VBO vbo(vertices, num);
+    //..instanceVBO:
+    VBO instanceVBO(models[name], (int)models[name].size());
+    //..vao:
+    vaos[name] = VAO() ; vaos[name].init(vbo, instanceVBO);
+    std::vector<int> indeces = {
+        0, 1, 3, // first triangle
+        1, 2, 3  // second triangle
+    };
+    //..ebo:
+    GLsizeiptr si = 6  * sizeof(float);
+    ebos[name] = EBO(indeces, si);
+}
 
 void Scene::coneBuffers(string name)
 {

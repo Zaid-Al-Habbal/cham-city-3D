@@ -12,6 +12,7 @@ public:
 	GLuint ID;
 	
 	// Constructor that generates a Vertex Buffer Object and links it to vertices
+	VBO(std::vector<float> vertices, int vecSize);
 	VBO(const float* vertices, GLsizeiptr size);
 	VBO(std::vector<glm::mat4> instanceModels, int vecSize);
 	// Binds the VBO

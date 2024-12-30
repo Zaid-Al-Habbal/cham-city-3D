@@ -14,6 +14,12 @@ VBO::VBO(std::vector<glm::mat4> instanceModels, int vecSize)
 	glBindBuffer(GL_ARRAY_BUFFER, ID);
 	glBufferData(GL_ARRAY_BUFFER, vecSize * sizeof(glm::mat4), instanceModels.data(), GL_STATIC_DRAW);
 }
+VBO::VBO(std::vector<float> vertices, int vecSize)
+{
+	glGenBuffers(1, &ID);
+	glBindBuffer(GL_ARRAY_BUFFER, ID);
+	glBufferData(GL_ARRAY_BUFFER, vecSize * sizeof(glm::mat4), vertices.data(), GL_STATIC_DRAW);
+}
 // Binds the VBO
 void VBO::Bind()
 {

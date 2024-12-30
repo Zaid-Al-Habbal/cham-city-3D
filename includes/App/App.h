@@ -18,11 +18,7 @@ public:
 
     
     //Textures
-    CONCRETE = "concrete",
-    CONCRETE_SPEC = "concreteSpec",
-
     BLUE_WINDOW = "blueWindow",
-    BLUE_WINDOW_SPEC = "blueWindowSpec",
 
     LIGHT_METAL = "lightMetal",
     LIGHT_METAL_SPEC = "lightMetalSpec",
@@ -44,6 +40,19 @@ public:
     
     WHITE_TILES = "whiteTiles",     
     WHITE_TILES_SPEC = "whiteTilesSpec",
+
+    BLACK_PAINT = "blackPaint",
+    BLACK_PAINT_SPEC = "blackPaintSpec",
+
+    WOOD1 = "wood1",
+    WOOD1_SPEC = "wood1Spec",
+
+    WHITE = "white",
+
+    SUITE1_TEX = "suit1Tex",
+    SUITE2_TEX = "suit2Tex",
+
+    BLACK = "black",
     
 
     //Objects:
@@ -60,7 +69,21 @@ public:
     ENTRY = "entry",
     ENTRY_BLOOR = "entryBloor",
     SIDE_WALK = "sideWalk",
+    
+
+    //Inside the Mall:
     GROUND = "ground",
+    //SUITE_SHOP:
+    SUITE_SHOP = "suiteShop",
+    SUITE1_OBJ = "suite1Obj",
+    SUITE2_OBJ = "suite2Obj",
+    CIRCLE_LIGHT = "circleLight",
+    CLOTHS_PLACE = "clothsPlace",
+    CASHIER = "cashier",
+    SCREEN = "screen", 
+    MIRROR = "mirror",
+    SUITE_REF = "suiteRef",
+    SHOP_BLOOR = "shopBloor",
 
 
     STREND = "strend";

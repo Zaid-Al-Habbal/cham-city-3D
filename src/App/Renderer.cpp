@@ -35,31 +35,32 @@ void Renderer::render(Controller& controller)
      vec3df(camFro.x, camFro.y, camFro.z), vec3df(0,0,0),
       vec3df(camUp.x, camUp.y, camUp.z));       
     glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom),
-     (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 25000.0f);
+     (float)SCR_WIDTH / (float)SCR_HEIGHT, 1.0f, 30000.0f);
     glm::mat4 view = camera.GetViewMatrix();
     
     camera.printPos();
 
+    //REEEEEEEEEEEEEEEEEEEEEEF:---------------------------------------------
+    //---------------------------------------------------------------------------------------
     //Config REF shader:
     shaders[REF].use();
 
     //for reflection:
     glActiveTexture(GL_TEXTURE2);
     glBindTexture(GL_TEXTURE_CUBE_MAP, skybox.currentTexture);
-
     shaders[REF].setInt("environmentMap", 2);
+    shaders[REF].setFloat("refVal", 0.0f);
+
+
     shaders[REF].setMat4("projection", projection);
     shaders[REF].setMat4("view", view);
     shaders[REF].setFloat("shininess", 32.0f);
     shaders[REF].setFloat("alpha", 1.0f);
-    shaders[REF].setFloat("refVal", 0.0f);
     
     //config refLight:
     refLight.update(camPos, camFro);
-    refLight.numOfPoints = 0;
 
-    //---------------------------------------------------------------------------------------
-    //OUTSIDE THE MALL:
+    //OUTSIDE THE MALL:---------------------------------------------------------------------
 
     //refLight
     if(controller.isNight){
@@ -72,7 +73,7 @@ void Renderer::render(Controller& controller)
         
         refLight.pointLightColor[0] = refLight.pointLightColor[1] =
         refLight.pointLightColor[2] = Color::Blue;
-        
+
         refLight.turnOnPoint(); 
         refLight.dirLightColor = vec3(0.5f); 
         refLight.turnOnDir();
@@ -108,7 +109,10 @@ void Renderer::render(Controller& controller)
     draw(SIDE_WALK, cubes[SIDE_WALK].getIndexCount(), 0);
 
     /*********************************************************************************************** */
-    //INSIDE THE MALL:
+
+    //MAIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIN:
+
+    //INSIDE THE MALL:--------------------------------------------------------------------------------------
 
     //Config MAIN shader:
     shaders[MAIN].use();
@@ -137,6 +141,60 @@ void Renderer::render(Controller& controller)
     TextureManager::enable(shaders[MAIN], textures[WHITE_TILES], textures[WHITE_TILES_SPEC], 4);
     draw(GROUND, cubes[GROUND].getIndexCount(), 0);
 
+    //SUITE_SHOP::::::::::::
+    //update mainLight:
+    //Add 3 point light to the SUITE_STORE:
+    mainLight.numOfPoints = 7;
+    mainLight.pointLightPosition[4] = vec3(9.46201f, 245.168f, -2896.55f);
+    mainLight.pointLightPosition[5] = vec3(-1498.04f, 249.644f, -2903.98f);
+    mainLight.pointLightPosition[6] = vec3(1469.42f, 256.57f, -2904.44f);
+    for(int i=4; i<7; i++){
+        mainLight.pointLightLinear[i]= 	 	0.000014f;
+        mainLight.pointLightQuadratic[i] =  0.00000007f;
+    }
+    
+    mainLight.turnOnPoint();
+    
+    //SUITE_SHOP:
+    TextureManager::enable(shaders[MAIN], textures[WOOD1], textures[WOOD1_SPEC], 2);
+    draw(SUITE_SHOP, cubes[SUITE_SHOP].getIndexCount(), 6);
+
+
+    //..CIRCLE_LIGHT:
+    TextureManager::enable(shaders[MAIN], textures[WHITE], textures[WHITE], 1);
+    draw(CIRCLE_LIGHT, cylinders[CIRCLE_LIGHT].getIndexCount(), 0);
+
+    //..CLOTHS_PLACE:
+    TextureManager::enable(shaders[MAIN], textures[LIGHT_METAL], textures[LIGHT_METAL_SPEC], 1);
+    draw(CLOTHS_PLACE, cylinders[CLOTHS_PLACE].getIndexCount(), 0);
+
+    //..SUITE1_OBJ:
+    TextureManager::enable(shaders[MAIN], textures[SUITE1_TEX], textures[SUITE1_TEX], 1);
+    draw(SUITE1_OBJ, 6, 0);
+
+    //..SUITE5_OBJ:
+    TextureManager::enable(shaders[MAIN], textures[SUITE2_TEX], textures[SUITE2_TEX], 1);
+    draw(SUITE2_OBJ, 6, 0);
+
+    //..CASHIER:
+    TextureManager::enable(shaders[MAIN], textures[WHITE], textures[WHITE], 1);
+    draw(CASHIER, cylinders[CASHIER].getIndexCount(), 6);
+
+    //..SCREEN:
+    TextureManager::enable(shaders[MAIN], textures[BLACK], textures[BLACK], 1);
+    draw(SCREEN, cubes[SCREEN].getIndexCount(), 0);
+
+    //..MIRROR:
+    // shaders[MAIN].setFloat("alpha", 0.4f);
+    TextureManager::enable(shaders[MAIN], textures[SUITE_REF], textures[BLOOR_SPEC], 1);
+    draw(MIRROR, cubes[MIRROR].getIndexCount(), 0);
+    
+    shaders[MAIN].setFloat("alpha", 0.2f);
+    TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC], 1);
+    draw(SHOP_BLOOR, cubes[SHOP_BLOOR].getIndexCount(), 0);
+    shaders[MAIN].setFloat("alpha", 1.0f);
+
+
     //---------------------------------------------------------------------------------------
     // SKYBOX:
     skybox.setEnvironment(!controller.isNight);
@@ -149,7 +207,7 @@ void Renderer::render(Controller& controller)
     shaders[REF].setFloat("refVal", 0.8f);
     //CYL_BUILDING  #ALPHA:
     shaders[REF].setFloat("alpha", 0.75f);
-    TextureManager::enable(shaders[REF], textures[BLUE_WINDOW], textures[BLUE_WINDOW_SPEC], 16);
+    TextureManager::enable(shaders[REF], textures[BLUE_WINDOW], textures[BLUE_WINDOW], 16);
     draw(CYL_BUILDING, cylinders[CYL_BUILDING].getIndexCount(), 30);
 
     //GLASS_ROOF #ALPHA:

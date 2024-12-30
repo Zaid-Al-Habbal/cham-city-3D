@@ -46,6 +46,7 @@ public:
     Scene();
 
     void cubeBuffers(string name);
+    void squareBuffers(string name);
     void torusBuffers(string name);
     void cylinderBuffers(string name);
     void coneBuffers(string name);

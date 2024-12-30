@@ -31,7 +31,7 @@ Light::Light(Shader shader, bool enableDir, int numOfPoints, bool enableSpot)
     spotLightLinear = 0.09f;
     spotLightQuadratic = 0.032f;
     spotLightCutOff = 12.5f;
-    spotLightOuterCutOff = 17.5f;
+    spotLightOuterCutOff = 30.5f;
     
     myShader.use();
     //Dir light

@@ -84,7 +84,7 @@ void main()
     // alphaValue*=dynAlpha;
 
     // Skip processing if alpha is low (transparency)
-    // if (alphaValue < 0.1f) discard;
+    if (alphaValue < 0.1f) discard;
 
     // Initialize result color
     vec3 result = vec3(0.0);
