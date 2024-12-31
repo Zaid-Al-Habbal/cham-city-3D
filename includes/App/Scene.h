@@ -28,18 +28,18 @@ using namespace std;
 class Scene : public App
 {
 public:
-    map<string, VAO> vaos;
-    map<string, EBO> ebos;
-    map<string, Sphere> spheres;
-    map<string, Icosphere> icos;
-    map<string, Cubesphere> cubes;
-    map<string, Cylinder> cylinders;
-    map<string, Cone> cones;
-    map<string, Torus> toruses;
+    unordered_map<string, VAO> vaos;
+    unordered_map<string, EBO> ebos;
+    unordered_map<string, Sphere> spheres;
+    unordered_map<string, Icosphere> icos;
+    unordered_map<string, Cubesphere> cubes;
+    unordered_map<string, Cylinder> cylinders;
+    unordered_map<string, Cone> cones;
+    unordered_map<string, Torus> toruses;
 
-    map<string, vector<glm::mat4>> models;
+    unordered_map<string, vector<glm::mat4>> models;
 
-    map<string, Model> threeDModels;
+    unordered_map<string, Model> threeDModels;
 
 
     

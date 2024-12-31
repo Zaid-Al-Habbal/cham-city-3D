@@ -11,15 +11,20 @@ void ResourceManager::setAudio()
 {
     //ENGINE:
     engine = createIrrKlangDevice();
-    // ISound* music =engine->play3D("../resources/audio/mall.wav", vec3df(-4500.0f, -492.199f, 4037.31f),
-    //                           true, false, true);
+    ISound* music =engine->play3D("../resources/audio/mall.wav", vec3df(-4500.0f, -492.199f, 4037.31f),
+                              true, false, true);
     
-    // music->setMinDistance(2000.0f);
+    music->setMinDistance(2000.0f);
 
-    // music =engine->play3D("../resources/audio/Rival_-Alan-Walker-Dreamer-_Rival-Remix_-_NCS-Release_.ogg", vec3df(494.827f, -303.664f, -3603.72f),
-    //                           true, false, true);
+    music =engine->play3D("../resources/audio/Rival_-Alan-Walker-Dreamer-_Rival-Remix_-_NCS-Release_.ogg", vec3df(763.706f, -92.0983f, -2884.55f),
+                              true, false, true);
     
-    // music->setMinDistance(125.0f);
+    music->setMinDistance(115.0f);
+
+    music =engine->play3D("../resources/audio/TOKYO-MACHINE_-NEFFEX-Desperate-_NCS-Release_.ogg", vec3df(681.866f, -424.822f, 10288.2f),
+                              true, false, true);
+    
+    music->setMinDistance(115.0f);
     
 }
 
@@ -84,4 +89,17 @@ void ResourceManager::setTextures()
     //SUITE_REF:
     textures[SUITE_REF] = TextureManager("../resources/textures/suite_shop_ref.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
     
+    //SHIRT_SHOP:
+    textures[BLUE_PLASTIC] = TextureManager("../resources/textures/Plastic015A_1K-diff.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[BLUE_PLASTIC_SPEC] = TextureManager("../resources/textures/Plastic015A_1K-spec.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+    
+    //SHIRT1_TEX:
+    textures[SHIRT1_TEX] = TextureManager("../resources/textures/shirt1.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+    textures[SHIRT2_TEX] = TextureManager("../resources/textures/shirt2.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+
+    //SHIRT_REF:
+    textures[SHIRT_REF] = TextureManager("../resources/textures/shirt_shop_ref.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+
+
+
 }

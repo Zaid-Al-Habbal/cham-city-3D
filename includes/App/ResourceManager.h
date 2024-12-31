@@ -2,7 +2,7 @@
 #define RESOURCE_MANAGER_H
 
 #include <string>
-#include <map>
+#include <unordered_map>
 
 #include "App.h"
 #include "shader.h"
@@ -18,8 +18,8 @@ class ResourceManager : public App
 {
 public:
 
-    map<string, Shader> shaders;
-    map<string, TextureManager> textures;
+    unordered_map<string, Shader> shaders;
+    unordered_map<string, TextureManager> textures;
     ISoundEngine* engine;
 
     ResourceManager();

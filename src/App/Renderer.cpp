@@ -30,7 +30,7 @@ void Renderer::render(Controller& controller)
     Camera camera = controller.getCamera();
     vec3 camFro = camera.Front;
     vec3 camPos = camera.Position;
-    vec3 camUp = camera.Up;
+    vec3 camUp = camera.WorldUp;
     engine->setListenerPosition(vec3df(camPos.x, camPos.y, camPos.z),
      vec3df(camFro.x, camFro.y, camFro.z), vec3df(0,0,0),
       vec3df(camUp.x, camUp.y, camUp.z));       
@@ -80,7 +80,9 @@ void Renderer::render(Controller& controller)
 
     }
     else{
+        refLight.dirLightColor = vec3(0.8f); 
         refLight.turnOnDir();
+        shaders[REF].setInt("numOfPoints", 0);
     }
     // refLight.turnOnSpot();
 
@@ -149,13 +151,14 @@ void Renderer::render(Controller& controller)
     mainLight.pointLightPosition[5] = vec3(-1498.04f, 249.644f, -2903.98f);
     mainLight.pointLightPosition[6] = vec3(1469.42f, 256.57f, -2904.44f);
     for(int i=4; i<7; i++){
-        mainLight.pointLightLinear[i]= 	 	0.000014f;
+        mainLight.pointLightLinear[i]= 	 	0.0014f;
         mainLight.pointLightQuadratic[i] =  0.00000007f;
     }
     
     mainLight.turnOnPoint();
     
     //SUITE_SHOP:
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   
     TextureManager::enable(shaders[MAIN], textures[WOOD1], textures[WOOD1_SPEC], 2);
     draw(SUITE_SHOP, cubes[SUITE_SHOP].getIndexCount(), 6);
 
@@ -189,11 +192,60 @@ void Renderer::render(Controller& controller)
     TextureManager::enable(shaders[MAIN], textures[SUITE_REF], textures[BLOOR_SPEC], 1);
     draw(MIRROR, cubes[MIRROR].getIndexCount(), 0);
     
-    shaders[MAIN].setFloat("alpha", 0.2f);
+    // SHOP_BLOOR:
+    shaders[MAIN].setFloat("alpha", 0.13f);
     TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC], 1);
     draw(SHOP_BLOOR, cubes[SHOP_BLOOR].getIndexCount(), 0);
     shaders[MAIN].setFloat("alpha", 1.0f);
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   
 
+    //SHIRT_SHOP Lights:
+
+    mainLight.pointLightPosition[4] = vec3(9.46201f, 245.168f, 10253.45f);
+    mainLight.pointLightPosition[5] = vec3(-1498.04f, 249.644f, 10246.02f);
+    mainLight.pointLightPosition[6] = vec3(1469.42f, 256.57f, 10245.56f);
+    mainLight.turnOnPoint();
+
+    //SHIRT_SHOP:
+    TextureManager::enable(shaders[MAIN], textures[BLUE_PLASTIC], textures[BLUE_PLASTIC_SPEC], 2);
+    draw(SHIRT_SHOP, cubes[SHIRT_SHOP].getIndexCount(), 6);
+
+    //update point lights:
+
+    //..CIRCLE_LIGHT_2:
+    TextureManager::enable(shaders[MAIN], textures[WHITE], textures[WHITE], 4);
+    draw(CIRCLE_LIGHT_2, cylinders[CIRCLE_LIGHT_2].getIndexCount(), 0);
+
+    //..CLOTHS_PLACE:
+    TextureManager::enable(shaders[MAIN], textures[LIGHT_METAL], textures[LIGHT_METAL_SPEC], 1);
+    draw(CLOTHS_PLACE_2, cylinders[CLOTHS_PLACE_2].getIndexCount(), 0);
+
+    //..SHIRT1_OBJ:
+    TextureManager::enable(shaders[MAIN], textures[SHIRT1_TEX], textures[SHIRT1_TEX], 1);
+    draw(SHIRT1_OBJ, 6, 0);
+
+    //..SHIRT2_OBJ:
+    TextureManager::enable(shaders[MAIN], textures[SHIRT2_TEX], textures[SHIRT2_TEX], 1);
+    draw(SHIRT2_OBJ, 6, 0);
+
+    //..CASHIER2:
+    TextureManager::enable(shaders[MAIN], textures[WOOD1], textures[WOOD1_SPEC], 1);
+    draw(CASHIER2, cylinders[CASHIER2].getIndexCount(), 6);
+
+    //..SCREEN2:
+    TextureManager::enable(shaders[MAIN], textures[BLACK], textures[BLACK], 1);
+    draw(SCREEN2, cubes[SCREEN2].getIndexCount(), 0);
+
+    //..MIRROR2:
+    // shaders[MAIN].setFloat("alpha", 0.4f);
+    TextureManager::enable(shaders[MAIN], textures[SHIRT_REF], textures[BLOOR_SPEC], 1);
+    draw(MIRROR2, cubes[MIRROR2].getIndexCount(), 0);
+    
+    // SHOP_BLOOR2:
+    shaders[MAIN].setFloat("alpha", 0.13f);
+    TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC], 1);
+    draw(SHOP_BLOOR2, cubes[SHOP_BLOOR2].getIndexCount(), 0);
+    shaders[MAIN].setFloat("alpha", 1.0f);
 
     //---------------------------------------------------------------------------------------
     // SKYBOX:
@@ -222,7 +274,7 @@ void Renderer::render(Controller& controller)
     TextureManager::enable(shaders[REF], textures[BLOOR], textures[BLOOR_SPEC], 1);
     draw(ENTRY_BLOOR, cubes[ENTRY_BLOOR].getIndexCount(), 0);
 
-
+    
     
 }
 

@@ -52,6 +52,12 @@ public:
     SUITE1_TEX = "suit1Tex",
     SUITE2_TEX = "suit2Tex",
 
+    SHIRT1_TEX = "shirt1Tex",
+    SHIRT2_TEX = "shirt2Tex",
+
+    BLUE_PLASTIC = "bluePlastic",
+    BLUE_PLASTIC_SPEC = "bluePlasticSpec",
+
     BLACK = "black",
     
 
@@ -84,6 +90,18 @@ public:
     MIRROR = "mirror",
     SUITE_REF = "suiteRef",
     SHOP_BLOOR = "shopBloor",
+
+    //SHIRT_SHOP:
+    SHIRT_SHOP = "shirtShop",
+    SHIRT1_OBJ = "shirt1",
+    SHIRT2_OBJ = "shirt2",
+    CLOTHS_PLACE_2 = "clothsPlace2",
+    CIRCLE_LIGHT_2 = "circleLight2",
+    CASHIER2 = "cashier2",
+    SCREEN2 = "screen2", 
+    MIRROR2 = "mirror2",
+    SHOP_BLOOR2 = "shopBloor2",
+    SHIRT_REF = "shirtRef",
 
 
     STREND = "strend";

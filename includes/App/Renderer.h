@@ -16,8 +16,8 @@ class Renderer : public Scene
 private:
     Skybox skybox;     // skybox.setEnvironment(false); // evening
     Light refLight, mainLight;
-    map<string, TextureManager> textures;
-    map<string, Shader> shaders;
+    unordered_map<string, TextureManager> textures;
+    unordered_map<string, Shader> shaders;
     ISoundEngine* engine;
 
 

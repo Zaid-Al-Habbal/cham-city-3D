@@ -154,7 +154,8 @@ Scene::Scene()
     models[GROUND].PB(appModel);
     cubeBuffers(GROUND); 
 
-    //SUITE_SHOP
+    //SUITE_SHOP:
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     cubes[SUITE_SHOP] = Cubesphere(500.0f, 1, false);
     appModel = MODEL;
     appModel = translate(appModel, vec3(320.0f, -300.0f, -2850.0f));
@@ -177,7 +178,7 @@ Scene::Scene()
     //CLOTHS_PLACE:
     cylinders[CLOTHS_PLACE] = Cylinder(10.0f, 10.0f, 3600.0f, 36, 1, true, 1);
     appModel = MODEL;
-    appModel = translate(appModel, vec3(400.0f, -500.0f, -3550.0f));
+    appModel = translate(appModel, vec3(400.0f, -500.0f, -3555.0f));
     models[CLOTHS_PLACE].PB(appModel);
     appModel = translate(appModel, vec3(0.0f, 0.0f, 800.0f));
     models[CLOTHS_PLACE].PB(appModel);
@@ -255,11 +256,126 @@ Scene::Scene()
     //SHOP_BLOOR
     cubes[SHOP_BLOOR] = Cubesphere(100.0f, 1, false);
     appModel = MODEL;
-    appModel = translate(appModel, vec3(550.0f, -280.0f, -2050.0f));
+    appModel = translate(appModel, vec3(550.0f, -280.0f, -2000.0f));
     appModel = scale(appModel, vec3(41.0f, 9.8f, 0.05f));
     models[SHOP_BLOOR].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-2080.0f, 50.0f, -2000.0f));
+    appModel = scale(appModel, vec3(4.4f, 4.0f, 0.05f));
+    models[SHOP_BLOOR].PB(appModel);
     cubeBuffers(SHOP_BLOOR);
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     
+    //SHIRT_SHOP:
+    cubes[SHIRT_SHOP] = Cubesphere(500.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(320.0f, -300.0f, 10300.0f)); //oldZ = -2850 , I added 13150
+    appModel = rotate(appModel, radians(-270.0f), Y);
+    appModel = scale(appModel, vec3(3.0f, 2.1f, 9.2f)); 
+    models[SHIRT_SHOP].PB(appModel);
+    cubeBuffers(SHIRT_SHOP);
+
+    //CIRCLE_LIGHT_2:
+    cylinders[CIRCLE_LIGHT_2] = Cylinder(60.0f, 60.0f, 10.0f, 36, 1, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(0.0f, 280.0f, 10250.0f));
+    models[CIRCLE_LIGHT_2].PB(appModel);
+    appModel = translate(appModel, vec3(-1500.0f, 0.0f, 0.0f));
+    models[CIRCLE_LIGHT_2].PB(appModel);
+    appModel = translate(appModel, vec3(3000.0f, 0.0f, 0.0f));
+    models[CIRCLE_LIGHT_2].PB(appModel);
+    cylinderBuffers(CIRCLE_LIGHT_2);
+
+    //CLOTHS_PLACE_2:
+    cylinders[CLOTHS_PLACE_2] = Cylinder(10.0f, 10.0f, 3600.0f, 36, 1, true, 1);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(400.0f, -500.0f, -3555.0f + 13150.0f));
+    models[CLOTHS_PLACE_2].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 800.0f));
+    models[CLOTHS_PLACE_2].PB(appModel);
+    cylinderBuffers(CLOTHS_PLACE_2);
+
+    //First Line:
+    //SHIRT1_OBJ:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-1350.0f, -710.0f, -3550.0f + 13150.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(500.0f, 500.0f, 500.0f));
+    models[SHIRT1_OBJ].PB(appModel);
+    for(int i=0; i<70; i++){
+        appModel = translate(appModel, vec3(0.0f, 0.0f, 0.05f));
+        models[SHIRT1_OBJ].PB(appModel);
+    }
+
+    //SHIRT2_OBJ:
+    for(int i=0; i<70; i++){
+        appModel = translate(appModel, vec3(0.0f, 0.0f, 0.05f));
+        models[SHIRT2_OBJ].PB(appModel);
+    }
+
+    //Second Line:
+    //SHIRT2_OBJ:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-1350.0f, -710.0f, -2750.0f + 13150.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(500.0f, 500.0f, 500.0f));
+    models[SHIRT2_OBJ].PB(appModel);
+
+    for(int i=0; i<70; i++){
+        appModel = translate(appModel, vec3(0.0f, 0.0f, 0.05f));
+        models[SHIRT2_OBJ].PB(appModel);
+    }
+
+    //SHIRT1_OBJ:
+    for(int i=0; i<70; i++){
+        appModel = translate(appModel, vec3(0.0f, 0.0f, 0.05f));
+        models[SHIRT1_OBJ].PB(appModel);
+    }
+    squareBuffers(SHIRT1_OBJ);
+    squareBuffers(SHIRT2_OBJ);
+
+    //CASHIER2:
+    cubes[CASHIER2] = Cubesphere(200.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-2050.0f, -710.0f, -3050.0f + 13550.0f));
+    appModel = rotate(appModel, radians(180.0f), Y);
+    appModel = scale(appModel, vec3(1.0f, 1.4f, 4.0f));
+    models[CASHIER2].PB(appModel);
+    cubeBuffers(CASHIER2);
+
+    //SCREEN:
+    cubes[SCREEN] =Cubesphere(50.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-2050.0f, -460.0f, -3050.0f + 13550.0f));
+    appModel = rotate(appModel, radians(189.0f), Y);
+    appModel = scale(appModel, vec3(0.1f, 1.6f, 2.8f));
+    models[SCREEN].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, -35.0f, 0.0f));
+    appModel = scale(appModel, vec3(2.0f, 0.6f, 0.2f));
+    models[SCREEN].PB(appModel);
+    cubeBuffers(SCREEN);
+
+    //MIRROR2:
+    cubes[MIRROR2] = Cubesphere(100.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2940.0f, -350.0f, -3050.0f + 13150.0f));
+    appModel = rotate(appModel, radians(180.0f), Z);
+    appModel = scale(appModel, vec3(0.1f, 8.0f, 4.0f));
+    models[MIRROR2].PB(appModel);
+    cubeBuffers(MIRROR2);
+
+    //SHOP_BLOOR2
+    cubes[SHOP_BLOOR2] = Cubesphere(100.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(550.0f, -280.0f, -2000.0f +  11450.0f));
+    appModel = scale(appModel, vec3(41.0f, 9.8f, 0.05f));
+    models[SHOP_BLOOR2].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-2080.0f, 50.0f, -2000.0f + 11450.0f));
+    appModel = scale(appModel, vec3(4.4f, 4.0f, 0.05f));
+    models[SHOP_BLOOR2].PB(appModel);
+    cubeBuffers(SHOP_BLOOR2);
+
 }
 
 
