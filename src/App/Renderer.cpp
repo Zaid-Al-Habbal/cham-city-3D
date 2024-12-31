@@ -181,7 +181,7 @@ void Renderer::render(Controller& controller)
 
     //..CASHIER:
     TextureManager::enable(shaders[MAIN], textures[WHITE], textures[WHITE], 1);
-    draw(CASHIER, cylinders[CASHIER].getIndexCount(), 6);
+    draw(CASHIER, cubes[CASHIER].getIndexCount(), 6);
 
     //..SCREEN:
     TextureManager::enable(shaders[MAIN], textures[BLACK], textures[BLACK], 1);
@@ -230,7 +230,7 @@ void Renderer::render(Controller& controller)
 
     //..CASHIER2:
     TextureManager::enable(shaders[MAIN], textures[WOOD1], textures[WOOD1_SPEC], 1);
-    draw(CASHIER2, cylinders[CASHIER2].getIndexCount(), 6);
+    draw(CASHIER2, cubes[CASHIER2].getIndexCount(), 6);
 
     //..SCREEN2:
     TextureManager::enable(shaders[MAIN], textures[BLACK], textures[BLACK], 1);
@@ -245,6 +245,54 @@ void Renderer::render(Controller& controller)
     shaders[MAIN].setFloat("alpha", 0.13f);
     TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC], 1);
     draw(SHOP_BLOOR2, cubes[SHOP_BLOOR2].getIndexCount(), 0);
+    shaders[MAIN].setFloat("alpha", 1.0f);
+    //------------------------------------------------------------------------------------
+    //SHOES_SHOP Lights:
+
+    mainLight.pointLightPosition[4] = vec3(9.46201f- 5350.0f, 245.168f, 10253.45f);
+    mainLight.pointLightPosition[5] = vec3(-1798.04f- 5350.0f, 249.644f, 10246.02f);
+    mainLight.pointLightPosition[6] = vec3(-3532.13f, 243.98f, 10278.2f);
+    for(int i=4; i<7; i++){
+        mainLight.pointLightLinear[i]= 	 	0.00014f;
+        mainLight.pointLightQuadratic[i] =  0.00000007f;
+    }
+    mainLight.turnOnPoint();
+
+    //SHOES_SHOP:
+    TextureManager::enable(shaders[MAIN], textures[SPORTY], textures[SPORTY_SPEC], 3);
+    draw(SHOES_SHOP, cubes[SHOES_SHOP].getIndexCount(), 6);
+
+    //..SQUARE_LIGHT:
+    TextureManager::enable(shaders[MAIN], textures[WHITE], textures[WOOD1_SPEC], 4);
+    draw(SQUARE_LIGHT, cubes[SQUARE_LIGHT].getIndexCount(), 0);
+
+    //..CASHIER3:
+    TextureManager::enable(shaders[MAIN], textures[WHITE], textures[WOOD1_SPEC], 1);
+    draw(CASHIER3, cubes[CASHIER3].getIndexCount(), 6);
+
+
+    //SMALL_ROOF:
+    shaders[MAIN].setFloat("alpha", 0.3f);
+    TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC], 1);
+    draw(SMALL_ROOF, cubes[SMALL_ROOF].getIndexCount(), 0);
+    
+
+    //..SHOE1:
+    TextureManager::enable(shaders[MAIN], textures[SHOE1_TEX], textures[SHOE1_TEX], 1);
+    draw(SHOE1, 6, 0);
+
+    //..SHOE2:
+    TextureManager::enable(shaders[MAIN], textures[SHOE2_TEX], textures[SHOE2_TEX], 1);
+    draw(SHOE2, 6, 0);
+
+    //..SHOE3:
+    TextureManager::enable(shaders[MAIN], textures[SHOE3_TEX], textures[SHOE3_TEX], 1);
+    draw(SHOE3, 6, 0);
+
+    // SHOP_BLOOR3:
+    shaders[MAIN].setFloat("alpha", 0.13f);
+    TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC], 1);
+    draw(SHOP_BLOOR3, cubes[SHOP_BLOOR3].getIndexCount(), 0);
     shaders[MAIN].setFloat("alpha", 1.0f);
 
     //---------------------------------------------------------------------------------------

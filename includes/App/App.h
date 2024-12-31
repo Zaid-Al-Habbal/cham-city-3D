@@ -59,6 +59,14 @@ public:
     BLUE_PLASTIC_SPEC = "bluePlasticSpec",
 
     BLACK = "black",
+
+    SHOE1_TEX = "shoe1Tex",
+    SHOE2_TEX = "shoe2Tex",
+    SHOE3_TEX = "shoe3Tex",
+
+    SPORTY = "sporty",
+    SPORTY_SPEC = "sportySpec",
+    
     
 
     //Objects:
@@ -103,7 +111,16 @@ public:
     SHOP_BLOOR2 = "shopBloor2",
     SHIRT_REF = "shirtRef",
 
-
+    //SHOES_SHOP:
+    SHOES_SHOP = "shoseShop",    
+    CASHIER3 = "cashier3",
+    SHOP_BLOOR3 = "shopBloor3",
+    SMALL_ROOF = "smallRoof",
+    SHOE1 = "shoe1",
+    SHOE2 = "shoe2",
+    SHOE3 = "shoe3",
+    SQUARE_LIGHT = "squareLight",
+ 
     STREND = "strend";
 };
 

@@ -11,21 +11,24 @@ void ResourceManager::setAudio()
 {
     //ENGINE:
     engine = createIrrKlangDevice();
+    engine->setDefault3DSoundMinDistance(115.0f);
+    
+
+
     ISound* music =engine->play3D("../resources/audio/mall.wav", vec3df(-4500.0f, -492.199f, 4037.31f),
                               true, false, true);
     
     music->setMinDistance(2000.0f);
 
-    music =engine->play3D("../resources/audio/Rival_-Alan-Walker-Dreamer-_Rival-Remix_-_NCS-Release_.ogg", vec3df(763.706f, -92.0983f, -2884.55f),
+    music =engine->play3D("../resources/audio/Rival_-Alan-Walker-Dreamer-_Rival-Remix_-_NCS-Release_.ogg", vec3df(907.83f, 249.006f, -3625.85f),
                               true, false, true);
     
-    music->setMinDistance(115.0f);
-
-    music =engine->play3D("../resources/audio/TOKYO-MACHINE_-NEFFEX-Desperate-_NCS-Release_.ogg", vec3df(681.866f, -424.822f, 10288.2f),
+    music =engine->play3D("../resources/audio/TOKYO-MACHINE_-NEFFEX-Desperate-_NCS-Release_.ogg", vec3df(1211.15f, 292.262f, 11136.2f),
                               true, false, true);
     
-    music->setMinDistance(115.0f);
-    
+    music =engine->play3D("../resources/audio/Diamond-Eyes-Doxx-My-Heart-_NCS-Release_.ogg", vec3df(-5154.78f, 270.735f, 11111.4f),
+                              true, false, true);
+        
 }
 
 void ResourceManager::setShaders()
@@ -89,7 +92,7 @@ void ResourceManager::setTextures()
     //SUITE_REF:
     textures[SUITE_REF] = TextureManager("../resources/textures/suite_shop_ref.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
     
-    //SHIRT_SHOP:
+    //BLUE_PLASTIC:
     textures[BLUE_PLASTIC] = TextureManager("../resources/textures/Plastic015A_1K-diff.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
     textures[BLUE_PLASTIC_SPEC] = TextureManager("../resources/textures/Plastic015A_1K-spec.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
     
@@ -100,6 +103,13 @@ void ResourceManager::setTextures()
     //SHIRT_REF:
     textures[SHIRT_REF] = TextureManager("../resources/textures/shirt_shop_ref.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
 
-
+    //SPORTY:
+    textures[SPORTY] = TextureManager("../resources/textures/Fabric070_1K-diff.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[SPORTY_SPEC] = TextureManager("../resources/textures/Fabric070_1K-spec.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+    
+    //SHOE1_TEX:
+    textures[SHOE1_TEX] = TextureManager("../resources/textures/boot1.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+    textures[SHOE2_TEX] = TextureManager("../resources/textures/boot2.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+    textures[SHOE3_TEX] = TextureManager("../resources/textures/boot3.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
 
 }
