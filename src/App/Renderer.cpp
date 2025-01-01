@@ -294,6 +294,63 @@ void Renderer::render(Controller& controller)
     TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC], 1);
     draw(SHOP_BLOOR3, cubes[SHOP_BLOOR3].getIndexCount(), 0);
     shaders[MAIN].setFloat("alpha", 1.0f);
+    //-----------------------------------------------------------------------------------
+    //DRESS_SHOP Lights:
+
+    mainLight.pointLightPosition[4] = vec3(-9153.74f, 261.258f, 10244.0f);
+    mainLight.pointLightPosition[5] = vec3(-12147.3f, 249.924f, 10244.0f);
+    mainLight.pointLightPosition[6] = vec3(-10642.2f, 229.65f, 10221.4f);
+    for(int i=4; i<7; i++){
+        mainLight.pointLightLinear[i]= 	 	0.00014f;
+        mainLight.pointLightQuadratic[i] =  0.000001f;
+    }
+    mainLight.turnOnPoint();
+
+    //DRESS_SHOP:
+    TextureManager::enable(shaders[MAIN], textures[PINK], textures[PINK_SPEC], 1);
+    draw(DRESS_SHOP, cubes[DRESS_SHOP].getIndexCount(), 6);
+
+    //..CIRCLE_LIGHT_4:
+    TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC], 1);
+    draw(CIRCLE_LIGHT_4, cylinders[CIRCLE_LIGHT_4].getIndexCount(), 0);
+
+    //..CLOTHS_PLACE_4:
+    TextureManager::enable(shaders[MAIN], textures[LIGHT_METAL], textures[LIGHT_METAL_SPEC], 1);
+    draw(CLOTHS_PLACE_4, cylinders[CLOTHS_PLACE_4].getIndexCount(), 0);
+
+    //DRESS1:
+    TextureManager::enable(shaders[MAIN], textures[DRESS1_TEX], textures[DRESS1_TEX], 1);
+    draw(DRESS1, 6, 0);
+
+    //DRESS2:
+    TextureManager::enable(shaders[MAIN], textures[DRESS2_TEX], textures[DRESS2_TEX], 1);
+    draw(DRESS2, 6, 0);
+
+    //DRESS3:
+    TextureManager::enable(shaders[MAIN], textures[DRESS3_TEX], textures[DRESS3_TEX], 1);
+    draw(DRESS3, 6, 0);
+
+    //DRESS4:
+    TextureManager::enable(shaders[MAIN], textures[DRESS4_TEX], textures[DRESS4_TEX], 1);
+    draw(DRESS4, 6, 0);
+
+    //..CASHIER4:
+    TextureManager::enable(shaders[MAIN], textures[WHITE], textures[WOOD1_SPEC], 1);
+    draw(CASHIER4, cubes[CASHIER4].getIndexCount(), 6);
+
+    //..DRESSING_ROOM:
+    TextureManager::enable(shaders[MAIN], textures[PINK], textures[PINK_SPEC], 1);
+    draw(DRESSING_ROOM, cubes[DRESSING_ROOM].getIndexCount(), 6);
+
+    //..MIRROR4:
+    TextureManager::enable(shaders[MAIN], textures[DRESS_REF], textures[BLOOR_SPEC], 1);
+    draw(MIRROR4, cubes[MIRROR4].getIndexCount(), 0);
+
+    // SHOP_BLOOR4:
+    shaders[MAIN].setFloat("alpha", 0.13f);
+    TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC], 1);
+    draw(SHOP_BLOOR4, cubes[SHOP_BLOOR4].getIndexCount(), 0);
+    shaders[MAIN].setFloat("alpha", 1.0f);
 
     //---------------------------------------------------------------------------------------
     // SKYBOX:
@@ -322,6 +379,7 @@ void Renderer::render(Controller& controller)
     TextureManager::enable(shaders[REF], textures[BLOOR], textures[BLOOR_SPEC], 1);
     draw(ENTRY_BLOOR, cubes[ENTRY_BLOOR].getIndexCount(), 0);
 
+    //-------------------------------------------------------------------------------------------
     
     
 }

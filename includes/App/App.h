@@ -66,6 +66,14 @@ public:
 
     SPORTY = "sporty",
     SPORTY_SPEC = "sportySpec",
+
+    PINK = "pink",
+    PINK_SPEC = "pinkSpec",
+    DRESS1_TEX = "dress1Tex",
+    DRESS2_TEX = "dress2Tex",
+    DRESS3_TEX = "dress3Tex",
+    DRESS4_TEX = "dress4Tex",
+
     
     
 
@@ -120,6 +128,23 @@ public:
     SHOE2 = "shoe2",
     SHOE3 = "shoe3",
     SQUARE_LIGHT = "squareLight",
+
+    //Dress_SHOP:
+    DRESS_SHOP = "dressShop",
+    CASHIER4 = "cashier4",
+    SHOP_BLOOR4 = "shopBloor4",
+    DRESS1 = "dress1",
+    DRESS2 = "dress2",
+    DRESS3 = "dress3",
+    DRESS4 = "dress4",
+    CIRCLE_LIGHT_4 = "circleLight4",
+    MIRROR4 = "mirror4",
+    CLOTHS_PLACE_4 = "clothsPlace4",
+    SIMPLE_WALL = "simpleWall",
+    DRESS_REF = "dressRef",
+    DRESSING_ROOM = "dressingRoom",
+    
+
  
     STREND = "strend";
 };
