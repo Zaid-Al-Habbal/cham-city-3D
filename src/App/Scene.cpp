@@ -83,7 +83,7 @@ Scene::Scene()
     cylinders[CYL_ADDITIONAL] = Cylinder(1250*1.0f, 1250*1.0f, 150*2.0f, 36, 1, true, 2);
     appModel = MODEL;
     appModel = translate(appModel, vec3(4020.0, 2965.0, -1150.0));
-    appModel = rotate(appModel, radians(-240.0f), Y);
+    appModel = rotate(appModel, radians(-200.0f), Y);
     models[CYL_ADDITIONAL].PB(appModel);
 
     appModel = translate(appModel, vec3(0.0f, -3750.0f, 0.0f));
@@ -1562,6 +1562,86 @@ Scene::Scene()
     appModel = scale(appModel, vec3(15.6f, 2.8f, 0.05f));
     models[SHOP_BLOOR4].PB(appModel);
     cubeBuffers(SHOP_BLOOR4);
+
+    //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    //RESTAURANT:
+    //GROUND FLOOR:::::::::::::::::::::
+
+    //REST_ROOF:
+    cylinders[REST_ROOF] = Cylinder(1200*1.0f, 1200*1.0f, 50.0f, 36, 1, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4000.0, 350.0, -1150.0));
+    appModel = rotate(appModel, radians(-220.0f), Y);
+    models[REST_ROOF].PB(appModel);
+    cylinderBuffers(REST_ROOF);
+
+    //TRIA:
+    //..tria bar:
+    cylinders[TRIA] = Cylinder(12.0f, 12.0f, 110.0f, 36, 1, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4000.0, 260.0, -1150.0));
+    models[TRIA].PB(appModel);
+    appModel = translate(appModel, vec3(0.0, -70.0, 0.0));
+    appModel = scale(appModel, vec3(30.0f, 0.3f, 30.0f));
+    models[TRIA].PB(appModel);
+    
+    cylinderBuffers(TRIA);
+
+
+    //CYL_LIGHT:
+    toruses[CYL_LIGHT] = Torus(3.0*0.76f, 3.0*0.1f, 24, 18, true, 2);
+    curModel = appModel;
+    appModel = translate(appModel, vec3(-6.0, -250.0, -6.0));
+    appModel = scale(appModel, vec3(1.0f, 600.0f, 1.0f));
+    models[CYL_LIGHT].PB(appModel);
+    appModel = translate(curModel, vec3(-6.0, -250.0, 6.0));
+    appModel = scale(appModel, vec3(1.0f, 600.0f, 1.0f));
+    models[CYL_LIGHT].PB(appModel);
+    appModel = translate(curModel, vec3(6.0, -250.0, 6.0));
+    appModel = scale(appModel, vec3(1.0f, 600.0f, 1.0f));
+    models[CYL_LIGHT].PB(appModel);
+    appModel = translate(curModel, vec3(6.0, -250.0, -6.0));
+    appModel = scale(appModel, vec3(1.0f, 600.0f, 1.0f));
+    models[CYL_LIGHT].PB(appModel);
+    appModel = translate(curModel, vec3(0.0, -250.0, 0.0));
+    appModel = scale(appModel, vec3(1.0f, 600.0f, 1.0f));
+    models[CYL_LIGHT].PB(appModel);
+    torusBuffers(CYL_LIGHT);
+
+    //REST_GROUND:
+    cylinders[REST_GROUND] = Cylinder(1200*1.0f, 1200*1.0f, 25.0f, 40, 1, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3900.0, -550.0, -1080.0));
+    models[REST_GROUND].PB(appModel);
+
+    //STAIR:
+    appModel = translate(appModel, vec3(-1170.0f, -70.0f, 120.0f));
+    appModel = rotate(appModel, radians(10.0f), Y);
+    appModel = scale(appModel, vec3(0.1f, 4.0f, 0.5f));
+    models[REST_GROUND].PB(appModel);
+    appModel = translate(appModel, vec3(-700.0f, -20.0f, 0.0f));
+    models[REST_GROUND].PB(appModel);
+    appModel = translate(appModel, vec3(-700.0f, -20.0f, 0.0f));
+    models[REST_GROUND].PB(appModel);
+    appModel = translate(appModel, vec3(-700.0f, -20.0f, 0.0f));
+    models[REST_GROUND].PB(appModel);
+
+    cylinderBuffers(REST_GROUND);
+
+    //REST_WALL:
+    cubes[REST_WALL] = Cubesphere(1000.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3500.0, -120.0, -180.0));
+    appModel = rotate(appModel, radians(-15.0f), Y);
+    appModel = scale(appModel, vec3(1.3f, 0.75f, 0.1f));
+    models[REST_WALL].PB(appModel);
+
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2950.0, -120.0, -1780.0));
+    appModel = rotate(appModel, radians(35.0f), Y);
+    appModel = scale(appModel, vec3(0.9f, 0.75f, 0.1f));
+    models[REST_WALL].PB(appModel);
+    cubeBuffers(REST_WALL);
 
 }
 

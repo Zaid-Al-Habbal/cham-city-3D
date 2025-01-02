@@ -11,24 +11,24 @@ void ResourceManager::setAudio()
 {
     //ENGINE:
     engine = createIrrKlangDevice();
-    engine->setDefault3DSoundMinDistance(100.0f);
+    // engine->setDefault3DSoundMinDistance(100.0f);
     
-    ISound* music =engine->play3D("../resources/audio/mall.wav", vec3df(-4500.0f, -492.199f, 4037.31f),
-                              true, false, true);
+    // ISound* music =engine->play3D("../resources/audio/mall.wav", vec3df(-4500.0f, -492.199f, 4037.31f),
+    //                           true, false, true);
     
-    music->setMinDistance(2000.0f);
+    // music->setMinDistance(2000.0f);
 
-    engine->play3D("../resources/audio/Rival_-Alan-Walker-Dreamer-_Rival-Remix_-_NCS-Release_.ogg", vec3df(907.83f, 249.006f, -3625.85f),
-                              true, false, true);
+    // engine->play3D("../resources/audio/Rival_-Alan-Walker-Dreamer-_Rival-Remix_-_NCS-Release_.ogg", vec3df(907.83f, 249.006f, -3625.85f),
+    //                           true, false, true);
     
-    engine->play3D("../resources/audio/TOKYO-MACHINE_-NEFFEX-Desperate-_NCS-Release_.ogg", vec3df(1211.15f, 292.262f, 11136.2f),
-                              true, false, true);
+    // engine->play3D("../resources/audio/TOKYO-MACHINE_-NEFFEX-Desperate-_NCS-Release_.ogg", vec3df(1211.15f, 292.262f, 11136.2f),
+    //                           true, false, true);
     
-    engine->play3D("../resources/audio/Diamond-Eyes-Doxx-My-Heart-_NCS-Release_.ogg", vec3df(-5154.78f, 270.735f, 11111.4f),
-                              true, false, true);
+    // engine->play3D("../resources/audio/Diamond-Eyes-Doxx-My-Heart-_NCS-Release_.ogg", vec3df(-5154.78f, 270.735f, 11111.4f),
+    //                           true, false, true);
 
-    engine->play3D("../resources/audio/ROSÉ-_-Bruno-Mars-APT.-_ROCK-VERSION_.ogg", vec3df(-10625.5f, 161.943f, 10954.1f),
-                              true, false, true);
+    // engine->play3D("../resources/audio/ROSÉ-_-Bruno-Mars-APT.-_ROCK-VERSION_.ogg", vec3df(-10625.5f, 161.943f, 10954.1f),
+    //                           true, false, true);
         
 }
 
@@ -127,4 +127,16 @@ void ResourceManager::setTextures()
     //DRESS_REF:
     textures[DRESS_REF] = TextureManager("../resources/textures/dress_ref.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
 
+    //TRAV:
+    textures[TRAV] = TextureManager("../resources/textures/Travertine003_1K-diff.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[TRAV_SPEC] = TextureManager("../resources/textures/Travertine003_1K-spec.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+    
+    //RED_PLASTIC:
+    textures[RED_PLASTIC] = TextureManager("../resources/textures/ChristmasTreeOrnament008_1K-diff.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[RED_PLASTIC_SPEC] = TextureManager("../resources/textures/ChristmasTreeOrnament008_1K-spec.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+    
+    //RED_TILES:
+    textures[RED_TILES] = TextureManager("../resources/textures/Tiles047_1K-diff.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[RED_TILES_SPEC] = TextureManager("../resources/textures/Tiles047_1K-spec.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+    
 }

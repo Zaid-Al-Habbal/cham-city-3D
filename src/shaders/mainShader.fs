@@ -75,13 +75,7 @@ void main()
     //Transparency value:
     float alphaValue = (texture(texture_diffuse1, TexCoords).a + texture(texture_specular1, TexCoords).a) * alpha;
 
-    //Dynamic Alpha based on Distance:
-    // float maxDistance = 1000.0f;
-    // float distance = length(viewPos - FragPos);
-    // float dynAlpha = clamp(1.0 - distance / maxDistance, 0.0, 1.0);
 
-    // //apply changes:
-    // alphaValue*=dynAlpha;
 
     // Skip processing if alpha is low (transparency)
     if (alphaValue < 0.1f) discard;

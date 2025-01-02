@@ -70,6 +70,7 @@ public:
     void ProcessKeyboard(Camera_Movement direction, float deltaTime)
     {
         float velocity = MovementSpeed * deltaTime;
+        float curLevel = Position.y;
         if (direction == FORWARD)
             Position += Front * velocity;
         if (direction == BACKWARD)
@@ -79,8 +80,11 @@ public:
         if (direction == RIGHT)
             Position += Right * velocity;
         
-        // make sure the user stays at the ground level
-        // Position.y = -351.344f; // <-- this one-liner keeps the user at the ground level (xz plane)
+        // the ground level
+        // Position.y = -371.344f;
+        // Restaurant level:
+        // Position.y = -200.344f; 
+        Position.y = curLevel;
     }
 
     // processes input received from a mouse input system. Expects the offset value in both the x and y direction.

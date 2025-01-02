@@ -151,6 +151,7 @@ void Renderer::render(Controller& controller)
     mainLight.pointLightPosition[5] = vec3(-1498.04f, 249.644f, -2903.98f);
     mainLight.pointLightPosition[6] = vec3(1469.42f, 256.57f, -2904.44f);
     for(int i=4; i<7; i++){
+        mainLight.pointLightColor[i] = Color::White;
         mainLight.pointLightLinear[i]= 	 	0.0014f;
         mainLight.pointLightQuadratic[i] =  0.00000007f;
     }
@@ -351,6 +352,44 @@ void Renderer::render(Controller& controller)
     TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC], 1);
     draw(SHOP_BLOOR4, cubes[SHOP_BLOOR4].getIndexCount(), 0);
     shaders[MAIN].setFloat("alpha", 1.0f);
+
+    //----------------------------------------------------------------------------------------
+
+    //RESTAURANT:
+
+    mainLight.numOfPoints = 8;
+    mainLight.pointLightPosition[4] = vec3(3795.58f, 153.309f, -946.823f);
+    mainLight.pointLightPosition[5] = vec3(3820.7f, 165.071f, -1341.6f);
+    mainLight.pointLightPosition[6] = vec3(4145.5f, 86.7375f, -1355.64f);
+    mainLight.pointLightPosition[7] = vec3(4169.58f, 95.2565f, -982.829f);
+
+    for(int i=4; i<8; i++){
+        mainLight.pointLightColor[i] = Color::DarkRed;
+        mainLight.pointLightLinear[i]= 	 	0.00014f;
+        mainLight.pointLightQuadratic[i] =  0.000001f;
+    }
+    mainLight.turnOnPoint();
+
+    //REST_ROOF:
+    TextureManager::enable(shaders[MAIN], textures[TRAV], textures[TRAV_SPEC],4);
+    draw(REST_ROOF, cylinders[REST_ROOF].getIndexCount(), 0);
+
+    //TRIA:
+    TextureManager::enable(shaders[MAIN], textures[RED_PLASTIC], textures[RED_PLASTIC_SPEC],1);
+    draw(TRIA, cylinders[TRIA].getIndexCount(), 0);
+
+    //CYL_LIGHT:
+    TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC],1);
+    draw(CYL_LIGHT, toruses[CYL_LIGHT].getIndexCount(), 0);
+
+    //REST_GROUND:
+    TextureManager::enable(shaders[MAIN], textures[RED_TILES], textures[RED_TILES_SPEC], 4);
+    draw(REST_GROUND, cylinders[REST_GROUND].getIndexCount(), 0);
+
+    //REST_WALL:
+    draw(REST_WALL, cubes[REST_WALL].getIndexCount(), 0);
+
+
 
     //---------------------------------------------------------------------------------------
     // SKYBOX:

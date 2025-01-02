@@ -1,10 +1,11 @@
 #include "Controller.h"
 #include <stb_image.h>
 
-bool nightMode = false;
+bool IS_NIGHT = false, IS_GOING_UP_STAIRS = false,IS_GOING_DOWN_STAIRS=false;
+
 
 Controller::Controller(unsigned int width, unsigned int height):
-    camera(glm::vec3(-11007.1f, -550.977f, 8369.07f)),
+    camera(glm::vec3(1795.49f, -371.344f, -726.845f)),
     window(nullptr),
     deltaTime(0.0f),
     lastFrame(0.0f),
@@ -87,7 +88,7 @@ bool Controller::initializeWindow(const std::string& title) {
 void Controller::mouse_button_callback(GLFWwindow* window, int button, int action, int mods) {
     if (button == GLFW_MOUSE_BUTTON_LEFT) {
         if (action == GLFW_PRESS) {
-            nightMode^=1;
+            IS_NIGHT^=1;
         }
     }
 }
@@ -96,19 +97,38 @@ void Controller::processInput() {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-        camera.ProcessKeyboard(FORWARD, deltaTime);
+    if(isGoingDownStairs){
+        camera.Position.x-=2.0f;
+        camera.Position.y-=2.0f;
+        if(camera.Position.y <= -371.344f) IS_GOING_DOWN_STAIRS=false;
+    }
+    else if(isGoingUpStairs){
+        camera.Position.x+=3.0f;
+        camera.Position.y+=3.0f;
+        if(camera.Position.y >= -200.0f) IS_GOING_UP_STAIRS=false;
+    }
+    else{
+        if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+            camera.ProcessKeyboard(FORWARD, deltaTime);
 
-    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        camera.ProcessKeyboard(BACKWARD, deltaTime);
+        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+            camera.ProcessKeyboard(BACKWARD, deltaTime);
 
-    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-        camera.ProcessKeyboard(LEFT, deltaTime);
+        if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+            camera.ProcessKeyboard(LEFT, deltaTime);
 
-    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-        camera.ProcessKeyboard(RIGHT, deltaTime);
+        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+            camera.ProcessKeyboard(RIGHT, deltaTime);
+        
+        if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS){
+            if(camera.Position.y<=-371.344f) IS_GOING_UP_STAIRS = true;
+            else IS_GOING_DOWN_STAIRS = true;
+        }
+    }
 
-    isNight = nightMode;
+    isNight = IS_NIGHT;
+    isGoingUpStairs = IS_GOING_UP_STAIRS;
+    isGoingDownStairs = IS_GOING_DOWN_STAIRS;
 }
 
 void Controller::updateDeltaTime() {

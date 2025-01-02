@@ -74,6 +74,16 @@ public:
     DRESS3_TEX = "dress3Tex",
     DRESS4_TEX = "dress4Tex",
 
+    TRAV = "trav",
+    TRAV_SPEC = "travSpec",
+
+    RED_PLASTIC = "redPlastic",
+    RED_PLASTIC_SPEC = "redPlasticSpec",
+
+    RED_TILES = "redTiles",
+    RED_TILES_SPEC = "redTilesSpec",
+
+
     
     
 
@@ -143,7 +153,17 @@ public:
     SIMPLE_WALL = "simpleWall",
     DRESS_REF = "dressRef",
     DRESSING_ROOM = "dressingRoom",
-    
+
+    //Restaurant:
+    REST_GROUND = "restGround",
+    TABLE = "table",
+    CHAIR = "chair",
+    CASHIER5 = "cashire5",
+    KITCHEN = "kitchen",
+    REST_ROOF = "restRoof",
+    TRIA = "tria",
+    CYL_LIGHT = "triLight",
+    REST_WALL = "restWall",
 
  
     STREND = "strend";

@@ -35,7 +35,8 @@ private:
 
 public:
     //morning/night
-    bool isNight;
+    bool isNight, isGoingUpStairs, isGoingDownStairs;
+
 
     // Constructor
     Controller(unsigned int width = 800, unsigned int height = 600);
