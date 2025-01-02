@@ -1628,7 +1628,7 @@ Scene::Scene()
 
     cylinderBuffers(REST_GROUND);
 
-    //REST_WALL:
+    //REST_WALLs:
     cubes[REST_WALL] = Cubesphere(1000.0f, 1, true);
     appModel = MODEL;
     appModel = translate(appModel, vec3(3500.0, -120.0, -180.0));
@@ -1643,6 +1643,133 @@ Scene::Scene()
     models[REST_WALL].PB(appModel);
     cubeBuffers(REST_WALL);
 
+    //CASHIER5:
+    cubes[CASHIER5] = Cubesphere(200.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3300.0, -390.0, -580.0));
+    appModel = rotate(appModel, radians(260.0f), Y);
+    appModel = scale(appModel, vec3(1.0f, 1.2f, 4.0f));
+    models[CASHIER5].PB(appModel);
+    cubeBuffers(CASHIER5);
+
+    //SCREEN:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3250.0, -150.0, -580.0));
+    appModel = rotate(appModel, radians(100.0f), Y);
+    appModel = scale(appModel, vec3(0.1f, 1.6f, 2.8f));
+    models[SCREEN].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, -35.0f, 0.0f));
+    appModel = scale(appModel, vec3(2.0f, 0.6f, 0.2f));
+    models[SCREEN].PB(appModel);
+    cubeBuffers(SCREEN);
+
+    //TABLE:
+    //table 1:
+    cylinders[TABLE] = Cylinder(200.0f, 200.0f, 15.0f, 42, 1, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4800.0, -360.0, -1050.0));
+    appModel = rotate(appModel, radians(180.0f), X);
+    models[TABLE].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4800.0, -450.0, -1050.0));
+    appModel = scale(appModel, vec3(0.4f, 12.0f, 0.4f));
+    models[TABLE].PB(appModel);
+    curModel = appModel;
+    //Chair base:
+    cylinders[CHAIR_BASE] = Cylinder(200.0f, 200.0f, 15.0f, 42, 1, true, 2);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -600.0f));
+    appModel = scale(appModel, vec3(1.0f, 0.6f, 1.0f));
+    models[CHAIR_BASE].PB(appModel);
+    appModel = translate(curModel, vec3(0.0f, 0.0f, 600.0f));
+    appModel = scale(appModel, vec3(1.0f, 0.6f, 1.0f));
+    models[CHAIR_BASE].PB(appModel);
+    //Chair 1:
+    toruses[CHAIR] = Torus(200.0f * 1.28f, 200.0f * 1.0f, 15, 14, true, 3);
+    curModel = appModel;
+    appModel = translate(appModel, vec3(0.0f, 10.0f, -1400.0f));
+    appModel = scale(appModel, vec3(0.4f, 0.03f, 0.4f));
+    models[CHAIR].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 4000.0f));
+    models[CHAIR].PB(appModel);
+
+    //table 2:
+    cylinders[TABLE] = Cylinder(200.0f, 200.0f, 15.0f, 42, 1, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4500.0, -360.0, -1750.0));
+    appModel = rotate(appModel, radians(180.0f), X);
+    models[TABLE].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4500.0, -450.0, -1750.0));
+    appModel = scale(appModel, vec3(0.4f, 12.0f, 0.4f));
+    models[TABLE].PB(appModel);
+    curModel = appModel;
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -600.0f));
+    appModel = scale(appModel, vec3(1.0f, 0.6f, 1.0f));
+    models[CHAIR_BASE].PB(appModel);
+    appModel = translate(curModel, vec3(0.0f, 0.0f, 600.0f));
+    appModel = scale(appModel, vec3(1.0f, 0.6f, 1.0f));
+    models[CHAIR_BASE].PB(appModel);
+    //Chair 2:
+    curModel = appModel;
+    appModel = translate(appModel, vec3(0.0f, 10.0f, -1400.0f));
+    appModel = scale(appModel, vec3(0.4f, 0.03f, 0.4f));
+    models[CHAIR].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 4000.0f));
+    models[CHAIR].PB(appModel);
+
+    //table 3:
+    cylinders[TABLE] = Cylinder(200.0f, 200.0f, 15.0f, 42, 1, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3700.0, -360.0, -1850.0));
+    appModel = rotate(appModel, radians(180.0f), X);
+    models[TABLE].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3700.0, -450.0, -1850.0));
+    appModel = scale(appModel, vec3(0.4f, 12.0f, 0.4f));
+    models[TABLE].PB(appModel);
+    curModel = appModel;
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -600.0f));
+    appModel = scale(appModel, vec3(1.0f, 0.6f, 1.0f));
+    models[CHAIR_BASE].PB(appModel);
+    appModel = translate(curModel, vec3(0.0f, 0.0f, 600.0f));
+    appModel = scale(appModel, vec3(1.0f, 0.6f, 1.0f));
+    models[CHAIR_BASE].PB(appModel);
+    //Chair 3:
+    curModel = appModel;
+    appModel = translate(appModel, vec3(0.0f, 10.0f, -1400.0f));
+    appModel = scale(appModel, vec3(0.4f, 0.03f, 0.4f));
+    models[CHAIR].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 4000.0f));
+    models[CHAIR].PB(appModel);
+
+    //table 4:
+    cylinders[TABLE] = Cylinder(200.0f, 200.0f, 15.0f, 42, 1, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4000.0, -360.0, -1150.0));
+    appModel = rotate(appModel, radians(180.0f), X);
+    models[TABLE].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4000.0, -450.0, -1150.0));
+    appModel = scale(appModel, vec3(0.4f, 12.0f, 0.4f));
+    models[TABLE].PB(appModel);
+    curModel = appModel;
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -600.0f));
+    appModel = scale(appModel, vec3(1.0f, 0.6f, 1.0f));
+    models[CHAIR_BASE].PB(appModel);
+    appModel = translate(curModel, vec3(0.0f, 0.0f, 600.0f));
+    appModel = scale(appModel, vec3(1.0f, 0.6f, 1.0f));
+    models[CHAIR_BASE].PB(appModel);
+    //Chair 4:
+    curModel = appModel;
+    appModel = translate(appModel, vec3(0.0f, 10.0f, -1400.0f));
+    appModel = scale(appModel, vec3(0.4f, 0.03f, 0.4f));
+    models[CHAIR].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 4000.0f));
+    models[CHAIR].PB(appModel);
+
+    cylinderBuffers(TABLE);
+    cylinderBuffers(CHAIR_BASE);
+    torusBuffers(CHAIR);
 }
 
 

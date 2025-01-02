@@ -11,7 +11,7 @@ void ResourceManager::setAudio()
 {
     //ENGINE:
     engine = createIrrKlangDevice();
-    // engine->setDefault3DSoundMinDistance(100.0f);
+    engine->setDefault3DSoundMinDistance(100.0f);
     
     // ISound* music =engine->play3D("../resources/audio/mall.wav", vec3df(-4500.0f, -492.199f, 4037.31f),
     //                           true, false, true);
@@ -29,7 +29,10 @@ void ResourceManager::setAudio()
 
     // engine->play3D("../resources/audio/ROSÉ-_-Bruno-Mars-APT.-_ROCK-VERSION_.ogg", vec3df(-10625.5f, 161.943f, 10954.1f),
     //                           true, false, true);
-        
+    
+    // engine->play3D("../resources/audio/HEAT-WAVES-Glass-Animals-FREE-DOWNLOAD-No-Copyright.ogg", vec3df(4022.05f, -128.344f, -1173.46f),
+    //                           true, false, true);
+
 }
 
 void ResourceManager::setShaders()
@@ -138,5 +141,13 @@ void ResourceManager::setTextures()
     //RED_TILES:
     textures[RED_TILES] = TextureManager("../resources/textures/Tiles047_1K-diff.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
     textures[RED_TILES_SPEC] = TextureManager("../resources/textures/Tiles047_1K-spec.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+    
+    //RED_FABRIC1:
+    textures[RED_FABRIC1] = TextureManager("../resources/textures/Fabric055_1K-diff.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[RED_FABRIC1_SPEC] = TextureManager("../resources/textures/Fabric055_1K-spec.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+    
+    //RED_FABRIC2:
+    textures[RED_FABRIC2] = TextureManager("../resources/textures/Fabric054_1K-diff.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[RED_FABRIC2_SPEC] = TextureManager("../resources/textures/Fabric054_1K-spec.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
     
 }

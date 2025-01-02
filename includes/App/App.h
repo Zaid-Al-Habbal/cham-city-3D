@@ -83,6 +83,14 @@ public:
     RED_TILES = "redTiles",
     RED_TILES_SPEC = "redTilesSpec",
 
+    RED_FABRIC1 = "redFabric1",
+    RED_FABRIC1_SPEC = "redFabric1Spec",
+
+    RED_FABRIC2 = "redFabric2",
+    RED_FABRIC2_SPEC = "redFabric2Spec",
+    
+    
+
 
     
     
@@ -164,7 +172,7 @@ public:
     TRIA = "tria",
     CYL_LIGHT = "triLight",
     REST_WALL = "restWall",
-
+    CHAIR_BASE = "chairBase",
  
     STREND = "strend";
 };

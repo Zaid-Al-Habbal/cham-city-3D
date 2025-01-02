@@ -38,7 +38,7 @@ void Renderer::render(Controller& controller)
      (float)SCR_WIDTH / (float)SCR_HEIGHT, 1.0f, 30000.0f);
     glm::mat4 view = camera.GetViewMatrix();
     
-    camera.printPos();
+    // camera.printPos();
 
     //REEEEEEEEEEEEEEEEEEEEEEF:---------------------------------------------
     //---------------------------------------------------------------------------------------
@@ -383,12 +383,27 @@ void Renderer::render(Controller& controller)
     draw(CYL_LIGHT, toruses[CYL_LIGHT].getIndexCount(), 0);
 
     //REST_GROUND:
-    TextureManager::enable(shaders[MAIN], textures[RED_TILES], textures[RED_TILES_SPEC], 4);
+    TextureManager::enable(shaders[MAIN], textures[RED_TILES], textures[RED_TILES_SPEC], 6);
     draw(REST_GROUND, cylinders[REST_GROUND].getIndexCount(), 0);
 
     //REST_WALL:
     draw(REST_WALL, cubes[REST_WALL].getIndexCount(), 0);
 
+    //..CASHIER5:
+    TextureManager::enable(shaders[MAIN], textures[RED_PLASTIC], textures[RED_PLASTIC_SPEC], 1);
+    draw(CASHIER5, cubes[CASHIER5].getIndexCount(), 6);
+
+    //..TABLE:
+    TextureManager::enable(shaders[MAIN], textures[RED_FABRIC1], textures[RED_FABRIC1_SPEC], 1);
+    draw(TABLE, cylinders[TABLE].getIndexCount(), 6);
+
+    //..CHAIR:
+    TextureManager::enable(shaders[MAIN], textures[RED_FABRIC2], textures[RED_FABRIC2_SPEC], 1);
+    draw(CHAIR_BASE, cylinders[CHAIR_BASE].getIndexCount(), 6);
+
+
+    //..CHAIR:
+    draw(CHAIR, toruses[CHAIR].getIndexCount(), 6);
 
 
     //---------------------------------------------------------------------------------------

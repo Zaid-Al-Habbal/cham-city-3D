@@ -105,7 +105,7 @@ void Controller::processInput() {
     else if(isGoingUpStairs){
         camera.Position.x+=3.0f;
         camera.Position.y+=3.0f;
-        if(camera.Position.y >= -200.0f) IS_GOING_UP_STAIRS=false;
+        if(camera.Position.y >= -130.0f) IS_GOING_UP_STAIRS=false;
     }
     else{
         if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
