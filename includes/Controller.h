@@ -35,8 +35,10 @@ private:
 
 public:
     //morning/night
-    bool isNight, isGoingUpStairs, isGoingDownStairs;
+    bool isNight;
 
+    static bool isGoingUpStairsToRest(float x, float y, float z);
+    static bool isGoingDownStairsFromRest(float x, float y, float z);
 
     // Constructor
     Controller(unsigned int width = 800, unsigned int height = 600);

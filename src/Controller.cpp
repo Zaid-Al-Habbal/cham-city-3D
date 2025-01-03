@@ -1,7 +1,15 @@
 #include "Controller.h"
 #include <stb_image.h>
 
-bool IS_NIGHT = false, IS_GOING_UP_STAIRS = false,IS_GOING_DOWN_STAIRS=false;
+bool IS_NIGHT = false;
+float prevX = 0.0f;
+
+bool Controller::isGoingDownStairsFromRest(float x, float y, float z){
+    return x < prevX && y>=-372.0f && z>=-1344.0f && z<=-772.0f;
+}
+bool Controller::isGoingUpStairsToRest(float x, float y, float z){
+    return x > prevX && y<-130.0f &&  z>=-1344.0f && z<=-772.0f;
+}
 
 
 Controller::Controller(unsigned int width, unsigned int height):
@@ -57,6 +65,7 @@ bool Controller::initializeWindow(const std::string& title) {
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     
     glfwWindowHint(GLFW_SAMPLES, 4);  // Request 4x MSAA
+    
 
     window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, title.c_str(), nullptr, nullptr);
     if (!window) {
@@ -80,6 +89,7 @@ bool Controller::initializeWindow(const std::string& title) {
         std::cerr << "Failed to initialize GLAD" << std::endl;
         return false;
     }
+    glEnable(GL_MULTISAMPLE); // Enable MSAA
 
     return true;
 }
@@ -97,38 +107,29 @@ void Controller::processInput() {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 
-    if(isGoingDownStairs){
-        camera.Position.x-=2.0f;
-        camera.Position.y-=2.0f;
-        if(camera.Position.y <= -371.344f) IS_GOING_DOWN_STAIRS=false;
-    }
-    else if(isGoingUpStairs){
-        camera.Position.x+=3.0f;
-        camera.Position.y+=3.0f;
-        if(camera.Position.y >= -130.0f) IS_GOING_UP_STAIRS=false;
-    }
-    else{
-        if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-            camera.ProcessKeyboard(FORWARD, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+        camera.ProcessKeyboard(FORWARD, deltaTime);
 
-        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-            camera.ProcessKeyboard(BACKWARD, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+        camera.ProcessKeyboard(BACKWARD, deltaTime);
 
-        if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-            camera.ProcessKeyboard(LEFT, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+        camera.ProcessKeyboard(LEFT, deltaTime);
 
-        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-            camera.ProcessKeyboard(RIGHT, deltaTime);
-        
-        if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS){
-            if(camera.Position.y<=-371.344f) IS_GOING_UP_STAIRS = true;
-            else IS_GOING_DOWN_STAIRS = true;
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+        camera.ProcessKeyboard(RIGHT, deltaTime);
+
+    if(camera.Position.x>2200 && camera.Position.x< 2700){
+        if(isGoingDownStairsFromRest(camera.Position.x, camera.Position.y, camera.Position.z)){
+            camera.Position.y-=20.0f;
+        }
+        else if(isGoingUpStairsToRest(camera.Position.x, camera.Position.y, camera.Position.z)){
+            camera.Position.y+=20.0f;
         }
     }
-
+    
+    prevX = camera.Position.x;
     isNight = IS_NIGHT;
-    isGoingUpStairs = IS_GOING_UP_STAIRS;
-    isGoingDownStairs = IS_GOING_DOWN_STAIRS;
 }
 
 void Controller::updateDeltaTime() {

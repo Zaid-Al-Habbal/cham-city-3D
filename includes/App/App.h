@@ -59,6 +59,7 @@ public:
     BLUE_PLASTIC_SPEC = "bluePlasticSpec",
 
     BLACK = "black",
+    BLACK1 = "black1",
 
     SHOE1_TEX = "shoe1Tex",
     SHOE2_TEX = "shoe2Tex",
@@ -89,7 +90,20 @@ public:
     RED_FABRIC2 = "redFabric2",
     RED_FABRIC2_SPEC = "redFabric2Spec",
     
+    SOFA1_DIFF = "sofa1Diff",
+    SOFA2_DIFF = "sofa2Diff",
+
+    BED_DIFF = "bedDiff",
+    BED_SPEC = "bedSpec",
+
+    BEIGE = "beige",
+    BEIGE_SPEC = "beigeSpec",
+
+    TABLE2_DIFF = "table2Diff",
+    TABLE2_SPEC = "table2Spec",
     
+    TABLE3_DIFF = "table3Diff",
+    TABLE3_SPEC = "table3Spec",
 
 
     
@@ -167,12 +181,23 @@ public:
     TABLE = "table",
     CHAIR = "chair",
     CASHIER5 = "cashire5",
-    KITCHEN = "kitchen",
     REST_ROOF = "restRoof",
     TRIA = "tria",
     CYL_LIGHT = "triLight",
     REST_WALL = "restWall",
     CHAIR_BASE = "chairBase",
+
+    //FURN_STORE:
+    FURN_STORE = "furnStore",
+    CASHIER6 = "cashier6",
+    SHOP_BLOOR6 = "shopBloor6",
+    CIRCLE_LIGHT6 = "circleLight6",
+
+    BED = "bed",
+    SOFA1 = "sofa1",
+    SOFA2 = "sofa2",
+    TABLE2 = "table2",
+    TABLE3 = "table3",
  
     STREND = "strend";
 };

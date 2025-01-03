@@ -16,7 +16,7 @@ enum Camera_Movement {
 // Default camera values
 const float YAW         = -90.0f;
 const float PITCH       =  0.0f;
-const float SPEED       =  1300.5f;
+const float SPEED       =  1000.5f;
 const float SENSITIVITY =  0.1f;
 const float ZOOM        =  45.0f;
 
@@ -58,7 +58,7 @@ public:
         updateCameraVectors();
     }
     void printPos(){
-        std::cout << this->Position.x << " " << this->Position.y <<  " " << this->Position.z << "\n";
+        std::cout << this->Position.x << "f, " << this->Position.y <<  "f, " << this->Position.z << "f \n";
     }
     // returns the view matrix calculated using Euler Angles and the LookAt Matrix
     glm::mat4 GetViewMatrix()
@@ -85,7 +85,7 @@ public:
         // Restaurant level:
         // Position.y = -130.344f; 
         //********************************* */
-        // Position.y = curLevel;
+        Position.y = curLevel;
     }
 
     // processes input received from a mouse input system. Expects the offset value in both the x and y direction.

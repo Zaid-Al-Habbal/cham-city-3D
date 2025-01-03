@@ -92,6 +92,7 @@ void ResourceManager::setTextures()
     
     //BLACK:
     textures[BLACK] = TextureManager("../resources/textures/Black.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[BLACK1] = TextureManager("../resources/textures/Black.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
     
     //SUITE_REF:
     textures[SUITE_REF] = TextureManager("../resources/textures/suite_shop_ref.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
@@ -149,5 +150,31 @@ void ResourceManager::setTextures()
     //RED_FABRIC2:
     textures[RED_FABRIC2] = TextureManager("../resources/textures/Fabric054_1K-diff.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
     textures[RED_FABRIC2_SPEC] = TextureManager("../resources/textures/Fabric054_1K-spec.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+    
+    //BEIGE:
+    textures[BEIGE] = TextureManager("../resources/textures/Travertine003_1K-diff.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[BEIGE_SPEC] = TextureManager("../resources/textures/Travertine003_1K-spec.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+    
+    
+    //TEXTURES DO NOT FLIP::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    stbi_set_flip_vertically_on_load(false);
+
+    //SOFA1:
+    textures[SOFA1_DIFF] = TextureManager("../resources/objects/sofa1/textures/diff.jpeg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    
+    //BED:
+    textures[BED_DIFF] = TextureManager("../resources/objects/GothicBed_01_1k.fbx/textures/GothicBed_01_diff_1k.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[BED_SPEC] = TextureManager("../resources/objects/GothicBed_01_1k.fbx/textures/GothicBed_01_roughness_1k.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+    
+    //SOFA2:
+    textures[SOFA2_DIFF] = TextureManager("../resources/objects/sofa2/textures/diffuse.jpeg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    
+    //TABLE2:
+    textures[TABLE2_DIFF] = TextureManager("../resources/objects/table/textures/Table_BC.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[TABLE2_SPEC] = TextureManager("../resources/objects/table/textures/Table_AO.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+    
+    //TABLE3:
+    textures[TABLE3_DIFF] = TextureManager("../resources/objects/antique-table/textures/defaultMat_Base_Color.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[TABLE3_SPEC] = TextureManager("../resources/objects/antique-table/textures/defaultMat_Metallic.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
     
 }

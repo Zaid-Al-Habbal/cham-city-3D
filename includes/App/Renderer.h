@@ -29,7 +29,7 @@ public:
     Renderer();
     void render(Controller& controller);
     void draw(string ObjectName, int numOfVertices, int offset);
-    void draw3Dmodel(string modelName);
+    void draw3Dmodel(string name, int startIndex=0, int endIndex=1e9);
 
 };
 #endif

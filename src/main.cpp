@@ -27,7 +27,7 @@ int main()
         glfwSwapBuffers(controller.getWindow());
         glfwPollEvents();
     }
-
+    
     glfwTerminate();
     return 0;
 }

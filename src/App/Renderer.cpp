@@ -38,7 +38,6 @@ void Renderer::render(Controller& controller)
      (float)SCR_WIDTH / (float)SCR_HEIGHT, 1.0f, 30000.0f);
     glm::mat4 view = camera.GetViewMatrix();
     
-    // camera.printPos();
 
     //REEEEEEEEEEEEEEEEEEEEEEF:---------------------------------------------
     //---------------------------------------------------------------------------------------
@@ -142,6 +141,7 @@ void Renderer::render(Controller& controller)
     //GROUND:
     TextureManager::enable(shaders[MAIN], textures[WHITE_TILES], textures[WHITE_TILES_SPEC], 4);
     draw(GROUND, cubes[GROUND].getIndexCount(), 0);
+    
 
     //SUITE_SHOP::::::::::::
     //update mainLight:
@@ -369,6 +369,7 @@ void Renderer::render(Controller& controller)
         mainLight.pointLightQuadratic[i] =  0.000001f;
     }
     mainLight.turnOnPoint();
+    
 
     //REST_ROOF:
     TextureManager::enable(shaders[MAIN], textures[TRAV], textures[TRAV_SPEC],4);
@@ -395,18 +396,61 @@ void Renderer::render(Controller& controller)
 
     //..TABLE:
     TextureManager::enable(shaders[MAIN], textures[RED_FABRIC1], textures[RED_FABRIC1_SPEC], 1);
-    draw(TABLE, cylinders[TABLE].getIndexCount(), 6);
+    draw(TABLE, cylinders[TABLE].getIndexCount(), 0);
 
-    //..CHAIR:
+    //..CHAIR_BASE:
     TextureManager::enable(shaders[MAIN], textures[RED_FABRIC2], textures[RED_FABRIC2_SPEC], 1);
-    draw(CHAIR_BASE, cylinders[CHAIR_BASE].getIndexCount(), 6);
+    draw(CHAIR_BASE, cylinders[CHAIR_BASE].getIndexCount(), 0);
 
 
     //..CHAIR:
-    draw(CHAIR, toruses[CHAIR].getIndexCount(), 6);
+    draw(CHAIR, toruses[CHAIR].getIndexCount(), 0);
+    //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+    //conf Lights for Furniture store:
+    mainLight.numOfPoints = 8;
+    mainLight.pointLightPosition[4] = vec3(3970.11f, 303.889f, 1729.78f);
+    mainLight.pointLightPosition[5] = vec3(3736.78f, 303.889f, 3153.78f);
+    mainLight.pointLightPosition[6] = vec3(3495.82f, -303.889f, 4608.87f);
+    mainLight.pointLightPosition[7] = vec3(3612.33f, -303.388f, 6169.94f);
 
+    for(int i=4; i<mainLight.numOfPoints; i++){
+        mainLight.pointLightColor[i] = Color::SandyBrown;
+        mainLight.pointLightLinear[i]= 	 	0.000001 * 0.0014f;
+        mainLight.pointLightQuadratic[i] =  0.0000007f;
+    }
+    mainLight.turnOnPoint();
+
+    //FURN_STORE::::::::::::::::::::::::::::
+    TextureManager::enable(shaders[MAIN], textures[BEIGE], textures[BEIGE_SPEC], 4);
+    draw(FURN_STORE, cubes[FURN_STORE].getIndexCount(), 6);
+
+    //..CIRCLE_LIGHT6:
+    TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC], 1);
+    draw(CIRCLE_LIGHT6, cylinders[CIRCLE_LIGHT6].getIndexCount(), 0);
+
+    //..BED:
+    TextureManager::enable(shaders[MAIN], textures[BED_DIFF], textures[BED_SPEC], 1);
+    draw3Dmodel(BED, 0, threeDModels[BED].meshes.size());
+
+    //..SOFA1:
+    TextureManager::enable(shaders[MAIN], textures[SOFA1_DIFF], textures[BLACK1], 1);
+    draw3Dmodel(SOFA1, 0, threeDModels[SOFA1].meshes.size());
+
+    //..SOFA2:
+    TextureManager::enable(shaders[MAIN], textures[SOFA2_DIFF], textures[BLACK1], 1);
+    draw3Dmodel(SOFA2, 0, threeDModels[SOFA2].meshes.size());
+
+    //..TABLE2:
+    TextureManager::enable(shaders[MAIN], textures[TABLE2_DIFF], textures[TABLE2_SPEC], 1);
+    draw3Dmodel(TABLE2, 0, threeDModels[TABLE2].meshes.size());
+
+    //..TABLE3:
+    TextureManager::enable(shaders[MAIN], textures[TABLE3_DIFF], textures[TABLE3_SPEC], 1);
+    draw3Dmodel(TABLE3);
+    
     //---------------------------------------------------------------------------------------
+    camera.printPos();
     // SKYBOX:
     skybox.setEnvironment(!controller.isNight);
     skybox.draw(shaders[SKYBOX], view, projection);
@@ -457,18 +501,15 @@ void Renderer::draw(string objectName, int numOfVertices, int offset)
 }
 
 
-void Renderer::draw3Dmodel(string name)
+void Renderer::draw3Dmodel(string name, int startIndex, int endIndex)
 {
-    shaders[MAIN].setFloat("textureCnt", 1.0f);
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, threeDModels[name].textures_loaded[0].id); // note: we also made the textures_loaded vector public (instead of private) from the model class.
-    glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D, threeDModels[name].textures_loaded[1].id); // note: we also made the textures_loaded vector public (instead of private) from the model class.
-    for (unsigned int i = 0; i < threeDModels[name].meshes.size(); i++)
+    if(endIndex==1e9) endIndex = threeDModels[name].meshes.size();
+    for (unsigned int i = startIndex; i < endIndex; i++)
     {
         glBindVertexArray(threeDModels[name].meshes[i].VAO);
         glDrawElementsInstanced(GL_TRIANGLES, static_cast<unsigned int>(threeDModels[name].meshes[i].indices.size()), GL_UNSIGNED_INT, 0, models[name].size());
         glBindVertexArray(0);
     }
+    // cout << (int)threeDModels[name].meshes.size() << endl;
 }
 
