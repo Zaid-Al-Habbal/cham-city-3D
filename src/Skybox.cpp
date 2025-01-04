@@ -58,12 +58,12 @@ static const std::vector<std::string> morningFaces = {
 };
 
 static const std::vector<std::string> eveningFaces = {
-        "../resources/objects/skybox/night/right.jpg",
-        "../resources/objects/skybox/night/left.jpg",
-        "../resources/objects/skybox/night/top.jpg",
-        "../resources/objects/skybox/night/bottom.jpg",
-        "../resources/objects/skybox/night/front.jpg",
-        "../resources/objects/skybox/night/back.jpg"
+        "../resources/objects/skybox/night2/right.jpg",
+        "../resources/objects/skybox/night2/left.jpg",
+        "../resources/objects/skybox/night2/top.jpg",
+        "../resources/objects/skybox/night2/bottom.jpg",
+        "../resources/objects/skybox/night2/front.jpg",
+        "../resources/objects/skybox/night2/back.jpg"
 };
 
 Skybox::Skybox() {

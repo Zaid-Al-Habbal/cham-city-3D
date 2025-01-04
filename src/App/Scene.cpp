@@ -86,7 +86,7 @@ Scene::Scene()
     appModel = rotate(appModel, radians(-200.0f), Y);
     models[CYL_ADDITIONAL].PB(appModel);
 
-    appModel = translate(appModel, vec3(0.0f, -3750.0f, 0.0f));
+    appModel = translate(appModel, vec3(0.0f, -3820.0f, 0.0f));
     models[CYL_ADDITIONAL].PB(appModel);
 
     cylinderBuffers(CYL_ADDITIONAL);
@@ -149,8 +149,8 @@ Scene::Scene()
     //GROUND:
     cubes[GROUND] = Cubesphere(5000.0f, 1, false);
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-4800.0f, -965.0f, 2560.0f));
-    appModel = scale(appModel, vec3(2.73f, 0.01f, 2.0f));
+    appModel = translate(appModel, vec3(-4950.0f, -965.0f, 3860.0f));
+    appModel = scale(appModel, vec3(2.8f, 0.01f, 2.3f));
     models[GROUND].PB(appModel);
     cubeBuffers(GROUND); 
 
@@ -165,6 +165,16 @@ Scene::Scene()
     appModel = scale(appModel, vec3(3.0f, 2.1f, 9.2f)); 
     models[SUITE_SHOP].PB(appModel);
     cubeBuffers(SUITE_SHOP);
+
+    //SUITE_GROUND
+    cubes[SUITE_GROUND] = Cubesphere(500.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(320.0f, -900.0f, -2850.0f)); //oldZ = -2850 , I added 13150
+    appModel = rotate(appModel, radians(-90.0f), Y);
+    appModel = scale(appModel, vec3(3.0f, 0.005f, 9.2f)); 
+    models[SUITE_GROUND].PB(appModel);
+    cubes[SUITE_GROUND].reverseNormals();
+    cubeBuffers(SUITE_GROUND);
 
     //CIRCLE_LIGHT:
     cylinders[CIRCLE_LIGHT] = Cylinder(60.0f, 60.0f, 10.0f, 36, 1, true, 2);
@@ -276,6 +286,14 @@ Scene::Scene()
     models[SUITE_SHOP].PB(appModel);
     cubeBuffers(SUITE_SHOP);
 
+    //SUITE_GROUND
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(320.0f, -900.0f + 1300.0f, -2850.0f)); //oldZ = -2850 , I added 13150
+    appModel = rotate(appModel, radians(-90.0f), Y);
+    appModel = scale(appModel, vec3(3.0f, 0.005f, 9.2f)); 
+    models[SUITE_GROUND].PB(appModel);
+    cubeBuffers(SUITE_GROUND);
+
     //CIRCLE_LIGHT:
     cylinders[CIRCLE_LIGHT] = Cylinder(60.0f, 60.0f, 10.0f, 36, 1, true, 2);
     appModel = MODEL;
@@ -385,6 +403,14 @@ Scene::Scene()
     appModel = scale(appModel, vec3(3.0f, 2.1f, 9.2f)); 
     models[SUITE_SHOP].PB(appModel);
     cubeBuffers(SUITE_SHOP);
+
+    //SUITE_GROUND
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(320.0f, -900.0f + 2600.0f, -2850.0f)); //oldZ = -2850 , I added 13150
+    appModel = rotate(appModel, radians(-90.0f), Y);
+    appModel = scale(appModel, vec3(3.0f, 0.005f, 9.2f)); 
+    models[SUITE_GROUND].PB(appModel);
+    cubeBuffers(SUITE_GROUND);
 
     //CIRCLE_LIGHT:
     cylinders[CIRCLE_LIGHT] = Cylinder(60.0f, 60.0f, 10.0f, 36, 1, true, 2);
@@ -501,6 +527,16 @@ Scene::Scene()
     models[SHIRT_SHOP].PB(appModel);
     cubeBuffers(SHIRT_SHOP);
 
+    //SHIRT_GROUND
+    cubes[SHIRT_GROUND] = Cubesphere(500.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(320.0f, -900.0f, 10300.0f)); //oldZ = -2850 , I added 13150
+    appModel = rotate(appModel, radians(-270.0f), Y);
+    appModel = scale(appModel, vec3(3.0f, 0.005f, 9.2f)); 
+    models[SHIRT_GROUND].PB(appModel);
+    cubes[SHIRT_GROUND].reverseNormals();
+    cubeBuffers(SHIRT_GROUND);
+
     //CIRCLE_LIGHT_2:
     cylinders[CIRCLE_LIGHT_2] = Cylinder(60.0f, 60.0f, 10.0f, 36, 1, true, 2);
     appModel = MODEL;
@@ -611,6 +647,14 @@ Scene::Scene()
     appModel = scale(appModel, vec3(3.0f, 2.1f, 9.2f)); 
     models[SHIRT_SHOP].PB(appModel);
     cubeBuffers(SHIRT_SHOP);
+
+    //SHIRT_GROUND
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(320.0f, -900.0f + 1300.0f, 10300.0f)); //oldZ = -2850 , I added 13150
+    appModel = rotate(appModel, radians(-270.0f), Y);
+    appModel = scale(appModel, vec3(3.0f, 0.005f, 9.2f)); 
+    models[SHIRT_GROUND].PB(appModel);
+    cubeBuffers(SHIRT_GROUND);
 
     //CIRCLE_LIGHT_2:
     cylinders[CIRCLE_LIGHT_2] = Cylinder(60.0f, 60.0f, 10.0f, 36, 1, true, 2);
@@ -723,6 +767,14 @@ Scene::Scene()
     models[SHIRT_SHOP].PB(appModel);
     cubeBuffers(SHIRT_SHOP);
 
+    //SHIRT_GROUND
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(320.0f, -900.0f + 2600.0f, 10300.0f)); //oldZ = -2850 , I added 13150
+    appModel = rotate(appModel, radians(-270.0f), Y);
+    appModel = scale(appModel, vec3(3.0f, 0.005f, 9.2f)); 
+    models[SHIRT_GROUND].PB(appModel);
+    cubeBuffers(SHIRT_GROUND);
+
     //CIRCLE_LIGHT_2:
     cylinders[CIRCLE_LIGHT_2] = Cylinder(60.0f, 60.0f, 10.0f, 36, 1, true, 2);
     appModel = MODEL;
@@ -834,6 +886,16 @@ Scene::Scene()
     appModel = scale(appModel, vec3(3.0f, 2.1f, 9.2f)); 
     models[SHOES_SHOP].PB(appModel);
     cubeBuffers(SHOES_SHOP);
+
+    //SHOES_GROUND
+    cubes[SHOES_GROUND] = Cubesphere(500.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(320.0f- 5350.0f, -900.0f, 10300.0f)); //oldZ = -2850 , I added 13150
+    appModel = rotate(appModel, radians(-270.0f), Y);
+    appModel = scale(appModel, vec3(3.0f, 0.005f, 9.2f)); 
+    models[SHOES_GROUND].PB(appModel);
+    cubes[SHOES_GROUND].reverseNormals();
+    cubeBuffers(SHOES_GROUND);
 
     //SQUARE_LIGHT:
     cubes[SQUARE_LIGHT] = Cubesphere(200.0f, 1, true);
@@ -948,6 +1010,14 @@ Scene::Scene()
     models[SHOES_SHOP].PB(appModel);
     cubeBuffers(SHOES_SHOP);
 
+    //SHOES_GROUND
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(320.0f- 5350.0f, -900.0f+1300.0f, 10300.0f)); //oldZ = -2850 , I added 13150
+    appModel = rotate(appModel, radians(-270.0f), Y);
+    appModel = scale(appModel, vec3(3.0f, 0.005f, 9.2f)); 
+    models[SHOES_GROUND].PB(appModel);
+    cubeBuffers(SHOES_GROUND);
+
     //SQUARE_LIGHT:
     cubes[SQUARE_LIGHT] = Cubesphere(200.0f, 1, true);
     cubes[SQUARE_LIGHT].reverseNormals();
@@ -1061,6 +1131,14 @@ Scene::Scene()
     appModel = scale(appModel, vec3(3.0f, 2.1f, 9.2f)); 
     models[SHOES_SHOP].PB(appModel);
     cubeBuffers(SHOES_SHOP);
+
+    //SHOES_GROUND
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(320.0f- 5350.0f, -900.0f+2600.0f, 10300.0f)); //oldZ = -2850 , I added 13150
+    appModel = rotate(appModel, radians(-270.0f), Y);
+    appModel = scale(appModel, vec3(3.0f, 0.005f, 9.2f)); 
+    models[SHOES_GROUND].PB(appModel);
+    cubeBuffers(SHOES_GROUND);
 
     //SQUARE_LIGHT:
     cubes[SQUARE_LIGHT] = Cubesphere(200.0f, 1, true);
@@ -1181,6 +1259,16 @@ Scene::Scene()
     appModel = scale(appModel, vec3(3.0f, 2.1f, 9.0f)); 
     models[DRESS_SHOP].PB(appModel);
     cubeBuffers(DRESS_SHOP);
+
+    //DRESS_GROUND
+    cubes[DRESS_GROUND] = Cubesphere(500.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-5030-5300.0f, -900.0f, 10300.0f)); //oldZ = -2850 , I added 13150
+    appModel = rotate(appModel, radians(-270.0f), Y);
+    appModel = scale(appModel, vec3(3.0f, 0.005f, 9.0f)); 
+    models[DRESS_GROUND].PB(appModel);
+    cubes[DRESS_GROUND].reverseNormals();
+    cubeBuffers(DRESS_GROUND);
     
     //CIRCLE_LIGHT_4:
     cylinders[CIRCLE_LIGHT_4] = Cylinder(60.0f, 60.0f, 10.0f, 36, 1, true, 2);
@@ -1312,6 +1400,14 @@ Scene::Scene()
     appModel = scale(appModel, vec3(3.0f, 2.1f, 9.0f)); 
     models[DRESS_SHOP].PB(appModel);
     cubeBuffers(DRESS_SHOP);
+
+    //DRESS_GROUND
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-5030-5300.0f, -900.0f + 1300.0f, 10300.0f)); //oldZ = -2850 , I added 13150
+    appModel = rotate(appModel, radians(-270.0f), Y);
+    appModel = scale(appModel, vec3(3.0f, 0.005f, 9.0f)); 
+    models[DRESS_GROUND].PB(appModel);
+    cubeBuffers(DRESS_GROUND);
     
     //CIRCLE_LIGHT_4:
     cylinders[CIRCLE_LIGHT_4] = Cylinder(60.0f, 60.0f, 10.0f, 36, 1, true, 2);
@@ -1442,6 +1538,14 @@ Scene::Scene()
     appModel = scale(appModel, vec3(3.0f, 2.1f, 9.0f)); 
     models[DRESS_SHOP].PB(appModel);
     cubeBuffers(DRESS_SHOP);
+
+    //DRESS_GROUND
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-5030-5300.0f, -900.0f + 2600.0f, 10300.0f)); //oldZ = -2850 , I added 13150
+    appModel = rotate(appModel, radians(-270.0f), Y);
+    appModel = scale(appModel, vec3(3.0f, 0.005f, 9.0f)); 
+    models[DRESS_GROUND].PB(appModel);
+    cubeBuffers(DRESS_GROUND);
     
     //CIRCLE_LIGHT_4:
     cylinders[CIRCLE_LIGHT_4] = Cylinder(60.0f, 60.0f, 10.0f, 36, 1, true, 2);
@@ -2190,6 +2294,16 @@ Scene::Scene()
     models[FURN_STORE].PB(appModel);
     cubes[FURN_STORE].reverseNormals();
     cubeBuffers(FURN_STORE);
+
+    //FURN_GROUND
+    cubes[FURN_GROUND] = Cubesphere(500.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3800.0f, -900.0f, 4100.0f)); //oldZ = -2850 , I added 13150
+    appModel = rotate(appModel, radians(180.0f), Y);
+    appModel = scale(appModel, vec3(4.5f, 0.005f, 13.7f)); 
+    models[FURN_GROUND].PB(appModel);
+    // cubes[FURN_GROUND].reverseNormals();
+    cubeBuffers(FURN_GROUND);
     
     //CIRCLE_LIGHT6:
     cylinders[CIRCLE_LIGHT6] = Cylinder(60.0f, 60.0f, 10.0f, 36, 1, true, 2);
@@ -2256,6 +2370,470 @@ Scene::Scene()
     appModel = scale(appModel, vec3(15.0f, 15.0f, 15.0f));
     models[TABLE3].PB(appModel);
     threeDmodelBuffers(TABLE3);
+
+    //TABLE4:
+    threeDModels[TABLE4] = Model("../resources/objects/ClassicConsole_01_1k.gltf/ClassicConsole_01_1k.gltf");
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4600.0f, -890.0f, 6400.0f));
+    appModel = scale(appModel, vec3(300.0f, 300.0f, 300.0f));
+    models[TABLE4].PB(appModel);
+    threeDmodelBuffers(TABLE4);
+
+    //CABINET1:
+    threeDModels[CABINET1] = Model("../resources/objects/Cabinet_Bookcase/20359_Cabinet_Bookcase_v1_Texture.obj");
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4200.0f, 200.0f, 7550.0f));
+    appModel = rotate(appModel, radians(90.0f), X);
+    appModel = scale(appModel, vec3(100.0f, 100.0f, 115.0f));
+    models[CABINET1].PB(appModel);
+    threeDmodelBuffers(CABINET1);
+
+
+
+    //CASHIER6:
+    cubes[CASHIER6] = Cubesphere(200.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3200.0, -750.0, 7070.0));
+    appModel = rotate(appModel, radians(270.0f), Y);
+    appModel = scale(appModel, vec3(1.0f, 1.2f, 4.0f));
+    models[CASHIER6].PB(appModel);
+    cubeBuffers(CASHIER6);
+
+    //SCREEN:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3250.0, -520.0, 7070.0));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(0.1f, 1.6f, 2.8f));
+    models[SCREEN].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, -35.0f, 0.0f));
+    appModel = scale(appModel, vec3(2.0f, 0.6f, 0.2f));
+    models[SCREEN].PB(appModel);
+    cubeBuffers(SCREEN);
+
+    //COUCH2:
+    threeDModels[COUCH2] = Model("../resources/objects/couch2/uploads_files_4635285_Couch.fbx");
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2800.0f, -800.0f, 1200.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(150.0f, 150.0f, 150.0f));
+    models[COUCH2].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2800.0f, -800.0f, 2500.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(150.0f, 150.0f, 150.0f));
+    models[COUCH2].PB(appModel);
+    threeDmodelBuffers(COUCH2);
+
+    //SOFA:
+    threeDModels[SOFA] = Model("../resources/objects/sofa/source/sofa.fbx");
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3650.0f, -900.0f, 1600.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(250.0f, 250.0f, 250.0f));
+    models[SOFA].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3650.0f, -900.0f, 2500.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(250.0f, 250.0f, 250.0f));
+    models[SOFA].PB(appModel);
+    threeDmodelBuffers(SOFA);
+
+    //TABLE5:
+    threeDModels[TABLE5] = Model("../resources/objects/table2/uploads_files_2693668_Side_Table.fbx");
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2800.0f, -900.0f, 6100.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(1000.0f, 1000.0f, 1000.0f));
+    models[TABLE5].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2800.0f, -900.0f, 5400.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(1000.0f, 1000.0f, 1000.0f));
+    models[TABLE5].PB(appModel);
+    threeDmodelBuffers(TABLE5);
+
+    //SHOP_BLOOR6
+    cubes[SHOP_BLOOR6] = Cubesphere(100.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2500.0f, -280.0f, 1600.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(25.0f, 9.8f, 0.05f));
+    models[SHOP_BLOOR6].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2500.0f, 50.0f, 4100.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(18.1f, 4.3f, 0.05f));
+    models[SHOP_BLOOR6].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2500.0f, -280.0f, 6600.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(25.0f, 9.8f, 0.05f));
+    models[SHOP_BLOOR6].PB(appModel);
+    
+    cubeBuffers(SHOP_BLOOR6);
+    //-----------------------------------------------------------------------------------------
+    //First FLOOR:::::::::::::::::::::::::::::::::::::::
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3800.0f, -300.0f + 1300.0f, 4100.0f)); //oldZ = -2850 , I added 13150
+    appModel = rotate(appModel, radians(180.0f), Y);
+    appModel = scale(appModel, vec3(4.5f, 2.1f, 13.7f)); 
+    models[FURN_STORE].PB(appModel);
+    cubes[FURN_STORE].reverseNormals();
+    cubeBuffers(FURN_STORE);
+
+    //FURN_GROUND
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3800.0f, -900.0f+ 1300.0f, 4100.0f)); //oldZ = -2850 , I added 13150
+    appModel = rotate(appModel, radians(180.0f), Y);
+    appModel = scale(appModel, vec3(4.5f, 0.005f, 13.7f)); 
+    models[FURN_GROUND].PB(appModel);
+    cubes[FURN_GROUND].reverseNormals();
+    cubeBuffers(FURN_GROUND);
+    
+    //CIRCLE_LIGHT6:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3800.0f, 230.0f+ 1300.0f, 1700.0f));
+    appModel = scale(appModel, vec3(3.0f, 3.0f, 3.0f));
+    models[CIRCLE_LIGHT6].PB(appModel);
+    for(int i=0; i<3; i++){
+        appModel = translate(appModel, vec3(0.0f, 0.0f, 500.0f));
+        models[CIRCLE_LIGHT6].PB(appModel);
+    }
+    cylinderBuffers(CIRCLE_LIGHT6);
+
+    //BED:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4600.0f, -900.0f+ 1300.0f, 700.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = scale(appModel, vec3(500.0f, 500.0f, 500.0f));
+    models[BED].PB(appModel);
+    threeDmodelBuffers(BED);
+
+    //SOFA1:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4600.0f, -750.0f+ 1300.0f, 1700.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = scale(appModel, vec3(300.0f, 300.0f, 300.0f));
+    models[SOFA1].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4600.0f, -750.0f+ 1300.0f, 2300.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = scale(appModel, vec3(300.0f, 300.0f, 300.0f));
+    models[SOFA1].PB(appModel);
+    threeDmodelBuffers(SOFA1);
+
+    //SOFA2:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4600.0f, -590.0f+ 1300.0f, 3100.0f));
+    appModel = rotate(appModel, radians(-90.0f), Y);
+    appModel = scale(appModel, vec3(500.0f, 500.0f, 500.0f));
+    models[SOFA2].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4600.0f, -590.0f+ 1300.0f, 4100.0f));
+    appModel = rotate(appModel, radians(-90.0f), Y);
+    appModel = scale(appModel, vec3(500.0f, 500.0f, 500.0f));
+    models[SOFA2].PB(appModel);
+    threeDmodelBuffers(SOFA2);
+
+    //TABLE2:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4600.0f, -890.0f+ 1300.0f, 5200.0f));
+    appModel = rotate(appModel, radians(180.0f), Y);
+    appModel = scale(appModel, vec3(50.0f, 50.0f, 50.0f));
+    models[TABLE2].PB(appModel);
+    threeDmodelBuffers(TABLE2);
+
+    //TABLE3:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4600.0f, -890.0f+ 1300.0f, 5900.0f));
+    appModel = scale(appModel, vec3(15.0f, 15.0f, 15.0f));
+    models[TABLE3].PB(appModel);
+    threeDmodelBuffers(TABLE3);
+
+    //TABLE4:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4600.0f, -890.0f+ 1300.0f, 6400.0f));
+    appModel = scale(appModel, vec3(300.0f, 300.0f, 300.0f));
+    models[TABLE4].PB(appModel);
+    threeDmodelBuffers(TABLE4);
+
+    //CABINET1:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4200.0f, 200.0f+ 1300.0f, 7550.0f));
+    appModel = rotate(appModel, radians(90.0f), X);
+    appModel = scale(appModel, vec3(100.0f, 100.0f, 115.0f));
+    models[CABINET1].PB(appModel);
+    threeDmodelBuffers(CABINET1);
+
+
+
+    //CASHIER6:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3200.0, -750.0f + 1300.0f, 7070.0));
+    appModel = rotate(appModel, radians(270.0f), Y);
+    appModel = scale(appModel, vec3(1.0f, 1.2f, 4.0f));
+    models[CASHIER6].PB(appModel);
+    cubeBuffers(CASHIER6);
+
+    //SCREEN:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3250.0, -520.0 + 1300.0f, 7070.0));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(0.1f, 1.6f, 2.8f));
+    models[SCREEN].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, -35.0f, 0.0f));
+    appModel = scale(appModel, vec3(2.0f, 0.6f, 0.2f));
+    models[SCREEN].PB(appModel);
+    cubeBuffers(SCREEN);
+
+    //COUCH2:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2800.0f, -800.0f + 1300.0f, 1200.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(150.0f, 150.0f, 150.0f));
+    models[COUCH2].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2800.0f, -800.0f+ 1300.0f, 2500.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(150.0f, 150.0f, 150.0f));
+    models[COUCH2].PB(appModel);
+    threeDmodelBuffers(COUCH2);
+
+    //SOFA:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3650.0f, -900.0f+ 1300.0f, 1600.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(250.0f, 250.0f, 250.0f));
+    models[SOFA].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3650.0f, -900.0f+ 1300.0f, 2500.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(250.0f, 250.0f, 250.0f));
+    models[SOFA].PB(appModel);
+    threeDmodelBuffers(SOFA);
+
+    //TABLE5:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2800.0f, -900.0f+ 1300.0f, 6100.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(1000.0f, 1000.0f, 1000.0f));
+    models[TABLE5].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2800.0f, -900.0f+ 1300.0f, 5400.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(1000.0f, 1000.0f, 1000.0f));
+    models[TABLE5].PB(appModel);
+    threeDmodelBuffers(TABLE5);
+
+    //SHOP_BLOOR6
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2500.0f, -280.0f+ 1300.0f, 1600.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(25.0f, 9.8f, 0.05f));
+    models[SHOP_BLOOR6].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2500.0f, 50.0f+ 1300.0f, 4100.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(18.1f, 4.3f, 0.05f));
+    models[SHOP_BLOOR6].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2500.0f, -280.0f+ 1300.0f, 6600.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(25.0f, 9.8f, 0.05f));
+    models[SHOP_BLOOR6].PB(appModel);
+    
+    cubeBuffers(SHOP_BLOOR6);
+
+    //-----------------------------------------------------------------------------------------
+    //First FLOOR:::::::::::::::::::::::::::::::::::::::
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3800.0f, -300.0f + 2600.0f, 4100.0f)); //oldZ = -2850 , I added 13150
+    appModel = rotate(appModel, radians(180.0f), Y);
+    appModel = scale(appModel, vec3(4.5f, 2.1f, 13.7f)); 
+    models[FURN_STORE].PB(appModel);
+    cubes[FURN_STORE].reverseNormals();
+    cubeBuffers(FURN_STORE);
+
+    //FURN_GROUND
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3800.0f, -900.0f+ 2600.0f, 4100.0f)); //oldZ = -2850 , I added 13150
+    appModel = rotate(appModel, radians(180.0f), Y);
+    appModel = scale(appModel, vec3(4.5f, 0.005f, 13.7f)); 
+    models[FURN_GROUND].PB(appModel);
+    // cubes[FURN_GROUND].reverseNormals();
+    cubeBuffers(FURN_GROUND);
+    
+    //CIRCLE_LIGHT6:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3800.0f, 230.0f+ 2600.0f, 1700.0f));
+    appModel = scale(appModel, vec3(3.0f, 3.0f, 3.0f));
+    models[CIRCLE_LIGHT6].PB(appModel);
+    for(int i=0; i<3; i++){
+        appModel = translate(appModel, vec3(0.0f, 0.0f, 500.0f));
+        models[CIRCLE_LIGHT6].PB(appModel);
+    }
+    cylinderBuffers(CIRCLE_LIGHT6);
+
+    //BED:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4600.0f, -900.0f+ 2600.0f, 700.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = scale(appModel, vec3(500.0f, 500.0f, 500.0f));
+    models[BED].PB(appModel);
+    threeDmodelBuffers(BED);
+
+    //SOFA1:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4600.0f, -750.0f+ 2600.0f, 1700.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = scale(appModel, vec3(300.0f, 300.0f, 300.0f));
+    models[SOFA1].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4600.0f, -750.0f+ 2600.0f, 2300.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = scale(appModel, vec3(300.0f, 300.0f, 300.0f));
+    models[SOFA1].PB(appModel);
+    threeDmodelBuffers(SOFA1);
+
+    //SOFA2:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4600.0f, -590.0f+ 2600.0f, 3100.0f));
+    appModel = rotate(appModel, radians(-90.0f), Y);
+    appModel = scale(appModel, vec3(500.0f, 500.0f, 500.0f));
+    models[SOFA2].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4600.0f, -590.0f+ 2600.0f, 4100.0f));
+    appModel = rotate(appModel, radians(-90.0f), Y);
+    appModel = scale(appModel, vec3(500.0f, 500.0f, 500.0f));
+    models[SOFA2].PB(appModel);
+    threeDmodelBuffers(SOFA2);
+
+    //TABLE2:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4600.0f, -890.0f+ 2600.0f, 5200.0f));
+    appModel = rotate(appModel, radians(180.0f), Y);
+    appModel = scale(appModel, vec3(50.0f, 50.0f, 50.0f));
+    models[TABLE2].PB(appModel);
+    threeDmodelBuffers(TABLE2);
+
+    //TABLE3:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4600.0f, -890.0f+ 2600.0f, 5900.0f));
+    appModel = scale(appModel, vec3(15.0f, 15.0f, 15.0f));
+    models[TABLE3].PB(appModel);
+    threeDmodelBuffers(TABLE3);
+
+    //TABLE4:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4600.0f, -890.0f+ 2600.0f, 6400.0f));
+    appModel = scale(appModel, vec3(300.0f, 300.0f, 300.0f));
+    models[TABLE4].PB(appModel);
+    threeDmodelBuffers(TABLE4);
+
+    //CABINET1:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(4200.0f, 200.0f+ 2600.0f, 7550.0f));
+    appModel = rotate(appModel, radians(90.0f), X);
+    appModel = scale(appModel, vec3(100.0f, 100.0f, 115.0f));
+    models[CABINET1].PB(appModel);
+    threeDmodelBuffers(CABINET1);
+
+
+
+    //CASHIER6:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3200.0, -750.0f + 2600.0f, 7070.0));
+    appModel = rotate(appModel, radians(270.0f), Y);
+    appModel = scale(appModel, vec3(1.0f, 1.2f, 4.0f));
+    models[CASHIER6].PB(appModel);
+    cubeBuffers(CASHIER6);
+
+    //SCREEN:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3250.0, -520.0 + 2600.0f, 7070.0));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(0.1f, 1.6f, 2.8f));
+    models[SCREEN].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, -35.0f, 0.0f));
+    appModel = scale(appModel, vec3(2.0f, 0.6f, 0.2f));
+    models[SCREEN].PB(appModel);
+    cubeBuffers(SCREEN);
+
+    //COUCH2:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2800.0f, -800.0f + 2600.0f, 1200.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(150.0f, 150.0f, 150.0f));
+    models[COUCH2].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2800.0f, -800.0f+ 2600.0f, 2500.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(150.0f, 150.0f, 150.0f));
+    models[COUCH2].PB(appModel);
+    threeDmodelBuffers(COUCH2);
+
+    //SOFA:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3650.0f, -900.0f+ 2600.0f, 1600.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(250.0f, 250.0f, 250.0f));
+    models[SOFA].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3650.0f, -900.0f+ 2600.0f, 2500.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(250.0f, 250.0f, 250.0f));
+    models[SOFA].PB(appModel);
+    threeDmodelBuffers(SOFA);
+
+    //TABLE5:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2800.0f, -900.0f+ 2600.0f, 6100.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(1000.0f, 1000.0f, 1000.0f));
+    models[TABLE5].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2800.0f, -900.0f+ 2600.0f, 5400.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(1000.0f, 1000.0f, 1000.0f));
+    models[TABLE5].PB(appModel);
+    threeDmodelBuffers(TABLE5);
+
+    //SHOP_BLOOR6
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2500.0f, -280.0f+ 2600.0f, 1600.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(25.0f, 9.8f, 0.05f));
+    models[SHOP_BLOOR6].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2500.0f, 50.0f+ 2600.0f, 4100.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(18.1f, 4.3f, 0.05f));
+    models[SHOP_BLOOR6].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2500.0f, -280.0f+ 2600.0f, 6600.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(25.0f, 9.8f, 0.05f));
+    models[SHOP_BLOOR6].PB(appModel);
+    
+    cubeBuffers(SHOP_BLOOR6);
 
 }
 

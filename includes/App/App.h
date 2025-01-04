@@ -105,6 +105,21 @@ public:
     TABLE3_DIFF = "table3Diff",
     TABLE3_SPEC = "table3Spec",
 
+    TABLE4_DIFF = "table4Diff",
+
+    CABINET1_DIFF = "cabinet1Diff",
+
+    COUCH2_DIFF = "couch2Diff",
+    COUCH2_SPEC = "couch2Spec",
+
+    SOFA_DIFF = "sofaDiff",
+    SOFA_SPEC = "sofaSpec",
+
+    TABLE5_DIFF = "table5Diff",
+    TABLE5_SPEC = "table5Spec",
+
+
+
 
     
     
@@ -129,6 +144,7 @@ public:
     GROUND = "ground",
     //SUITE_SHOP:
     SUITE_SHOP = "suiteShop",
+    SUITE_GROUND = "suiteGround",
     SUITE1_OBJ = "suite1Obj",
     SUITE2_OBJ = "suite2Obj",
     CIRCLE_LIGHT = "circleLight",
@@ -141,6 +157,7 @@ public:
 
     //SHIRT_SHOP:
     SHIRT_SHOP = "shirtShop",
+    SHIRT_GROUND = "shirtGround",
     SHIRT1_OBJ = "shirt1",
     SHIRT2_OBJ = "shirt2",
     CLOTHS_PLACE_2 = "clothsPlace2",
@@ -152,7 +169,8 @@ public:
     SHIRT_REF = "shirtRef",
 
     //SHOES_SHOP:
-    SHOES_SHOP = "shoseShop",    
+    SHOES_SHOP = "shoseShop", 
+    SHOES_GROUND = "shoesGround",   
     CASHIER3 = "cashier3",
     SHOP_BLOOR3 = "shopBloor3",
     SMALL_ROOF = "smallRoof",
@@ -163,6 +181,7 @@ public:
 
     //Dress_SHOP:
     DRESS_SHOP = "dressShop",
+    DRESS_GROUND = "dressGround",
     CASHIER4 = "cashier4",
     SHOP_BLOOR4 = "shopBloor4",
     DRESS1 = "dress1",
@@ -194,10 +213,17 @@ public:
     CIRCLE_LIGHT6 = "circleLight6",
 
     BED = "bed",
+    SOFA = "sofa",
     SOFA1 = "sofa1",
     SOFA2 = "sofa2",
     TABLE2 = "table2",
     TABLE3 = "table3",
+    TABLE4 = "table4",
+    CABINET1 = "cabinet1",
+    COUCH2 = "couch2",
+    TABLE5 = "table5",
+    FURN_GROUND = "furnGround",
+    
  
     STREND = "strend";
 };

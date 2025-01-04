@@ -13,25 +13,28 @@ void ResourceManager::setAudio()
     engine = createIrrKlangDevice();
     engine->setDefault3DSoundMinDistance(100.0f);
     
-    // ISound* music =engine->play3D("../resources/audio/mall.wav", vec3df(-4500.0f, -492.199f, 4037.31f),
-    //                           true, false, true);
+    ISound* music =engine->play3D("../resources/audio/mall.wav", vec3df(-4500.0f, -492.199f, 4037.31f),
+                              true, false, true);
     
-    // music->setMinDistance(2000.0f);
+    music->setMinDistance(1500.0f);
 
-    // engine->play3D("../resources/audio/Rival_-Alan-Walker-Dreamer-_Rival-Remix_-_NCS-Release_.ogg", vec3df(907.83f, 249.006f, -3625.85f),
-    //                           true, false, true);
+    engine->play3D("../resources/audio/Rival_-Alan-Walker-Dreamer-_Rival-Remix_-_NCS-Release_.ogg", vec3df(907.83f, 249.006f, -3625.85f),
+                              true, false, true);
     
-    // engine->play3D("../resources/audio/TOKYO-MACHINE_-NEFFEX-Desperate-_NCS-Release_.ogg", vec3df(1211.15f, 292.262f, 11136.2f),
-    //                           true, false, true);
+    engine->play3D("../resources/audio/TOKYO-MACHINE_-NEFFEX-Desperate-_NCS-Release_.ogg", vec3df(1211.15f, 292.262f, 11136.2f),
+                              true, false, true);
     
-    // engine->play3D("../resources/audio/Diamond-Eyes-Doxx-My-Heart-_NCS-Release_.ogg", vec3df(-5154.78f, 270.735f, 11111.4f),
-    //                           true, false, true);
+    engine->play3D("../resources/audio/Diamond-Eyes-Doxx-My-Heart-_NCS-Release_.ogg", vec3df(-5154.78f, 270.735f, 11111.4f),
+                              true, false, true);
 
-    // engine->play3D("../resources/audio/ROSÉ-_-Bruno-Mars-APT.-_ROCK-VERSION_.ogg", vec3df(-10625.5f, 161.943f, 10954.1f),
-    //                           true, false, true);
+    engine->play3D("../resources/audio/ROSÉ-_-Bruno-Mars-APT.-_ROCK-VERSION_.ogg", vec3df(-10625.5f, 161.943f, 10954.1f),
+                              true, false, true);
     
-    // engine->play3D("../resources/audio/HEAT-WAVES-Glass-Animals-FREE-DOWNLOAD-No-Copyright.ogg", vec3df(4022.05f, -128.344f, -1173.46f),
-    //                           true, false, true);
+    engine->play3D("../resources/audio/HEAT-WAVES-Glass-Animals-FREE-DOWNLOAD-No-Copyright.ogg", vec3df(4022.05f, -128.344f, -1173.46f),
+                              true, false, true);
+    engine->play3D("../resources/audio/Diviners_-Tobu-Geometry-_NCS-Release_.ogg", vec3df(4550.74f, 18.6667f, 3748.58f ),
+                              true, false, true);
+    
 
 }
 
@@ -155,6 +158,7 @@ void ResourceManager::setTextures()
     textures[BEIGE] = TextureManager("../resources/textures/Travertine003_1K-diff.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
     textures[BEIGE_SPEC] = TextureManager("../resources/textures/Travertine003_1K-spec.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
     
+    //TABLE5
     
     //TEXTURES DO NOT FLIP::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     stbi_set_flip_vertically_on_load(false);
@@ -176,5 +180,23 @@ void ResourceManager::setTextures()
     //TABLE3:
     textures[TABLE3_DIFF] = TextureManager("../resources/objects/antique-table/textures/defaultMat_Base_Color.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
     textures[TABLE3_SPEC] = TextureManager("../resources/objects/antique-table/textures/defaultMat_Metallic.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+
+    //TABLE4
+    textures[TABLE4_DIFF] = TextureManager("../resources/objects/ClassicConsole_01_1k.gltf/textures/ClassicConsole_01_diff_1k.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
     
+    //CABINET1
+    textures[CABINET1_DIFF] = TextureManager("../resources/objects/Cabinet_Bookcase/20359_Cabinet_Bookcase.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    
+    //COUCH2:
+    textures[COUCH2_DIFF] = TextureManager("../resources/objects/couch2/diffuse.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[COUCH2_SPEC] = TextureManager("../resources/objects/couch2/specular.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+
+    //SOFA:
+    textures[SOFA_DIFF] = TextureManager("../resources/objects/sofa/textures/diffuse.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[SOFA_SPEC] = TextureManager("../resources/objects/sofa/textures/specular.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+
+    //TABLE5:
+    textures[TABLE5_DIFF] = TextureManager("../resources/objects/table2/Side_Table_COLOR.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[TABLE5_SPEC] = TextureManager("../resources/objects/table2/Side_Table_SPECULAR.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+
 }
