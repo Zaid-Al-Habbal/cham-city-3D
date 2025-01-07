@@ -41,7 +41,6 @@ public:
 
     unordered_map<string, Model> threeDModels;
 
-
     
     Scene();
 

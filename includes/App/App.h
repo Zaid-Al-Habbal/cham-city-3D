@@ -118,6 +118,28 @@ public:
     TABLE5_DIFF = "table5Diff",
     TABLE5_SPEC = "table5Spec",
 
+    GREEN_TILES = "greenTiles",
+    GREEN_TILES_SPEC = "greenTilesSpec",
+
+    WASHING1_DIFF = "washing1Diff",
+    WASHING2_DIFF = "washing2Diff",
+
+    FRIDGE1_DIFF = "fridge1Diff",
+    FRIDGE2_DIFF = "fridge2Diff",
+    
+    GRAY_METAL = "grayMetal",
+    GRAY_METAL_SPEC = "grayMetalSpec",
+
+    STOVE_DIFF = "stoveDiff",
+
+    OVEN_DIFF = "ovenDiff",
+    
+    MICRO_DIFF = "micreDiff",
+
+    TV_DIFF = "tvDiff",
+
+    SYRIA_DIFF = "syriaDiff",
+
 
 
 
@@ -223,6 +245,31 @@ public:
     COUCH2 = "couch2",
     TABLE5 = "table5",
     FURN_GROUND = "furnGround",
+
+    //TECH:
+    TECH_STORE = "techStore",
+    TECH_GROUND = "techGROUND",
+    CASHIER7 = "cashier7",
+    SHOP_BLOOR7 = "shopBloor7",
+    CIRCLE_LIGHT7 = "circleLight7",
+
+    WASHING1 = "washing1",
+    WASHING2 = "washing2",
+    WASHING_BODY = "washingBody",
+
+    JUST_WHITE = "justWhite",
+    JUST_WHITE_SPEC = "justWhiteSpec",
+
+    FRIDGE_BODY = "fridgeBody",
+    FRIDGE1 = "fridge1",
+    FRIDGE2 = "fridge2",
+
+    STOVE = "stove",
+
+    OVEN = "oven",
+    MICRO = "micro",
+    TV = "tv",
+    SYRIA = "syria",
     
  
     STREND = "strend";

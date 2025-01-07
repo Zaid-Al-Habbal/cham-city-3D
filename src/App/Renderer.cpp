@@ -35,7 +35,7 @@ void Renderer::render(Controller& controller)
      vec3df(camFro.x, camFro.y, camFro.z), vec3df(0,0,0),
       vec3df(camUp.x, camUp.y, camUp.z));       
     glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom),
-     (float)SCR_WIDTH / (float)SCR_HEIGHT, 1.0f, 30000.0f);
+     (float)SCR_WIDTH / (float)SCR_HEIGHT, 2.0f, 30000.0f);
     glm::mat4 view = camera.GetViewMatrix();
     
 
@@ -129,10 +129,14 @@ void Renderer::render(Controller& controller)
 
     //change mainLight:
     mainLight.numOfPoints = 4;
-    mainLight.pointLightPosition[0] = vec3(-12638.7f, 4000.587f, -1872.75f);
-    mainLight.pointLightPosition[1] = vec3(-11387.6f, 4000.864f, 7564.3f);
-    mainLight.pointLightPosition[2] = vec3(1734.2f, 4000.029f, 7617.22f);
-    mainLight.pointLightPosition[3] = vec3(1745.84f, 4000.76f, -2104.92f);
+    mainLight.pointLightPosition[0] = vec3(-12638.7f, 3000.0f, -1872.75f);
+    mainLight.pointLightPosition[1] = vec3(-11387.6f, 3000.0f, 7564.3f);
+    mainLight.pointLightPosition[2] = vec3(1734.2f, 3000.0f, 7617.22f);
+    mainLight.pointLightPosition[3] = vec3(1745.84f, 3000.0f, -2104.92f);
+    for(int i=0; i<4; i++){
+        mainLight.pointLightLinear[i]= 	 	0.12* 0.0014f;
+        mainLight.pointLightQuadratic[i] = 0.00000005* 0.000007f;
+    }
     
     mainLight.turnOnPoint();
     mainLight.turnOnDir();
@@ -493,12 +497,84 @@ void Renderer::render(Controller& controller)
     TextureManager::enable(shaders[MAIN], textures[TABLE5_DIFF], textures[TABLE5_SPEC], 1);
     draw3Dmodel(TABLE5);
 
+    
+    //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    
+    mainLight.numOfPoints = 8;
+    mainLight.pointLightPosition[4] = vec3(-13362.7f, 150.694f, 6568.96f);
+    mainLight.pointLightPosition[5] = vec3(-13340.6f, 150.694f, 4554.39f);
+    mainLight.pointLightPosition[6] = vec3(-13319.4f, 150.694f, 2560.75f );
+    mainLight.pointLightPosition[7] = vec3(-13374.3f, 150.694f, 355.059f );
+
+    for(int i=4; i<mainLight.numOfPoints; i++){
+        mainLight.pointLightColor[i] = Color::Blue;
+        mainLight.pointLightLinear[i]= 	 	0.0014f;
+        mainLight.pointLightQuadratic[i] =  0.000007f;
+    }
+    mainLight.turnOnPoint();
+    // TECH_STORE:::::::::::::::::::::
+    TextureManager::enable(shaders[MAIN], textures[GREEN_TILES], textures[GREEN_TILES_SPEC], 6);
+    draw(TECH_STORE, cubes[TECH_STORE].getIndexCount(), 6);
+
+    //TECH_GROUND:
+    TextureManager::enable(shaders[MAIN], textures[WHITE_TILES], textures[WHITE_TILES_SPEC], 2);
+    draw(TECH_GROUND, cubes[TECH_GROUND].getIndexCount(), 0);
+
+    //..CIRCLE_LIGHT7:
+    TextureManager::enable(shaders[MAIN], textures[JUST_WHITE], textures[JUST_WHITE_SPEC], 1);
+    draw(CIRCLE_LIGHT7, cylinders[CIRCLE_LIGHT7].getIndexCount(), 0);
+
+    //..WASHING_BODY:
+    TextureManager::enable(shaders[MAIN], textures[JUST_WHITE], textures[JUST_WHITE_SPEC], 1);
+    draw(WASHING_BODY, cubes[WASHING_BODY].getIndexCount(), 6);
+
+    //..WASHING1:
+    TextureManager::enable(shaders[MAIN], textures[WASHING1_DIFF], textures[WASHING1_DIFF], 1);
+    draw(WASHING1, 6, 0);
+
+    //..WASHING2:
+    TextureManager::enable(shaders[MAIN], textures[WASHING2_DIFF], textures[WASHING2_DIFF], 1);
+    draw(WASHING2, 6, 0);
+
+    //..FRIDGE_BODY:
+    TextureManager::enable(shaders[MAIN], textures[GRAY_METAL], textures[GRAY_METAL_SPEC], 1);
+    draw(FRIDGE_BODY, cubes[FRIDGE_BODY].getIndexCount(), 6);
+
+    //..FRIDGE1:
+    TextureManager::enable(shaders[MAIN], textures[FRIDGE1_DIFF], textures[FRIDGE1_DIFF], 1);
+    draw(FRIDGE1, 6, 0);
+
+    //..FRIDGE2:
+    TextureManager::enable(shaders[MAIN], textures[FRIDGE2_DIFF], textures[FRIDGE2_DIFF], 1);
+    draw(FRIDGE2, 6, 0);
+
+    //..STOVE:
+    TextureManager::enable(shaders[MAIN], textures[STOVE_DIFF], textures[STOVE_DIFF], 1);
+    draw3Dmodel(STOVE);
+
+    //..OVEN:
+    TextureManager::enable(shaders[MAIN], textures[OVEN_DIFF], textures[OVEN_DIFF], 1);
+    draw(OVEN, 6, 0);
+
+    //..MICRO:
+    TextureManager::enable(shaders[MAIN], textures[MICRO_DIFF], textures[MICRO_DIFF], 1);
+    draw(MICRO, 6, 0);
+
+    //..TV:
+    TextureManager::enable(shaders[MAIN], textures[TV_DIFF], textures[JUST_WHITE_SPEC], 1);
+    draw(TV, 6, 0);
+
+    //..SYRIA:
+    shaders[MAIN].setFloat("alpha", cos((float)glfwGetTime()));
+    TextureManager::enable(shaders[MAIN], textures[SYRIA_DIFF], textures[JUST_WHITE_SPEC], 1);
+    draw(SYRIA, 6, 0);
+    shaders[MAIN].setFloat("alpha", 1.0f);
+
     // SHOP_BLOOR6:
     shaders[MAIN].setFloat("alpha", 0.2f);
     TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC], 1);
     draw(SHOP_BLOOR6, cubes[SHOP_BLOOR6].getIndexCount(), 0);
     shaders[MAIN].setFloat("alpha", 1.0f);
-
     
     //---------------------------------------------------------------------------------------
     camera.printPos();

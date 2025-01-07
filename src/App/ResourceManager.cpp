@@ -35,6 +35,9 @@ void ResourceManager::setAudio()
     engine->play3D("../resources/audio/Diviners_-Tobu-Geometry-_NCS-Release_.ogg", vec3df(4550.74f, 18.6667f, 3748.58f ),
                               true, false, true);
     
+    
+    engine->play3D("../resources/audio/Linn-Sandin_-Midranger_-Poylow-Revolution-_NCS-Release_.ogg", vec3df(-14159.0f, -0.171659f, 2380.01f),
+                              true, false, true);
 
 }
 
@@ -157,11 +160,45 @@ void ResourceManager::setTextures()
     //BEIGE:
     textures[BEIGE] = TextureManager("../resources/textures/Travertine003_1K-diff.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
     textures[BEIGE_SPEC] = TextureManager("../resources/textures/Travertine003_1K-spec.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+
+    //GREEN_TILES:
+    textures[GREEN_TILES] = TextureManager("../resources/textures/Tiles003_1K-diff.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[GREEN_TILES_SPEC] = TextureManager("../resources/textures/Tiles003_1K-spec.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
     
-    //TABLE5
     
+    //JUST_WHITE:
+    textures[JUST_WHITE] = TextureManager("../resources/textures/just_white.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[JUST_WHITE_SPEC] = TextureManager("../resources/textures/just_white.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+    
+    //GRAY_METAL:
+    textures[GRAY_METAL] = TextureManager("../resources/textures/Metal036_1K-JPG_Color.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[GRAY_METAL_SPEC] = TextureManager("../resources/textures/Metal036_1K-JPG_Metalness.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+    
+
+
     //TEXTURES DO NOT FLIP::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     stbi_set_flip_vertically_on_load(false);
+
+    //SYRIA:
+    textures[SYRIA_DIFF] = TextureManager("../resources/textures/syria.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+
+    //TV:
+    textures[TV_DIFF] = TextureManager("../resources/textures/screenY.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+
+    //MICRO:
+    textures[MICRO_DIFF] = TextureManager("../resources/textures/micro1.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+
+    //OVEN:
+    textures[OVEN_DIFF] = TextureManager("../resources/textures/oven.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+
+    //WASHINGs:
+    textures[WASHING1_DIFF] = TextureManager("../resources/textures/wash2.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+    textures[WASHING2_DIFF] = TextureManager("../resources/textures/wash1.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+    
+    //FRIDGEs:
+    textures[FRIDGE1_DIFF] = TextureManager("../resources/textures/fridge2.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+    textures[FRIDGE2_DIFF] = TextureManager("../resources/textures/fridge1.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+    
 
     //SOFA1:
     textures[SOFA1_DIFF] = TextureManager("../resources/objects/sofa1/textures/diff.jpeg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
@@ -198,5 +235,9 @@ void ResourceManager::setTextures()
     //TABLE5:
     textures[TABLE5_DIFF] = TextureManager("../resources/objects/table2/Side_Table_COLOR.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
     textures[TABLE5_SPEC] = TextureManager("../resources/objects/table2/Side_Table_SPECULAR.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+
+    //STOVE:
+    textures[STOVE_DIFF] = TextureManager("../resources/objects/electric_stove_1k.fbx/textures/electric_stove_diff_1k.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+
 
 }

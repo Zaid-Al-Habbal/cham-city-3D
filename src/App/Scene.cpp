@@ -34,7 +34,7 @@ Scene::Scene()
     appModel = scale(appModel, vec3(2.0f, 1.16f, 3.1f));
     models[SPECIAL_BUILDING].PB(appModel);
     //..back-right:
-    appModel = translate(curModel, vec3(8700.0f, 50.0f, 20.0f));
+    appModel = translate(curModel, vec3(8690.0f, 50.0f, 20.0f));
     appModel = rotate(appModel, radians(180.0f), Y);
     appModel = scale(appModel, vec3(1.0f, 1.12f, 1.50f));
     models[SPECIAL_BUILDING].PB(appModel);
@@ -102,7 +102,7 @@ Scene::Scene()
     //ENTRY:
     toruses[ENTRY] = Torus(1200*1.6f, 1200*0.5f, 4, 7, false, 3);
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-4550.0f, 100.0f, -2420.0f));
+    appModel = translate(appModel, vec3(-4550.0f, 100.0f, -2220.0f));
     appModel = rotate(appModel, radians(10.0f), X);
     appModel = scale(appModel, vec3(1.252f, 2.3f, 1.0f));
     appModel = rotate(appModel, radians(45.0f), Z);
@@ -112,14 +112,14 @@ Scene::Scene()
     //ENTRY_BLOOR:
     cubes[ENTRY_BLOOR] = Cubesphere(1000.0f, 1, false);
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-4650.0f, 1150.0f, -2520.0f));
+    appModel = translate(appModel, vec3(-4550.0f, 1350.0f, -2520.0f));
     appModel = rotate(appModel, radians(20.0f), X);
-    appModel = scale(appModel, vec3(2.3f, 2.0f, 0.04f));
+    appModel = scale(appModel, vec3(2.6f, 2.2f, 0.04f));
     models[ENTRY_BLOOR].PB(appModel);
 
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-3550.0f, -415.0f, -2830.0f));
-    appModel = scale(appModel, vec3(0.40f, 1.0f, 0.04f));
+    appModel = translate(appModel, vec3(-3550.0f, -300.0f, -2830.0f));
+    appModel = scale(appModel, vec3(0.43f, 1.0f, 0.04f));
     models[ENTRY_BLOOR].PB(appModel);
     appModel = translate(appModel, vec3(-5050.0f, 0.0f, 0.0f));
     models[ENTRY_BLOOR].PB(appModel);
@@ -2835,6 +2835,748 @@ Scene::Scene()
     
     cubeBuffers(SHOP_BLOOR6);
 
+    //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    //TECH_STORE::::::::::::::::::::::::::::::::
+    //GROUND FLOOR:
+    cubes[TECH_STORE] = Cubesphere(500.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-13460.0f, -300.0f, 2850.0f)); 
+    appModel = scale(appModel, vec3(3.5f, 2.1f, 16.9f)); 
+    models[TECH_STORE].PB(appModel);
+    cubes[TECH_STORE].reverseNormals();
+    cubeBuffers(TECH_STORE);
+
+    //TECH_GROUND
+    cubes[TECH_GROUND] = Cubesphere(500.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-13460.0f, -900.0f, 2850.0f)); 
+    appModel = scale(appModel, vec3(3.5f, 0.005f, 16.9f)); 
+    models[TECH_GROUND].PB(appModel);
+    cubes[TECH_GROUND].reverseNormals();
+    cubeBuffers(TECH_GROUND);
+
+    //CIRCLE_LIGHT7:
+    cylinders[CIRCLE_LIGHT7] = Cylinder(60.0f, 60.0f, 10.0f, 36, 1, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-13460.0f, 230.0f, 300.0f));
+    appModel = scale(appModel, vec3(3.0f, 3.0f, 3.0f));
+    models[CIRCLE_LIGHT7].PB(appModel);
+    for(int i=0; i<3; i++){
+        appModel = translate(appModel, vec3(0.0f, 0.0f, 700.0f));
+        models[CIRCLE_LIGHT7].PB(appModel);
+    }
+    cylinderBuffers(CIRCLE_LIGHT7);
+
+    //WASHINGs:
+    cubes[WASHING_BODY] = Cubesphere(350.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f, -700.0f, -800.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 0.9f));
+    models[WASHING_BODY].PB(appModel);
+    curModel = appModel;
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 1300.0f));
+    models[WASHING_BODY].PB(appModel);
+    appModel = translate(appModel, vec3(-1400.0f, 0.0f, 0.0f));
+    models[WASHING_BODY].PB(appModel);
+    appModel = translate(curModel, vec3(-1400.0f, 0.0f, 0.0f));
+    models[WASHING_BODY].PB(appModel);
+
+    //for Oven:
+    curModel = appModel;
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 2400.0f));
+    models[WASHING_BODY].PB(appModel);
+
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 800.0f));
+    models[WASHING_BODY].PB(appModel);
+
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 800.0f));
+    models[WASHING_BODY].PB(appModel);
+
+    //for micro:
+    appModel = translate(curModel, vec3(0.0f, 290.0f, 2400.0f));
+    appModel = scale(appModel, vec3(0.5f, 0.4f, 0.8f));
+    models[WASHING_BODY].PB(appModel);
+
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 980.0f));
+    models[WASHING_BODY].PB(appModel);
+
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 980.0f));
+    models[WASHING_BODY].PB(appModel);
+
+    
+    cubeBuffers(WASHING_BODY);    
+    cubeBuffers(WASHING_BODY);
+
+    //WASHING1:
+    cubes[WASHING1] = Cubesphere(350.0f, 1, true);
+    cubes[WASHING2] = Cubesphere(350.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f, -700.0f, -800.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 0.9f));
+    models[WASHING1].PB(appModel);
+    curModel = appModel;
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 1300.0f));
+    models[WASHING1].PB(appModel);
+    appModel = translate(appModel, vec3(-1400.0f, 0.0f, 0.0f));
+    models[WASHING2].PB(appModel);
+    appModel = translate(curModel, vec3(-1400.0f, 0.0f, 0.0f));
+    models[WASHING2].PB(appModel);
+
+    
+    cubeBuffers(WASHING1);
+    cubeBuffers(WASHING2);
+
+    //OVEN:
+    cubes[OVEN] = Cubesphere(350.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1400.0f, -765.0f, 1365.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.55f, 2.05f));
+    models[OVEN].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1400.0f, -765.0f, 2080.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.55f, 2.05f));
+    models[OVEN].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1400.0f, -765.0f, 2800.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.55f, 2.05f));
+    models[OVEN].PB(appModel);
+    cubeBuffers(OVEN);
+
+    //MICRO:
+    cubes[MICRO] = Cubesphere(350.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1505.0f, -405.0f, 1355.0f));
+    appModel = scale(appModel, vec3(1.0f, 0.48f, 0.74f));
+    models[MICRO].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1505.0f, -405.0f, 2060.0f));
+    appModel = scale(appModel, vec3(1.0f, 0.48f, 0.75f));
+    models[MICRO].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1505.0f, -405.0f, 2765.0f));
+    appModel = scale(appModel, vec3(1.0f, 0.48f, 0.75f));
+    models[MICRO].PB(appModel);
+    cubeBuffers(MICRO);
+
+    //FRIDGEs:
+    cubes[FRIDGE_BODY] = Cubesphere(400.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f, -430.0f, 5800.0f));
+    appModel = scale(appModel, vec3(1.0f, 2.0f, 0.9f));
+    models[FRIDGE_BODY].PB(appModel);
+    curModel = appModel;
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 1300.0f));
+    models[FRIDGE_BODY].PB(appModel);
+    appModel = translate(appModel, vec3(-1400.0f, 0.0f, 0.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 1.7f));
+    models[FRIDGE_BODY].PB(appModel);
+    appModel = translate(curModel, vec3(-1400.0f, 0.0f, 0.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 1.7f));
+    models[FRIDGE_BODY].PB(appModel);
+    
+    cubeBuffers(FRIDGE_BODY);
+
+    //FRIDGE1:
+    cubes[FRIDGE1] = Cubesphere(400.0f, 1, true);
+    cubes[FRIDGE2] = Cubesphere(400.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f, -430.0f, 5800.0f));
+    appModel = scale(appModel, vec3(1.0f, 2.1f, 2.0f));
+    models[FRIDGE2].PB(appModel);
+    curModel = appModel;
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 580.0f));
+    models[FRIDGE2].PB(appModel);
+    appModel = translate(appModel, vec3(-1400.0f, 0.0f, 0.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.04f, 1.03f));
+    models[FRIDGE1].PB(appModel);
+    appModel = translate(curModel, vec3(-1400.0f, 0.0f, 0.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.04f, 1.03f));
+    models[FRIDGE1].PB(appModel);
+
+    cubeBuffers(FRIDGE1);
+    cubeBuffers(FRIDGE2);
+
+    //STOVE:
+    threeDModels[STOVE] = Model("../resources/objects/electric_stove_1k.fbx/electric_stove_1k.fbx");
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1400.0f, -900.0f, 4800.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(600.0f, 450.0f, 400.0f));
+    models[STOVE].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1400.0f, -900.0f, 4200.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(600.0f, 450.0f, 400.0f));
+    models[STOVE].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1400.0f, -900.0f, 3600.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(600.0f, 450.0f, 400.0f));
+    models[STOVE].PB(appModel);
+    threeDmodelBuffers(STOVE);
+
+    cubes[TV] = Cubesphere(700.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-2055.0f, 0.0f, 4800.0f));
+    models[TV].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -1000.0f));
+    models[TV].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -1000.0f));
+    models[TV].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -1000.0f));
+    models[TV].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -1000.0f));
+    models[TV].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -1000.0f));
+    models[TV].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -1000.0f));
+    models[TV].PB(appModel);
+    cubeBuffers(TV);
+
+    cubes[SYRIA] = Cubesphere(700.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-2050.0f, 5.0f, 4800.0f));
+    appModel = scale(appModel, vec3(1.0f, 0.5f, 0.5f));
+    models[SYRIA].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -2000.0f));
+    models[SYRIA].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -2000.0f));
+    models[SYRIA].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -2000.0f));
+    models[SYRIA].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -2000.0f));
+    models[SYRIA].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -2000.0f));
+    models[SYRIA].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -2000.0f));
+    models[SYRIA].PB(appModel);
+    cubeBuffers(SYRIA);
+
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-13795.0, -750.0, -1570.0));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(1.0f, 1.2f, 4.0f));
+    models[CASHIER6].PB(appModel);
+    cubeBuffers(CASHIER6);
+
+    //SCREEN:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-13795.0, -520.0, -1570.0));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(0.1f, 1.6f, 2.8f));
+    models[SCREEN].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, -35.0f, 0.0f));
+    appModel = scale(appModel, vec3(2.0f, 0.6f, 0.2f));
+    models[SCREEN].PB(appModel);
+    cubeBuffers(SCREEN);
+
+    //SHOP_BLOOR6
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12430.0f, -280.0f, -400.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(28.0f, 9.8f, 0.05f));
+    models[SHOP_BLOOR6].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12430.0f, 45.0f, 2280.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(18.1f, 4.3f, 0.05f));
+    models[SHOP_BLOOR6].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12430.0f, -280.0f, 5550.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(38.0f, 9.8f, 0.05f));
+    models[SHOP_BLOOR6].PB(appModel);
+    
+    cubeBuffers(SHOP_BLOOR6);
+    //--------------------------------------------------------------------------------------------------
+
+    //FIRST FLOOR:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-13460.0f, -300.0f + 1300.0f, 2850.0f)); 
+    appModel = scale(appModel, vec3(3.5f, 2.1f, 16.9f)); 
+    models[TECH_STORE].PB(appModel);
+    cubes[TECH_STORE].reverseNormals();
+    cubeBuffers(TECH_STORE);
+
+    //TECH_GROUND
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-13460.0f, -900.0f + 1300.0f, 2850.0f)); 
+    appModel = scale(appModel, vec3(3.5f, 0.005f, 16.9f)); 
+    models[TECH_GROUND].PB(appModel);
+    cubes[TECH_GROUND].reverseNormals();
+    cubeBuffers(TECH_GROUND);
+
+    //CIRCLE_LIGHT7:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-13460.0f, 230.0f+ 1300.0f, 300.0f));
+    appModel = scale(appModel, vec3(3.0f, 3.0f, 3.0f));
+    models[CIRCLE_LIGHT7].PB(appModel);
+    for(int i=0; i<3; i++){
+        appModel = translate(appModel, vec3(0.0f, 0.0f, 700.0f));
+        models[CIRCLE_LIGHT7].PB(appModel);
+    }
+    cylinderBuffers(CIRCLE_LIGHT7);
+
+    //WASHINGs:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f, -700.0f+ 1300.0f, -800.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 0.9f));
+    models[WASHING_BODY].PB(appModel);
+    curModel = appModel;
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 1300.0f));
+    models[WASHING_BODY].PB(appModel);
+    appModel = translate(appModel, vec3(-1400.0f, 0.0f, 0.0f));
+    models[WASHING_BODY].PB(appModel);
+    appModel = translate(curModel, vec3(-1400.0f, 0.0f, 0.0f));
+    models[WASHING_BODY].PB(appModel);
+
+    //for Oven:
+    curModel = appModel;
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 2400.0f));
+    models[WASHING_BODY].PB(appModel);
+
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 800.0f));
+    models[WASHING_BODY].PB(appModel);
+
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 800.0f));
+    models[WASHING_BODY].PB(appModel);
+
+    //for micro:
+    appModel = translate(curModel, vec3(0.0f, 290.0f, 2400.0f));
+    appModel = scale(appModel, vec3(0.5f, 0.4f, 0.8f));
+    models[WASHING_BODY].PB(appModel);
+
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 980.0f));
+    models[WASHING_BODY].PB(appModel);
+
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 980.0f));
+    models[WASHING_BODY].PB(appModel);
+
+    
+    cubeBuffers(WASHING_BODY);    
+    cubeBuffers(WASHING_BODY);
+
+    //WASHING1:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f, -700.0f+ 1300.0f, -800.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 0.9f));
+    models[WASHING1].PB(appModel);
+    curModel = appModel;
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 1300.0f));
+    models[WASHING1].PB(appModel);
+    appModel = translate(appModel, vec3(-1400.0f, 0.0f, 0.0f));
+    models[WASHING2].PB(appModel);
+    appModel = translate(curModel, vec3(-1400.0f, 0.0f, 0.0f));
+    models[WASHING2].PB(appModel);
+
+    
+    cubeBuffers(WASHING1);
+    cubeBuffers(WASHING2);
+
+    //OVEN:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1400.0f, -765.0f+ 1300.0f, 1365.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.55f, 2.05f));
+    models[OVEN].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1400.0f, -765.0f+ 1300.0f, 2080.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.55f, 2.05f));
+    models[OVEN].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1400.0f, -765.0f+ 1300.0f, 2800.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.55f, 2.05f));
+    models[OVEN].PB(appModel);
+    cubeBuffers(OVEN);
+
+    //MICRO:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1505.0f, -405.0f+ 1300.0f, 1355.0f));
+    appModel = scale(appModel, vec3(1.0f, 0.48f, 0.74f));
+    models[MICRO].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1505.0f, -405.0f+ 1300.0f, 2060.0f));
+    appModel = scale(appModel, vec3(1.0f, 0.48f, 0.75f));
+    models[MICRO].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1505.0f, -405.0f+ 1300.0f, 2765.0f));
+    appModel = scale(appModel, vec3(1.0f, 0.48f, 0.75f));
+    models[MICRO].PB(appModel);
+    cubeBuffers(MICRO);
+
+    //FRIDGEs:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f, -430.0f+ 1300.0f, 5800.0f));
+    appModel = scale(appModel, vec3(1.0f, 2.0f, 0.9f));
+    models[FRIDGE_BODY].PB(appModel);
+    curModel = appModel;
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 1300.0f));
+    models[FRIDGE_BODY].PB(appModel);
+    appModel = translate(appModel, vec3(-1400.0f, 0.0f, 0.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 1.7f));
+    models[FRIDGE_BODY].PB(appModel);
+    appModel = translate(curModel, vec3(-1400.0f, 0.0f, 0.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 1.7f));
+    models[FRIDGE_BODY].PB(appModel);
+    
+    cubeBuffers(FRIDGE_BODY);
+
+    //FRIDGE1:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f, -430.0f+ 1300.0f, 5800.0f));
+    appModel = scale(appModel, vec3(1.0f, 2.1f, 2.0f));
+    models[FRIDGE2].PB(appModel);
+    curModel = appModel;
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 580.0f));
+    models[FRIDGE2].PB(appModel);
+    appModel = translate(appModel, vec3(-1400.0f, 0.0f, 0.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.04f, 1.03f));
+    models[FRIDGE1].PB(appModel);
+    appModel = translate(curModel, vec3(-1400.0f, 0.0f, 0.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.04f, 1.03f));
+    models[FRIDGE1].PB(appModel);
+
+    cubeBuffers(FRIDGE1);
+    cubeBuffers(FRIDGE2);
+
+    //STOVE:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1400.0f, -900.0f+ 1300.0f, 4800.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(600.0f, 450.0f, 400.0f));
+    models[STOVE].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1400.0f, -900.0f+ 1300.0f, 4200.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(600.0f, 450.0f, 400.0f));
+    models[STOVE].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1400.0f, -900.0f+ 1300.0f, 3600.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(600.0f, 450.0f, 400.0f));
+    models[STOVE].PB(appModel);
+    threeDmodelBuffers(STOVE);
+
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-2055.0f, 0.0f+ 1300.0f, 4800.0f));
+    models[TV].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -1000.0f));
+    models[TV].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -1000.0f));
+    models[TV].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -1000.0f));
+    models[TV].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -1000.0f));
+    models[TV].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -1000.0f));
+    models[TV].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -1000.0f));
+    models[TV].PB(appModel);
+    cubeBuffers(TV);
+
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-2050.0f, 5.0f+ 1300.0f, 4800.0f));
+    appModel = scale(appModel, vec3(1.0f, 0.5f, 0.5f));
+    models[SYRIA].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -2000.0f));
+    models[SYRIA].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -2000.0f));
+    models[SYRIA].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -2000.0f));
+    models[SYRIA].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -2000.0f));
+    models[SYRIA].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -2000.0f));
+    models[SYRIA].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -2000.0f));
+    models[SYRIA].PB(appModel);
+    cubeBuffers(SYRIA);
+
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-13795.0, -750.0+ 1300.0f, -1570.0));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(1.0f, 1.2f, 4.0f));
+    models[CASHIER6].PB(appModel);
+    cubeBuffers(CASHIER6);
+
+    //SCREEN:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-13795.0, -520.0+ 1300.0f, -1570.0));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(0.1f, 1.6f, 2.8f));
+    models[SCREEN].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, -35.0f, 0.0f));
+    appModel = scale(appModel, vec3(2.0f, 0.6f, 0.2f));
+    models[SCREEN].PB(appModel);
+    cubeBuffers(SCREEN);
+
+    //SHOP_BLOOR6
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12430.0f, -280.0f+ 1300.0f, -400.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(28.0f, 9.8f, 0.05f));
+    models[SHOP_BLOOR6].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12430.0f, 45.0f+ 1300.0f, 2280.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(18.1f, 4.3f, 0.05f));
+    models[SHOP_BLOOR6].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12430.0f, -280.0f+ 1300.0f, 5550.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(38.0f, 9.8f, 0.05f));
+    models[SHOP_BLOOR6].PB(appModel);
+    
+    cubeBuffers(SHOP_BLOOR6);
+    //--------------------------------------------------------------------------------------------------
+    
+    //FIRST FLOOR:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-13460.0f, -300.0f + 2600.0f, 2850.0f)); 
+    appModel = scale(appModel, vec3(3.5f, 2.1f, 16.9f)); 
+    models[TECH_STORE].PB(appModel);
+    cubes[TECH_STORE].reverseNormals();
+    cubeBuffers(TECH_STORE);
+
+    //TECH_GROUND
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-13460.0f, -900.0f + 2600.0f, 2850.0f)); 
+    appModel = scale(appModel, vec3(3.5f, 0.005f, 16.9f)); 
+    models[TECH_GROUND].PB(appModel);
+    cubes[TECH_GROUND].reverseNormals();
+    cubeBuffers(TECH_GROUND);
+
+    //CIRCLE_LIGHT7:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-13460.0f, 230.0f+ 2600.0f, 300.0f));
+    appModel = scale(appModel, vec3(3.0f, 3.0f, 3.0f));
+    models[CIRCLE_LIGHT7].PB(appModel);
+    for(int i=0; i<3; i++){
+        appModel = translate(appModel, vec3(0.0f, 0.0f, 700.0f));
+        models[CIRCLE_LIGHT7].PB(appModel);
+    }
+    cylinderBuffers(CIRCLE_LIGHT7);
+
+    //WASHINGs:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f, -700.0f+ 2600.0f, -800.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 0.9f));
+    models[WASHING_BODY].PB(appModel);
+    curModel = appModel;
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 1300.0f));
+    models[WASHING_BODY].PB(appModel);
+    appModel = translate(appModel, vec3(-1400.0f, 0.0f, 0.0f));
+    models[WASHING_BODY].PB(appModel);
+    appModel = translate(curModel, vec3(-1400.0f, 0.0f, 0.0f));
+    models[WASHING_BODY].PB(appModel);
+
+    //for Oven:
+    curModel = appModel;
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 2400.0f));
+    models[WASHING_BODY].PB(appModel);
+
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 800.0f));
+    models[WASHING_BODY].PB(appModel);
+
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 800.0f));
+    models[WASHING_BODY].PB(appModel);
+
+    //for micro:
+    appModel = translate(curModel, vec3(0.0f, 290.0f, 2400.0f));
+    appModel = scale(appModel, vec3(0.5f, 0.4f, 0.8f));
+    models[WASHING_BODY].PB(appModel);
+
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 980.0f));
+    models[WASHING_BODY].PB(appModel);
+
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 980.0f));
+    models[WASHING_BODY].PB(appModel);
+
+    
+    cubeBuffers(WASHING_BODY);    
+    cubeBuffers(WASHING_BODY);
+
+    //WASHING1:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f, -700.0f+ 2600.0f, -800.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 0.9f));
+    models[WASHING1].PB(appModel);
+    curModel = appModel;
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 1300.0f));
+    models[WASHING1].PB(appModel);
+    appModel = translate(appModel, vec3(-1400.0f, 0.0f, 0.0f));
+    models[WASHING2].PB(appModel);
+    appModel = translate(curModel, vec3(-1400.0f, 0.0f, 0.0f));
+    models[WASHING2].PB(appModel);
+
+    
+    cubeBuffers(WASHING1);
+    cubeBuffers(WASHING2);
+
+    //OVEN:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1400.0f, -765.0f+ 2600.0f, 1365.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.55f, 2.05f));
+    models[OVEN].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1400.0f, -765.0f+ 2600.0f, 2080.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.55f, 2.05f));
+    models[OVEN].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1400.0f, -765.0f+ 2600.0f, 2800.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.55f, 2.05f));
+    models[OVEN].PB(appModel);
+    cubeBuffers(OVEN);
+
+    //MICRO:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1505.0f, -405.0f+ 2600.0f, 1355.0f));
+    appModel = scale(appModel, vec3(1.0f, 0.48f, 0.74f));
+    models[MICRO].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1505.0f, -405.0f+ 2600.0f, 2060.0f));
+    appModel = scale(appModel, vec3(1.0f, 0.48f, 0.75f));
+    models[MICRO].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1505.0f, -405.0f+ 2600.0f, 2765.0f));
+    appModel = scale(appModel, vec3(1.0f, 0.48f, 0.75f));
+    models[MICRO].PB(appModel);
+    cubeBuffers(MICRO);
+
+    //FRIDGEs:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f, -430.0f+ 2600.0f, 5800.0f));
+    appModel = scale(appModel, vec3(1.0f, 2.0f, 0.9f));
+    models[FRIDGE_BODY].PB(appModel);
+    curModel = appModel;
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 1300.0f));
+    models[FRIDGE_BODY].PB(appModel);
+    appModel = translate(appModel, vec3(-1400.0f, 0.0f, 0.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 1.7f));
+    models[FRIDGE_BODY].PB(appModel);
+    appModel = translate(curModel, vec3(-1400.0f, 0.0f, 0.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 1.7f));
+    models[FRIDGE_BODY].PB(appModel);
+    
+    cubeBuffers(FRIDGE_BODY);
+
+    //FRIDGE1:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f, -430.0f+ 2600.0f, 5800.0f));
+    appModel = scale(appModel, vec3(1.0f, 2.1f, 2.0f));
+    models[FRIDGE2].PB(appModel);
+    curModel = appModel;
+    appModel = translate(appModel, vec3(0.0f, 0.0f, 580.0f));
+    models[FRIDGE2].PB(appModel);
+    appModel = translate(appModel, vec3(-1400.0f, 0.0f, 0.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.04f, 1.03f));
+    models[FRIDGE1].PB(appModel);
+    appModel = translate(curModel, vec3(-1400.0f, 0.0f, 0.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.04f, 1.03f));
+    models[FRIDGE1].PB(appModel);
+
+    cubeBuffers(FRIDGE1);
+    cubeBuffers(FRIDGE2);
+
+    //STOVE:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1400.0f, -900.0f+ 2600.0f, 4800.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(600.0f, 450.0f, 400.0f));
+    models[STOVE].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1400.0f, -900.0f+ 2600.0f, 4200.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(600.0f, 450.0f, 400.0f));
+    models[STOVE].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-1400.0f, -900.0f+ 2600.0f, 3600.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(600.0f, 450.0f, 400.0f));
+    models[STOVE].PB(appModel);
+    threeDmodelBuffers(STOVE);
+
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-2055.0f, 0.0f+ 2600.0f, 4800.0f));
+    models[TV].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -1000.0f));
+    models[TV].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -1000.0f));
+    models[TV].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -1000.0f));
+    models[TV].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -1000.0f));
+    models[TV].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -1000.0f));
+    models[TV].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -1000.0f));
+    models[TV].PB(appModel);
+    cubeBuffers(TV);
+
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12800.0f-2050.0f, 5.0f+ 2600.0f, 4800.0f));
+    appModel = scale(appModel, vec3(1.0f, 0.5f, 0.5f));
+    models[SYRIA].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -2000.0f));
+    models[SYRIA].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -2000.0f));
+    models[SYRIA].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -2000.0f));
+    models[SYRIA].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -2000.0f));
+    models[SYRIA].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -2000.0f));
+    models[SYRIA].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -2000.0f));
+    models[SYRIA].PB(appModel);
+    cubeBuffers(SYRIA);
+
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-13795.0, -750.0+ 2600.0f, -1570.0));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(1.0f, 1.2f, 4.0f));
+    models[CASHIER6].PB(appModel);
+    cubeBuffers(CASHIER6);
+
+    //SCREEN:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-13795.0, -520.0+ 2600.0f, -1570.0));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(0.1f, 1.6f, 2.8f));
+    models[SCREEN].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, -35.0f, 0.0f));
+    appModel = scale(appModel, vec3(2.0f, 0.6f, 0.2f));
+    models[SCREEN].PB(appModel);
+    cubeBuffers(SCREEN);
+
+    //SHOP_BLOOR6
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12430.0f, -280.0f+ 2600.0f, -400.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(28.0f, 9.8f, 0.05f));
+    models[SHOP_BLOOR6].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12430.0f, 45.0f+ 2600.0f, 2280.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(18.1f, 4.3f, 0.05f));
+    models[SHOP_BLOOR6].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12430.0f, -280.0f+ 2600.0f, 5550.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(38.0f, 9.8f, 0.05f));
+    models[SHOP_BLOOR6].PB(appModel);
+    
+    cubeBuffers(SHOP_BLOOR6);
+    //--------------------------------------------------------------------------------------------------
+    
 }
 
 
@@ -2850,11 +3592,11 @@ void Scene::squareBuffers(string name)
 {
     GLsizeiptr num = 32 * sizeof(float);
     std::vector<float> vertices = {
-        // positions          // colors           // texture coords
-        0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // top right
-        0.5f, -0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 0.0f,   // bottom right
-        -0.5f, -0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   0.0f, 0.0f,   // bottom left
-        -0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   0.0f, 1.0f    // top left            
+        // positions          // normals          // texture coords
+        0.5f,  0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   1.0f, 1.0f,   // top right
+        0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   1.0f, 0.0f,   // bottom right
+        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,   // bottom left
+        -0.5f,  0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 1.0f    // top left            
     }; 
     //..vbo:
     VBO vbo(vertices, num);
