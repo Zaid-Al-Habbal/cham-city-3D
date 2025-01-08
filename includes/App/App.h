@@ -64,7 +64,12 @@ public:
     SHOE1_TEX = "shoe1Tex",
     SHOE2_TEX = "shoe2Tex",
     SHOE3_TEX = "shoe3Tex",
+    SHOE4_TEX = "shoe4Tex",
+    SHOE5_TEX = "shoe5Tex",
+    SHOE5_TEX_SPEC = "shoe5TexSpec",
+    SHOE6_TEX = "shoe6Tex",
 
+ 
     SPORTY = "sporty",
     SPORTY_SPEC = "sportySpec",
 
@@ -141,6 +146,7 @@ public:
     SYRIA_DIFF = "syriaDiff",
 
     WHITE2_DIFF = "white2Diff",
+    
 
 
 
@@ -202,6 +208,9 @@ public:
     SHOE1 = "shoe1",
     SHOE2 = "shoe2",
     SHOE3 = "shoe3",
+    SHOE4 = "shoe4",
+    SHOE5 = "shoe5",
+    SHOE6 = "shoe6",
     SQUARE_LIGHT = "squareLight",
 
     //Dress_SHOP:
@@ -276,6 +285,7 @@ public:
 
     INSIDE_ROOF = "insideRoof",
     ROOF_WALL = "roofWall",
+    COLUMN = "column",
     
  
     STREND = "strend";

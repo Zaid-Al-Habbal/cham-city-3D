@@ -60,8 +60,8 @@ void ResourceManager::setTextures()
     textures[BLUE_WINDOW] = TextureManager("../resources/textures/blue-window.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
     
     //Light_METAL:
-    textures[LIGHT_METAL] = TextureManager("../resources/textures/Metal009_1K-diff.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
-    textures[LIGHT_METAL_SPEC] = TextureManager("../resources/textures/Metal009_1K-spec.png", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGBA, GL_UNSIGNED_BYTE);
+    textures[LIGHT_METAL] = TextureManager("../resources/textures/Metal009_1K-diff.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[LIGHT_METAL_SPEC] = TextureManager("../resources/textures/Metal009_1K-spec.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
     
     //GRAY_BRICK:
     textures[GRAY_BRICK] = TextureManager("../resources/textures/Bricks065_1K-diff.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
@@ -92,7 +92,7 @@ void ResourceManager::setTextures()
     textures[WOOD1_SPEC] = TextureManager("../resources/textures/wood_floor_spec.png", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGBA, GL_UNSIGNED_BYTE);
     
     //WHITE:
-    textures[WHITE] = TextureManager("../resources/textures/Metal009_1K-spec.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+    textures[WHITE] = TextureManager("../resources/textures/Metal009_1K-spec.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
     textures[SUITE1_TEX] = TextureManager("../resources/textures/suite4.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
     textures[SUITE2_TEX] = TextureManager("../resources/textures/suite5.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
     
@@ -181,6 +181,16 @@ void ResourceManager::setTextures()
 
     //TEXTURES DO NOT FLIP::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     stbi_set_flip_vertically_on_load(false);
+
+    //SHOE4:
+    textures[SHOE4_TEX] = TextureManager("../resources/objects/scanned-adidas-sports-shoe/textures/Texture2.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+
+    //SHOE5:
+    textures[SHOE5_TEX] = TextureManager("../resources/objects/shoes-violet/textures/LR_Baked-01CompleteMap.jpeg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[SHOE5_TEX_SPEC] = TextureManager("../resources/objects/shoes-violet/textures/LR_Baked-01SpecularMap.jpeg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+
+    //SHOE6:
+    textures[SHOE6_TEX] = TextureManager("../resources/objects/jordan-shoes/textures/01.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
 
     //SYRIA:
     textures[SYRIA_DIFF] = TextureManager("../resources/textures/syria.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);

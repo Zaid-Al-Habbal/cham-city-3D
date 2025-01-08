@@ -307,6 +307,18 @@ void Renderer::render(Controller& controller)
     TextureManager::enable(shaders[MAIN], textures[SHOE3_TEX], textures[SHOE3_TEX], 1);
     draw(SHOE3, 6, 0);
 
+    //..SHOE4:
+    TextureManager::enable(shaders[MAIN], textures[SHOE4_TEX], textures[SHOE4_TEX], 1);
+    draw3Dmodel(SHOE4);
+
+    //..SHOE5:
+    TextureManager::enable(shaders[MAIN], textures[SHOE5_TEX], textures[SHOE5_TEX_SPEC], 1);
+    draw3Dmodel(SHOE5);
+
+    //..SHOE6:
+    TextureManager::enable(shaders[MAIN], textures[SHOE6_TEX], textures[SHOE6_TEX], 1);
+    draw3Dmodel(SHOE6);
+
     // SHOP_BLOOR3:
     shaders[MAIN].setFloat("alpha", 0.2f);
     TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC], 1);
@@ -589,9 +601,14 @@ void Renderer::render(Controller& controller)
     //ROOF_WALL:
     TextureManager::enable(shaders[MAIN], textures[JUST_WHITE], textures[JUST_WHITE_SPEC], 2);
     draw(ROOF_WALL, cubes[ROOF_WALL].getIndexCount(), 0);
+
+    //COLUMN:
+    TextureManager::enable(shaders[MAIN], textures[LIGHT_METAL], textures[LIGHT_METAL_SPEC], 2);
+    draw(COLUMN, cylinders[COLUMN].getIndexCount(), 0);
+
     
     //---------------------------------------------------------------------------------------
-    camera.printPos();
+    // camera.printPos();
     // SKYBOX:
     skybox.setEnvironment(!controller.isNight);
     skybox.draw(shaders[SKYBOX], view, projection);
