@@ -3588,6 +3588,74 @@ Scene::Scene()
     cubeBuffers(SHOP_BLOOR6);
     //--------------------------------------------------------------------------------------------------
     
+    //INSIDE_ROOF:
+    toruses[INSIDE_ROOF] = Torus(1.0f, 0.2f, 4, 50, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-4750.0, 350.0, 3650.0));
+    appModel = scale(appModel, vec3(2.15*4250.0f, 100.0f, 1.8*3800.0f));
+    appModel = rotate(appModel, radians(45.0f), Y);
+    models[INSIDE_ROOF].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-4750.0, 350.0f+1300.0f, 3650.0));
+    appModel = scale(appModel, vec3(2.15*4250.0f, 100.0f, 1.8*3800.0f));
+    appModel = rotate(appModel, radians(45.0f), Y);
+    models[INSIDE_ROOF].PB(appModel);
+    torusBuffers(INSIDE_ROOF);
+
+    //first wall:::::::::::::::
+    cubes[ROOF_WALL] = Cubesphere(1000.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-4750.0f, 450.0f, -250.0f));
+    appModel = scale(appModel, vec3(9.2f, 0.25f, 0.1f));
+    models[ROOF_WALL].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-4750.0f, 450.0f, 7550.0f));
+    appModel = scale(appModel, vec3(9.2f, 0.25f, 0.1f));
+    models[ROOF_WALL].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(600.0f, 450.0f, 3650.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(6.65f, 0.25f, 0.1f));
+    models[ROOF_WALL].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9950.0f, 450.0f, 5700.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(3.1f, 0.25f, 0.1f));
+    models[ROOF_WALL].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9950.0f, 450.0f, 1440.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(2.81f, 0.25f, 0.1f));
+    models[ROOF_WALL].PB(appModel);
+    cubeBuffers(ROOF_WALL);
+
+    //second wall:::::::::::::::
+    cubes[ROOF_WALL] = Cubesphere(1000.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-4750.0f, 450.0f + 1300.0f, -250.0f));
+    appModel = scale(appModel, vec3(9.2f, 0.25f, 0.1f));
+    models[ROOF_WALL].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-4750.0f, 450.0f + 1300.0f, 7550.0f));
+    appModel = scale(appModel, vec3(9.2f, 0.25f, 0.1f));
+    models[ROOF_WALL].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(600.0f, 450.0f + 1300.0f, 3650.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(6.65f, 0.25f, 0.1f));
+    models[ROOF_WALL].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9950.0f, 450.0f + 1300.0f, 5700.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(3.1f, 0.25f, 0.1f));
+    models[ROOF_WALL].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9950.0f, 450.0f + 1300.0f, 1440.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(2.81f, 0.25f, 0.1f));
+    models[ROOF_WALL].PB(appModel);
+    cubeBuffers(ROOF_WALL);
+
 }
 
 

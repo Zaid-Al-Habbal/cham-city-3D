@@ -140,6 +140,8 @@ public:
 
     SYRIA_DIFF = "syriaDiff",
 
+    WHITE2_DIFF = "white2Diff",
+
 
 
 
@@ -272,7 +274,8 @@ public:
     TV = "tv",
     SYRIA = "syria",
 
-    
+    INSIDE_ROOF = "insideRoof",
+    ROOF_WALL = "roofWall",
     
  
     STREND = "strend";

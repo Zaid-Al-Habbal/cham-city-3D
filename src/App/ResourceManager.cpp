@@ -174,6 +174,9 @@ void ResourceManager::setTextures()
     textures[GRAY_METAL] = TextureManager("../resources/textures/Metal036_1K-JPG_Color.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
     textures[GRAY_METAL_SPEC] = TextureManager("../resources/textures/Metal036_1K-JPG_Metalness.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
     
+    //WHITE2:
+    textures[WHITE2_DIFF] = TextureManager("../resources/textures/Porcelain001_1K-JPG_Color.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    
 
 
     //TEXTURES DO NOT FLIP::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

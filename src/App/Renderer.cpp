@@ -579,6 +579,16 @@ void Renderer::render(Controller& controller)
     TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC], 1);
     draw(SHOP_BLOOR6, cubes[SHOP_BLOOR6].getIndexCount(), 0);
     shaders[MAIN].setFloat("alpha", 1.0f);
+
+    //-------------------------------------------------------------------------------------------
+
+    //INSIDE_ROOF:
+    TextureManager::enable(shaders[MAIN], textures[WHITE_TILES], textures[WHITE_TILES_SPEC], 10);
+    draw(INSIDE_ROOF, toruses[INSIDE_ROOF].getIndexCount(), 0);
+
+    //ROOF_WALL:
+    TextureManager::enable(shaders[MAIN], textures[JUST_WHITE], textures[JUST_WHITE_SPEC], 2);
+    draw(ROOF_WALL, cubes[ROOF_WALL].getIndexCount(), 0);
     
     //---------------------------------------------------------------------------------------
     camera.printPos();
