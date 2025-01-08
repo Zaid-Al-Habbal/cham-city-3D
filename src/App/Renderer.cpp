@@ -18,6 +18,9 @@ Renderer::Renderer()
     //REF SHADER Light:
     refLight = Light(shaders[REF], true, 0, false);
 
+    //for Mall Door:
+    cntMallDoor=90;
+
 }
 
 
@@ -31,6 +34,7 @@ void Renderer::render(Controller& controller)
     vec3 camFro = camera.Front;
     vec3 camPos = camera.Position;
     vec3 camUp = camera.WorldUp;
+    float camX=camPos.x, camY=camPos.y, camZ=camPos.z;
     engine->setListenerPosition(vec3df(camPos.x, camPos.y, camPos.z),
      vec3df(camFro.x, camFro.y, camFro.z), vec3df(0,0,0),
       vec3df(camUp.x, camUp.y, camUp.z));       
@@ -597,6 +601,28 @@ void Renderer::render(Controller& controller)
     TextureManager::enable(shaders[REF], textures[WHITE_WINDOW], textures[WHITE_WINDOW_SPEC], 8);
     draw(GLASS_ROOF, cubes[GLASS_ROOF].getIndexCount(), 0);
 
+
+    //MALL_DOOR: $ALPHA:
+    if(nearMallDoor(camX, camY, camZ) && cntMallDoor){
+        if(cntMallDoor==89) engine->play3D("../resources/audio/automaticdoor.wav", vec3df(-4501.33f, -320.344f, -2852.66f));
+        if(cntMallDoor==30)  engine->play3D("../resources/audio/store-door-chime.wav", vec3df(-4501.33f, -320.344f, -2652.66f));
+        cntMallDoor--;
+        models[MALL_DOOR][0] = translate(models[MALL_DOOR][0], vec3(10.0f, 0.0f, 0.0f));
+        models[MALL_DOOR][1] = translate(models[MALL_DOOR][1], vec3(-10.0f, 0.0f, 0.0f));
+        cubeBuffers(MALL_DOOR);
+    }
+    else if(!nearMallDoor(camX, camY, camZ) && cntMallDoor<90){
+        cntMallDoor++;
+        models[MALL_DOOR][0] = translate(models[MALL_DOOR][0], vec3(-10.0f, 0.0f, 0.0f));
+        models[MALL_DOOR][1] = translate(models[MALL_DOOR][1], vec3(10.0f, 0.0f, 0.0f));
+        cubeBuffers(MALL_DOOR);
+    }
+    shaders[REF].setFloat("refVal", 0.8f);
+    shaders[REF].setFloat("alpha", 0.4f);
+    TextureManager::enable(shaders[REF], textures[BLOOR], textures[BLOOR_SPEC], 1);
+    draw(MALL_DOOR, cubes[MALL_DOOR].getIndexCount(), 0);
+    shaders[REF].setFloat("shininess", 32.0f);
+
     //ENTRY_BLOOR: $ALPHA:
     shaders[REF].setFloat("refVal", 0.8f);
     shaders[REF].setFloat("alpha", 0.2f);
@@ -640,3 +666,6 @@ void Renderer::draw3Dmodel(string name, int startIndex, int endIndex)
     // cout << (int)threeDModels[name].meshes.size() << endl;
 }
 
+bool Renderer::nearMallDoor(float x, float y, float z){
+    return z>=-3440.0f && z<-2260.0f && x>=-5060.0f && x<-3960.0f && y>=-391.5f && y<-370.0f;
+}

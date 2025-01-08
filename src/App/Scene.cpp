@@ -113,18 +113,29 @@ Scene::Scene()
     cubes[ENTRY_BLOOR] = Cubesphere(1000.0f, 1, false);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-4550.0f, 1350.0f, -2520.0f));
-    appModel = rotate(appModel, radians(20.0f), X);
+    appModel = rotate(appModel, radians(10.0f), X);
     appModel = scale(appModel, vec3(2.6f, 2.2f, 0.04f));
     models[ENTRY_BLOOR].PB(appModel);
 
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-3550.0f, -300.0f, -2830.0f));
-    appModel = scale(appModel, vec3(0.43f, 1.0f, 0.04f));
+    appModel = translate(appModel, vec3(-3600.0f, -380.0f, -2830.0f));
+    appModel = scale(appModel, vec3(0.7f, 0.85f, 0.04f));
     models[ENTRY_BLOOR].PB(appModel);
-    appModel = translate(appModel, vec3(-5050.0f, 0.0f, 0.0f));
+    appModel = translate(appModel, vec3(-2600.0f, 0.0f, 0.0f));
     models[ENTRY_BLOOR].PB(appModel);
 
     cubeBuffers(ENTRY_BLOOR);
+
+    //MALL_DOOR
+    cubes[MALL_DOOR] = Cubesphere(1000.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-4220.0f, -380.0f, -2770.0f));
+    appModel = scale(appModel, vec3(0.5f, 0.85f, 0.04f));
+    models[MALL_DOOR].PB(appModel);
+    appModel = translate(appModel, vec3(-1170.0f, 0.0f, 0.0f));
+    models[MALL_DOOR].PB(appModel);
+    models[MALL_DOOR].resize(2);
+    cubeBuffers(MALL_DOOR);
 
     //SIDE_WALK:
     cubes[SIDE_WALK] = Cubesphere(1000.0f, 1, false);

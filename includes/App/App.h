@@ -160,6 +160,7 @@ public:
     ENTRY = "entry",
     ENTRY_BLOOR = "entryBloor",
     SIDE_WALK = "sideWalk",
+    MALL_DOOR = "mallDoor",
     
 
     //Inside the Mall:
@@ -270,6 +271,8 @@ public:
     MICRO = "micro",
     TV = "tv",
     SYRIA = "syria",
+
+    
     
  
     STREND = "strend";
