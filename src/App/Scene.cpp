@@ -395,7 +395,6 @@ Scene::Scene()
     cubeBuffers(MIRROR);
 
     //SHOP_BLOOR
-    cubes[SHOP_BLOOR] = Cubesphere(100.0f, 1, false);
     appModel = MODEL;
     appModel = translate(appModel, vec3(550.0f, -280.0f+ 1300.0f, -2000.0f));
     appModel = scale(appModel, vec3(41.0f, 9.8f, 0.05f));
@@ -513,7 +512,6 @@ Scene::Scene()
     cubeBuffers(MIRROR);
 
     //SHOP_BLOOR
-    cubes[SHOP_BLOOR] = Cubesphere(100.0f, 1, false);
     appModel = MODEL;
     appModel = translate(appModel, vec3(550.0f, -280.0f+ 2600.0f, -2000.0f));
     appModel = scale(appModel, vec3(41.0f, 9.8f, 0.05f));
@@ -637,17 +635,16 @@ Scene::Scene()
     models[MIRROR2].PB(appModel);
     cubeBuffers(MIRROR2);
 
-    //SHOP_BLOOR2
-    cubes[SHOP_BLOOR2] = Cubesphere(100.0f, 1, false);
+    //SHOP_BLOOR
     appModel = MODEL;
     appModel = translate(appModel, vec3(550.0f, -280.0f, -2000.0f +  11450.0f));
     appModel = scale(appModel, vec3(41.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR2].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-2080.0f, 50.0f, -2000.0f + 11450.0f));
     appModel = scale(appModel, vec3(4.4f, 4.0f, 0.05f));
-    models[SHOP_BLOOR2].PB(appModel);
-    cubeBuffers(SHOP_BLOOR2);
+    models[SHOP_BLOOR].PB(appModel);
+    cubeBuffers(SHOP_BLOOR);
 
     //First Floor:+++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -756,17 +753,16 @@ Scene::Scene()
     models[MIRROR2].PB(appModel);
     cubeBuffers(MIRROR2);
 
-    //SHOP_BLOOR2
-    cubes[SHOP_BLOOR2] = Cubesphere(100.0f, 1, false);
+    //SHOP_BLOOR
     appModel = MODEL;
     appModel = translate(appModel, vec3(550.0f, -280.0f+ 1300.0f, -2000.0f +  11450.0f));
     appModel = scale(appModel, vec3(41.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR2].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-2080.0f, 50.0f+ 1300.0f, -2000.0f + 11450.0f));
     appModel = scale(appModel, vec3(4.4f, 4.0f, 0.05f));
-    models[SHOP_BLOOR2].PB(appModel);
-    cubeBuffers(SHOP_BLOOR2);
+    models[SHOP_BLOOR].PB(appModel);
+    cubeBuffers(SHOP_BLOOR);
 
     //Second Floor:+++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -875,17 +871,16 @@ Scene::Scene()
     models[MIRROR2].PB(appModel);
     cubeBuffers(MIRROR2);
 
-    //SHOP_BLOOR2
-    cubes[SHOP_BLOOR2] = Cubesphere(100.0f, 1, false);
+    //SHOP_BLOOR
     appModel = MODEL;
     appModel = translate(appModel, vec3(550.0f, -280.0f+ 2600.0f, -2000.0f +  11450.0f));
     appModel = scale(appModel, vec3(41.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR2].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-2080.0f, 50.0f+ 2600.0f, -2000.0f + 11450.0f));
     appModel = scale(appModel, vec3(4.4f, 4.0f, 0.05f));
-    models[SHOP_BLOOR2].PB(appModel);
-    cubeBuffers(SHOP_BLOOR2);
+    models[SHOP_BLOOR].PB(appModel);
+    cubeBuffers(SHOP_BLOOR);
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     //SHOES_SHOP:::::::::::::::::::::::::::::::
 
@@ -944,22 +939,21 @@ Scene::Scene()
     cubeBuffers(SCREEN);
 
 
-    //SHOP_BLOOR3
-    cubes[SHOP_BLOOR3] = Cubesphere(100.0f, 1, false);
+    //SHOP_BLOOR
     appModel = MODEL;
     appModel = translate(appModel, vec3(100.0f- 3350.0f, -280.0f, -2000.0f +  11450.0f));
     appModel = scale(appModel, vec3(15.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR3].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-3450.0f- 3350.0f, -280.0f, -2000.0f +  11450.0f));
     appModel = scale(appModel, vec3(15.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR3].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-1670.0f- 3350.0f, 150.0f, -2000.0f +  11450.0f));
     appModel = scale(appModel, vec3(15.6f, 2.8f, 0.05f));
-    models[SHOP_BLOOR3].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     
-    cubeBuffers(SHOP_BLOOR3);
+    cubeBuffers(SHOP_BLOOR);
 
 
     //SMALL_ROOF:
@@ -1169,22 +1163,21 @@ Scene::Scene()
     cubeBuffers(SCREEN);
 
 
-    //SHOP_BLOOR3
-    cubes[SHOP_BLOOR3] = Cubesphere(100.0f, 1, false);
+    //SHOP_BLOOR
     appModel = MODEL;
     appModel = translate(appModel, vec3(100.0f- 3350.0f, -280.0f+ 1300.0f, -2000.0f +  11450.0f));
     appModel = scale(appModel, vec3(15.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR3].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-3450.0f- 3350.0f, -280.0f+ 1300.0f, -2000.0f +  11450.0f));
     appModel = scale(appModel, vec3(15.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR3].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-1670.0f- 3350.0f, 150.0f+ 1300.0f, -2000.0f +  11450.0f));
     appModel = scale(appModel, vec3(15.6f, 2.8f, 0.05f));
-    models[SHOP_BLOOR3].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     
-    cubeBuffers(SHOP_BLOOR3);
+    cubeBuffers(SHOP_BLOOR);
 
 
     //SMALL_ROOF:
@@ -1313,22 +1306,21 @@ Scene::Scene()
     cubeBuffers(SCREEN);
 
 
-    //SHOP_BLOOR3
-    cubes[SHOP_BLOOR3] = Cubesphere(100.0f, 1, false);
+    //SHOP_BLOOR
     appModel = MODEL;
     appModel = translate(appModel, vec3(100.0f- 3350.0f, -280.0f+ 2600.0f, -2000.0f +  11450.0f));
     appModel = scale(appModel, vec3(15.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR3].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-3450.0f- 3350.0f, -280.0f+ 2600.0f, -2000.0f +  11450.0f));
     appModel = scale(appModel, vec3(15.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR3].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-1670.0f- 3350.0f, 150.0f+ 2600.0f, -2000.0f +  11450.0f));
     appModel = scale(appModel, vec3(15.6f, 2.8f, 0.05f));
-    models[SHOP_BLOOR3].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     
-    cubeBuffers(SHOP_BLOOR3);
+    cubeBuffers(SHOP_BLOOR);
 
 
     //SMALL_ROOF:
@@ -1532,21 +1524,20 @@ Scene::Scene()
     models[MIRROR4].PB(appModel);
     cubeBuffers(MIRROR4);
 
-    //SHOP_BLOOR4
-    cubes[SHOP_BLOOR4] = Cubesphere(100.0f, 1, false);
+    //SHOP_BLOOR
     appModel = MODEL;
     appModel = translate(appModel, vec3(100.0f- 3350.0f - 5350.0f, -280.0f, -2000.0f +  11450.0f));
     appModel = scale(appModel, vec3(15.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR4].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-3450.0f- 3350.0f - 5350.0f, -280.0f, -2000.0f +  11450.0f));
     appModel = scale(appModel, vec3(15.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR4].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-1670.0f- 3350.0f - 5350.0f, 150.0f, -2000.0f +  11450.0f));
     appModel = scale(appModel, vec3(15.6f, 2.8f, 0.05f));
-    models[SHOP_BLOOR4].PB(appModel);
-    cubeBuffers(SHOP_BLOOR4);
+    models[SHOP_BLOOR].PB(appModel);
+    cubeBuffers(SHOP_BLOOR);
 
     //-----------------------------------------------------------------------------------------------------
     //FIRST FLOOR::::::::::::::::::::::::::::::::::
@@ -1671,21 +1662,20 @@ Scene::Scene()
     models[MIRROR4].PB(appModel);
     cubeBuffers(MIRROR4);
 
-    //SHOP_BLOOR4
-    cubes[SHOP_BLOOR4] = Cubesphere(100.0f, 1, false);
+    //SHOP_BLOOR
     appModel = MODEL;
     appModel = translate(appModel, vec3(100.0f- 3350.0f - 5350.0f, -280.0f+ 1300.0f, -2000.0f +  11450.0f));
     appModel = scale(appModel, vec3(15.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR4].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-3450.0f- 3350.0f - 5350.0f, -280.0f+ 1300.0f, -2000.0f +  11450.0f));
     appModel = scale(appModel, vec3(15.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR4].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-1670.0f- 3350.0f - 5350.0f, 150.0f+ 1300.0f, -2000.0f +  11450.0f));
     appModel = scale(appModel, vec3(15.6f, 2.8f, 0.05f));
-    models[SHOP_BLOOR4].PB(appModel);
-    cubeBuffers(SHOP_BLOOR4);
+    models[SHOP_BLOOR].PB(appModel);
+    cubeBuffers(SHOP_BLOOR);
     //--------------------------------------------------------------------------------------------------------
     //SECOND FLOOR::::::::::::::::::::::::::::::::::
     //DRESS_SHOP:
@@ -1809,21 +1799,20 @@ Scene::Scene()
     models[MIRROR4].PB(appModel);
     cubeBuffers(MIRROR4);
 
-    //SHOP_BLOOR4
-    cubes[SHOP_BLOOR4] = Cubesphere(100.0f, 1, false);
+    //SHOP_BLOOR
     appModel = MODEL;
     appModel = translate(appModel, vec3(100.0f- 3350.0f - 5350.0f, -280.0f+ 2600.0f, -2000.0f +  11450.0f));
     appModel = scale(appModel, vec3(15.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR4].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-3450.0f- 3350.0f - 5350.0f, -280.0f+ 2600.0f, -2000.0f +  11450.0f));
     appModel = scale(appModel, vec3(15.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR4].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-1670.0f- 3350.0f - 5350.0f, 150.0f+ 2600.0f, -2000.0f +  11450.0f));
     appModel = scale(appModel, vec3(15.6f, 2.8f, 0.05f));
-    models[SHOP_BLOOR4].PB(appModel);
-    cubeBuffers(SHOP_BLOOR4);
+    models[SHOP_BLOOR].PB(appModel);
+    cubeBuffers(SHOP_BLOOR);
 
     //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     //RESTAURANT:
@@ -2616,25 +2605,24 @@ Scene::Scene()
     models[TABLE5].PB(appModel);
     threeDmodelBuffers(TABLE5);
 
-    //SHOP_BLOOR6
-    cubes[SHOP_BLOOR6] = Cubesphere(100.0f, 1, false);
+    //SHOP_BLOOR
     appModel = MODEL;
     appModel = translate(appModel, vec3(2500.0f, -280.0f, 1600.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
     appModel = scale(appModel, vec3(25.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR6].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(2500.0f, 50.0f, 4100.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
     appModel = scale(appModel, vec3(18.1f, 4.3f, 0.05f));
-    models[SHOP_BLOOR6].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(2500.0f, -280.0f, 6600.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
     appModel = scale(appModel, vec3(25.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR6].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     
-    cubeBuffers(SHOP_BLOOR6);
+    cubeBuffers(SHOP_BLOOR);
     //-----------------------------------------------------------------------------------------
     //First FLOOR:::::::::::::::::::::::::::::::::::::::
     appModel = MODEL;
@@ -2795,24 +2783,24 @@ Scene::Scene()
     models[TABLE5].PB(appModel);
     threeDmodelBuffers(TABLE5);
 
-    //SHOP_BLOOR6
+    //SHOP_BLOOR
     appModel = MODEL;
     appModel = translate(appModel, vec3(2500.0f, -280.0f+ 1300.0f, 1600.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
     appModel = scale(appModel, vec3(25.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR6].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(2500.0f, 50.0f+ 1300.0f, 4100.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
     appModel = scale(appModel, vec3(18.1f, 4.3f, 0.05f));
-    models[SHOP_BLOOR6].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(2500.0f, -280.0f+ 1300.0f, 6600.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
     appModel = scale(appModel, vec3(25.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR6].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     
-    cubeBuffers(SHOP_BLOOR6);
+    cubeBuffers(SHOP_BLOOR);
 
     //-----------------------------------------------------------------------------------------
     //First FLOOR:::::::::::::::::::::::::::::::::::::::
@@ -2974,24 +2962,24 @@ Scene::Scene()
     models[TABLE5].PB(appModel);
     threeDmodelBuffers(TABLE5);
 
-    //SHOP_BLOOR6
+    //SHOP_BLOOR
     appModel = MODEL;
     appModel = translate(appModel, vec3(2500.0f, -280.0f+ 2600.0f, 1600.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
     appModel = scale(appModel, vec3(25.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR6].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(2500.0f, 50.0f+ 2600.0f, 4100.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
     appModel = scale(appModel, vec3(18.1f, 4.3f, 0.05f));
-    models[SHOP_BLOOR6].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(2500.0f, -280.0f+ 2600.0f, 6600.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
     appModel = scale(appModel, vec3(25.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR6].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     
-    cubeBuffers(SHOP_BLOOR6);
+    cubeBuffers(SHOP_BLOOR);
 
     //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     //TECH_STORE::::::::::::::::::::::::::::::::
@@ -3231,24 +3219,24 @@ Scene::Scene()
     models[SCREEN].PB(appModel);
     cubeBuffers(SCREEN);
 
-    //SHOP_BLOOR6
+    //SHOP_BLOOR
     appModel = MODEL;
     appModel = translate(appModel, vec3(-12430.0f, -280.0f, -400.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
     appModel = scale(appModel, vec3(28.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR6].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-12430.0f, 45.0f, 2280.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
     appModel = scale(appModel, vec3(18.1f, 4.3f, 0.05f));
-    models[SHOP_BLOOR6].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-12430.0f, -280.0f, 5550.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
     appModel = scale(appModel, vec3(38.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR6].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     
-    cubeBuffers(SHOP_BLOOR6);
+    cubeBuffers(SHOP_BLOOR);
     //--------------------------------------------------------------------------------------------------
 
     //FIRST FLOOR:
@@ -3473,24 +3461,24 @@ Scene::Scene()
     models[SCREEN].PB(appModel);
     cubeBuffers(SCREEN);
 
-    //SHOP_BLOOR6
+    //SHOP_BLOOR
     appModel = MODEL;
     appModel = translate(appModel, vec3(-12430.0f, -280.0f+ 1300.0f, -400.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
     appModel = scale(appModel, vec3(28.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR6].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-12430.0f, 45.0f+ 1300.0f, 2280.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
     appModel = scale(appModel, vec3(18.1f, 4.3f, 0.05f));
-    models[SHOP_BLOOR6].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-12430.0f, -280.0f+ 1300.0f, 5550.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
     appModel = scale(appModel, vec3(38.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR6].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     
-    cubeBuffers(SHOP_BLOOR6);
+    cubeBuffers(SHOP_BLOOR);
     //--------------------------------------------------------------------------------------------------
     
     //FIRST FLOOR:
@@ -3715,24 +3703,24 @@ Scene::Scene()
     models[SCREEN].PB(appModel);
     cubeBuffers(SCREEN);
 
-    //SHOP_BLOOR6
+    //SHOP_BLOOR
     appModel = MODEL;
     appModel = translate(appModel, vec3(-12430.0f, -280.0f+ 2600.0f, -400.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
     appModel = scale(appModel, vec3(28.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR6].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-12430.0f, 45.0f+ 2600.0f, 2280.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
     appModel = scale(appModel, vec3(18.1f, 4.3f, 0.05f));
-    models[SHOP_BLOOR6].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-12430.0f, -280.0f+ 2600.0f, 5550.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
     appModel = scale(appModel, vec3(38.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR6].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     
-    cubeBuffers(SHOP_BLOOR6);
+    cubeBuffers(SHOP_BLOOR);
     //--------------------------------------------------------------------------------------------------
     
     //INSIDE_ROOF:
@@ -4452,16 +4440,15 @@ Scene::Scene()
     torusBuffers(JEW13);
 
     //SHOP_BLOOR
-    cubes[SHOP_BLOOR8] = Cubesphere(100.0f, 1, false);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-9770.0f, -280.0f, -2000.0f));
     appModel = scale(appModel, vec3(41.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR8].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-7120.0f, 50.0f, -2000.0f));
     appModel = scale(appModel, vec3(4.4f, 4.0f, 0.05f));
-    models[SHOP_BLOOR8].PB(appModel);
-    cubeBuffers(SHOP_BLOOR8);
+    models[SHOP_BLOOR].PB(appModel);
+    cubeBuffers(SHOP_BLOOR);
     //----------------------------------------------------------------------------------------
     //First Floor:+++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -5078,16 +5065,15 @@ Scene::Scene()
     torusBuffers(JEW13);
 
     //SHOP_BLOOR
-    cubes[SHOP_BLOOR8] = Cubesphere(100.0f, 1, false);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-9780.0f, -280.0f + 1300.0f, -2000.0f));
     appModel = scale(appModel, vec3(41.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR8].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-7120.0f, 50.0f + 1300.0f, -2000.0f));
     appModel = scale(appModel, vec3(4.4f, 4.0f, 0.05f));
-    models[SHOP_BLOOR8].PB(appModel);
-    cubeBuffers(SHOP_BLOOR8);
+    models[SHOP_BLOOR].PB(appModel);
+    cubeBuffers(SHOP_BLOOR);
     //--------------------------------------------------------------------------------------------
     //Second Floor:+++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -5704,16 +5690,15 @@ Scene::Scene()
     torusBuffers(JEW13);
 
     //SHOP_BLOOR
-    cubes[SHOP_BLOOR8] = Cubesphere(100.0f, 1, false);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-9780.0f, -280.0f + 2600.0f, -2000.0f));
     appModel = scale(appModel, vec3(41.0f, 9.8f, 0.05f));
-    models[SHOP_BLOOR8].PB(appModel);
+    models[SHOP_BLOOR].PB(appModel);
     appModel = MODEL;
     appModel = translate(appModel, vec3(-7120.0f, 50.0f + 2600.0f, -2000.0f));
     appModel = scale(appModel, vec3(4.4f, 4.0f, 0.05f));
-    models[SHOP_BLOOR8].PB(appModel);
-    cubeBuffers(SHOP_BLOOR8);
+    models[SHOP_BLOOR].PB(appModel);
+    cubeBuffers(SHOP_BLOOR);
 }
 
 

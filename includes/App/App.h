@@ -208,14 +208,12 @@ public:
     CASHIER2 = "cashier2",
     SCREEN2 = "screen2", 
     MIRROR2 = "mirror2",
-    SHOP_BLOOR2 = "shopBloor2",
     SHIRT_REF = "shirtRef",
 
     //SHOES_SHOP:
     SHOES_SHOP = "shoseShop", 
     SHOES_GROUND = "shoesGround",   
     CASHIER3 = "cashier3",
-    SHOP_BLOOR3 = "shopBloor3",
     SMALL_ROOF = "smallRoof",
     SHOE1 = "shoe1",
     SHOE2 = "shoe2",
@@ -229,7 +227,6 @@ public:
     DRESS_SHOP = "dressShop",
     DRESS_GROUND = "dressGround",
     CASHIER4 = "cashier4",
-    SHOP_BLOOR4 = "shopBloor4",
     DRESS1 = "dress1",
     DRESS2 = "dress2",
     DRESS3 = "dress3",
@@ -255,7 +252,6 @@ public:
     //FURN_STORE:
     FURN_STORE = "furnStore",
     CASHIER6 = "cashier6",
-    SHOP_BLOOR6 = "shopBloor6",
     CIRCLE_LIGHT6 = "circleLight6",
 
     BED = "bed",
@@ -274,7 +270,6 @@ public:
     TECH_STORE = "techStore",
     TECH_GROUND = "techGROUND",
     CASHIER7 = "cashier7",
-    SHOP_BLOOR7 = "shopBloor7",
     CIRCLE_LIGHT7 = "circleLight7",
 
     WASHING1 = "washing1",
@@ -321,7 +316,6 @@ public:
     JEW13 = "jew13",
     STONE = "stone",
     STONE2 = "stone2",
-    SHOP_BLOOR8 = "shopBloor8",
 
 
     STREND = "strend";

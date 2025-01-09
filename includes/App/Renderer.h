@@ -21,6 +21,7 @@ private:
     ISoundEngine* engine;
 
     int cntMallDoor;
+    unsigned int mallCubemapTexture;
 
 
     const unsigned int SCR_WIDTH = 800;
@@ -33,6 +34,7 @@ public:
     void draw(string ObjectName, int numOfVertices, int offset);
     void draw3Dmodel(string name, int startIndex=0, int endIndex=1e9);
     bool nearMallDoor(float x, float y, float z);
+    unsigned int loadMallCubemap();
 
 };
 #endif

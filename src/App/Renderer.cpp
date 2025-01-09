@@ -21,6 +21,9 @@ Renderer::Renderer()
     //for Mall Door:
     cntMallDoor=90;
 
+    //MALL cubemap:
+    mallCubemapTexture = loadMallCubemap();
+
 }
 
 
@@ -200,15 +203,9 @@ void Renderer::render(Controller& controller)
     draw(SCREEN, cubes[SCREEN].getIndexCount(), 0);
 
     //..MIRROR:
-    // shaders[MAIN].setFloat("alpha", 0.4f);
     TextureManager::enable(shaders[MAIN], textures[SUITE_REF], textures[BLOOR_SPEC], 1);
     draw(MIRROR, cubes[MIRROR].getIndexCount(), 0);
     
-    // SHOP_BLOOR:
-    shaders[MAIN].setFloat("alpha", 0.2f);
-    TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC], 1);
-    draw(SHOP_BLOOR, cubes[SHOP_BLOOR].getIndexCount(), 0);
-    shaders[MAIN].setFloat("alpha", 1.0f);
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   
 
     //SHIRT_SHOP Lights:
@@ -252,15 +249,9 @@ void Renderer::render(Controller& controller)
     draw(SCREEN2, cubes[SCREEN2].getIndexCount(), 0);
 
     //..MIRROR2:
-    // shaders[MAIN].setFloat("alpha", 0.4f);
     TextureManager::enable(shaders[MAIN], textures[SHIRT_REF], textures[BLOOR_SPEC], 1);
     draw(MIRROR2, cubes[MIRROR2].getIndexCount(), 0);
     
-    // SHOP_BLOOR2:
-    shaders[MAIN].setFloat("alpha", 0.2f);
-    TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC], 1);
-    draw(SHOP_BLOOR2, cubes[SHOP_BLOOR2].getIndexCount(), 0);
-    shaders[MAIN].setFloat("alpha", 1.0f);
     //------------------------------------------------------------------------------------
     //SHOES_SHOP Lights:
 
@@ -293,7 +284,8 @@ void Renderer::render(Controller& controller)
     shaders[MAIN].setFloat("alpha", 0.3f);
     TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC], 1);
     draw(SMALL_ROOF, cubes[SMALL_ROOF].getIndexCount(), 0);
-    
+    shaders[MAIN].setFloat("alpha", 1.0f);
+
 
     //..SHOE1:
     TextureManager::enable(shaders[MAIN], textures[SHOE1_TEX], textures[SHOE1_TEX], 1);
@@ -319,11 +311,6 @@ void Renderer::render(Controller& controller)
     TextureManager::enable(shaders[MAIN], textures[SHOE6_TEX], textures[SHOE6_TEX], 1);
     draw3Dmodel(SHOE6);
 
-    // SHOP_BLOOR3:
-    shaders[MAIN].setFloat("alpha", 0.2f);
-    TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC], 1);
-    draw(SHOP_BLOOR3, cubes[SHOP_BLOOR3].getIndexCount(), 0);
-    shaders[MAIN].setFloat("alpha", 1.0f);
     //-----------------------------------------------------------------------------------
     //DRESS_SHOP Lights:
 
@@ -380,11 +367,6 @@ void Renderer::render(Controller& controller)
     TextureManager::enable(shaders[MAIN], textures[DRESS_REF], textures[BLOOR_SPEC], 1);
     draw(MIRROR4, cubes[MIRROR4].getIndexCount(), 0);
 
-    // SHOP_BLOOR4:
-    shaders[MAIN].setFloat("alpha", 0.2f);
-    TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC], 1);
-    draw(SHOP_BLOOR4, cubes[SHOP_BLOOR4].getIndexCount(), 0);
-    shaders[MAIN].setFloat("alpha", 1.0f);
 
     //----------------------------------------------------------------------------------------
 
@@ -586,11 +568,6 @@ void Renderer::render(Controller& controller)
     draw(SYRIA, 6, 0);
     shaders[MAIN].setFloat("alpha", 1.0f);
 
-    // SHOP_BLOOR6:
-    shaders[MAIN].setFloat("alpha", 0.2f);
-    TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC], 1);
-    draw(SHOP_BLOOR6, cubes[SHOP_BLOOR6].getIndexCount(), 0);
-    shaders[MAIN].setFloat("alpha", 1.0f);
 
     //-------------------------------------------------------------------------------------------
 
@@ -639,7 +616,7 @@ void Renderer::render(Controller& controller)
     TextureManager::enable(shaders[MAIN], textures[WOOD4], textures[WOOD4_SPEC], 1);
     draw(CASHIER8, cubes[CASHIER8].getIndexCount(), 6);
 
-    shaders[MAIN].setFloat("alpha", 128.0f);
+    shaders[MAIN].setFloat("shininess", 128.0f);
     //JEW1:
     TextureManager::enable(shaders[MAIN], textures[GOLD], textures[LIGHT_METAL_SPEC], 1);
     draw(JEW1, toruses[JEW1].getIndexCount(), 0);
@@ -700,22 +677,17 @@ void Renderer::render(Controller& controller)
     TextureManager::enable(shaders[MAIN], textures[SILVER2], textures[LIGHT_METAL_SPEC], 1);
     draw(JEW13, toruses[JEW13].getIndexCount(), 0);
 
-    // SHOP_BLOOR8:
-    shaders[MAIN].setFloat("alpha", 0.2f);
-    TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC], 1);
-    draw(SHOP_BLOOR8, cubes[SHOP_BLOOR8].getIndexCount(), 0);
-    shaders[MAIN].setFloat("alpha", 1.0f);
-
-
     //..DISPLAY_VIEW:
     shaders[MAIN].setFloat("alpha", 0.18f);
     TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC], 1);
     draw(DISPLAY_VIEW, cubes[DISPLAY_VIEW].getIndexCount(), 0);
     shaders[MAIN].setFloat("alpha", 1.0f);
     
-    shaders[MAIN].setFloat("alpha", 32.0f);
+    shaders[MAIN].setFloat("shininess", 32.0f);
+
+    
     //---------------------------------------------------------------------------------------
-    camera.printPos();
+    // camera.printPos();
     // SKYBOX:
     skybox.setEnvironment(!controller.isNight);
     skybox.draw(shaders[SKYBOX], view, projection);
@@ -764,13 +736,78 @@ void Renderer::render(Controller& controller)
     draw(ENTRY_BLOOR, cubes[ENTRY_BLOOR].getIndexCount(), 0);
     shaders[REF].setFloat("shininess", 32.0f);
 
+    //for reflection inside the mall:
+    //change refLight:
+    refLight.numOfPoints = 4;
+    refLight.pointLightPosition[0] = vec3(-12638.7f, 3000.0f, -1872.75f);
+    refLight.pointLightPosition[1] = vec3(-11387.6f, 3000.0f, 7564.3f);
+    refLight.pointLightPosition[2] = vec3(1734.2f, 3000.0f, 7617.22f);
+    refLight.pointLightPosition[3] = vec3(1745.84f, 3000.0f, -2104.92f);
+    for(int i=0; i<4; i++){
+        refLight.pointLightLinear[i]= 	 	0.12* 0.0014f;
+        refLight.pointLightQuadratic[i] = 0.00000005* 0.000007f;
+    }
+    
+    refLight.turnOnPoint();
+
+    glActiveTexture(GL_TEXTURE2);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, mallCubemapTexture);
+    shaders[REF].setInt("environmentMap", 2);
+    shaders[REF].setFloat("refVal", 0.7f);
+
+    // SHOP_BLOOR:
+    shaders[REF].setFloat("alpha", 0.2f);
+    shaders[REF].setFloat("shininess", 128.0f);
+    TextureManager::enable(shaders[REF], textures[BLOOR], textures[BLOOR_SPEC], 1);
+    draw(SHOP_BLOOR, cubes[SHOP_BLOOR].getIndexCount(), 0);
+    shaders[REF].setFloat("alpha", 1.0f);
+    shaders[REF].setFloat("refVal", 0.0f);
+    shaders[REF].setFloat("shininess", 32.0f);
+
+    refLight.numOfPoints = 0;
+    refLight.turnOnPoint();
+
+
+
+
     //-------------------------------------------------------------------------------------------
     
     
 }
 
 
+unsigned int Renderer::loadMallCubemap() {
+    static const std::vector<std::string> faces = {
+        "../resources/objects/Mall Cubemap/right.jpg",
+        "../resources/objects/Mall Cubemap/left.jpg",
+        "../resources/objects/Mall Cubemap/top.jpg",
+        "../resources/objects/Mall Cubemap/bottom.jpg",
+        "../resources/objects/Mall Cubemap/front.jpg",
+        "../resources/objects/Mall Cubemap/back.jpg"
+};
+    unsigned int textureID;
+    glGenTextures(1, &textureID);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, textureID);
 
+    int width, height, nrChannels;
+    for (unsigned int i = 0; i < faces.size(); i++) {
+        unsigned char* data = stbi_load(faces[i].c_str(), &width, &height, &nrChannels, 0);
+        if (data) {
+            glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+            stbi_image_free(data);
+        } else {
+            std::cout << "Cubemap texture failed to load at path: " << faces[i] << std::endl;
+            stbi_image_free(data);
+        }
+    }
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+
+    return textureID;
+}
 
 
 
