@@ -606,9 +606,116 @@ void Renderer::render(Controller& controller)
     TextureManager::enable(shaders[MAIN], textures[LIGHT_METAL], textures[LIGHT_METAL_SPEC], 2);
     draw(COLUMN, cylinders[COLUMN].getIndexCount(), 0);
 
+    //------------------------------------------------------------------------------------------------
+    mainLight.numOfPoints = 7;
+    mainLight.pointLightPosition[4] = vec3(-10647.7f, 240.348f, -2900.12f);
+    mainLight.pointLightPosition[5] = vec3(-9168.09f, 240.592f, -2901.13f);
+    mainLight.pointLightPosition[6] = vec3(-7686.82f, 240.816f, -2869.64f);
+
+    for(int i=4; i<mainLight.numOfPoints; i++){
+        mainLight.pointLightColor[i] = Color::White;
+        mainLight.pointLightLinear[i]= 	 	0.0014f;
+        mainLight.pointLightQuadratic[i] =  0.000007f;
+    }
+    mainLight.turnOnPoint();
+
+    //JEWELRY_STORE:
+    TextureManager::enable(shaders[MAIN], textures[YELLOW], textures[YELLOW_SPEC], 4);
+    draw(JEWELRY_STORE, cubes[JEWELRY_STORE].getIndexCount(), 6);
+
+    //JEWELRY_GROUND:
+    TextureManager::enable(shaders[MAIN], textures[WHITE_TILES], textures[WHITE_TILES_SPEC], 4);
+    draw(JEWELRY_GROUND, cubes[JEWELRY_GROUND].getIndexCount(), 6);
+ 
+    //..CIRCLE_LIGHT8:
+    TextureManager::enable(shaders[MAIN], textures[JUST_WHITE], textures[JUST_WHITE_SPEC], 1);
+    draw(CIRCLE_LIGHT8, cylinders[CIRCLE_LIGHT8].getIndexCount(), 0);
+
+    //..DISPLAY_BASE:
+    TextureManager::enable(shaders[MAIN], textures[WOOD4], textures[WOOD4_SPEC], 2);
+    draw(DISPLAY_BASE, cubes[DISPLAY_BASE].getIndexCount(), 0);
+
+    //CASHIER8:
+    TextureManager::enable(shaders[MAIN], textures[WOOD4], textures[WOOD4_SPEC], 1);
+    draw(CASHIER8, cubes[CASHIER8].getIndexCount(), 6);
+
+    shaders[MAIN].setFloat("alpha", 128.0f);
+    //JEW1:
+    TextureManager::enable(shaders[MAIN], textures[GOLD], textures[LIGHT_METAL_SPEC], 1);
+    draw(JEW1, toruses[JEW1].getIndexCount(), 0);
+
+    //JEW2:
+    TextureManager::enable(shaders[MAIN], textures[SILVER], textures[LIGHT_METAL_SPEC], 1);
+    draw(JEW2, toruses[JEW2].getIndexCount(), 0);
     
+    //JEW3:
+    TextureManager::enable(shaders[MAIN], textures[SILVER], textures[LIGHT_METAL_SPEC], 1);
+    draw(JEW3, toruses[JEW3].getIndexCount(), 0);
+
+    //STONE:
+    TextureManager::enable(shaders[MAIN], textures[RED_PLASTIC], textures[RED_PLASTIC_SPEC], 1);
+    draw(STONE, cylinders[STONE].getIndexCount(), 0);
+
+    //JEW4:
+    TextureManager::enable(shaders[MAIN], textures[GOLD], textures[LIGHT_METAL_SPEC], 1);
+    draw(JEW4, toruses[JEW4].getIndexCount(), 0);
+
+    //STONE2:
+    TextureManager::enable(shaders[MAIN], textures[BLUE_PLASTIC], textures[RED_PLASTIC_SPEC], 1);
+    draw(STONE2, cylinders[STONE2].getIndexCount(), 0);
+
+    //JEW5:
+    TextureManager::enable(shaders[MAIN], textures[GOLD2], textures[LIGHT_METAL_SPEC], 1);
+    draw(JEW5, toruses[JEW5].getIndexCount(), 0);
+
+    //JEW6:
+    TextureManager::enable(shaders[MAIN], textures[SILVER2], textures[LIGHT_METAL_SPEC], 1);
+    draw(JEW6, toruses[JEW6].getIndexCount(), 0);
+
+    //JEW7:
+    TextureManager::enable(shaders[MAIN], textures[PINK], textures[LIGHT_METAL_SPEC], 1);
+    draw(JEW7, toruses[JEW7].getIndexCount(), 0);
+
+    //JEW8:
+    TextureManager::enable(shaders[MAIN], textures[GOLD3], textures[LIGHT_METAL_SPEC], 1);
+    draw(JEW8, toruses[JEW8].getIndexCount(), 0);
+
+    //JEW9:
+    TextureManager::enable(shaders[MAIN], textures[GOLD4], textures[LIGHT_METAL_SPEC], 4);
+    draw(JEW9, cones[JEW9].getIndexCount(), 0);
+
+    //JEW10:
+    TextureManager::enable(shaders[MAIN], textures[GOLD], textures[LIGHT_METAL_SPEC], 1);
+    draw(JEW10, cones[JEW10].getIndexCount(), 0);
+
+    //JEW11:
+    TextureManager::enable(shaders[MAIN], textures[SILVER2], textures[LIGHT_METAL_SPEC], 1);
+    draw(JEW11, cylinders[JEW11].getIndexCount(), 0);
+
+    //JEW12:
+    TextureManager::enable(shaders[MAIN], textures[GOLD2], textures[LIGHT_METAL_SPEC], 1);
+    draw(JEW12, toruses[JEW12].getIndexCount(), 0);
+
+    //JEW13:
+    TextureManager::enable(shaders[MAIN], textures[SILVER2], textures[LIGHT_METAL_SPEC], 1);
+    draw(JEW13, toruses[JEW13].getIndexCount(), 0);
+
+    // SHOP_BLOOR8:
+    shaders[MAIN].setFloat("alpha", 0.2f);
+    TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC], 1);
+    draw(SHOP_BLOOR8, cubes[SHOP_BLOOR8].getIndexCount(), 0);
+    shaders[MAIN].setFloat("alpha", 1.0f);
+
+
+    //..DISPLAY_VIEW:
+    shaders[MAIN].setFloat("alpha", 0.18f);
+    TextureManager::enable(shaders[MAIN], textures[BLOOR], textures[BLOOR_SPEC], 1);
+    draw(DISPLAY_VIEW, cubes[DISPLAY_VIEW].getIndexCount(), 0);
+    shaders[MAIN].setFloat("alpha", 1.0f);
+    
+    shaders[MAIN].setFloat("alpha", 32.0f);
     //---------------------------------------------------------------------------------------
-    // camera.printPos();
+    camera.printPos();
     // SKYBOX:
     skybox.setEnvironment(!controller.isNight);
     skybox.draw(shaders[SKYBOX], view, projection);

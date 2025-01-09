@@ -3834,7 +3834,1886 @@ Scene::Scene()
     appModel = translate(appModel, vec3(-1500.0f, 0.0f, 0.0f));
     models[COLUMN].PB(appModel);
     cylinderBuffers(COLUMN);
+    //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+    //JEWELRY STORE:
+    //Ground Floor:+++++++++++++++++++++++++++++++++++++++++++++++++
+
+    cubes[JEWELRY_STORE] = Cubesphere(500.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9500.0f, -300.0f, -2850.0f));
+    appModel = rotate(appModel, radians(-90.0f), Y);
+    appModel = scale(appModel, vec3(3.0f, 2.1f, 9.2f)); 
+    models[JEWELRY_STORE].PB(appModel);
+    cubeBuffers(JEWELRY_STORE);
+
+    //JEWELRY_GROUND
+    cubes[JEWELRY_GROUND] = Cubesphere(500.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9500.0f, -900.0f, -2850.0f)); //oldZ = -2850 , I added 13150
+    appModel = rotate(appModel, radians(-90.0f), Y);
+    appModel = scale(appModel, vec3(3.0f, 0.005f, 9.2f)); 
+    models[JEWELRY_GROUND].PB(appModel);
+    cubes[JEWELRY_GROUND].reverseNormals();
+    cubeBuffers(JEWELRY_GROUND);
+
+    //CIRCLE_LIGHT8:
+    cylinders[CIRCLE_LIGHT8] = Cylinder(80.0f, 80.0f, 10.0f, 6, 1, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9500+320.0f, 280.0f, -2900.0f));
+    models[CIRCLE_LIGHT8].PB(appModel);
+    appModel = translate(appModel, vec3(-1500.0f, 0.0f, 0.0f));
+    models[CIRCLE_LIGHT8].PB(appModel);
+    appModel = translate(appModel, vec3(3000.0f, 0.0f, 0.0f));
+    models[CIRCLE_LIGHT8].PB(appModel);
+    cylinderBuffers(CIRCLE_LIGHT8);
+
+    //DISPLAY_BASE:
+    cubes[DISPLAY_BASE] = Cubesphere(400.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9900.0f, -700.0f, -2300.0f));
+    appModel = scale(appModel, vec3(9.5f, 0.8f, 1.0f));
+    models[DISPLAY_BASE].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9900.0f, -280.0f, -2300.0f));
+    appModel = scale(appModel, vec3(9.5f, 0.1f, 1.0f));
+    models[DISPLAY_BASE].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9900.0f, -700.0f, -3500.0f));
+    appModel = scale(appModel, vec3(9.5f, 0.8f, 1.0f));
+    models[DISPLAY_BASE].PB(appModel);
+    cubeBuffers(DISPLAY_BASE);
+
+    //DISPLAY_VIEW:
+    cubes[DISPLAY_VIEW] = Cubesphere(400.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9900.0f, -400.0f, -2300.0f));
+    appModel = scale(appModel, vec3(9.5f, 0.4f, 1.0f));
+    models[DISPLAY_VIEW].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9900.0f, -100.0f, -2300.0f));
+    appModel = scale(appModel, vec3(9.5f, 0.6f, 1.0f));
+    models[DISPLAY_VIEW].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9900.0f, -400.0f, -3500.0f));
+    appModel = scale(appModel, vec3(9.5f, 0.4f, 1.0f));
+    models[DISPLAY_VIEW].PB(appModel);
+    cubeBuffers(DISPLAY_VIEW);
+
+    //CASHIER8:
+    cubes[CASHIER8] = Cubesphere(200.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-7150.0f, -710.0f, -3050.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.4f, 3.0f));
+    models[CASHIER8].PB(appModel);
+    cubeBuffers(CASHIER8);
+
+    //SCREEN:
+    cubes[SCREEN] =Cubesphere(50.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-7150.0f, -460.0f, -3050.0f));
+    appModel = rotate(appModel, radians(189.0f), Y);
+    appModel = scale(appModel, vec3(0.1f, 1.6f, 2.8f));
+    models[SCREEN].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, -35.0f, 0.0f));
+    appModel = scale(appModel, vec3(2.0f, 0.6f, 0.2f));
+    models[SCREEN].PB(appModel);
+    cubeBuffers(SCREEN);
+
+    //JEW1:
+    toruses[JEW1] = Torus(30.0f*1.0f, 30.0f*0.2f, 36, 4, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12000.0f, -490.0f, -2210.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(700.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    torusBuffers(JEW1);
+
+    //JEW2:
+    toruses[JEW2] = Torus(30.0f*1.0f, 30.0f*0.2f, 23, 4, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12000.0f, -490.0f, -2410.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(700.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    torusBuffers(JEW2);
+
+    //JEW3:
+    toruses[JEW3] = Torus(10.0f*1.0f, 10.0f*0.2f, 10, 9, true, 3);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -490.0f, -2210.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(1000.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    torusBuffers(JEW3);
+
+    //STONE:
+    cylinders[STONE] = Cylinder(4.3f*1.2f, 4.3f*0.6f, 1.5f, 6, 11, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -477.0f, -2410.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(1000.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    cylinderBuffers(STONE);
+
+    //JEW4:
+    toruses[JEW4] = Torus(10.0f*1.0f, 10.0f*0.2f, 10, 9, false, 3);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -490.0f, -2410.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(1000.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    torusBuffers(JEW4);
+
+    //STONE2:
+    cylinders[STONE2] = Cylinder(4.2f*0.3f, 4.0f*0.55f, 1.7f, 6, 11, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -477.0f, -2210.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(1000.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    cylinderBuffers(STONE2);
+
+    //JEW5:
+    toruses[JEW5] = Torus(5.0*1.0f, 5.0*0.7f, 14, 5, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9500.0f, -477.0f, -2210.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 2.0f));
+    models[JEW5].PB(appModel);
+    appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+    models[JEW5].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = translate(appModel, vec3(80.0f, 0.0f, 0.0f));
+        models[JEW5].PB(appModel);
+        appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+        models[JEW5].PB(appModel);
+    }
+    torusBuffers(JEW5);
+
+    //JEW6:
+    toruses[JEW6] = Torus(5.0*1.0f, 5.0*0.7f, 14, 5, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9500.0f, -477.0f, -2410.0f));
+    models[JEW6].PB(appModel);
+    appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+    models[JEW6].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = translate(appModel, vec3(80.0f, 0.0f, 0.0f));
+        models[JEW6].PB(appModel);
+        appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+        models[JEW6].PB(appModel);
+    }
+    torusBuffers(JEW6);
+
+    //JEW7:
+    toruses[JEW7] = Torus(5.0*0.01f, 5.0*0.9f, 3, 3, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9000.0f, -477.0f, -2210.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 2.0f));
+    models[JEW7].PB(appModel);
+    appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+    models[JEW7].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = translate(appModel, vec3(80.0f, 0.0f, 0.0f));
+        models[JEW7].PB(appModel);
+        appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+        models[JEW7].PB(appModel);
+    }
+    torusBuffers(JEW7);
+
+    //JEW8:
+    toruses[JEW8] = Torus(13.0*0.01f, 13.0*0.3f, 11, 5, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9000.0f, -477.0f, -2410.0f));
+    models[JEW8].PB(appModel);
+    appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+    models[JEW8].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = translate(appModel, vec3(80.0f, 0.0f, 0.0f));
+        models[JEW8].PB(appModel);
+        appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+        models[JEW8].PB(appModel);
+    }
+    torusBuffers(JEW8);
+
+    cones[JEW9] = Cone(60.0f*1.5f, 60.0f*1.2f, 4, 1, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-8300.0f, -440.0f, -2210.0f));
+    models[JEW9].PB(appModel);
+    coneBuffers(JEW9);
+
+    cylinders[JEW10] = Cylinder(10.0f*1.0f, 10.0f*1.0f, 10.0f*0.2f, 36, 1, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-8100.0f, -480.0f, -2210.0f));
+    models[JEW10].PB(appModel);
+    for(int i=0; i<7; i++){
+        appModel = translate(appModel, vec3(50.0f, 0.0f, 0.0f));
+        models[JEW10].PB(appModel);
+    }
+    cylinderBuffers(JEW10);
+
+    cylinders[JEW11] = Cylinder(10.0f*1.0f, 10.0f*1.0f, 10.0f*0.2f, 36, 1, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-8100.0f, -480.0f, -2410.0f));
+    for(int i=0; i<8; i++){
+        models[JEW11].PB(appModel);
+        appModel = translate(appModel, vec3(50.0f, 0.0f, 0.0f));
+    }
+    cylinderBuffers(JEW11);
+
+    //second display:
+    //JEW1:
+    toruses[JEW1] = Torus(30.0f*1.0f, 30.0f*0.2f, 36, 4, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12000.0f, -490.0f, -2210.0f -1200.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(700.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    torusBuffers(JEW1);
+
+    //JEW2:
+    toruses[JEW2] = Torus(30.0f*1.0f, 30.0f*0.2f, 23, 4, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12000.0f, -490.0f, -2410.0f-1200.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(700.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    torusBuffers(JEW2);
+
+    //JEW3:
+    toruses[JEW3] = Torus(10.0f*1.0f, 10.0f*0.2f, 10, 9, true, 3);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -490.0f, -2210.0f-1200.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(1000.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    torusBuffers(JEW3);
+
+    //STONE:
+    cylinders[STONE] = Cylinder(4.3f*1.2f, 4.3f*0.6f, 1.5f, 6, 11, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -477.0f, -2410.0f-1200.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(1000.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    cylinderBuffers(STONE);
+
+    //JEW4:
+    toruses[JEW4] = Torus(10.0f*1.0f, 10.0f*0.2f, 10, 9, false, 3);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -490.0f, -2410.0f-1200.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(1000.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    torusBuffers(JEW4);
+
+    //STONE2:
+    cylinders[STONE2] = Cylinder(4.2f*0.3f, 4.0f*0.55f, 1.7f, 6, 11, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -477.0f, -2210.0f-1200.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(1000.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    cylinderBuffers(STONE2);
+
+    //JEW5:
+    toruses[JEW5] = Torus(5.0*1.0f, 5.0*0.7f, 14, 5, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9500.0f, -477.0f, -2210.0f-1200.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 2.0f));
+    models[JEW5].PB(appModel);
+    appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+    models[JEW5].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = translate(appModel, vec3(80.0f, 0.0f, 0.0f));
+        models[JEW5].PB(appModel);
+        appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+        models[JEW5].PB(appModel);
+    }
+    torusBuffers(JEW5);
+
+    //JEW6:
+    toruses[JEW6] = Torus(5.0*1.0f, 5.0*0.7f, 14, 5, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9500.0f, -477.0f, -2410.0f-1200.0f));
+    models[JEW6].PB(appModel);
+    appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+    models[JEW6].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = translate(appModel, vec3(80.0f, 0.0f, 0.0f));
+        models[JEW6].PB(appModel);
+        appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+        models[JEW6].PB(appModel);
+    }
+    torusBuffers(JEW6);
+
+    //JEW7:
+    toruses[JEW7] = Torus(5.0*0.01f, 5.0*0.9f, 3, 3, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9000.0f, -477.0f, -2210.0f-1200.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 2.0f));
+    models[JEW7].PB(appModel);
+    appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+    models[JEW7].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = translate(appModel, vec3(80.0f, 0.0f, 0.0f));
+        models[JEW7].PB(appModel);
+        appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+        models[JEW7].PB(appModel);
+    }
+    torusBuffers(JEW7);
+
+    //JEW8:
+    toruses[JEW8] = Torus(13.0*0.01f, 13.0*0.3f, 11, 5, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9000.0f, -477.0f, -2410.0f-1200.0f));
+    models[JEW8].PB(appModel);
+    appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+    models[JEW8].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = translate(appModel, vec3(80.0f, 0.0f, 0.0f));
+        models[JEW8].PB(appModel);
+        appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+        models[JEW8].PB(appModel);
+    }
+    torusBuffers(JEW8);
+
+    cones[JEW9] = Cone(60.0f*1.5f, 60.0f*1.2f, 4, 1, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-8300.0f, -440.0f, -2210.0f-1200.0f));
+    models[JEW9].PB(appModel);
+    coneBuffers(JEW9);
+
+    cylinders[JEW10] = Cylinder(10.0f*1.0f, 10.0f*1.0f, 10.0f*0.2f, 36, 1, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-8100.0f, -480.0f, -2210.0f-1200.0f));
+    models[JEW10].PB(appModel);
+    for(int i=0; i<7; i++){
+        appModel = translate(appModel, vec3(50.0f, 0.0f, 0.0f));
+        models[JEW10].PB(appModel);
+    }
+    cylinderBuffers(JEW10);
+
+    cylinders[JEW11] = Cylinder(10.0f*1.0f, 10.0f*1.0f, 10.0f*0.2f, 36, 1, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-8100.0f, -480.0f, -2410.0f-1200.0f));
+    for(int i=0; i<8; i++){
+        models[JEW11].PB(appModel);
+        appModel = translate(appModel, vec3(50.0f, 0.0f, 0.0f));
+    }
+    cylinderBuffers(JEW11);
+
+    //JEW12:
+    toruses[JEW12] = Torus(50.0f*1.3f, 50.0f*0.15f, 20, 16, true, 3);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12000.0f, -100.0f, -2210.0f));
+    appModel = rotate(appModel, radians(-20.0f), X);
+    appModel = scale(appModel, vec3(1.0f, 1.7f, 1.0f));
+    models[JEW12].PB(appModel);
+    for(float i = 700.0f; i<4000.0f; i+=700.0f){
+        appModel = MODEL;
+        appModel = translate(appModel, vec3(-12000.0f + i, -100.0f, -2210.0f));
+        appModel = rotate(appModel, radians(-20.0f), X);
+        appModel = scale(appModel, vec3(1.0f, 1.7f, 1.0f));
+        models[JEW12].PB(appModel);
+    }
+    torusBuffers(JEW12);
+
+    //JEW13:
+    toruses[JEW13] = Torus(50.0f*1.3f, 50.0f*0.15f, 20, 16, false, 3);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -100.0f, -2210.0f));
+    appModel = rotate(appModel, radians(-20.0f), X);
+    appModel = scale(appModel, vec3(1.0f, 1.7f, 1.0f));
+    models[JEW13].PB(appModel);
+    for(float i = 700.0f; i<4000.0f; i+=700.0f){
+        appModel = MODEL;
+        appModel = translate(appModel, vec3(-11600.0f + i, -100.0f, -2210.0f));
+        appModel = rotate(appModel, radians(-20.0f), X);
+        appModel = scale(appModel, vec3(1.0f, 1.7f, 1.0f));
+        models[JEW13].PB(appModel);
+    }
+    torusBuffers(JEW13);
+
+    //SHOP_BLOOR
+    cubes[SHOP_BLOOR8] = Cubesphere(100.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9770.0f, -280.0f, -2000.0f));
+    appModel = scale(appModel, vec3(41.0f, 9.8f, 0.05f));
+    models[SHOP_BLOOR8].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-7120.0f, 50.0f, -2000.0f));
+    appModel = scale(appModel, vec3(4.4f, 4.0f, 0.05f));
+    models[SHOP_BLOOR8].PB(appModel);
+    cubeBuffers(SHOP_BLOOR8);
+    //----------------------------------------------------------------------------------------
+    //First Floor:+++++++++++++++++++++++++++++++++++++++++++++++++
+
+    cubes[JEWELRY_STORE] = Cubesphere(500.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9500.0f, -300.0f + 1300.0f, -2850.0f));
+    appModel = rotate(appModel, radians(-90.0f), Y);
+    appModel = scale(appModel, vec3(3.0f, 2.1f, 9.2f)); 
+    models[JEWELRY_STORE].PB(appModel);
+    cubeBuffers(JEWELRY_STORE);
+
+    //JEWELRY_GROUND
+    cubes[JEWELRY_GROUND] = Cubesphere(500.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9500.0f, -900.0f+ 1300.0f, -2850.0f)); //oldZ = -2850 , I added 13150
+    appModel = rotate(appModel, radians(-90.0f), Y);
+    appModel = scale(appModel, vec3(3.0f, 0.005f, 9.2f)); 
+    models[JEWELRY_GROUND].PB(appModel);
+    cubes[JEWELRY_GROUND].reverseNormals();
+    cubeBuffers(JEWELRY_GROUND);
+
+    //CIRCLE_LIGHT8:
+    cylinders[CIRCLE_LIGHT8] = Cylinder(80.0f, 80.0f, 10.0f, 6, 1, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9500+320.0f, 280.0f+ 1300.0f, -2900.0f));
+    models[CIRCLE_LIGHT8].PB(appModel);
+    appModel = translate(appModel, vec3(-1500.0f, 0.0f, 0.0f));
+    models[CIRCLE_LIGHT8].PB(appModel);
+    appModel = translate(appModel, vec3(3000.0f, 0.0f, 0.0f));
+    models[CIRCLE_LIGHT8].PB(appModel);
+    cylinderBuffers(CIRCLE_LIGHT8);
+
+    //DISPLAY_BASE:
+    cubes[DISPLAY_BASE] = Cubesphere(400.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9900.0f, -700.0f+ 1300.0f, -2300.0f));
+    appModel = scale(appModel, vec3(9.5f, 0.8f, 1.0f));
+    models[DISPLAY_BASE].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9900.0f, -280.0f+ 1300.0f, -2300.0f));
+    appModel = scale(appModel, vec3(9.5f, 0.1f, 1.0f));
+    models[DISPLAY_BASE].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9900.0f, -700.0f+ 1300.0f, -3500.0f));
+    appModel = scale(appModel, vec3(9.5f, 0.8f, 1.0f));
+    models[DISPLAY_BASE].PB(appModel);
+    cubeBuffers(DISPLAY_BASE);
+
+    //DISPLAY_VIEW:
+    cubes[DISPLAY_VIEW] = Cubesphere(400.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9900.0f, -400.0f+ 1300.0f, -2300.0f));
+    appModel = scale(appModel, vec3(9.5f, 0.4f, 1.0f));
+    models[DISPLAY_VIEW].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9900.0f, -100.0f+ 1300.0f, -2300.0f));
+    appModel = scale(appModel, vec3(9.5f, 0.6f, 1.0f));
+    models[DISPLAY_VIEW].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9900.0f, -400.0f+ 1300.0f, -3500.0f));
+    appModel = scale(appModel, vec3(9.5f, 0.4f, 1.0f));
+    models[DISPLAY_VIEW].PB(appModel);
+    cubeBuffers(DISPLAY_VIEW);
+
+    //CASHIER8:
+    cubes[CASHIER8] = Cubesphere(200.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-7150.0f, -710.0f+ 1300.0f, -3050.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.4f, 3.0f));
+    models[CASHIER8].PB(appModel);
+    cubeBuffers(CASHIER8);
+
+    //SCREEN:
+    cubes[SCREEN] =Cubesphere(50.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-7150.0f, -460.0f+ 1300.0f, -3050.0f));
+    appModel = rotate(appModel, radians(189.0f), Y);
+    appModel = scale(appModel, vec3(0.1f, 1.6f, 2.8f));
+    models[SCREEN].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, -35.0f, 0.0f));
+    appModel = scale(appModel, vec3(2.0f, 0.6f, 0.2f));
+    models[SCREEN].PB(appModel);
+    cubeBuffers(SCREEN);
+
+    //JEW1:
+    toruses[JEW1] = Torus(30.0f*1.0f, 30.0f*0.2f, 36, 4, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12000.0f, -490.0f+ 1300.0f, -2210.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(700.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    torusBuffers(JEW1);
+
+    //JEW2:
+    toruses[JEW2] = Torus(30.0f*1.0f, 30.0f*0.2f, 23, 4, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12000.0f, -490.0f+ 1300.0f, -2410.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(700.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    torusBuffers(JEW2);
+
+    //JEW3:
+    toruses[JEW3] = Torus(10.0f*1.0f, 10.0f*0.2f, 10, 9, true, 3);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -490.0f+ 1300.0f, -2210.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(1000.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    torusBuffers(JEW3);
+
+    //STONE:
+    cylinders[STONE] = Cylinder(4.3f*1.2f, 4.3f*0.6f, 1.5f, 6, 11, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -477.0f+ 1300.0f, -2410.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(1000.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    cylinderBuffers(STONE);
+
+    //JEW4:
+    toruses[JEW4] = Torus(10.0f*1.0f, 10.0f*0.2f, 10, 9, false, 3);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -490.0f+ 1300.0f, -2410.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(1000.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    torusBuffers(JEW4);
+
+    //STONE2:
+    cylinders[STONE2] = Cylinder(4.2f*0.3f, 4.0f*0.55f, 1.7f, 6, 11, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -477.0f+ 1300.0f, -2210.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(1000.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    cylinderBuffers(STONE2);
+
+    //JEW5:
+    toruses[JEW5] = Torus(5.0*1.0f, 5.0*0.7f, 14, 5, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9500.0f, -477.0f+ 1300.0f, -2210.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 2.0f));
+    models[JEW5].PB(appModel);
+    appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+    models[JEW5].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = translate(appModel, vec3(80.0f, 0.0f, 0.0f));
+        models[JEW5].PB(appModel);
+        appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+        models[JEW5].PB(appModel);
+    }
+    torusBuffers(JEW5);
+
+    //JEW6:
+    toruses[JEW6] = Torus(5.0*1.0f, 5.0*0.7f, 14, 5, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9500.0f, -477.0f+ 1300.0f, -2410.0f));
+    models[JEW6].PB(appModel);
+    appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+    models[JEW6].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = translate(appModel, vec3(80.0f, 0.0f, 0.0f));
+        models[JEW6].PB(appModel);
+        appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+        models[JEW6].PB(appModel);
+    }
+    torusBuffers(JEW6);
+
+    //JEW7:
+    toruses[JEW7] = Torus(5.0*0.01f, 5.0*0.9f, 3, 3, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9000.0f, -477.0f+ 1300.0f, -2210.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 2.0f));
+    models[JEW7].PB(appModel);
+    appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+    models[JEW7].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = translate(appModel, vec3(80.0f, 0.0f, 0.0f));
+        models[JEW7].PB(appModel);
+        appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+        models[JEW7].PB(appModel);
+    }
+    torusBuffers(JEW7);
+
+    //JEW8:
+    toruses[JEW8] = Torus(13.0*0.01f, 13.0*0.3f, 11, 5, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9000.0f, -477.0f+ 1300.0f, -2410.0f));
+    models[JEW8].PB(appModel);
+    appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+    models[JEW8].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = translate(appModel, vec3(80.0f, 0.0f, 0.0f));
+        models[JEW8].PB(appModel);
+        appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+        models[JEW8].PB(appModel);
+    }
+    torusBuffers(JEW8);
+
+    cones[JEW9] = Cone(60.0f*1.5f, 60.0f*1.2f, 4, 1, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-8300.0f, -440.0f+ 1300.0f, -2210.0f));
+    models[JEW9].PB(appModel);
+    coneBuffers(JEW9);
+
+    cylinders[JEW10] = Cylinder(10.0f*1.0f, 10.0f*1.0f, 10.0f*0.2f, 36, 1, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-8100.0f, -480.0f+ 1300.0f, -2210.0f));
+    models[JEW10].PB(appModel);
+    for(int i=0; i<7; i++){
+        appModel = translate(appModel, vec3(50.0f, 0.0f, 0.0f));
+        models[JEW10].PB(appModel);
+    }
+    cylinderBuffers(JEW10);
+
+    cylinders[JEW11] = Cylinder(10.0f*1.0f, 10.0f*1.0f, 10.0f*0.2f, 36, 1, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-8100.0f, -480.0f+ 1300.0f, -2410.0f));
+    for(int i=0; i<8; i++){
+        models[JEW11].PB(appModel);
+        appModel = translate(appModel, vec3(50.0f, 0.0f, 0.0f));
+    }
+    cylinderBuffers(JEW11);
+
+    //second display:
+    //JEW1:
+    toruses[JEW1] = Torus(30.0f*1.0f, 30.0f*0.2f, 36, 4, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12000.0f, -490.0f+ 1300.0f, -2210.0f -1200.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(700.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    torusBuffers(JEW1);
+
+    //JEW2:
+    toruses[JEW2] = Torus(30.0f*1.0f, 30.0f*0.2f, 23, 4, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12000.0f, -490.0f+ 1300.0f, -2410.0f-1200.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(700.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    torusBuffers(JEW2);
+
+    //JEW3:
+    toruses[JEW3] = Torus(10.0f*1.0f, 10.0f*0.2f, 10, 9, true, 3);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -490.0f+ 1300.0f, -2210.0f-1200.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(1000.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    torusBuffers(JEW3);
+
+    //STONE:
+    cylinders[STONE] = Cylinder(4.3f*1.2f, 4.3f*0.6f, 1.5f, 6, 11, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -477.0f+ 1300.0f, -2410.0f-1200.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(1000.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    cylinderBuffers(STONE);
+
+    //JEW4:
+    toruses[JEW4] = Torus(10.0f*1.0f, 10.0f*0.2f, 10, 9, false, 3);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -490.0f+ 1300.0f, -2410.0f-1200.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(1000.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    torusBuffers(JEW4);
+
+    //STONE2:
+    cylinders[STONE2] = Cylinder(4.2f*0.3f, 4.0f*0.55f, 1.7f, 6, 11, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -477.0f+ 1300.0f, -2210.0f-1200.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(1000.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    cylinderBuffers(STONE2);
+
+    //JEW5:
+    toruses[JEW5] = Torus(5.0*1.0f, 5.0*0.7f, 14, 5, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9500.0f, -477.0f+ 1300.0f, -2210.0f-1200.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 2.0f));
+    models[JEW5].PB(appModel);
+    appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+    models[JEW5].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = translate(appModel, vec3(80.0f, 0.0f, 0.0f));
+        models[JEW5].PB(appModel);
+        appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+        models[JEW5].PB(appModel);
+    }
+    torusBuffers(JEW5);
+
+    //JEW6:
+    toruses[JEW6] = Torus(5.0*1.0f, 5.0*0.7f, 14, 5, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9500.0f, -477.0f+ 1300.0f, -2410.0f-1200.0f));
+    models[JEW6].PB(appModel);
+    appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+    models[JEW6].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = translate(appModel, vec3(80.0f, 0.0f, 0.0f));
+        models[JEW6].PB(appModel);
+        appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+        models[JEW6].PB(appModel);
+    }
+    torusBuffers(JEW6);
+
+    //JEW7:
+    toruses[JEW7] = Torus(5.0*0.01f, 5.0*0.9f, 3, 3, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9000.0f, -477.0f+ 1300.0f, -2210.0f-1200.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 2.0f));
+    models[JEW7].PB(appModel);
+    appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+    models[JEW7].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = translate(appModel, vec3(80.0f, 0.0f, 0.0f));
+        models[JEW7].PB(appModel);
+        appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+        models[JEW7].PB(appModel);
+    }
+    torusBuffers(JEW7);
+
+    //JEW8:
+    toruses[JEW8] = Torus(13.0*0.01f, 13.0*0.3f, 11, 5, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9000.0f, -477.0f+ 1300.0f, -2410.0f-1200.0f));
+    models[JEW8].PB(appModel);
+    appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+    models[JEW8].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = translate(appModel, vec3(80.0f, 0.0f, 0.0f));
+        models[JEW8].PB(appModel);
+        appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+        models[JEW8].PB(appModel);
+    }
+    torusBuffers(JEW8);
+
+    cones[JEW9] = Cone(60.0f*1.5f, 60.0f*1.2f, 4, 1, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-8300.0f, -440.0f+ 1300.0f, -2210.0f-1200.0f));
+    models[JEW9].PB(appModel);
+    coneBuffers(JEW9);
+
+    cylinders[JEW10] = Cylinder(10.0f*1.0f, 10.0f*1.0f, 10.0f*0.2f, 36, 1, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-8100.0f, -480.0f+ 1300.0f, -2210.0f-1200.0f));
+    models[JEW10].PB(appModel);
+    for(int i=0; i<7; i++){
+        appModel = translate(appModel, vec3(50.0f, 0.0f, 0.0f));
+        models[JEW10].PB(appModel);
+    }
+    cylinderBuffers(JEW10);
+
+    cylinders[JEW11] = Cylinder(10.0f*1.0f, 10.0f*1.0f, 10.0f*0.2f, 36, 1, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-8100.0f, -480.0f+ 1300.0f, -2410.0f-1200.0f));
+    for(int i=0; i<8; i++){
+        models[JEW11].PB(appModel);
+        appModel = translate(appModel, vec3(50.0f, 0.0f, 0.0f));
+    }
+    cylinderBuffers(JEW11);
+
+    //JEW12:
+    toruses[JEW12] = Torus(50.0f*1.3f, 50.0f*0.15f, 20, 16, true, 3);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12000.0f, -100.0f+ 1300.0f, -2210.0f));
+    appModel = rotate(appModel, radians(-20.0f), X);
+    appModel = scale(appModel, vec3(1.0f, 1.7f, 1.0f));
+    models[JEW12].PB(appModel);
+    for(float i = 700.0f; i<4000.0f; i+=700.0f){
+        appModel = MODEL;
+        appModel = translate(appModel, vec3(-12000.0f + i, -100.0f+ 1300.0f, -2210.0f));
+        appModel = rotate(appModel, radians(-20.0f), X);
+        appModel = scale(appModel, vec3(1.0f, 1.7f, 1.0f));
+        models[JEW12].PB(appModel);
+    }
+    torusBuffers(JEW12);
+
+    //JEW13:
+    toruses[JEW13] = Torus(50.0f*1.3f, 50.0f*0.15f, 20, 16, false, 3);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -100.0f+ 1300.0f, -2210.0f));
+    appModel = rotate(appModel, radians(-20.0f), X);
+    appModel = scale(appModel, vec3(1.0f, 1.7f, 1.0f));
+    models[JEW13].PB(appModel);
+    for(float i = 700.0f; i<4000.0f; i+=700.0f){
+        appModel = MODEL;
+        appModel = translate(appModel, vec3(-11600.0f + i, -100.0f+ 1300.0f, -2210.0f));
+        appModel = rotate(appModel, radians(-20.0f), X);
+        appModel = scale(appModel, vec3(1.0f, 1.7f, 1.0f));
+        models[JEW13].PB(appModel);
+    }
+    torusBuffers(JEW13);
+
+    //SHOP_BLOOR
+    cubes[SHOP_BLOOR8] = Cubesphere(100.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9780.0f, -280.0f + 1300.0f, -2000.0f));
+    appModel = scale(appModel, vec3(41.0f, 9.8f, 0.05f));
+    models[SHOP_BLOOR8].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-7120.0f, 50.0f + 1300.0f, -2000.0f));
+    appModel = scale(appModel, vec3(4.4f, 4.0f, 0.05f));
+    models[SHOP_BLOOR8].PB(appModel);
+    cubeBuffers(SHOP_BLOOR8);
+    //--------------------------------------------------------------------------------------------
+    //Second Floor:+++++++++++++++++++++++++++++++++++++++++++++++++
+
+    cubes[JEWELRY_STORE] = Cubesphere(500.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9500.0f, -300.0f + 2600.0f, -2850.0f));
+    appModel = rotate(appModel, radians(-90.0f), Y);
+    appModel = scale(appModel, vec3(3.0f, 2.1f, 9.2f)); 
+    models[JEWELRY_STORE].PB(appModel);
+    cubeBuffers(JEWELRY_STORE);
+
+    //JEWELRY_GROUND
+    cubes[JEWELRY_GROUND] = Cubesphere(500.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9500.0f, -900.0f+ 2600.0f, -2850.0f)); //oldZ = -2850 , I added 13150
+    appModel = rotate(appModel, radians(-90.0f), Y);
+    appModel = scale(appModel, vec3(3.0f, 0.005f, 9.2f)); 
+    models[JEWELRY_GROUND].PB(appModel);
+    cubes[JEWELRY_GROUND].reverseNormals();
+    cubeBuffers(JEWELRY_GROUND);
+
+    //CIRCLE_LIGHT8:
+    cylinders[CIRCLE_LIGHT8] = Cylinder(80.0f, 80.0f, 10.0f, 6, 1, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9500+320.0f, 280.0f+ 2600.0f, -2900.0f));
+    models[CIRCLE_LIGHT8].PB(appModel);
+    appModel = translate(appModel, vec3(-1500.0f, 0.0f, 0.0f));
+    models[CIRCLE_LIGHT8].PB(appModel);
+    appModel = translate(appModel, vec3(3000.0f, 0.0f, 0.0f));
+    models[CIRCLE_LIGHT8].PB(appModel);
+    cylinderBuffers(CIRCLE_LIGHT8);
+
+    //DISPLAY_BASE:
+    cubes[DISPLAY_BASE] = Cubesphere(400.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9900.0f, -700.0f+ 2600.0f, -2300.0f));
+    appModel = scale(appModel, vec3(9.5f, 0.8f, 1.0f));
+    models[DISPLAY_BASE].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9900.0f, -280.0f+ 2600.0f, -2300.0f));
+    appModel = scale(appModel, vec3(9.5f, 0.1f, 1.0f));
+    models[DISPLAY_BASE].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9900.0f, -700.0f+ 2600.0f, -3500.0f));
+    appModel = scale(appModel, vec3(9.5f, 0.8f, 1.0f));
+    models[DISPLAY_BASE].PB(appModel);
+    cubeBuffers(DISPLAY_BASE);
+
+    //DISPLAY_VIEW:
+    cubes[DISPLAY_VIEW] = Cubesphere(400.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9900.0f, -400.0f+ 2600.0f, -2300.0f));
+    appModel = scale(appModel, vec3(9.5f, 0.4f, 1.0f));
+    models[DISPLAY_VIEW].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9900.0f, -100.0f+ 2600.0f, -2300.0f));
+    appModel = scale(appModel, vec3(9.5f, 0.6f, 1.0f));
+    models[DISPLAY_VIEW].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9900.0f, -400.0f+ 2600.0f, -3500.0f));
+    appModel = scale(appModel, vec3(9.5f, 0.4f, 1.0f));
+    models[DISPLAY_VIEW].PB(appModel);
+    cubeBuffers(DISPLAY_VIEW);
+
+    //CASHIER8:
+    cubes[CASHIER8] = Cubesphere(200.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-7150.0f, -710.0f+ 2600.0f, -3050.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.4f, 3.0f));
+    models[CASHIER8].PB(appModel);
+    cubeBuffers(CASHIER8);
+
+    //SCREEN:
+    cubes[SCREEN] =Cubesphere(50.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-7150.0f, -460.0f+ 2600.0f, -3050.0f));
+    appModel = rotate(appModel, radians(189.0f), Y);
+    appModel = scale(appModel, vec3(0.1f, 1.6f, 2.8f));
+    models[SCREEN].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, -35.0f, 0.0f));
+    appModel = scale(appModel, vec3(2.0f, 0.6f, 0.2f));
+    models[SCREEN].PB(appModel);
+    cubeBuffers(SCREEN);
+
+    //JEW1:
+    toruses[JEW1] = Torus(30.0f*1.0f, 30.0f*0.2f, 36, 4, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12000.0f, -490.0f+ 2600.0f, -2210.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(700.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    torusBuffers(JEW1);
+
+    //JEW2:
+    toruses[JEW2] = Torus(30.0f*1.0f, 30.0f*0.2f, 23, 4, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12000.0f, -490.0f+ 2600.0f, -2410.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(700.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    torusBuffers(JEW2);
+
+    //JEW3:
+    toruses[JEW3] = Torus(10.0f*1.0f, 10.0f*0.2f, 10, 9, true, 3);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -490.0f+ 2600.0f, -2210.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(1000.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    torusBuffers(JEW3);
+
+    //STONE:
+    cylinders[STONE] = Cylinder(4.3f*1.2f, 4.3f*0.6f, 1.5f, 6, 11, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -477.0f+ 2600.0f, -2410.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(1000.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    cylinderBuffers(STONE);
+
+    //JEW4:
+    toruses[JEW4] = Torus(10.0f*1.0f, 10.0f*0.2f, 10, 9, false, 3);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -490.0f+ 2600.0f, -2410.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(1000.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    torusBuffers(JEW4);
+
+    //STONE2:
+    cylinders[STONE2] = Cylinder(4.2f*0.3f, 4.0f*0.55f, 1.7f, 6, 11, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -477.0f+ 2600.0f, -2210.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(1000.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    cylinderBuffers(STONE2);
+
+    //JEW5:
+    toruses[JEW5] = Torus(5.0*1.0f, 5.0*0.7f, 14, 5, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9500.0f, -477.0f+ 2600.0f, -2210.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 2.0f));
+    models[JEW5].PB(appModel);
+    appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+    models[JEW5].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = translate(appModel, vec3(80.0f, 0.0f, 0.0f));
+        models[JEW5].PB(appModel);
+        appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+        models[JEW5].PB(appModel);
+    }
+    torusBuffers(JEW5);
+
+    //JEW6:
+    toruses[JEW6] = Torus(5.0*1.0f, 5.0*0.7f, 14, 5, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9500.0f, -477.0f+ 2600.0f, -2410.0f));
+    models[JEW6].PB(appModel);
+    appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+    models[JEW6].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = translate(appModel, vec3(80.0f, 0.0f, 0.0f));
+        models[JEW6].PB(appModel);
+        appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+        models[JEW6].PB(appModel);
+    }
+    torusBuffers(JEW6);
+
+    //JEW7:
+    toruses[JEW7] = Torus(5.0*0.01f, 5.0*0.9f, 3, 3, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9000.0f, -477.0f+ 2600.0f, -2210.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 2.0f));
+    models[JEW7].PB(appModel);
+    appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+    models[JEW7].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = translate(appModel, vec3(80.0f, 0.0f, 0.0f));
+        models[JEW7].PB(appModel);
+        appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+        models[JEW7].PB(appModel);
+    }
+    torusBuffers(JEW7);
+
+    //JEW8:
+    toruses[JEW8] = Torus(13.0*0.01f, 13.0*0.3f, 11, 5, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9000.0f, -477.0f+ 2600.0f, -2410.0f));
+    models[JEW8].PB(appModel);
+    appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+    models[JEW8].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = translate(appModel, vec3(80.0f, 0.0f, 0.0f));
+        models[JEW8].PB(appModel);
+        appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+        models[JEW8].PB(appModel);
+    }
+    torusBuffers(JEW8);
+
+    cones[JEW9] = Cone(60.0f*1.5f, 60.0f*1.2f, 4, 1, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-8300.0f, -440.0f+ 2600.0f, -2210.0f));
+    models[JEW9].PB(appModel);
+    coneBuffers(JEW9);
+
+    cylinders[JEW10] = Cylinder(10.0f*1.0f, 10.0f*1.0f, 10.0f*0.2f, 36, 1, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-8100.0f, -480.0f+ 2600.0f, -2210.0f));
+    models[JEW10].PB(appModel);
+    for(int i=0; i<7; i++){
+        appModel = translate(appModel, vec3(50.0f, 0.0f, 0.0f));
+        models[JEW10].PB(appModel);
+    }
+    cylinderBuffers(JEW10);
+
+    cylinders[JEW11] = Cylinder(10.0f*1.0f, 10.0f*1.0f, 10.0f*0.2f, 36, 1, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-8100.0f, -480.0f+ 2600.0f, -2410.0f));
+    for(int i=0; i<8; i++){
+        models[JEW11].PB(appModel);
+        appModel = translate(appModel, vec3(50.0f, 0.0f, 0.0f));
+    }
+    cylinderBuffers(JEW11);
+
+    //second display:
+    //JEW1:
+    toruses[JEW1] = Torus(30.0f*1.0f, 30.0f*0.2f, 36, 4, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12000.0f, -490.0f+ 2600.0f, -2210.0f -1200.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(700.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW1].PB(appModel);
+    torusBuffers(JEW1);
+
+    //JEW2:
+    toruses[JEW2] = Torus(30.0f*1.0f, 30.0f*0.2f, 23, 4, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12000.0f, -490.0f+ 2600.0f, -2410.0f-1200.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(700.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW2].PB(appModel);
+    torusBuffers(JEW2);
+
+    //JEW3:
+    toruses[JEW3] = Torus(10.0f*1.0f, 10.0f*0.2f, 10, 9, true, 3);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -490.0f+ 2600.0f, -2210.0f-1200.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(1000.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW3].PB(appModel);
+    torusBuffers(JEW3);
+
+    //STONE:
+    cylinders[STONE] = Cylinder(4.3f*1.2f, 4.3f*0.6f, 1.5f, 6, 11, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -477.0f+ 2600.0f, -2410.0f-1200.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(1000.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE].PB(appModel);
+    cylinderBuffers(STONE);
+
+    //JEW4:
+    toruses[JEW4] = Torus(10.0f*1.0f, 10.0f*0.2f, 10, 9, false, 3);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -490.0f+ 2600.0f, -2410.0f-1200.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(1000.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[JEW4].PB(appModel);
+    torusBuffers(JEW4);
+
+    //STONE2:
+    cylinders[STONE2] = Cylinder(4.2f*0.3f, 4.0f*0.55f, 1.7f, 6, 11, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -477.0f+ 2600.0f, -2210.0f-1200.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(1000.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    appModel = translate(appModel, vec3(100.0f, 0.0f, 0.0f));
+    models[STONE2].PB(appModel);
+    cylinderBuffers(STONE2);
+
+    //JEW5:
+    toruses[JEW5] = Torus(5.0*1.0f, 5.0*0.7f, 14, 5, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9500.0f, -477.0f+ 2600.0f, -2210.0f-1200.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 2.0f));
+    models[JEW5].PB(appModel);
+    appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+    models[JEW5].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = translate(appModel, vec3(80.0f, 0.0f, 0.0f));
+        models[JEW5].PB(appModel);
+        appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+        models[JEW5].PB(appModel);
+    }
+    torusBuffers(JEW5);
+
+    //JEW6:
+    toruses[JEW6] = Torus(5.0*1.0f, 5.0*0.7f, 14, 5, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9500.0f, -477.0f+ 2600.0f, -2410.0f-1200.0f));
+    models[JEW6].PB(appModel);
+    appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+    models[JEW6].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = translate(appModel, vec3(80.0f, 0.0f, 0.0f));
+        models[JEW6].PB(appModel);
+        appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+        models[JEW6].PB(appModel);
+    }
+    torusBuffers(JEW6);
+
+    //JEW7:
+    toruses[JEW7] = Torus(5.0*0.01f, 5.0*0.9f, 3, 3, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9000.0f, -477.0f+ 2600.0f, -2210.0f-1200.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 2.0f));
+    models[JEW7].PB(appModel);
+    appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+    models[JEW7].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = translate(appModel, vec3(80.0f, 0.0f, 0.0f));
+        models[JEW7].PB(appModel);
+        appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+        models[JEW7].PB(appModel);
+    }
+    torusBuffers(JEW7);
+
+    //JEW8:
+    toruses[JEW8] = Torus(13.0*0.01f, 13.0*0.3f, 11, 5, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9000.0f, -477.0f+ 2600.0f, -2410.0f-1200.0f));
+    models[JEW8].PB(appModel);
+    appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+    models[JEW8].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = translate(appModel, vec3(80.0f, 0.0f, 0.0f));
+        models[JEW8].PB(appModel);
+        appModel = translate(appModel, vec3(20.0f, 0.0f, 0.0f));
+        models[JEW8].PB(appModel);
+    }
+    torusBuffers(JEW8);
+
+    cones[JEW9] = Cone(60.0f*1.5f, 60.0f*1.2f, 4, 1, false, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-8300.0f, -440.0f+ 2600.0f, -2210.0f-1200.0f));
+    models[JEW9].PB(appModel);
+    coneBuffers(JEW9);
+
+    cylinders[JEW10] = Cylinder(10.0f*1.0f, 10.0f*1.0f, 10.0f*0.2f, 36, 1, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-8100.0f, -480.0f+ 2600.0f, -2210.0f-1200.0f));
+    models[JEW10].PB(appModel);
+    for(int i=0; i<7; i++){
+        appModel = translate(appModel, vec3(50.0f, 0.0f, 0.0f));
+        models[JEW10].PB(appModel);
+    }
+    cylinderBuffers(JEW10);
+
+    cylinders[JEW11] = Cylinder(10.0f*1.0f, 10.0f*1.0f, 10.0f*0.2f, 36, 1, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-8100.0f, -480.0f+ 2600.0f, -2410.0f-1200.0f));
+    for(int i=0; i<8; i++){
+        models[JEW11].PB(appModel);
+        appModel = translate(appModel, vec3(50.0f, 0.0f, 0.0f));
+    }
+    cylinderBuffers(JEW11);
+
+    //JEW12:
+    toruses[JEW12] = Torus(50.0f*1.3f, 50.0f*0.15f, 20, 16, true, 3);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-12000.0f, -100.0f+ 2600.0f, -2210.0f));
+    appModel = rotate(appModel, radians(-20.0f), X);
+    appModel = scale(appModel, vec3(1.0f, 1.7f, 1.0f));
+    models[JEW12].PB(appModel);
+    for(float i = 700.0f; i<4000.0f; i+=700.0f){
+        appModel = MODEL;
+        appModel = translate(appModel, vec3(-12000.0f + i, -100.0f+ 2600.0f, -2210.0f));
+        appModel = rotate(appModel, radians(-20.0f), X);
+        appModel = scale(appModel, vec3(1.0f, 1.7f, 1.0f));
+        models[JEW12].PB(appModel);
+    }
+    torusBuffers(JEW12);
+
+    //JEW13:
+    toruses[JEW13] = Torus(50.0f*1.3f, 50.0f*0.15f, 20, 16, false, 3);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-11600.0f, -100.0f+ 2600.0f, -2210.0f));
+    appModel = rotate(appModel, radians(-20.0f), X);
+    appModel = scale(appModel, vec3(1.0f, 1.7f, 1.0f));
+    models[JEW13].PB(appModel);
+    for(float i = 700.0f; i<4000.0f; i+=700.0f){
+        appModel = MODEL;
+        appModel = translate(appModel, vec3(-11600.0f + i, -100.0f+ 2600.0f, -2210.0f));
+        appModel = rotate(appModel, radians(-20.0f), X);
+        appModel = scale(appModel, vec3(1.0f, 1.7f, 1.0f));
+        models[JEW13].PB(appModel);
+    }
+    torusBuffers(JEW13);
+
+    //SHOP_BLOOR
+    cubes[SHOP_BLOOR8] = Cubesphere(100.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9780.0f, -280.0f + 2600.0f, -2000.0f));
+    appModel = scale(appModel, vec3(41.0f, 9.8f, 0.05f));
+    models[SHOP_BLOOR8].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-7120.0f, 50.0f + 2600.0f, -2000.0f));
+    appModel = scale(appModel, vec3(4.4f, 4.0f, 0.05f));
+    models[SHOP_BLOOR8].PB(appModel);
+    cubeBuffers(SHOP_BLOOR8);
 }
 
 

@@ -146,8 +146,20 @@ public:
     SYRIA_DIFF = "syriaDiff",
 
     WHITE2_DIFF = "white2Diff",
-    
 
+    YELLOW = "yelow",
+    YELLOW_SPEC = "yelowSpec",
+    
+    WOOD4 = "wood4",
+    WOOD4_SPEC = "wood4SPec",
+
+    SILVER = "silver",
+    GOLD = "gold",
+    GOLD2 = "gold2",
+    GOLD3 = "gold3",
+    GOLD4 = "gold4",
+    
+    SILVER2 = "silver2",
 
 
 
@@ -286,8 +298,32 @@ public:
     INSIDE_ROOF = "insideRoof",
     ROOF_WALL = "roofWall",
     COLUMN = "column",
-    
- 
+
+    //JEWELRY STORE:
+    JEWELRY_STORE = "jewelryStore",
+    JEWELRY_GROUND = "jewelryGround",
+    CIRCLE_LIGHT8 = "cirlceLight8",
+    DISPLAY_BASE = "displayBase",
+    DISPLAY_VIEW = "displayView",
+    CASHIER8 = "cashier8",
+    JEW1 = "jew1",
+    JEW2 = "jew2",
+    JEW3 = "jew3",
+    JEW4 = "jew4",
+    JEW5 = "jew5",
+    JEW6 = "jew6",
+    JEW7 = "jew7",
+    JEW8 = "jew8",
+    JEW9 = "jew9",
+    JEW10 = "jew10",
+    JEW11 = "jew11",
+    JEW12 = "jew12",
+    JEW13 = "jew13",
+    STONE = "stone",
+    STONE2 = "stone2",
+    SHOP_BLOOR8 = "shopBloor8",
+
+
     STREND = "strend";
 };
 

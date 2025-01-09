@@ -39,6 +39,9 @@ void ResourceManager::setAudio()
     engine->play3D("../resources/audio/Linn-Sandin_-Midranger_-Poylow-Revolution-_NCS-Release_.ogg", vec3df(-14159.0f, -0.171659f, 2380.01f),
                               true, false, true);
 
+    engine->play3D("../resources/audio/Alan-Walker-All-Falls-Down-_DOPEDROP-Remix_-_Bass-Boosted_.ogg", vec3df(-8683.0f, 96.4031f, -3493.88f ),
+                            true, false, true);
+
 }
 
 void ResourceManager::setShaders()
@@ -177,6 +180,24 @@ void ResourceManager::setTextures()
     //WHITE2:
     textures[WHITE2_DIFF] = TextureManager("../resources/textures/Porcelain001_1K-JPG_Color.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
     
+    //YELLOW:
+    textures[YELLOW] = TextureManager("../resources/textures/Wood023_1K-JPG_Color.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[YELLOW_SPEC] = TextureManager("../resources/textures/Wood023_1K-JPG_spec.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+    
+    //WOOD4:
+    textures[WOOD4] = TextureManager("../resources/textures/Wood018_1K-JPG_Color.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[WOOD4_SPEC] = TextureManager("../resources/textures/Wood018_1K-JPG_spec.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+    
+    //GOLD:
+    textures[GOLD] = TextureManager("../resources/textures/Metal034_1K-JPG_Color.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[GOLD2] = TextureManager("../resources/textures/gold2.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[GOLD3] = TextureManager("../resources/textures/gold3.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[GOLD4] = TextureManager("../resources/textures/gold4.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    
+    //SILVER:
+    textures[SILVER] = TextureManager("../resources/textures/Metal012_1K-JPG_Color.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[SILVER2] = TextureManager("../resources/textures/silver2.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+
 
 
     //TEXTURES DO NOT FLIP::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -251,6 +272,5 @@ void ResourceManager::setTextures()
 
     //STOVE:
     textures[STOVE_DIFF] = TextureManager("../resources/objects/electric_stove_1k.fbx/textures/electric_stove_diff_1k.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
-
 
 }
