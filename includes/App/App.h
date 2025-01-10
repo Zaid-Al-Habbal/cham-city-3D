@@ -172,6 +172,9 @@ public:
 
     MARBLE = "marble",
 
+    SILVER4 = "silver4",
+    BUTTOMS_TEX = "buttomsTex",
+
     
     
 
@@ -332,6 +335,9 @@ public:
     ELEVATOR_BAR = "elevatorBar",
     ELEVATOR_BLOOR = "elevatorBloor",
     ELEVATOR_BODY = "elevatorBody",
+    ELEVATOR_INSIDE = "elevatorInside",
+    BUTTOMS = "buttoms",
+
 
 
 

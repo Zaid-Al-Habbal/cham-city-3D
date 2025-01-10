@@ -783,6 +783,15 @@ void Renderer::render(Controller& controller)
     TextureManager::enable(shaders[REF], textures[MARBLE], textures[LIGHT_METAL_SPEC], 16);
     draw(ELEVATOR_BODY, cubes[ELEVATOR_BODY].getIndexCount(), 0);
 
+    //ELEVATOR_INSIDE:
+    TextureManager::enable(shaders[REF], textures[SILVER4], textures[LIGHT_METAL_SPEC], 1);
+    draw(ELEVATOR_INSIDE, cubes[ELEVATOR_INSIDE].getIndexCount(), 0);
+
+    //BUTTOMS:
+    TextureManager::enable(shaders[REF], textures[BUTTOMS_TEX], textures[LIGHT_METAL_SPEC], 1);
+    draw(BUTTOMS, cubes[BUTTOMS].getIndexCount(), 0);
+
+
     // SHOP_BLOOR:
     shaders[REF].setFloat("refVal", 0.7f);
     shaders[REF].setFloat("alpha", 0.2f);

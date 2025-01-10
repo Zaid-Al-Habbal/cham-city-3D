@@ -5823,6 +5823,22 @@ Scene::Scene()
     appModel = scale(appModel, vec3(7.0f, 3.0f, 10.0f));
     models[ELEVATOR_BODY].PB(appModel);
     cubeBuffers(ELEVATOR_BODY);
+
+    //ELEVATOR_INSIDE:
+    cubes[ELEVATOR_INSIDE] = Cubesphere(98.0*1.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9780.0f, -430.0f, 2950.0f));
+    appModel = scale(appModel, vec3(2.0f, 8.1f, 0.1f));
+    models[ELEVATOR_INSIDE].PB(appModel);
+    cubeBuffers(ELEVATOR_INSIDE);
+
+    //BUTTOMS:
+    cubes[BUTTOMS] = Cubesphere(98.0*1.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9780.0f, -430.0f, 2960.0f));
+    appModel = scale(appModel, vec3(1.0f, 1.0f, 0.05f));
+    models[BUTTOMS].PB(appModel);
+    cubeBuffers(BUTTOMS);
 }
 
 

@@ -14,6 +14,7 @@ void ResourceManager::setAudio()
 
     engine->setDefault3DSoundMinDistance(1500.0f);
     
+    //MALL:
     engine->play3D("../resources/audio/mall.wav", 
     vec3df(-4500.0f, -492.199f, 4037.31f), true);
     
@@ -222,12 +223,14 @@ void ResourceManager::setTextures()
     //SILVER:
     textures[SILVER] = TextureManager("../resources/textures/Metal012_1K-JPG_Color.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
     textures[SILVER2] = TextureManager("../resources/textures/silver2.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[SILVER4] = TextureManager("../resources/textures/Metal030_1K-JPG_Color.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
 
 
 
     //TEXTURES DO NOT FLIP::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     stbi_set_flip_vertically_on_load(false);
 
+    textures[BUTTOMS_TEX] = TextureManager("../resources/textures/buttoms.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
     //PALM:
     textures[PALM1_DIFF] = TextureManager("../resources/objects/date_palm/textures/Tree_0Mat_baseColor.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
     textures[PALM2_DIFF] = TextureManager("../resources/objects/date_palm/textures/Tree_1Mat_baseColor.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
