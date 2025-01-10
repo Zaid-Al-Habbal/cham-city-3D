@@ -203,6 +203,13 @@ void ResourceManager::setTextures()
     //TEXTURES DO NOT FLIP::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     stbi_set_flip_vertically_on_load(false);
 
+    //PALM:
+    textures[PALM1_DIFF] = TextureManager("../resources/objects/date_palm/textures/Tree_0Mat_baseColor.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[PALM2_DIFF] = TextureManager("../resources/objects/date_palm/textures/Tree_1Mat_baseColor.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+    textures[PALM3_DIFF] = TextureManager("../resources/objects/date_palm/textures/Tree_2Mat_baseColor.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[PALM4_DIFF] = TextureManager("../resources/objects/date_palm/textures/Tree_3Mat_baseColor.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+
+
     //SHOE4:
     textures[SHOE4_TEX] = TextureManager("../resources/objects/scanned-adidas-sports-shoe/textures/Texture2.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
 

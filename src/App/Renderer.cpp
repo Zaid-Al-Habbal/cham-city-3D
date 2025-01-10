@@ -685,6 +685,21 @@ void Renderer::render(Controller& controller)
     
     shaders[MAIN].setFloat("shininess", 32.0f);
 
+    //PALM;
+    TextureManager::enable(shaders[MAIN], textures[PALM1_DIFF], textures[PALM1_DIFF], 1);
+    draw3Dmodel(PALM, 0, 1);
+
+    TextureManager::enable(shaders[MAIN], textures[PALM3_DIFF], textures[PALM3_DIFF], 1);
+    draw3Dmodel(PALM, 2, 3);
+
+
+    //PALM_LEAVES:
+    TextureManager::enable(shaders[MAIN], textures[PALM2_DIFF], textures[PALM2_DIFF], 1);
+    draw3Dmodel(PALM_LEAVES, 1, 2);
+
+    TextureManager::enable(shaders[MAIN], textures[PALM4_DIFF], textures[PALM4_DIFF], 1);
+    draw3Dmodel(PALM_LEAVES, 3, 4);
+
     
     //---------------------------------------------------------------------------------------
     // camera.printPos();

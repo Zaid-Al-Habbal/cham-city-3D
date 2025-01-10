@@ -161,7 +161,13 @@ public:
     
     SILVER2 = "silver2",
 
+    PALM1_DIFF = "palm1Diff",
 
+    PALM2_DIFF = "palm2Diff",
+
+    PALM3_DIFF = "palm3Diff",
+
+    PALM4_DIFF = "palm4Diff",
 
     
     
@@ -316,6 +322,9 @@ public:
     JEW13 = "jew13",
     STONE = "stone",
     STONE2 = "stone2",
+
+    PALM = "palm",
+    PALM_LEAVES = "palmLeaves",
 
 
     STREND = "strend";
