@@ -5706,41 +5706,41 @@ Scene::Scene()
 
     threeDModels[PALM] = Model("../resources/objects/date_palm/scene.gltf");
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-3200.0f, -1200.0f, 3500.0f));
+    appModel = translate(appModel, vec3(-3200.0f, -1200.0f, 3500.0f -300.0f));
     appModel = scale(appModel, vec3(5.0f, 4.0f, 5.0f)); 
     models[PALM].PB(appModel);
 
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-3000.0f, -1200.0f, 4000.0f));
+    appModel = translate(appModel, vec3(-3000.0f, -1200.0f, 4000.0f -300.0f));
     appModel = scale(appModel, vec3(5.0f, 5.0f, 5.0f)); 
     models[PALM].PB(appModel);
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-3400.0f, -1200.0f, 4450.0f));
+    appModel = translate(appModel, vec3(-3400.0f, -1200.0f, 4450.0f -300.0f));
     appModel = scale(appModel, vec3(5.0f, 5.0f, 5.0f)); 
     models[PALM].PB(appModel);
 
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-3200.0f, -1200.0f, 5000.0f));
+    appModel = translate(appModel, vec3(-3200.0f, -1200.0f, 5000.0f-300.0f));
     appModel = scale(appModel, vec3(5.0f, 6.0f, 5.0f)); 
     models[PALM].PB(appModel);
 
     //RIGHT SIDE:
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-6200.0f, -1200.0f, 3500.0f));
+    appModel = translate(appModel, vec3(-6200.0f, -1200.0f, 3500.0f-300.0f));
     appModel = scale(appModel, vec3(5.0f, 4.0f, 5.0f)); 
     models[PALM].PB(appModel);
 
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-6000.0f, -1200.0f, 4000.0f));
+    appModel = translate(appModel, vec3(-6000.0f, -1200.0f, 4000.0f-300.0f));
     appModel = scale(appModel, vec3(5.0f, 5.0f, 5.0f)); 
     models[PALM].PB(appModel);
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-6400.0f, -1200.0f, 4450.0f));
+    appModel = translate(appModel, vec3(-6400.0f, -1200.0f, 4450.0f-300.0f));
     appModel = scale(appModel, vec3(5.0f, 5.0f, 5.0f)); 
     models[PALM].PB(appModel);
 
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-6200.0f, -1200.0f, 5000.0f));
+    appModel = translate(appModel, vec3(-6200.0f, -1200.0f, 5000.0f-300.0f));
     appModel = scale(appModel, vec3(5.0f, 6.0f, 5.0f)); 
     models[PALM].PB(appModel);
 
@@ -5751,46 +5751,78 @@ Scene::Scene()
 
     threeDModels[PALM_LEAVES] = Model("../resources/objects/date_palm/scene.gltf");
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-3200.0f, -100.0f, 3500.0f));
+    appModel = translate(appModel, vec3(-3200.0f, -100.0f, 3500.0f-300.0f));
     appModel = scale(appModel, vec3(2.0f, 2.0f, 2.0f)); 
     models[PALM_LEAVES].PB(appModel);
 
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-3000.0f, 450.0f, 4000.0f));
+    appModel = translate(appModel, vec3(-3000.0f, 450.0f, 4000.0f-300.0f));
     appModel = scale(appModel, vec3(2.0f, 2.0f, 2.0f)); 
     models[PALM_LEAVES].PB(appModel);
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-3400.0f, 450.0f, 4450.0f));
+    appModel = translate(appModel, vec3(-3400.0f, 450.0f, 4450.0f-300.0f));
     appModel = scale(appModel, vec3(2.0f, 2.0f, 2.0f)); 
     models[PALM_LEAVES].PB(appModel);
 
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-3200.0f, 520.0f, 5000.0f));
+    appModel = translate(appModel, vec3(-3200.0f, 500.0f, 5000.0f-300.0f));
     appModel = scale(appModel, vec3(3.0f, 3.0f, 3.0f)); 
     models[PALM_LEAVES].PB(appModel);
 
     //RIGHT SIDE:
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-6200.0f, -100.0f, 3500.0f));
+    appModel = translate(appModel, vec3(-6200.0f, -100.0f, 3500.0f-300.0f));
     appModel = scale(appModel, vec3(2.0f, 2.0f, 2.0f)); 
     models[PALM_LEAVES].PB(appModel);
 
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-6000.0f, 450.0f, 4000.0f));
+    appModel = translate(appModel, vec3(-6000.0f, 450.0f, 4000.0f-300.0f));
     appModel = scale(appModel, vec3(2.0f, 2.0f, 2.0f)); 
     models[PALM_LEAVES].PB(appModel);
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-6400.0f, 450.0f, 4450.0f));
+    appModel = translate(appModel, vec3(-6400.0f, 450.0f, 4450.0f-300.0f));
     appModel = scale(appModel, vec3(2.0f, 2.0f, 2.0f)); 
     models[PALM_LEAVES].PB(appModel);
 
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-6200.0f, 520.0f, 5000.0f));
+    appModel = translate(appModel, vec3(-6200.0f, 500.0f, 5000.0f-300.0f));
     appModel = scale(appModel, vec3(3.0f, 3.0f, 3.0f)); 
     models[PALM_LEAVES].PB(appModel);
 
     threeDmodelBuffers(PALM_LEAVES);
+    //--------------------------------------------------------------------------------
 
+    //ELEVATOR START HERE:
+
+    //..ELEVATOR_BAR:
+    cylinders[ELEVATOR_BAR] = Cylinder(70.0f * 1.0f, 70.0f * 1.0f, 4100.0f *1.0f, 36, 1, true, 2);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9000.0f, 1100.0f, 4000.0f));
+    models[ELEVATOR_BAR].PB(appModel);
+    appModel = translate(appModel, vec3(0.0f, 0.0f, -1000.0f));
+    models[ELEVATOR_BAR].PB(appModel);
+    cylinderBuffers(ELEVATOR_BAR);
+
+    //..ELEVATOR_BLOOR:
+    cubes[ELEVATOR_BLOOR] = Cubesphere(100.0*1.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9500.0f, 500.0f, 3500.0f));
+    appModel = rotate(appModel, radians(180.0f), Y);
+    appModel = scale(appModel, vec3(7.0f, 47.0f, 10.0f));
+    models[ELEVATOR_BLOOR].PB(appModel);
+    cubeBuffers(ELEVATOR_BLOOR);
+
+    //ELEVATOR_BODY:
+    cubes[ELEVATOR_BODY] = Cubesphere(98.0*1.0, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9500.0f, -900.0f, 3500.0f));
+    appModel = scale(appModel, vec3(7.0f, 0.2f, 10.0f));
+    models[ELEVATOR_BODY].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9500.0f, 200.0f, 3500.0f));
+    appModel = scale(appModel, vec3(7.0f, 3.0f, 10.0f));
+    models[ELEVATOR_BODY].PB(appModel);
+    cubeBuffers(ELEVATOR_BODY);
 }
 
 

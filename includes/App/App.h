@@ -160,6 +160,7 @@ public:
     GOLD4 = "gold4",
     
     SILVER2 = "silver2",
+    SILVER3 = "silver3",
 
     PALM1_DIFF = "palm1Diff",
 
@@ -168,6 +169,8 @@ public:
     PALM3_DIFF = "palm3Diff",
 
     PALM4_DIFF = "palm4Diff",
+
+    MARBLE = "marble",
 
     
     
@@ -325,6 +328,11 @@ public:
 
     PALM = "palm",
     PALM_LEAVES = "palmLeaves",
+
+    ELEVATOR_BAR = "elevatorBar",
+    ELEVATOR_BLOOR = "elevatorBloor",
+    ELEVATOR_BODY = "elevatorBody",
+
 
 
     STREND = "strend";

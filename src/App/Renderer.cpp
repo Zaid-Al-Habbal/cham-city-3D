@@ -700,9 +700,15 @@ void Renderer::render(Controller& controller)
     TextureManager::enable(shaders[MAIN], textures[PALM4_DIFF], textures[PALM4_DIFF], 1);
     draw3Dmodel(PALM_LEAVES, 3, 4);
 
+    //ELEVATOR START HERE:
+
+    //..ELEVATOR_BARs:
+    TextureManager::enable(shaders[MAIN], textures[SILVER3], textures[LIGHT_METAL_SPEC], 1);
+    draw(ELEVATOR_BAR, cylinders[ELEVATOR_BAR].getIndexCount(), 0);
+
     
     //---------------------------------------------------------------------------------------
-    // camera.printPos();
+    camera.printPos();
     // SKYBOX:
     skybox.setEnvironment(!controller.isNight);
     skybox.draw(shaders[SKYBOX], view, projection);
@@ -761,6 +767,7 @@ void Renderer::render(Controller& controller)
     for(int i=0; i<4; i++){
         refLight.pointLightLinear[i]= 	 	0.12* 0.0014f;
         refLight.pointLightQuadratic[i] = 0.00000005* 0.000007f;
+        refLight.pointLightColor[i] = Color::White;
     }
     
     refLight.turnOnPoint();
@@ -768,16 +775,32 @@ void Renderer::render(Controller& controller)
     glActiveTexture(GL_TEXTURE2);
     glBindTexture(GL_TEXTURE_CUBE_MAP, mallCubemapTexture);
     shaders[REF].setInt("environmentMap", 2);
-    shaders[REF].setFloat("refVal", 0.7f);
+
+
+    //ELEVATOR_BODY:
+    shaders[REF].setFloat("refVal", 0.1f);
+    shaders[REF].setFloat("alpha", 1.0f);
+    TextureManager::enable(shaders[REF], textures[MARBLE], textures[LIGHT_METAL_SPEC], 16);
+    draw(ELEVATOR_BODY, cubes[ELEVATOR_BODY].getIndexCount(), 0);
 
     // SHOP_BLOOR:
+    shaders[REF].setFloat("refVal", 0.7f);
     shaders[REF].setFloat("alpha", 0.2f);
     shaders[REF].setFloat("shininess", 128.0f);
     TextureManager::enable(shaders[REF], textures[BLOOR], textures[BLOOR_SPEC], 1);
     draw(SHOP_BLOOR, cubes[SHOP_BLOOR].getIndexCount(), 0);
+    shaders[REF].setFloat("shininess", 32.0f);
+
+
+    //ELEVATOR_BLOOR:
+    shaders[REF].setFloat("alpha", 0.2f);
+    shaders[REF].setFloat("refVal", 0.3f);
+    TextureManager::enable(shaders[REF], textures[BLOOR], textures[BLOOR_SPEC], 1);
+    draw(ELEVATOR_BLOOR, cubes[ELEVATOR_BLOOR].getIndexCount(), 6);
+    
     shaders[REF].setFloat("alpha", 1.0f);
     shaders[REF].setFloat("refVal", 0.0f);
-    shaders[REF].setFloat("shininess", 32.0f);
+
 
     refLight.numOfPoints = 0;
     refLight.turnOnPoint();
