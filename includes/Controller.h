@@ -11,7 +11,6 @@ class Controller {
 private:
 
     // Camera and window management
-    Camera camera;
     GLFWwindow* window;
 
     // Timing
@@ -34,11 +33,14 @@ private:
     static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
 
 public:
+    Camera camera;
     //morning/night
-    bool isNight;
+    bool isNight, groundFloor, firstFloor, secondFloor;
+    int cnt0to1, cnt0to2, cnt1to0, cnt1to2, cnt2to1, cnt2to0, cntEleDoor, thereIsMovement;
 
     static bool isGoingUpStairsToRest(float x, float y, float z);
     static bool isGoingDownStairsFromRest(float x, float y, float z);
+    static bool inElevator(float x, float z);
 
     // Constructor
     Controller(unsigned int width = 800, unsigned int height = 600);

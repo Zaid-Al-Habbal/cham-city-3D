@@ -3754,14 +3754,14 @@ Scene::Scene()
     appModel = scale(appModel, vec3(6.65f, 0.33f, 0.1f));
     models[ROOF_WALL].PB(appModel);
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-9950.0f, 550.0f, 5700.0f));
+    appModel = translate(appModel, vec3(-9950.0f, 550.0f, 6000.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
-    appModel = scale(appModel, vec3(3.1f, 0.33f, 0.1f));
+    appModel = scale(appModel, vec3(2.6f, 0.33f, 0.1f));
     models[ROOF_WALL].PB(appModel);
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-9950.0f, 550.0f, 1440.0f));
+    appModel = translate(appModel, vec3(-9950.0f, 550.0f, 1140.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
-    appModel = scale(appModel, vec3(2.81f, 0.33f, 0.1f));
+    appModel = scale(appModel, vec3(2.41f, 0.33f, 0.1f));
     models[ROOF_WALL].PB(appModel);
     cubeBuffers(ROOF_WALL);
 
@@ -3781,14 +3781,14 @@ Scene::Scene()
     appModel = scale(appModel, vec3(6.65f, 0.33f, 0.1f));
     models[ROOF_WALL].PB(appModel);
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-9950.0f, 550.0f + 1300.0f, 5700.0f));
+    appModel = translate(appModel, vec3(-9950.0f, 550.0f + 1300.0f, 6000.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
-    appModel = scale(appModel, vec3(3.1f, 0.33f, 0.1f));
+    appModel = scale(appModel, vec3(2.6f, 0.33f, 0.1f));
     models[ROOF_WALL].PB(appModel);
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-9950.0f, 550.0f + 1300.0f, 1440.0f));
+    appModel = translate(appModel, vec3(-9950.0f, 550.0f + 1300.0f, 1140.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
-    appModel = scale(appModel, vec3(2.81f, 0.33f, 0.1f));
+    appModel = scale(appModel, vec3(2.41f, 0.33f, 0.1f));
     models[ROOF_WALL].PB(appModel);
     cubeBuffers(ROOF_WALL);
 
@@ -5815,13 +5815,14 @@ Scene::Scene()
     //ELEVATOR_BODY:
     cubes[ELEVATOR_BODY] = Cubesphere(98.0*1.0, 1, true);
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-9500.0f, -900.0f, 3500.0f));
+    appModel = translate(appModel, vec3(-9530.0f, -900.0f, 3500.0f));
     appModel = scale(appModel, vec3(7.0f, 0.2f, 10.0f));
     models[ELEVATOR_BODY].PB(appModel);
     appModel = MODEL;
-    appModel = translate(appModel, vec3(-9500.0f, 200.0f, 3500.0f));
+    appModel = translate(appModel, vec3(-9530.0f, 200.0f, 3500.0f));
     appModel = scale(appModel, vec3(7.0f, 3.0f, 10.0f));
     models[ELEVATOR_BODY].PB(appModel);
+    models[ELEVATOR_BODY].resize(2);
     cubeBuffers(ELEVATOR_BODY);
 
     //ELEVATOR_INSIDE:
@@ -5830,6 +5831,7 @@ Scene::Scene()
     appModel = translate(appModel, vec3(-9780.0f, -430.0f, 2950.0f));
     appModel = scale(appModel, vec3(2.0f, 8.1f, 0.1f));
     models[ELEVATOR_INSIDE].PB(appModel);
+    models[ELEVATOR_INSIDE].resize(1);
     cubeBuffers(ELEVATOR_INSIDE);
 
     //BUTTOMS:
@@ -5838,7 +5840,102 @@ Scene::Scene()
     appModel = translate(appModel, vec3(-9780.0f, -430.0f, 2960.0f));
     appModel = scale(appModel, vec3(1.0f, 1.0f, 0.05f));
     models[BUTTOMS].PB(appModel);
+    models[BUTTOMS].resize(1);
     cubeBuffers(BUTTOMS);
+
+    //ELEVATOR_ENTRY: the Diffence between left and right is 1455.0f
+    //GROUND FLOOR::::::::::::::::
+    //LEFT:
+    cubes[ELEVATOR_ENTRY] = Cubesphere(100.0*1.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9940.0f, -300.0f, 2850.0f));
+    appModel = rotate(appModel, radians(-90.0f), Y);
+    appModel = scale(appModel, vec3(5.2f, 11.0f, 0.1f));
+    models[ELEVATOR_ENTRY].PB(appModel);
+    //RIGHT:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9940.0f, -300.0f, 4195.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(5.2f, 11.0f, 0.1f));
+    models[ELEVATOR_ENTRY].PB(appModel);
+    cubeBuffers(ELEVATOR_ENTRY);
+
+    //ELEVATOR_DOOR: the Diffence between left and right is 1455.0f
+    //LEFT:
+    cubes[ELEVATOR_DOOR] = Cubesphere(95.0*1.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9940.0f, -300.0f, 2850.0f));
+    appModel = scale(appModel, vec3(0.03f, 10.0f, 4.5f));
+    models[ELEVATOR_DOOR].PB(appModel);
+    //RIGHT:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9940.0f, -300.0f, 4195.0f));
+    appModel = scale(appModel, vec3(0.03f, 10.0f, 4.5f));
+    models[ELEVATOR_DOOR].PB(appModel);
+    cubeBuffers(ELEVATOR_DOOR);
+
+    //FIRST FLOOR::::::::::::::::
+    //LEFT:
+    cubes[ELEVATOR_ENTRY] = Cubesphere(100.0*1.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9940.0f, -300.0f + 1300.0f, 2850.0f));
+    appModel = rotate(appModel, radians(-90.0f), Y);
+    appModel = scale(appModel, vec3(5.2f, 11.0f, 0.1f));
+    models[ELEVATOR_ENTRY].PB(appModel);
+    //RIGHT:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9940.0f, -300.0f+ 1300.0f, 4195.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(5.2f, 11.0f, 0.1f));
+    models[ELEVATOR_ENTRY].PB(appModel);
+    cubeBuffers(ELEVATOR_ENTRY);
+
+    //ELEVATOR_DOOR: the Diffence between left and right is 1455.0f
+    //LEFT:
+    cubes[ELEVATOR_DOOR] = Cubesphere(95.0*1.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9940.0f, -300.0f+ 1300.0f, 2850.0f));
+    appModel = scale(appModel, vec3(0.03f, 10.0f, 4.5f));
+    models[ELEVATOR_DOOR].PB(appModel);
+    //RIGHT:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9940.0f, -300.0f+ 1300.0f, 4195.0f));
+    appModel = scale(appModel, vec3(0.03f, 10.0f, 4.5f));
+    models[ELEVATOR_DOOR].PB(appModel);
+    cubeBuffers(ELEVATOR_DOOR);
+
+
+    //SECOND FLOOR::::::::::::::::
+    //LEFT:
+    cubes[ELEVATOR_ENTRY] = Cubesphere(100.0*1.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9940.0f, -300.0f + 2600.0f, 2850.0f));
+    appModel = rotate(appModel, radians(-90.0f), Y);
+    appModel = scale(appModel, vec3(5.2f, 11.0f, 0.1f));
+    models[ELEVATOR_ENTRY].PB(appModel);
+    //RIGHT:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9940.0f, -300.0f+ 2600.0f, 4195.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(5.2f, 11.0f, 0.1f));
+    models[ELEVATOR_ENTRY].PB(appModel);
+    cubeBuffers(ELEVATOR_ENTRY);
+
+    //ELEVATOR_DOOR: the Diffence between left and right is 1455.0f
+    //LEFT:
+    cubes[ELEVATOR_DOOR] = Cubesphere(95.0*1.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9940.0f, -300.0f+ 2600.0f, 2850.0f));
+    appModel = scale(appModel, vec3(0.03f, 10.0f, 4.5f));
+    models[ELEVATOR_DOOR].PB(appModel);
+    //RIGHT:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-9940.0f, -300.0f+ 2600.0f, 4195.0f));
+    appModel = scale(appModel, vec3(0.03f, 10.0f, 4.5f));
+    models[ELEVATOR_DOOR].PB(appModel);
+    models[ELEVATOR_DOOR].resize(6);
+    cubeBuffers(ELEVATOR_DOOR);
+
 }
 
 

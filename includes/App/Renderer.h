@@ -35,6 +35,10 @@ public:
     void draw3Dmodel(string name, int startIndex=0, int endIndex=1e9);
     bool nearMallDoor(float x, float y, float z);
     unsigned int loadMallCubemap();
+    void eleUp(Camera& camera);
+    void eleDown(Camera& camera);
+    void closeEleDoor();
+    void openEleDoor();
 
 };
 #endif

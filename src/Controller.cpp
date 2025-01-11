@@ -1,7 +1,7 @@
 #include "Controller.h"
 #include <stb_image.h>
 
-bool IS_NIGHT = false;
+bool IS_NIGHT = false, GROUND_FLOOR=false, FIRST_FLOOR=false, SECOND_FLOOR=false;
 float prevX = 0.0f;
 
 bool Controller::isGoingDownStairsFromRest(float x, float y, float z){
@@ -13,7 +13,7 @@ bool Controller::isGoingUpStairsToRest(float x, float y, float z){
 
 
 Controller::Controller(unsigned int width, unsigned int height):
-    camera(glm::vec3(-9972.74f, -367.675f, -2100.87f)),
+    camera(glm::vec3(-9972.74f, -371.344f, -1500.87f)),
     window(nullptr),
     deltaTime(0.0f),
     lastFrame(0.0f),
@@ -22,7 +22,18 @@ Controller::Controller(unsigned int width, unsigned int height):
     firstMouse(true),
     SCR_WIDTH(width),
     SCR_HEIGHT(height),
-    isNight(false)
+    isNight(false),
+    cnt0to1(0),
+    cnt0to2(0),
+    cnt2to1(0),
+    cnt1to2(0),
+    cnt1to0(0),
+    cnt2to0(0),
+    cntEleDoor(0),
+    groundFloor(false),
+    firstFloor(false),
+    secondFloor(false)
+    
 {}
 
 Controller::~Controller() {
@@ -33,22 +44,14 @@ Controller::~Controller() {
 }
 
 void Controller::initializeOpenGLSettings(){
-    // tell stb_image.h to flip loaded texture's on the y-axis (before loading model).
-    // stbi_set_flip_vertically_on_load(true);
-
     // configure global opengl state
     glEnable(GL_DEPTH_TEST);
     // MSAA (Multiple sub-sample anti-analysing)
     glEnable(GL_MULTISAMPLE); // enabled by default on some drivers, but not all so always enable to make sure
 
-
     // enable blending:
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-    //enable face culling:
-    // glEnable(GL_CULL_FACE);
-    // glCullFace(GL_FRONT); 
 
     // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
@@ -118,6 +121,15 @@ void Controller::processInput() {
 
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
         camera.ProcessKeyboard(RIGHT, deltaTime);
+    
+    if (glfwGetKey(window, GLFW_KEY_0) == GLFW_PRESS && inElevator(camera.Position.x, camera.Position.z))
+        GROUND_FLOOR = true;
+    
+    if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS && inElevator(camera.Position.x, camera.Position.z))
+        FIRST_FLOOR = true;
+
+    if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS && inElevator(camera.Position.x, camera.Position.z))
+        SECOND_FLOOR = true;
 
     if(camera.Position.x>2200 && camera.Position.x< 2700){
         if(isGoingDownStairsFromRest(camera.Position.x, camera.Position.y, camera.Position.z)){
@@ -130,6 +142,15 @@ void Controller::processInput() {
     
     prevX = camera.Position.x;
     isNight = IS_NIGHT;
+    groundFloor = GROUND_FLOOR;
+    firstFloor = FIRST_FLOOR;
+    secondFloor = SECOND_FLOOR;
+    GROUND_FLOOR=FIRST_FLOOR=SECOND_FLOOR=false;
+    thereIsMovement = cnt0to1 + cnt0to2 + cnt1to0 + cnt1to2 + cnt2to0 + cnt2to1;
+}
+
+bool Controller::inElevator(float x, float z){
+    return x>=-9750.0f && x<-9402.0f && z>=3120.0f && z<=3860.0f;
 }
 
 void Controller::updateDeltaTime() {

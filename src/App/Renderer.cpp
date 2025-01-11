@@ -780,6 +780,76 @@ void Renderer::render(Controller& controller)
     //ELEVATOR_BODY:
     shaders[REF].setFloat("refVal", 0.1f);
     shaders[REF].setFloat("alpha", 1.0f);
+
+    //conf elevator logic:
+    if(controller.cntEleDoor<0){
+        controller.cntEleDoor++;
+        openEleDoor();
+    }
+    else if(controller.thereIsMovement){
+        if(controller.cntEleDoor){
+            controller.cntEleDoor--;
+            closeEleDoor();
+        }
+        else if(controller.cnt0to1){            
+            controller.cnt0to1--;
+            eleUp(controller.camera);
+        }
+        else if(controller.cnt0to2){
+            controller.cnt0to2--;
+            eleUp(controller.camera);
+        }
+        else if(controller.cnt1to0){
+            controller.cnt1to0--;
+            eleDown(controller.camera);
+        }
+        else if(controller.cnt1to2){
+            controller.cnt1to2--;
+            eleUp(controller.camera);
+        }
+        else if(controller.cnt2to0){
+            controller.cnt2to0--;
+            eleDown(controller.camera);
+        }
+        else if(controller.cnt2to1){
+            controller.cnt2to1--;
+            eleDown(controller.camera);
+        }
+        if(controller.thereIsMovement==1){
+            controller.cntEleDoor = -90;
+        }
+    }
+    else if(controller.groundFloor){
+        if(camY>880.0f && camY<940.0f){
+            controller.cnt1to0 = 425;
+            controller.cntEleDoor = 90;
+        } 
+        else if(camY>2180.0f && camY<2240.0f){
+            controller.cnt2to0 = 850;
+            controller.cntEleDoor = 90;
+        } 
+    }
+    else if(controller.firstFloor){
+        if(camY>-420.0f && camY<-360.0f){
+            controller.cnt0to1 = 425;
+            controller.cntEleDoor = 90;
+        }
+        else if(camY>2180.0f && camY<2240.0f){
+            controller.cnt2to1 = 425;
+            controller.cntEleDoor = 90;
+        } 
+    }
+    else if(controller.secondFloor){
+        if(camY>-420.0f && camY<-360.0f){
+            controller.cnt0to2 = 850;
+            controller.cntEleDoor = 90;
+        }
+        else if(camY>880.0f && camY<940.0f){
+            controller.cnt1to2 = 425;
+            controller.cntEleDoor = 90;
+        } 
+    }
+
     TextureManager::enable(shaders[REF], textures[MARBLE], textures[LIGHT_METAL_SPEC], 16);
     draw(ELEVATOR_BODY, cubes[ELEVATOR_BODY].getIndexCount(), 0);
 
@@ -790,6 +860,16 @@ void Renderer::render(Controller& controller)
     //BUTTOMS:
     TextureManager::enable(shaders[REF], textures[BUTTOMS_TEX], textures[LIGHT_METAL_SPEC], 1);
     draw(BUTTOMS, cubes[BUTTOMS].getIndexCount(), 0);
+
+    //ELEVATOR_ENTRY:
+    TextureManager::enable(shaders[REF], textures[SILVER4], textures[LIGHT_METAL_SPEC], 1);
+    draw(ELEVATOR_ENTRY, cubes[ELEVATOR_ENTRY].getIndexCount(), 6);
+
+    //ELEVATOR_DOOR:
+    shaders[REF].setFloat("alpha", 0.3f);
+    shaders[REF].setFloat("refVal", 0.2f);
+    TextureManager::enable(shaders[REF], textures[GLASS], textures[GLASS_SPEC], 1);
+    draw(ELEVATOR_DOOR, cubes[ELEVATOR_DOOR].getIndexCount(), 0);
 
 
     // SHOP_BLOOR:
@@ -820,6 +900,79 @@ void Renderer::render(Controller& controller)
     //-------------------------------------------------------------------------------------------
     
     
+}
+
+
+
+
+
+
+void Renderer::draw(string objectName, int numOfVertices, int offset)
+{
+    vaos[objectName].Bind(); ebos[objectName].Bind();
+    glDrawElementsInstanced(GL_TRIANGLES, numOfVertices, GL_UNSIGNED_INT, (void*)(offset*sizeof(float)), models[objectName].size());  
+
+}
+
+
+void Renderer::draw3Dmodel(string name, int startIndex, int endIndex)
+{
+    if(endIndex==1e9) endIndex = threeDModels[name].meshes.size();
+    for (unsigned int i = startIndex; i < endIndex; i++)
+    {
+        glBindVertexArray(threeDModels[name].meshes[i].VAO);
+        glDrawElementsInstanced(GL_TRIANGLES, static_cast<unsigned int>(threeDModels[name].meshes[i].indices.size()), GL_UNSIGNED_INT, 0, models[name].size());
+        glBindVertexArray(0);
+    }
+    // cout << (int)threeDModels[name].meshes.size() << endl;
+}
+
+bool Renderer::nearMallDoor(float x, float y, float z){
+    return z>=-3440.0f && z<-2260.0f && x>=-5060.0f && x<-3960.0f && y>=-391.5f && y<-370.0f;
+}
+
+void Renderer::eleUp(Camera& camera){
+    //BUTTOMS, ELEVATOR_INSIDE, ELEVATOR_BODY should move up:
+    models[BUTTOMS][0] = translate(models[BUTTOMS][0], vec3(0.0f, 3.0f, 0.0f));
+    models[ELEVATOR_INSIDE][0] = translate(models[ELEVATOR_INSIDE][0], vec3(0.0f, 3.0f/8.1f, 0.0f));
+    models[ELEVATOR_BODY][0] = translate(models[ELEVATOR_BODY][0], vec3(0.0f, 3.0f/0.2f, 0.0f));
+    models[ELEVATOR_BODY][1] = translate(models[ELEVATOR_BODY][1], vec3(0.0f, 3.0f/3.0f, 0.0f));
+    cubeBuffers(BUTTOMS);
+    cubeBuffers(ELEVATOR_BODY);
+    cubeBuffers(ELEVATOR_INSIDE);
+
+    //update camera position:
+    camera.Position.y+=3.058f;
+}
+
+void Renderer::eleDown(Camera& camera){
+    models[BUTTOMS][0] = translate(models[BUTTOMS][0], vec3(0.0f, -3.0f, 0.0f));
+    models[ELEVATOR_INSIDE][0] = translate(models[ELEVATOR_INSIDE][0], vec3(0.0f, -3.0f/8.1f, 0.0f));
+    models[ELEVATOR_BODY][0] = translate(models[ELEVATOR_BODY][0], vec3(0.0f, -3.0f/0.2f, 0.0f));
+    models[ELEVATOR_BODY][1] = translate(models[ELEVATOR_BODY][1], vec3(0.0f, -3.0f/3.0f, 0.0f));
+    cubeBuffers(BUTTOMS);
+    cubeBuffers(ELEVATOR_BODY);
+    cubeBuffers(ELEVATOR_INSIDE);
+
+    //update camera position:
+    camera.Position.y-=3.058f;
+}
+
+void Renderer::closeEleDoor(){
+    for(int i=0; i<6; i+=2) 
+        models[ELEVATOR_DOOR][i] = translate(models[ELEVATOR_DOOR][i], vec3(0.0f, 0.0f, 1.05f));
+    for(int i=1; i<6; i+=2) 
+        models[ELEVATOR_DOOR][i] = translate(models[ELEVATOR_DOOR][i], vec3(0.0f, 0.0f, -1.05f)); 
+    cubeBuffers(ELEVATOR_DOOR);
+}
+
+void Renderer::openEleDoor(){
+    for(int i=0; i<6; i+=2) 
+        models[ELEVATOR_DOOR][i] = translate(models[ELEVATOR_DOOR][i], vec3(0.0f, 0.0f, -1.05f));
+    for(int i=1; i<6; i+=2) 
+        models[ELEVATOR_DOOR][i] = translate(models[ELEVATOR_DOOR][i], vec3(0.0f, 0.0f, 1.05f)); 
+    cubeBuffers(ELEVATOR_DOOR);
+
 }
 
 
@@ -856,34 +1009,3 @@ unsigned int Renderer::loadMallCubemap() {
     return textureID;
 }
 
-
-
-
-
-
-
-
-
-void Renderer::draw(string objectName, int numOfVertices, int offset)
-{
-    vaos[objectName].Bind(); ebos[objectName].Bind();
-    glDrawElementsInstanced(GL_TRIANGLES, numOfVertices, GL_UNSIGNED_INT, (void*)(offset*sizeof(float)), models[objectName].size());  
-
-}
-
-
-void Renderer::draw3Dmodel(string name, int startIndex, int endIndex)
-{
-    if(endIndex==1e9) endIndex = threeDModels[name].meshes.size();
-    for (unsigned int i = startIndex; i < endIndex; i++)
-    {
-        glBindVertexArray(threeDModels[name].meshes[i].VAO);
-        glDrawElementsInstanced(GL_TRIANGLES, static_cast<unsigned int>(threeDModels[name].meshes[i].indices.size()), GL_UNSIGNED_INT, 0, models[name].size());
-        glBindVertexArray(0);
-    }
-    // cout << (int)threeDModels[name].meshes.size() << endl;
-}
-
-bool Renderer::nearMallDoor(float x, float y, float z){
-    return z>=-3440.0f && z<-2260.0f && x>=-5060.0f && x<-3960.0f && y>=-391.5f && y<-370.0f;
-}

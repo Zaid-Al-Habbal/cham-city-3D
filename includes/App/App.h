@@ -175,6 +175,9 @@ public:
     SILVER4 = "silver4",
     BUTTOMS_TEX = "buttomsTex",
 
+    GLASS = "glass",
+    GLASS_SPEC = "glassSpec",
+
     
     
 
@@ -337,6 +340,9 @@ public:
     ELEVATOR_BODY = "elevatorBody",
     ELEVATOR_INSIDE = "elevatorInside",
     BUTTOMS = "buttoms",
+    ELEVATOR_ENTRY = "elevatorEntry",
+    ELEVATOR_DOOR = "elevatorDoor",
+
 
 
 
