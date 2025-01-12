@@ -24,6 +24,8 @@ Renderer::Renderer()
     //for Escalator:
     cntEsc = 55;
 
+    cntGoingDownUsingESC = cntGoingUpUsingESC = 0;
+
     //MALL cubemap:
     mallCubemapTexture = loadMallCubemap();
 
@@ -715,10 +717,16 @@ void Renderer::render(Controller& controller)
     cntEsc--; if(cntEsc==-1) cntEsc=54;
     TextureManager::enable(shaders[MAIN], textures[ESCALATOR_TEX], textures[LIGHT_METAL_SPEC], 1);
     turnEscOn();
+    
     draw(ESCALATOR, cubes[ESCALATOR].getIndexCount(), 0);
+    if(cntGoingDownUsingESC) escDown(controller.camera);
+    else if(camY>880.0f && camY<940.0f && camX>380.8f && camX<400.0f && camZ<3096.0f && camZ>2880.0f) cntGoingDownUsingESC=400;
     turnEsc2On();
     draw(ESCALATOR2, cubes[ESCALATOR2].getIndexCount(), 0);
+    if(cntGoingUpUsingESC) escUp(controller.camera);
+    else if(camY>-420.0f && camY<-360.0f && camX>-1550.0f && camX<-1530.0f && camZ>3866.0f && camZ<4040.0f) cntGoingUpUsingESC=400;
 
+    showMe(cntGoingUpUsingESC);
     
     //---------------------------------------------------------------------------------------
     camera.printPos();
@@ -923,6 +931,18 @@ void Renderer::render(Controller& controller)
     //-------------------------------------------------------------------------------------------
     
     
+}
+
+void Renderer::escUp(Camera& camera){
+    camera.Position.x+=5.0f;
+    camera.Position.y+=3.25f;
+    cntGoingUpUsingESC--;
+}
+
+void Renderer::escDown(Camera& camera){
+    camera.Position.x-=5.0f;
+    camera.Position.y-=3.25f;
+    cntGoingDownUsingESC--;
 }
 
 void Renderer::turnEscOn(){
