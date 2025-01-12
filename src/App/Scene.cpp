@@ -3744,15 +3744,23 @@ Scene::Scene()
     appModel = translate(appModel, vec3(-4750.0f, 550.0f, -250.0f));
     appModel = scale(appModel, vec3(9.2f, 0.33f, 0.1f));
     models[ROOF_WALL].PB(appModel);
+    
     appModel = MODEL;
     appModel = translate(appModel, vec3(-4750.0f, 550.0f, 7550.0f));
     appModel = scale(appModel, vec3(9.2f, 0.33f, 0.1f));
     models[ROOF_WALL].PB(appModel);
+
     appModel = MODEL;
-    appModel = translate(appModel, vec3(600.0f, 550.0f, 3650.0f));
+    appModel = translate(appModel, vec3(500.0f, 550.0f, 6000.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
-    appModel = scale(appModel, vec3(6.65f, 0.33f, 0.1f));
+    appModel = scale(appModel, vec3(2.6f, 0.33f, 0.1f));
     models[ROOF_WALL].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(500.0f, 550.0f, 1140.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(2.41f, 0.33f, 0.1f));
+    models[ROOF_WALL].PB(appModel);
+
     appModel = MODEL;
     appModel = translate(appModel, vec3(-9950.0f, 550.0f, 6000.0f));
     appModel = rotate(appModel, radians(90.0f), Y);
@@ -5935,6 +5943,73 @@ Scene::Scene()
     models[ELEVATOR_DOOR].PB(appModel);
     models[ELEVATOR_DOOR].resize(6);
     cubeBuffers(ELEVATOR_DOOR);
+
+    //ESCALATOR:
+    cubes[ESCALATOR] = Cubesphere(500.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-1500.0f, -950.0f, 3000.0f));
+    appModel = scale(appModel, vec3(0.1f, 0.1f, 0.6f));
+    models[ESCALATOR].PB(appModel);
+    for(int i=0; i<35; i++){
+        appModel = translate(appModel, vec3(567.0f, 350.0f, 0.0f));
+        models[ESCALATOR].PB(appModel);
+    }
+    cubeBuffers(ESCALATOR);
+
+    //ESCALATOR2:
+    cubes[ESCALATOR2] = Cubesphere(500.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-1500.0f, -950.0f, 4000.0f));
+    appModel = scale(appModel, vec3(0.1f, 0.1f, 0.6f));
+    models[ESCALATOR2].PB(appModel);
+    for(int i=0; i<35; i++){
+        appModel = translate(appModel, vec3(567.0f, 350.0f, 0.0f));
+        models[ESCALATOR2].PB(appModel);
+    }
+    cubeBuffers(ESCALATOR2);
+    models[ESCALATOR].resize(36);
+    models[ESCALATOR2].resize(36);
+
+    //ESC_BASE:
+    cubes[ESC_BASE] = Cubesphere(500.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-700.0f, -550.0f, 3000.0f));
+    appModel = rotate(appModel, radians(120.0f), Z);
+    appModel = scale(appModel, vec3(0.3f, 5.0f, 0.65f));
+    models[ESC_BASE].PB(appModel);
+    //For the second:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-700.0f, -550.0f, 4000.0f));
+    appModel = rotate(appModel, radians(120.0f), Z);
+    appModel = scale(appModel, vec3(0.3f, 5.0f, 0.65f));
+    models[ESC_BASE].PB(appModel);
+    cubeBuffers(ESC_BASE);
+
+    //ESC_ARM:
+    cubes[ESC_ARM] = Cubesphere(500.0f, 1, true);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-500.0f, -300.0f, 2800.0f));
+    appModel = rotate(appModel, radians(120.0f), Z);
+    appModel = scale(appModel, vec3(0.5f, 4.1f, 0.07f));
+    models[ESC_ARM].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-500.0f, -300.0f, 3200.0f));
+    appModel = rotate(appModel, radians(120.0f), Z);
+    appModel = scale(appModel, vec3(0.5f, 4.1f, 0.07f));
+    models[ESC_ARM].PB(appModel);
+
+    //for the second:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-500.0f, -300.0f, 3800.0f));
+    appModel = rotate(appModel, radians(120.0f), Z);
+    appModel = scale(appModel, vec3(0.5f, 4.1f, 0.07f));
+    models[ESC_ARM].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-500.0f, -300.0f, 4200.0f));
+    appModel = rotate(appModel, radians(120.0f), Z);
+    appModel = scale(appModel, vec3(0.5f, 4.1f, 0.07f));
+    models[ESC_ARM].PB(appModel);
+    cubeBuffers(ESC_ARM);
 
 }
 

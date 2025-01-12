@@ -224,10 +224,18 @@ void ResourceManager::setTextures()
     textures[SILVER] = TextureManager("../resources/textures/Metal012_1K-JPG_Color.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
     textures[SILVER2] = TextureManager("../resources/textures/silver2.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
     textures[SILVER4] = TextureManager("../resources/textures/Metal030_1K-JPG_Color.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[SILVER5] = TextureManager("../resources/textures/silver5.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+
+    textures[ESCALATOR_TEX] = TextureManager("../resources/textures/escalator.jpeg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+
 
     //GLASS
     textures[GLASS] = TextureManager("../resources/textures/Square_Glass.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
     textures[GLASS_SPEC] = TextureManager("../resources/textures/Square_Glass.png", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGBA, GL_UNSIGNED_BYTE);
+
+    //CIRCLE_GLASS:
+    textures[CIRCLE_GLASS] = TextureManager("../resources/textures/round_glass.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+    textures[CIRCLE_GLASS_SPEC] = TextureManager("../resources/textures/round_glass.png", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGBA, GL_UNSIGNED_BYTE);
 
 
     //TEXTURES DO NOT FLIP::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

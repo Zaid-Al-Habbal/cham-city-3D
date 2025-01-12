@@ -21,6 +21,9 @@ Renderer::Renderer()
     //for Mall Door:
     cntMallDoor=90;
 
+    //for Escalator:
+    cntEsc = 55;
+
     //MALL cubemap:
     mallCubemapTexture = loadMallCubemap();
 
@@ -706,6 +709,16 @@ void Renderer::render(Controller& controller)
     TextureManager::enable(shaders[MAIN], textures[SILVER3], textures[LIGHT_METAL_SPEC], 1);
     draw(ELEVATOR_BAR, cylinders[ELEVATOR_BAR].getIndexCount(), 0);
 
+    //ESCALATOR START HERE:
+
+    //ESCALATORs:
+    cntEsc--; if(cntEsc==-1) cntEsc=54;
+    TextureManager::enable(shaders[MAIN], textures[ESCALATOR_TEX], textures[LIGHT_METAL_SPEC], 1);
+    turnEscOn();
+    draw(ESCALATOR, cubes[ESCALATOR].getIndexCount(), 0);
+    turnEsc2On();
+    draw(ESCALATOR2, cubes[ESCALATOR2].getIndexCount(), 0);
+
     
     //---------------------------------------------------------------------------------------
     camera.printPos();
@@ -865,9 +878,19 @@ void Renderer::render(Controller& controller)
     TextureManager::enable(shaders[REF], textures[SILVER4], textures[LIGHT_METAL_SPEC], 1);
     draw(ELEVATOR_ENTRY, cubes[ELEVATOR_ENTRY].getIndexCount(), 6);
 
-    //ELEVATOR_DOOR:
+    //ESC_BASE:
+    TextureManager::enable(shaders[REF], textures[SILVER4], textures[LIGHT_METAL_SPEC], 1);
+    draw(ESC_BASE, cubes[ESC_BASE].getIndexCount(), 6);
+
+    shaders[REF].setFloat("alpha", 0.4f);
+    shaders[REF].setFloat("refVal", 0.5f);
+    //ESC_ARM:
+    TextureManager::enable(shaders[REF], textures[GLASS], textures[GLASS_SPEC], 1);
+    draw(ESC_ARM, cubes[ESC_ARM].getIndexCount(), 0);
+
     shaders[REF].setFloat("alpha", 0.3f);
     shaders[REF].setFloat("refVal", 0.2f);
+    //ELEVATOR_DOOR:
     TextureManager::enable(shaders[REF], textures[GLASS], textures[GLASS_SPEC], 1);
     draw(ELEVATOR_DOOR, cubes[ELEVATOR_DOOR].getIndexCount(), 0);
 
@@ -902,9 +925,46 @@ void Renderer::render(Controller& controller)
     
 }
 
+void Renderer::turnEscOn(){
+    if(cntEsc==0){
+        vector<mat4> curPositons;
+        for(int i=1; i<36; i++){
+            curPositons.push_back(models[ESCALATOR][i]);
+        }
+        mat4 appModel = mat4(1.0f);
+        appModel = translate(appModel, vec3(470.0f, 320.0f, 3000.0f));
+        appModel = scale(appModel, vec3(0.1f, 0.1f, 0.6f));
+        models[ESCALATOR][35] = appModel;
+        for(int i=0; i<35; i++){
+            models[ESCALATOR][i] = curPositons[i];
+        }
+    }
+    for(int i=0; i<36; i++){
+        models[ESCALATOR][i] = translate(models[ESCALATOR][i], vec3(-10.0f, -6.5f, 0.0f));
+    }
+    cubeBuffers(ESCALATOR);
+}
 
 
-
+void Renderer::turnEsc2On(){
+    if(cntEsc==0){
+        vector<mat4> curPositons;
+        for(int i=0; i<35; i++){
+            curPositons.push_back(models[ESCALATOR2][i]);
+        }
+        mat4 appModel = mat4(1.0f);
+        appModel = translate(appModel, vec3(-1500.0f, -970.0f, 4000.0f));
+        appModel = scale(appModel, vec3(0.1f, 0.1f, 0.6f));
+        models[ESCALATOR2][0] = appModel;
+        for(int i=0; i<35; i++){
+            models[ESCALATOR2][i+1] = curPositons[i];
+        }
+    }
+    for(int i=0; i<36; i++){
+        models[ESCALATOR2][i] = translate(models[ESCALATOR2][i], vec3(10.0f, 6.5f, 0.0f));
+    }
+    cubeBuffers(ESCALATOR2);
+}
 
 
 void Renderer::draw(string objectName, int numOfVertices, int offset)

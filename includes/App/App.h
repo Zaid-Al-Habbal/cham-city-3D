@@ -178,6 +178,12 @@ public:
     GLASS = "glass",
     GLASS_SPEC = "glassSpec",
 
+    SILVER5 = "silver5",
+    ESCALATOR_TEX = "escalatorTex",
+
+    CIRCLE_GLASS = "circleGlass",
+    CIRCLE_GLASS_SPEC = "circleGlassSpec",
+
     
     
 
@@ -342,6 +348,11 @@ public:
     BUTTOMS = "buttoms",
     ELEVATOR_ENTRY = "elevatorEntry",
     ELEVATOR_DOOR = "elevatorDoor",
+
+    ESCALATOR = "escalator",
+    ESCALATOR2 = "escalator2",
+    ESC_BASE = "escBase",
+    ESC_ARM = "escArm",
 
 
 

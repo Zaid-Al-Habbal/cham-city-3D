@@ -20,7 +20,7 @@ private:
     unordered_map<string, Shader> shaders;
     ISoundEngine* engine;
 
-    int cntMallDoor;
+    int cntMallDoor, cntEsc;
     unsigned int mallCubemapTexture;
 
 
@@ -39,6 +39,8 @@ public:
     void eleDown(Camera& camera);
     void closeEleDoor();
     void openEleDoor();
+    void turnEscOn();
+    void turnEsc2On();
 
 };
 #endif
