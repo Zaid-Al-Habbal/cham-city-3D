@@ -13,7 +13,7 @@ bool Controller::isGoingUpStairsToRest(float x, float y, float z){
 
 
 Controller::Controller(unsigned int width, unsigned int height):
-    camera(glm::vec3(3600.0f, -371.344f, -13019.27f)),
+    camera(glm::vec3(-3600.0f, -371.344f, -8019.27f)),
     window(nullptr),
     deltaTime(0.0f),
     lastFrame(0.0f),

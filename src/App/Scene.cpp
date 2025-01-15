@@ -6083,6 +6083,95 @@ Scene::Scene()
     }
     cubeBuffers(PAVING);
 
+    //STREET_LIGHT:
+    threeDModels[STREET_LIGHT] = Model("../resources/objects/park-light/source/park light/park light.fbx");
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-6000.0f, -970.0f, -7000.0f));
+    appModel = scale(appModel, vec3(3.0f, 3.0f, 3.0f));
+    models[STREET_LIGHT].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-2400.0f, -970.0f, -7000.0f));
+    appModel = scale(appModel, vec3(3.0f, 3.0f, 3.0f));
+    models[STREET_LIGHT].PB(appModel);
+    threeDmodelBuffers(STREET_LIGHT);
+
+    //MALL_LIGHT:
+    // 
+    threeDModels[MALL_LIGHT] = Model("../resources/objects/hanging_light/scene.gltf");
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-1000.0f, 3270.0f, 1000.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = scale(appModel, vec3(600.0f, 600.0f, 300.0f));
+    models[MALL_LIGHT].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-1000.0f, 3270.0f, 5500.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = scale(appModel, vec3(600.0f, 600.0f, 300.0f));
+    models[MALL_LIGHT].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-8500.0f, 3270.0f, 1000.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = scale(appModel, vec3(600.0f, 600.0f, 300.0f));
+    models[MALL_LIGHT].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-8500.0f, 3270.0f, 5500.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = scale(appModel, vec3(600.0f, 1000.0f, 300.0f));
+    models[MALL_LIGHT].PB(appModel);
+    threeDmodelBuffers(MALL_LIGHT);
+
+    //BUILDINGs:
+    //RIGHT:
+    cubes[BUILDING] = Cubesphere(4000.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-7000.0f, 1100.0f, -19000.0f));
+    appModel = scale(appModel, vec3(0.7f, 1.0f, 1.0f));
+    models[BUILDING].PB(appModel);
+    curModel = appModel;
+    appModel = translate(appModel, vec3(7000.0f, 0.0f, 0.0f));
+    models[BUILDING].PB(appModel);
+    appModel = translate(appModel, vec3(7000.0f, 0.0f, 0.0f));
+    models[BUILDING].PB(appModel);
+
+    appModel = translate(curModel, vec3(-7000.0f, 0.0f, 0.0f));
+    models[BUILDING].PB(appModel);
+    appModel = translate(curModel, vec3(-7000.0f, 0.0f, 0.0f));
+    models[BUILDING].PB(appModel);
+
+    //LEFT:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(18000.0f, 1100.0f, -1000.0f));
+    appModel = rotate(appModel, radians(-90.0f), Y);
+    appModel = scale(appModel, vec3(0.7f, 1.0f, 1.0f));
+    models[BUILDING].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(18000.0f, 1100.0f, 6000.0f));
+    appModel = rotate(appModel, radians(-90.0f), Y);
+    appModel = scale(appModel, vec3(0.7f, 1.0f, 1.0f));
+    models[BUILDING].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(18000.0f, 1100.0f, 13000.0f));
+    appModel = rotate(appModel, radians(-90.0f), Y);
+    appModel = scale(appModel, vec3(0.7f, 1.0f, 1.0f));
+    models[BUILDING].PB(appModel);
+
+    
+    cubeBuffers(BUILDING);
+
+    //SMALL_TREEs:
+    threeDModels[SMALL_TREE] = Model("../resources/objects/othonna_cerarioides_1k.gltf/othonna_cerarioides_1k.gltf");
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(7000.0f, -1100.0f, -11000.0f));
+    appModel = scale(appModel, vec3(500.0f, 500.0f, 500.0f));
+    models[SMALL_TREE].PB(appModel);
+    for(int i=1; i<=6; i++){
+        appModel = MODEL;
+        appModel = translate(appModel, vec3(7000.0f - (i*3500.0f), -1100.0f, -11000.0f));
+        appModel = scale(appModel, vec3(500.0f, 500.0f, 500.0f));
+        models[SMALL_TREE].PB(appModel);
+    }
+
+    threeDmodelBuffers(SMALL_TREE);    
 }
 
 

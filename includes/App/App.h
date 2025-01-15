@@ -193,7 +193,11 @@ public:
     PAVING_DIFF = "pavingDiff",
     PAVING_SPEC = "pavingSpec",
 
+    STREET_LIGHT_TEX = "streetLightTex",
+    MALL_LIGHT_TEX = "mallLightTex",
     
+    BUILDING_TEX = "buildingTex",
+    SMALL_TREE_TEX = "smallTreeTex",
     
 
     //Objects:
@@ -366,6 +370,11 @@ public:
     ROAD = "road",
     OUTSIDE_GROUND = "outsideGround",
     PAVING = "paving",
+    STREET_LIGHT = "streetLight",
+    MALL_LIGHT = "mallLight",
+    BUILDING = "building",
+    SMALL_TREE = "smallTree",
+
 
 
 

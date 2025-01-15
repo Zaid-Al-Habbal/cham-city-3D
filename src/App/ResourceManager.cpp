@@ -337,4 +337,17 @@ void ResourceManager::setTextures()
     textures[PAVING_DIFF] = TextureManager("../resources/textures/PavingStones071_1K-diff.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
     textures[PAVING_SPEC] = TextureManager("../resources/textures/PavingStones071_1K-spec.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
     
+    //STREET_LIGHT_TEX:
+    textures[STREET_LIGHT_TEX] = TextureManager("../resources/objects/park-light/textures/park light_park_light_BaseColor.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+
+    //MALL_LIGHT_TEX:
+    textures[MALL_LIGHT_TEX] = TextureManager("../resources/objects/hanging_light/textures/T_hanging_lights_1001_baseColor.jpeg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+
+    //BUILDING_TEX:
+    textures[BUILDING_TEX] = TextureManager("../resources/textures/building.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    // 
+
+    //SMALL_TREE_TEX:
+    textures[SMALL_TREE_TEX] = TextureManager("../resources/objects/othonna_cerarioides_1k.gltf/textures/othonna_cerarioides_diff_1k.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+
 }

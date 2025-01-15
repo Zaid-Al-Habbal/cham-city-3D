@@ -133,7 +133,19 @@ void Renderer::render(Controller& controller)
     //PAVING:
     TextureManager::enable(shaders[REF], textures[PAVING_DIFF], textures[PAVING_SPEC], 2);
     draw(PAVING, cubes[PAVING].getIndexCount(), 0);
-    
+
+    //STREET_LIGHT:
+    TextureManager::enable(shaders[REF], textures[STREET_LIGHT_TEX], textures[STREET_LIGHT_TEX], 1);
+    draw3Dmodel(STREET_LIGHT);
+
+    //BUILDING:
+    TextureManager::enable(shaders[REF], textures[BUILDING_TEX], textures[BUILDING_TEX], 1);
+    draw(BUILDING, cubes[BUILDING].getIndexCount(), 0);
+
+    //SMALL_TREE:
+    TextureManager::enable(shaders[REF], textures[SMALL_TREE_TEX], textures[SMALL_TREE_TEX], 1);
+    draw3Dmodel(SMALL_TREE);
+
 
     /*********************************************************************************************** */
 
@@ -166,6 +178,10 @@ void Renderer::render(Controller& controller)
     
     mainLight.turnOnPoint();
     mainLight.turnOnDir();
+
+    //MALL_LIGHT:
+    TextureManager::enable(shaders[MAIN], textures[MALL_LIGHT_TEX], textures[MALL_LIGHT_TEX], 1);
+    draw3Dmodel(MALL_LIGHT);
 
 
     //GROUND:
