@@ -325,4 +325,16 @@ void ResourceManager::setTextures()
     //MARBLE:
     textures[MARBLE] = TextureManager("../resources/textures/Marble016_1K-JPG_Color.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
     
+    //ROAD:
+    textures[ROAD_DIFF] = TextureManager("../resources/textures/Road007_1K-diff.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[ROAD_SPEC] = TextureManager("../resources/textures/Road007_1K-spec.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+    
+    //ASPHALT:
+    textures[ASPHALT_DIFF] = TextureManager("../resources/textures/Asphalt027A_1K-diff.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[ASPHALT_SPEC] = TextureManager("../resources/textures/Asphalt027A_1K-spec.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+    
+    //PAVING:
+    textures[PAVING_DIFF] = TextureManager("../resources/textures/PavingStones071_1K-diff.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[PAVING_SPEC] = TextureManager("../resources/textures/PavingStones071_1K-spec.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+    
 }

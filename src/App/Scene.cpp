@@ -6011,6 +6011,78 @@ Scene::Scene()
     models[ESC_ARM].PB(appModel);
     cubeBuffers(ESC_ARM);
 
+    //ROAD:
+    cubes[ROAD] = Cubesphere(2000.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-7000.0f, -1200.0f, -11000.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(3.5f, 0.01f, 14.0f));
+    models[ROAD].PB(appModel);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(13250.0f, -1200.0f, 3000.0f));
+    appModel = scale(appModel, vec3(3.5f, 0.01f, 20.0f));
+    models[ROAD].PB(appModel);
+    cubeBuffers(ROAD);
+
+    //OUTSIDE_GROUND:
+    cubes[OUTSIDE_GROUND] = Cubesphere(2000.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(0.0f, -1250.0f, 0.0f));
+    appModel = scale(appModel, vec3(50.0f, 0.01f, 50.0f));
+    models[OUTSIDE_GROUND].PB(appModel);
+    cubeBuffers(OUTSIDE_GROUND);
+
+    //PAVING:
+    cubes[PAVING] = Cubesphere(2000.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-7000.0f, -1150.0f, -11000.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(0.15f, 0.05f, 0.5f));
+    models[PAVING].PB(appModel);
+    for(int i=1; i<=8; i++){
+        appModel = MODEL;
+        appModel = translate(appModel, vec3(-7000.0f - ((i*1150.0f)), -1150.0f, -11000.0f));
+        appModel = rotate(appModel, radians(90.0f), Y);
+        appModel = scale(appModel, vec3(0.15f, 0.05f, 0.5f));
+        models[PAVING].PB(appModel);
+    }
+    for(int i=1; i<=6; i++){
+        appModel = MODEL;
+        appModel = translate(appModel, vec3(-6000.0f + ((i*1150.0f)), -1150.0f, -11000.0f));
+        appModel = rotate(appModel, radians(90.0f), Y);
+        appModel = scale(appModel, vec3(0.15f, 0.05f, 0.5f));
+        models[PAVING].PB(appModel);
+    }
+    for(int i=7; i<=11; i++){
+        appModel = MODEL;
+        appModel = translate(appModel, vec3(-5000.0f + ((i*1150.0f)), -1150.0f, -11000.0f));
+        appModel = rotate(appModel, radians(90.0f), Y);
+        appModel = scale(appModel, vec3(0.15f, 0.05f, 0.5f));
+        models[PAVING].PB(appModel);
+    }
+
+    //RIGHT:
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-7000.0f, -1150.0f, -15800.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(0.7f, 0.05f, 0.5f));
+    models[PAVING].PB(appModel);
+    for(int i=1; i<=8; i++){
+        appModel = MODEL;
+        appModel = translate(appModel, vec3(-7000.0f - ((i*1150.0f)), -1150.0f, -15800.0f));
+        appModel = rotate(appModel, radians(90.0f), Y);
+        appModel = scale(appModel, vec3(0.7f, 0.05f, 0.5f));
+        models[PAVING].PB(appModel);
+    }
+    for(int i=1; i<=13; i++){
+        appModel = MODEL;
+        appModel = translate(appModel, vec3(-7000.0f + ((i*1150.0f)), -1150.0f, -15800.0f));
+        appModel = rotate(appModel, radians(90.0f), Y);
+        appModel = scale(appModel, vec3(0.7f, 0.05f, 0.5f));
+        models[PAVING].PB(appModel);
+    }
+    cubeBuffers(PAVING);
+
 }
 
 

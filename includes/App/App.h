@@ -184,6 +184,15 @@ public:
     CIRCLE_GLASS = "circleGlass",
     CIRCLE_GLASS_SPEC = "circleGlassSpec",
 
+    ROAD_DIFF = "roadDiff",
+    ROAD_SPEC = "roadSpec",
+
+    ASPHALT_DIFF = "asphaltDiff",
+    ASPHALT_SPEC = "asphaltSpec",
+
+    PAVING_DIFF = "pavingDiff",
+    PAVING_SPEC = "pavingSpec",
+
     
     
 
@@ -354,7 +363,9 @@ public:
     ESC_BASE = "escBase",
     ESC_ARM = "escArm",
 
-
+    ROAD = "road",
+    OUTSIDE_GROUND = "outsideGround",
+    PAVING = "paving",
 
 
 

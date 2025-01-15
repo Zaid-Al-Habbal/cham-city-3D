@@ -121,6 +121,20 @@ void Renderer::render(Controller& controller)
     shaders[REF].setFloat("refVal", 0.07f);
     draw(SIDE_WALK, cubes[SIDE_WALK].getIndexCount(), 0);
 
+    //ROAD:
+    TextureManager::enable(shaders[REF], textures[ROAD_DIFF], textures[ROAD_SPEC], 2);
+    shaders[REF].setFloat("refVal", 0.007f);
+    draw(ROAD, cubes[ROAD].getIndexCount(), 0);
+
+    //OUTSIDE_GROUND:
+    TextureManager::enable(shaders[REF], textures[ASPHALT_DIFF], textures[ASPHALT_SPEC], 128);
+    draw(OUTSIDE_GROUND, cubes[OUTSIDE_GROUND].getIndexCount(), 0);
+
+    //PAVING:
+    TextureManager::enable(shaders[REF], textures[PAVING_DIFF], textures[PAVING_SPEC], 2);
+    draw(PAVING, cubes[PAVING].getIndexCount(), 0);
+    
+
     /*********************************************************************************************** */
 
     //MAIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIN:
@@ -725,8 +739,6 @@ void Renderer::render(Controller& controller)
     draw(ESCALATOR2, cubes[ESCALATOR2].getIndexCount(), 0);
     if(cntGoingUpUsingESC) escUp(controller.camera);
     else if(camY>-420.0f && camY<-360.0f && camX>-1550.0f && camX<-1530.0f && camZ>3866.0f && camZ<4040.0f) cntGoingUpUsingESC=400;
-
-    showMe(cntGoingUpUsingESC);
     
     //---------------------------------------------------------------------------------------
     camera.printPos();
