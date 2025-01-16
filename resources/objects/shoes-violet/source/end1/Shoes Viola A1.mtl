@@ -1,0 +1,19 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 25.10.2017 00:29:00
+
+newmtl LR_Baked_01
+	Ns 9.999999
+	Ni 1.500000
+	d 1.000000
+	Tr 0.000000
+	Tf 1.000000 1.000000 1.000000 
+	illum 2
+	Ka 0.588235 0.588235 0.588235
+	Kd 0.588235 0.588235 0.588235
+	Ks 0.000000 0.000000 0.000000
+	Ke 0.000000 0.000000 0.000000
+	map_Ka E:\Done\U Lenovo\vans-vino\end1\LR_Baked-01CompleteMap.jpg
+	map_Kd E:\Done\U Lenovo\vans-vino\end1\LR_Baked-01CompleteMap.jpg
+	map_Ks E:\Done\U Lenovo\vans-vino\end1\LR_Baked-01SpecularMap.jpg
+	map_bump E:\Done\U Lenovo\vans-vino\end1\LR_Baked-01NMap.jpg
+	bump E:\Done\U Lenovo\vans-vino\end1\LR_Baked-01NMap.jpg

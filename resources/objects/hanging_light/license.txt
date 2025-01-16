@@ -1,0 +1,11 @@
+Model Information:
+* title:	Hanging light
+* source:	https://sketchfab.com/3d-models/hanging-light-d5c6dac20c40430e9a534f0535f314ff
+* author:	Sousinho (https://sketchfab.com/sousinho)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Hanging light" (https://sketchfab.com/3d-models/hanging-light-d5c6dac20c40430e9a534f0535f314ff) by Sousinho (https://sketchfab.com/sousinho) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

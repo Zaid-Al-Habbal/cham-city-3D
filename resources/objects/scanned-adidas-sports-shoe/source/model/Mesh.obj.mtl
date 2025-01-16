@@ -1,0 +1,8 @@
+newmtl Textured
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 1.000 1.000 1.000
+illum 2
+d 1.0
+map_Kd Texture.jpg
+map_bump NormalsTS.jpg
