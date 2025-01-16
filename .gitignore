@@ -13,11 +13,8 @@ CMakeUserPresets.json
 
 /build
 /bin
-CMakeLists.txt
 
 /resources
 
-GPTDOESNOTKnow.txt
-Cham City Center/
 
 /.vscode

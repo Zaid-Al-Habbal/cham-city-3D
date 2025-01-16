@@ -14,60 +14,60 @@ void ResourceManager::setAudio()
 
     engine->setDefault3DSoundMinDistance(1500.0f);
     
-    // //MALL:
-    // engine->play3D("../resources/audio/mall.wav", 
-    // vec3df(-4500.0f, -492.199f, 4037.31f), true);
+    //MALL:
+    engine->play3D("../resources/audio/mall.wav", 
+    vec3df(-4500.0f, -492.199f, 4037.31f), true);
     
-    // engine->setDefault3DSoundMinDistance(70.0f);
+    engine->setDefault3DSoundMinDistance(70.0f);
 
-    // //SUITS:
-    // engine->play3D("../resources/audio/Rival_-Alan-Walker-Dreamer-_Rival-Remix_-_NCS-Release_.ogg", 
-    // vec3df(1407.83f, 249.006f, -3625.85f),true);
-    // engine->play3D("../resources/audio/Rival_-Alan-Walker-Dreamer-_Rival-Remix_-_NCS-Release_.ogg", 
-    // vec3df(407.83f, 249.006f, -3625.85f),true);
+    //SUITS:
+    engine->play3D("../resources/audio/Rival_-Alan-Walker-Dreamer-_Rival-Remix_-_NCS-Release_.ogg", 
+    vec3df(1407.83f, 249.006f, -3625.85f),true);
+    engine->play3D("../resources/audio/Rival_-Alan-Walker-Dreamer-_Rival-Remix_-_NCS-Release_.ogg", 
+    vec3df(407.83f, 249.006f, -3625.85f),true);
     
-    // //SHIRTS:
-    // engine->play3D("../resources/audio/TOKYO-MACHINE_-NEFFEX-Desperate-_NCS-Release_.ogg", 
-    // vec3df(1711.15f, 292.262f, 11136.2f),true);
-    // engine->play3D("../resources/audio/TOKYO-MACHINE_-NEFFEX-Desperate-_NCS-Release_.ogg", 
-    // vec3df(711.15f, 292.262f, 11136.2f),true);
+    //SHIRTS:
+    engine->play3D("../resources/audio/TOKYO-MACHINE_-NEFFEX-Desperate-_NCS-Release_.ogg", 
+    vec3df(1711.15f, 292.262f, 11136.2f),true);
+    engine->play3D("../resources/audio/TOKYO-MACHINE_-NEFFEX-Desperate-_NCS-Release_.ogg", 
+    vec3df(711.15f, 292.262f, 11136.2f),true);
     
-    // //SHOES:
-    // engine->play3D("../resources/audio/Diamond-Eyes-Doxx-My-Heart-_NCS-Release_.ogg", 
-    // vec3df(-4554.78f, 270.735f, 11111.4f),true);
-    // engine->play3D("../resources/audio/Diamond-Eyes-Doxx-My-Heart-_NCS-Release_.ogg", 
-    // vec3df(-5554.78f, 270.735f, 11111.4f),true);
+    //SHOES:
+    engine->play3D("../resources/audio/Diamond-Eyes-Doxx-My-Heart-_NCS-Release_.ogg", 
+    vec3df(-4554.78f, 270.735f, 11111.4f),true);
+    engine->play3D("../resources/audio/Diamond-Eyes-Doxx-My-Heart-_NCS-Release_.ogg", 
+    vec3df(-5554.78f, 270.735f, 11111.4f),true);
 
-    // // DRESS
-    // engine->play3D("../resources/audio/ROSÉ-_-Bruno-Mars-APT.-_ROCK-VERSION_.ogg",
-    // vec3df(-10676.2f, 177.6295f, 10776.9f ),true);
-    // engine->play3D("../resources/audio/ROSÉ-_-Bruno-Mars-APT.-_ROCK-VERSION_.ogg",
-    // vec3df(-9076.2f, 177.6295f, 10776.9f ),true);
+    // DRESS
+    engine->play3D("../resources/audio/ROSÉ-_-Bruno-Mars-APT.-_ROCK-VERSION_.ogg",
+    vec3df(-10676.2f, 177.6295f, 10776.9f ),true);
+    engine->play3D("../resources/audio/ROSÉ-_-Bruno-Mars-APT.-_ROCK-VERSION_.ogg",
+    vec3df(-9076.2f, 177.6295f, 10776.9f ),true);
     
-    // //REST:
-    // engine->play3D("../resources/audio/HEAT-WAVES-Glass-Animals-FREE-DOWNLOAD-No-Copyright.ogg", 
-    // vec3df(3899.39f, 201.771f, -686.228f),true);
-    // engine->play3D("../resources/audio/HEAT-WAVES-Glass-Animals-FREE-DOWNLOAD-No-Copyright.ogg", 
-    // vec3df(3607.51f, 191.642f, -1603.91f ),true);
+    //REST:
+    engine->play3D("../resources/audio/HEAT-WAVES-Glass-Animals-FREE-DOWNLOAD-No-Copyright.ogg", 
+    vec3df(3899.39f, 201.771f, -686.228f),true);
+    engine->play3D("../resources/audio/HEAT-WAVES-Glass-Animals-FREE-DOWNLOAD-No-Copyright.ogg", 
+    vec3df(3607.51f, 191.642f, -1603.91f ),true);
 
-    // //FURN:
-    // engine->play3D("../resources/audio/Diviners_-Tobu-Geometry-_NCS-Release_.ogg",
-    // vec3df(4642.63f, 50.1142f, 2686.95f),true);
-    // engine->play3D("../resources/audio/Diviners_-Tobu-Geometry-_NCS-Release_.ogg",
-    // vec3df(4436.83f, 61.4054f, 6110.48f ),true);
+    //FURN:
+    engine->play3D("../resources/audio/Diviners_-Tobu-Geometry-_NCS-Release_.ogg",
+    vec3df(4642.63f, 50.1142f, 2686.95f),true);
+    engine->play3D("../resources/audio/Diviners_-Tobu-Geometry-_NCS-Release_.ogg",
+    vec3df(4436.83f, 61.4054f, 6110.48f ),true);
     
-    // //TECH
-    // engine->play3D("../resources/audio/Linn-Sandin_-Midranger_-Poylow-Revolution-_NCS-Release_.ogg",
-    // vec3df(-14087.5f, 112.19f, -119.141f),true);
-    // engine->play3D("../resources/audio/Linn-Sandin_-Midranger_-Poylow-Revolution-_NCS-Release_.ogg",
-    // vec3df(-13982.8f, 124.208f, 4219.28f),true);
+    //TECH
+    engine->play3D("../resources/audio/Linn-Sandin_-Midranger_-Poylow-Revolution-_NCS-Release_.ogg",
+    vec3df(-14087.5f, 112.19f, -119.141f),true);
+    engine->play3D("../resources/audio/Linn-Sandin_-Midranger_-Poylow-Revolution-_NCS-Release_.ogg",
+    vec3df(-13982.8f, 124.208f, 4219.28f),true);
     
 
-    // //JEWELRY:
-    // engine->play3D("../resources/audio/Alan-Walker_-Dash-Berlin-_-Vikkstar-Better-Off-_Alone_-Pt.-III_-House-NCS13-Fanmade.ogg",
-    // vec3df(-10939.0f, 189.223f, -3331.37f),true);
-    // engine->play3D("../resources/audio/Alan-Walker_-Dash-Berlin-_-Vikkstar-Better-Off-_Alone_-Pt.-III_-House-NCS13-Fanmade.ogg",
-    // vec3df(-8623.58f, 92.8321f, -3443.15f),true);
+    //JEWELRY:
+    engine->play3D("../resources/audio/Alan-Walker_-Dash-Berlin-_-Vikkstar-Better-Off-_Alone_-Pt.-III_-House-NCS13-Fanmade.ogg",
+    vec3df(-10939.0f, 189.223f, -3331.37f),true);
+    engine->play3D("../resources/audio/Alan-Walker_-Dash-Berlin-_-Vikkstar-Better-Off-_Alone_-Pt.-III_-House-NCS13-Fanmade.ogg",
+    vec3df(-8623.58f, 92.8321f, -3443.15f),true);
 }
 
 void ResourceManager::setShaders()
