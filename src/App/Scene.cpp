@@ -6239,6 +6239,36 @@ Scene::Scene()
     appModel = scale(appModel, vec3(0.03f, 0.6f, 1.0f));
     models[AD7].PB(appModel);
     cubeBuffers(AD7); 
+
+    //CAR1:
+    threeDModels[CAR1] = Model("../resources/objects/cars/1998-lamborghini-diablo-sv-low-poly/source/Diablo SV.fbx");
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(3000.0f, -900.0f, -14300.0f));
+    appModel = rotate(appModel, radians(-90.0f), X);
+    appModel = rotate(appModel, radians(-90.0f), Z);
+    appModel = scale(appModel, vec3(600.0f, 600.0f, 600.0f));
+    models[CAR1].PB(appModel);
+    models[CAR1].resize(1);
+    threeDmodelBuffers(CAR1);
+
+    //CAR2:
+    threeDModels[CAR2] = Model("../resources/objects/cars/55z27frcahz4-P911GT/Porsche_911_GT2.obj");
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-3000.0f, -850.0f, -14300.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(600.0f, 600.0f, 600.0f));
+    models[CAR2].PB(appModel);
+    for(int i=0; i<5; i++){
+        appModel = MODEL;
+    appModel = translate(appModel, vec3(-3000.0f - (4000.0f*(i+1)), -850.0f, -14300.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(600.0f, 600.0f, 600.0f));
+    models[CAR2].PB(appModel);
+    }
+    threeDmodelBuffers(CAR2);
+
+    
+    
 }
 
 

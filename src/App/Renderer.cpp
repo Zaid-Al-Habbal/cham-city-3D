@@ -17,7 +17,6 @@ Renderer::Renderer()
     mainLight = Light(shaders[MAIN], false, 1, false);
     //REF SHADER Light:
     refLight = Light(shaders[REF], true, 0, false);
-
     //for Mall Door:
     cntMallDoor=90;
 
@@ -180,6 +179,20 @@ void Renderer::render(Controller& controller)
     TextureManager::enable(shaders[REF], textures[AD7_TEX], textures[AD7_TEX], 1);
     draw(AD7, cubes[AD7].getIndexCount(), 0);
     
+    shaders[REF].setFloat("refVal", 0.2f);
+    //CAR1:
+    TextureManager::enable(shaders[REF], textures[CAR1_TEX1], textures[CAR1_TEX1], 1);
+    draw3Dmodel(CAR1);
+
+    //CAR2:
+    
+    TextureManager::enable(shaders[REF], textures[CAR2_TEX], textures[CAR2_SPEC], 1);
+    draw3Dmodel(CAR2);
+
+    TextureManager::enable(shaders[REF], textures[CAR3_TEX], textures[CAR3_SPEC], 1);
+    draw3Dmodel(CAR3);
+
+    shaders[REF].setFloat("refVal", 0.0f);
 
 
     /*********************************************************************************************** */
@@ -771,12 +784,14 @@ void Renderer::render(Controller& controller)
     draw3Dmodel(PALM_LEAVES, 3, 4);
 
     //ELEVATOR START HERE:
+    //handle elevator logic:
+    handleElevator(controller, camY);
 
     //..ELEVATOR_BARs:
     TextureManager::enable(shaders[MAIN], textures[SILVER3], textures[LIGHT_METAL_SPEC], 1);
     draw(ELEVATOR_BAR, cylinders[ELEVATOR_BAR].getIndexCount(), 0);
 
-    //ESCALATOR START HERE:
+    //handle ESCALATOR:
 
     //ESCALATORs:
     cntEsc--; if(cntEsc==-1) cntEsc=54;
@@ -790,9 +805,11 @@ void Renderer::render(Controller& controller)
     draw(ESCALATOR2, cubes[ESCALATOR2].getIndexCount(), 0);
     if(cntGoingUpUsingESC) escUp(controller.camera);
     else if(camY>-420.0f && camY<-360.0f && camX>-1550.0f && camX<-1530.0f && camZ>3866.0f && camZ<4040.0f) cntGoingUpUsingESC=400;
+
+    
     
     //---------------------------------------------------------------------------------------
-    camera.printPos();
+    // camera.printPos();
     // SKYBOX:
     skybox.setEnvironment(!controller.isNight);
     skybox.draw(shaders[SKYBOX], view, projection);
@@ -866,6 +883,70 @@ void Renderer::render(Controller& controller)
     shaders[REF].setFloat("alpha", 1.0f);
 
     //conf elevator logic:
+    
+
+    TextureManager::enable(shaders[REF], textures[MARBLE], textures[LIGHT_METAL_SPEC], 16);
+    draw(ELEVATOR_BODY, cubes[ELEVATOR_BODY].getIndexCount(), 0);
+
+    //ELEVATOR_INSIDE:
+    TextureManager::enable(shaders[REF], textures[SILVER4], textures[LIGHT_METAL_SPEC], 1);
+    draw(ELEVATOR_INSIDE, cubes[ELEVATOR_INSIDE].getIndexCount(), 0);
+
+    //BUTTOMS:
+    TextureManager::enable(shaders[REF], textures[BUTTOMS_TEX], textures[LIGHT_METAL_SPEC], 1);
+    draw(BUTTOMS, cubes[BUTTOMS].getIndexCount(), 0);
+
+    //ELEVATOR_ENTRY:
+    TextureManager::enable(shaders[REF], textures[SILVER4], textures[LIGHT_METAL_SPEC], 1);
+    draw(ELEVATOR_ENTRY, cubes[ELEVATOR_ENTRY].getIndexCount(), 6);
+
+    //ESC_BASE:
+    TextureManager::enable(shaders[REF], textures[SILVER4], textures[LIGHT_METAL_SPEC], 1);
+    draw(ESC_BASE, cubes[ESC_BASE].getIndexCount(), 6);
+
+    shaders[REF].setFloat("alpha", 0.4f);
+    shaders[REF].setFloat("refVal", 0.5f);
+    //ESC_ARM:
+    TextureManager::enable(shaders[REF], textures[GLASS], textures[GLASS_SPEC], 1);
+    draw(ESC_ARM, cubes[ESC_ARM].getIndexCount(), 0);
+
+    shaders[REF].setFloat("alpha", 0.3f);
+    shaders[REF].setFloat("refVal", 0.2f);
+    //ELEVATOR_DOOR:
+    TextureManager::enable(shaders[REF], textures[GLASS], textures[GLASS_SPEC], 1);
+    draw(ELEVATOR_DOOR, cubes[ELEVATOR_DOOR].getIndexCount(), 0);
+
+
+    // SHOP_BLOOR:
+    shaders[REF].setFloat("refVal", 0.7f);
+    shaders[REF].setFloat("alpha", 0.2f);
+    shaders[REF].setFloat("shininess", 128.0f);
+    TextureManager::enable(shaders[REF], textures[BLOOR], textures[BLOOR_SPEC], 1);
+    draw(SHOP_BLOOR, cubes[SHOP_BLOOR].getIndexCount(), 0);
+
+
+    //ELEVATOR_BLOOR:
+    shaders[REF].setFloat("alpha", 0.2f);
+    shaders[REF].setFloat("refVal", 0.7f);
+    TextureManager::enable(shaders[REF], textures[BLOOR], textures[BLOOR_SPEC], 1);
+    draw(ELEVATOR_BLOOR, cubes[ELEVATOR_BLOOR].getIndexCount(), 6);
+    shaders[REF].setFloat("shininess", 32.0f);
+    
+    shaders[REF].setFloat("alpha", 1.0f);
+    shaders[REF].setFloat("refVal", 0.0f);
+
+
+    refLight.numOfPoints = 0;
+    refLight.turnOnPoint();
+
+
+
+
+    //-------------------------------------------------------------------------------------------
+    
+    
+}
+void Renderer::handleElevator(Controller& controller, float camY){
     if(controller.cntEleDoor<0){
         controller.cntEleDoor++;
         openEleDoor();
@@ -933,69 +1014,7 @@ void Renderer::render(Controller& controller)
             controller.cntEleDoor = 90;
         } 
     }
-
-    TextureManager::enable(shaders[REF], textures[MARBLE], textures[LIGHT_METAL_SPEC], 16);
-    draw(ELEVATOR_BODY, cubes[ELEVATOR_BODY].getIndexCount(), 0);
-
-    //ELEVATOR_INSIDE:
-    TextureManager::enable(shaders[REF], textures[SILVER4], textures[LIGHT_METAL_SPEC], 1);
-    draw(ELEVATOR_INSIDE, cubes[ELEVATOR_INSIDE].getIndexCount(), 0);
-
-    //BUTTOMS:
-    TextureManager::enable(shaders[REF], textures[BUTTOMS_TEX], textures[LIGHT_METAL_SPEC], 1);
-    draw(BUTTOMS, cubes[BUTTOMS].getIndexCount(), 0);
-
-    //ELEVATOR_ENTRY:
-    TextureManager::enable(shaders[REF], textures[SILVER4], textures[LIGHT_METAL_SPEC], 1);
-    draw(ELEVATOR_ENTRY, cubes[ELEVATOR_ENTRY].getIndexCount(), 6);
-
-    //ESC_BASE:
-    TextureManager::enable(shaders[REF], textures[SILVER4], textures[LIGHT_METAL_SPEC], 1);
-    draw(ESC_BASE, cubes[ESC_BASE].getIndexCount(), 6);
-
-    shaders[REF].setFloat("alpha", 0.4f);
-    shaders[REF].setFloat("refVal", 0.5f);
-    //ESC_ARM:
-    TextureManager::enable(shaders[REF], textures[GLASS], textures[GLASS_SPEC], 1);
-    draw(ESC_ARM, cubes[ESC_ARM].getIndexCount(), 0);
-
-    shaders[REF].setFloat("alpha", 0.3f);
-    shaders[REF].setFloat("refVal", 0.2f);
-    //ELEVATOR_DOOR:
-    TextureManager::enable(shaders[REF], textures[GLASS], textures[GLASS_SPEC], 1);
-    draw(ELEVATOR_DOOR, cubes[ELEVATOR_DOOR].getIndexCount(), 0);
-
-
-    // SHOP_BLOOR:
-    shaders[REF].setFloat("refVal", 0.7f);
-    shaders[REF].setFloat("alpha", 0.2f);
-    shaders[REF].setFloat("shininess", 128.0f);
-    TextureManager::enable(shaders[REF], textures[BLOOR], textures[BLOOR_SPEC], 1);
-    draw(SHOP_BLOOR, cubes[SHOP_BLOOR].getIndexCount(), 0);
-
-
-    //ELEVATOR_BLOOR:
-    shaders[REF].setFloat("alpha", 0.2f);
-    shaders[REF].setFloat("refVal", 0.7f);
-    TextureManager::enable(shaders[REF], textures[BLOOR], textures[BLOOR_SPEC], 1);
-    draw(ELEVATOR_BLOOR, cubes[ELEVATOR_BLOOR].getIndexCount(), 6);
-    shaders[REF].setFloat("shininess", 32.0f);
-    
-    shaders[REF].setFloat("alpha", 1.0f);
-    shaders[REF].setFloat("refVal", 0.0f);
-
-
-    refLight.numOfPoints = 0;
-    refLight.turnOnPoint();
-
-
-
-
-    //-------------------------------------------------------------------------------------------
-    
-    
 }
-
 void Renderer::escUp(Camera& camera){
     camera.Position.x+=5.0f;
     camera.Position.y+=3.25f;

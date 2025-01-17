@@ -43,6 +43,7 @@ public:
     void turnEsc2On();
     void escUp(Camera& camera);
     void escDown(Camera& camera);
+    void handleElevator(Controller& controller, float camY);
 
 };
 #endif

@@ -249,8 +249,17 @@ void ResourceManager::setTextures()
     textures[CIRCLE_GLASS_SPEC] = TextureManager("../resources/textures/round_glass.png", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGBA, GL_UNSIGNED_BYTE);
 
 
+
     //TEXTURES DO NOT FLIP::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     stbi_set_flip_vertically_on_load(false);
+    //CAR2:
+    textures[CAR2_TEX] = TextureManager("../resources/objects/cars/55z27frcahz4-P911GT/skin07/0000.BMP", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    textures[CAR2_SPEC] = TextureManager("../resources/objects/cars/55z27frcahz4-P911GT/skin07/0000-a.BMP", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
+
+    //CAR1:
+    textures[CAR1_TEX1] = TextureManager("../resources/objects/cars/1998-lamborghini-diablo-sv-low-poly/textures/Diablo_d.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+
+
 
     textures[BUTTOMS_TEX] = TextureManager("../resources/textures/buttoms.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
     //PALM:

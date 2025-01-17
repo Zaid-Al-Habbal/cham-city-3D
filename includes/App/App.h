@@ -206,7 +206,22 @@ public:
     AD5_TEX = "ad5Tex",
     AD6_TEX = "ad6Tex",
     AD7_TEX = "ad7Tex",
+
+    CAR1_TEX1 = "car1Tex1",
+    CAR2_TEX = "car1Tex2",
+    CAR2_SPEC = "car2Spec",
+    CAR3_TEX = "car1Tex3",
+    CAR3_SPEC = "car3Spec",
+    CAR4_TEX = "car4Tex",
+    CAR4_SPEC = "car4Spec",
+    CAR5_TEX = "carTex5",
+    CAR5_SPEC = "carSpec5",
+    CAR6_TEX = "carTex6",
+    CAR6_SPEC = "carSpec6",
+    CAR7_TEX = "carTex7",
+    CAR7_SPEC = "carSpec7",
     
+
     
 
     //Objects:
@@ -390,6 +405,14 @@ public:
     AD5 = "ad5",
     AD6 = "ad6",
     AD7 = "ad7",
+
+    CAR1 = "car1",
+    CAR2 = "car2",
+    CAR3 = "car3",
+    CAR4 = "car4",
+    CAR5 = "car5",
+    CAR6 = "car6",
+    CAR7 = "car7",
 
 
 
