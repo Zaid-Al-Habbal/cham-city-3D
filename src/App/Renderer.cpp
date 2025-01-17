@@ -28,7 +28,6 @@ Renderer::Renderer()
 
     //MALL cubemap:
     mallCubemapTexture = loadMallCubemap();
-
     
 
 }
@@ -973,14 +972,14 @@ void Renderer::render(Controller& controller)
     shaders[REF].setFloat("shininess", 128.0f);
     TextureManager::enable(shaders[REF], textures[BLOOR], textures[BLOOR_SPEC], 1);
     draw(SHOP_BLOOR, cubes[SHOP_BLOOR].getIndexCount(), 0);
-    shaders[REF].setFloat("shininess", 32.0f);
 
 
     //ELEVATOR_BLOOR:
     shaders[REF].setFloat("alpha", 0.2f);
-    shaders[REF].setFloat("refVal", 0.3f);
+    shaders[REF].setFloat("refVal", 0.7f);
     TextureManager::enable(shaders[REF], textures[BLOOR], textures[BLOOR_SPEC], 1);
     draw(ELEVATOR_BLOOR, cubes[ELEVATOR_BLOOR].getIndexCount(), 6);
+    shaders[REF].setFloat("shininess", 32.0f);
     
     shaders[REF].setFloat("alpha", 1.0f);
     shaders[REF].setFloat("refVal", 0.0f);
@@ -1152,4 +1151,3 @@ unsigned int Renderer::loadMallCubemap() {
 
     return textureID;
 }
-

@@ -12,7 +12,7 @@ void ResourceManager::setAudio()
     //ENGINE:
     engine = createIrrKlangDevice();
 
-    engine->setDefault3DSoundMinDistance(1500.0f);
+    engine->setDefault3DSoundMinDistance(1600.0f);
     
     //MALL:
     engine->play3D("../resources/audio/mall.wav", 
