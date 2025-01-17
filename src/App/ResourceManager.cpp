@@ -68,6 +68,16 @@ void ResourceManager::setAudio()
     vec3df(-10939.0f, 189.223f, -3331.37f),true);
     engine->play3D("../resources/audio/Alan-Walker_-Dash-Berlin-_-Vikkstar-Better-Off-_Alone_-Pt.-III_-House-NCS13-Fanmade.ogg",
     vec3df(-8623.58f, 92.8321f, -3443.15f),true);
+
+    engine->setDefault3DSoundMinDistance(3000.0f);
+    //Outside:
+    engine->play3D("../resources/audio/outside.ogg",
+    vec3df(17154.4f, -371.344f, -18500.8f ),true);
+    engine->play3D("../resources/audio/outside.ogg",
+    vec3df(-17154.4f, -371.344f, -18500.8f ),true);
+
+
+    
 }
 
 void ResourceManager::setShaders()

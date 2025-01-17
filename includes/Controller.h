@@ -35,8 +35,8 @@ private:
 public:
     Camera camera;
     //morning/night
-    bool isNight, groundFloor, firstFloor, secondFloor;
-    int cnt0to1, cnt0to2, cnt1to0, cnt1to2, cnt2to1, cnt2to0, cntEleDoor, thereIsMovement;
+    bool isNight, groundFloor, firstFloor, secondFloor, moved;
+    int cnt0to1, cnt0to2, cnt1to0, cnt1to2, cnt2to1, cnt2to0, cntEleDoor, thereIsMovement, cntMoved;
 
     static bool isGoingUpStairsToRest(float x, float y, float z);
     static bool isGoingDownStairsFromRest(float x, float y, float z);

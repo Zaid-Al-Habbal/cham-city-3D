@@ -29,6 +29,8 @@ Renderer::Renderer()
     //MALL cubemap:
     mallCubemapTexture = loadMallCubemap();
 
+    
+
 }
 
 
@@ -45,9 +47,14 @@ void Renderer::render(Controller& controller)
     float camX=camPos.x, camY=camPos.y, camZ=camPos.z;
     engine->setListenerPosition(vec3df(camPos.x, camPos.y, camPos.z),
      vec3df(camFro.x, camFro.y, camFro.z), vec3df(0,0,0),
-      vec3df(camUp.x, camUp.y, camUp.z));       
+      vec3df(camUp.x, camUp.y, camUp.z)); 
+
+    //Footsteps:
+    if(controller.cntMoved==30 && !camera.fly)
+        engine->play2D("../resources/audio/footsteps2.ogg");
+            
     glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom),
-     (float)SCR_WIDTH / (float)SCR_HEIGHT, 2.0f, 30000.0f);
+     (float)SCR_WIDTH / (float)SCR_HEIGHT, 2.0f, 35000.0f);
     glm::mat4 view = camera.GetViewMatrix();
     
 

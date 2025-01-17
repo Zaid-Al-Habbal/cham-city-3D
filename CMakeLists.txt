@@ -85,7 +85,7 @@ file(GLOB SOURCE
         "src/App/*.cpp"
 )
 
-set(NAME "program")
+set(NAME "Cham-City-3D")
 
 add_executable(${NAME} ${SOURCE})
 target_link_libraries(${NAME} ${LIBS})

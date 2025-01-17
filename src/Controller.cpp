@@ -32,7 +32,9 @@ Controller::Controller(unsigned int width, unsigned int height):
     cntEleDoor(0),
     groundFloor(false),
     firstFloor(false),
-    secondFloor(false)
+    secondFloor(false),
+    moved(false),
+    cntMoved(0)
     
 {}
 
@@ -113,20 +115,34 @@ void Controller::mouse_button_callback(GLFWwindow* window, int button, int actio
 }
 
 void Controller::processInput() {
+
+    moved = false;
+
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS){
+        moved=true;
         camera.ProcessKeyboard(FORWARD, deltaTime);
+    }
 
-    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS){
+        moved=true;
         camera.ProcessKeyboard(BACKWARD, deltaTime);
+    }
 
-    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS){
+        moved=true;
         camera.ProcessKeyboard(LEFT, deltaTime);
+    }
 
-    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS){
+        moved=true;
         camera.ProcessKeyboard(RIGHT, deltaTime);
+    }
+    if(moved){
+        cntMoved++; if(cntMoved==31)cntMoved=0;
+    }
     
     if (glfwGetKey(window, GLFW_KEY_0) == GLFW_PRESS && inElevator(camera.Position.x, camera.Position.z))
         GROUND_FLOOR = true;
