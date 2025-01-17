@@ -146,6 +146,35 @@ void Renderer::render(Controller& controller)
     TextureManager::enable(shaders[REF], textures[SMALL_TREE_TEX], textures[SMALL_TREE_TEX], 1);
     draw3Dmodel(SMALL_TREE);
 
+    //AD1:
+    TextureManager::enable(shaders[REF], textures[AD1_TEX], textures[AD1_TEX], 1);
+    draw(AD1, cubes[AD1].getIndexCount(), 0);
+
+    //AD2:
+    TextureManager::enable(shaders[REF], textures[AD2_TEX], textures[AD2_TEX], 1);
+    draw(AD2, cubes[AD2].getIndexCount(), 0);
+
+    //AD3:
+    TextureManager::enable(shaders[REF], textures[AD3_TEX], textures[AD3_TEX], 1);
+    draw(AD3, cubes[AD3].getIndexCount(), 0);
+
+    //AD4:
+    TextureManager::enable(shaders[REF], textures[AD4_TEX], textures[AD4_TEX], 1);
+    draw(AD4, cubes[AD4].getIndexCount(), 0);
+
+    //AD5:
+    TextureManager::enable(shaders[REF], textures[AD5_TEX], textures[AD5_TEX], 1);
+    draw(AD5, cubes[AD5].getIndexCount(), 0);
+
+    //AD6:
+    TextureManager::enable(shaders[REF], textures[AD6_TEX], textures[AD6_TEX], 1);
+    draw(AD6, cubes[AD6].getIndexCount(), 0);
+
+    //AD7:
+    TextureManager::enable(shaders[REF], textures[AD7_TEX], textures[AD7_TEX], 1);
+    draw(AD7, cubes[AD7].getIndexCount(), 0);
+    
+
 
     /*********************************************************************************************** */
 
@@ -1026,7 +1055,7 @@ void Renderer::draw(string objectName, int numOfVertices, int offset)
 void Renderer::draw3Dmodel(string name, int startIndex, int endIndex)
 {
     if(endIndex==1e9) endIndex = threeDModels[name].meshes.size();
-    for (unsigned int i = startIndex; i < endIndex; i++)
+    for (int i = startIndex; i < endIndex; i++)
     {
         glBindVertexArray(threeDModels[name].meshes[i].VAO);
         glDrawElementsInstanced(GL_TRIANGLES, static_cast<unsigned int>(threeDModels[name].meshes[i].indices.size()), GL_UNSIGNED_INT, 0, models[name].size());

@@ -39,6 +39,8 @@ public:
     float MouseSensitivity;
     float Zoom;
 
+    bool fly, prevState;
+
     // constructor with vectors
     Camera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f), float yaw = YAW, float pitch = PITCH) : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVITY), Zoom(ZOOM)
     {
@@ -46,6 +48,7 @@ public:
         WorldUp = up;
         Yaw = yaw;
         Pitch = pitch;
+        fly = prevState = false;
         updateCameraVectors();
     }
     // constructor with scalar values
@@ -55,6 +58,7 @@ public:
         WorldUp = glm::vec3(upX, upY, upZ);
         Yaw = yaw;
         Pitch = pitch;
+        fly = false;
         updateCameraVectors();
     }
     void printPos(){
@@ -85,8 +89,11 @@ public:
         // Restaurant level:
         // Position.y = -130.344f; 
         //********************************* */
-
-        Position.y = curLevel;
+        if(!fly){
+            Position.y = curLevel;
+            if(prevState) Position.y = -371.344f;
+        }
+        prevState = fly;
     }
 
     // processes input received from a mouse input system. Expects the offset value in both the x and y direction.

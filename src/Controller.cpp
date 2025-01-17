@@ -1,7 +1,7 @@
 #include "Controller.h"
 #include <stb_image.h>
 
-bool IS_NIGHT = false, GROUND_FLOOR=false, FIRST_FLOOR=false, SECOND_FLOOR=false;
+bool IS_NIGHT = false, GROUND_FLOOR=false, FIRST_FLOOR=false, SECOND_FLOOR=false, camFly=false;
 float prevX = 0.0f;
 
 bool Controller::isGoingDownStairsFromRest(float x, float y, float z){
@@ -104,6 +104,12 @@ void Controller::mouse_button_callback(GLFWwindow* window, int button, int actio
             IS_NIGHT^=1;
         }
     }
+    if (button == GLFW_MOUSE_BUTTON_RIGHT) {
+        if (action == GLFW_PRESS) {
+            camFly^=1;  
+        }
+    }
+
 }
 
 void Controller::processInput() {
@@ -131,6 +137,7 @@ void Controller::processInput() {
     if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS && inElevator(camera.Position.x, camera.Position.z))
         SECOND_FLOOR = true;
 
+
     if(camera.Position.x>2200 && camera.Position.x< 2700){
         if(isGoingDownStairsFromRest(camera.Position.x, camera.Position.y, camera.Position.z)){
             camera.Position.y-=20.0f;
@@ -147,6 +154,7 @@ void Controller::processInput() {
     secondFloor = SECOND_FLOOR;
     GROUND_FLOOR=FIRST_FLOOR=SECOND_FLOOR=false;
     thereIsMovement = cnt0to1 + cnt0to2 + cnt1to0 + cnt1to2 + cnt2to0 + cnt2to1;
+    camera.fly = camFly;
 }
 
 bool Controller::inElevator(float x, float z){

@@ -6171,7 +6171,74 @@ Scene::Scene()
         models[SMALL_TREE].PB(appModel);
     }
 
-    threeDmodelBuffers(SMALL_TREE);    
+    threeDmodelBuffers(SMALL_TREE);  
+
+    //AD1:
+    cubes[AD1] = Cubesphere(2000.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(1700.0f, 1200.0f, -4100.0f));
+    appModel = rotate(appModel, radians(-170.0f), X);
+    appModel = rotate(appModel, radians(180.0f), Z);
+    appModel = scale(appModel, vec3(1.0f, 0.6f, 0.03f));
+    models[AD1].PB(appModel);
+    cubeBuffers(AD1);  
+
+    //AD2:
+    cubes[AD2] = Cubesphere(2000.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(1700.0f - 2700.0f, 1200.0f, -4100.0f));
+    appModel = rotate(appModel, radians(-170.0f), X);
+    appModel = rotate(appModel, radians(180.0f), Z);
+    appModel = scale(appModel, vec3(1.0f, 0.6f, 0.03f));
+    models[AD2].PB(appModel);
+    cubeBuffers(AD2); 
+
+    //AD3:
+    cubes[AD3] = Cubesphere(2000.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-8000.0f, 1200.0f, -4100.0f));
+    appModel = rotate(appModel, radians(-170.0f), X);
+    appModel = rotate(appModel, radians(180.0f), Z);
+    appModel = scale(appModel, vec3(1.0f, 0.6f, 0.03f));
+    models[AD3].PB(appModel);
+    cubeBuffers(AD3);  
+
+    //AD4:
+    cubes[AD4] = Cubesphere(2000.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-8000.0f - 2700.0f, 1200.0f, -4100.0f));
+    appModel = rotate(appModel, radians(-170.0f), X);
+    appModel = rotate(appModel, radians(180.0f), Z);
+    appModel = scale(appModel, vec3(1.0f, 0.6f, 0.03f));
+    models[AD4].PB(appModel);
+    cubeBuffers(AD4);  
+
+    //AD5:
+    cubes[AD5] = Cubesphere(2000.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(5500.0f, 1200.0f, 1500.0f));
+    appModel = rotate(appModel, radians(10.0f), Z);
+    appModel = scale(appModel, vec3(0.03f, 0.6f, 1.0f));
+    models[AD5].PB(appModel);
+    cubeBuffers(AD5); 
+
+    //AD6:
+    cubes[AD6] = Cubesphere(2000.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(5500.0f, 1200.0f, 1500.0f + 2700.0f));
+    appModel = rotate(appModel, radians(10.0f), Z);
+    appModel = scale(appModel, vec3(0.03f, 0.6f, 1.0f));
+    models[AD6].PB(appModel);
+    cubeBuffers(AD6); 
+
+    //AD7:
+    cubes[AD7] = Cubesphere(2000.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(5500.0f, 1200.0f, 1500.0f + 2700.0f + 2700.0f));
+    appModel = rotate(appModel, radians(10.0f), Z);
+    appModel = scale(appModel, vec3(0.03f, 0.6f, 1.0f));
+    models[AD7].PB(appModel);
+    cubeBuffers(AD7); 
 }
 
 

@@ -201,6 +201,7 @@ void ResourceManager::setTextures()
     
     //GRAY_METAL:
     textures[GRAY_METAL] = TextureManager("../resources/textures/Metal036_1K-JPG_Color.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    
     textures[GRAY_METAL_SPEC] = TextureManager("../resources/textures/Metal036_1K-JPG_Metalness.jpg", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);
     
     //WHITE2:
@@ -349,5 +350,21 @@ void ResourceManager::setTextures()
 
     //SMALL_TREE_TEX:
     textures[SMALL_TREE_TEX] = TextureManager("../resources/objects/othonna_cerarioides_1k.gltf/textures/othonna_cerarioides_diff_1k.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+
+    //AD1_TEX:
+    textures[AD1_TEX] = TextureManager("../resources/textures/ad1.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    //AD2_TEX:
+    textures[AD2_TEX] = TextureManager("../resources/textures/ad2.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    //AD3_TEX:
+    textures[AD3_TEX] = TextureManager("../resources/textures/ad3.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    //AD4_TEX:
+    textures[AD4_TEX] = TextureManager("../resources/textures/ad4.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    //AD5_TEX:
+    textures[AD5_TEX] = TextureManager("../resources/textures/ad11.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    //AD6_TEX:
+    textures[AD6_TEX] = TextureManager("../resources/textures/ad6.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    //AD7_TEX:
+    textures[AD7_TEX] = TextureManager("../resources/textures/ad7.jpg", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
+    
 
 }

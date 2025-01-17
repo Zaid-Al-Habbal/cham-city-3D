@@ -198,6 +198,15 @@ public:
     
     BUILDING_TEX = "buildingTex",
     SMALL_TREE_TEX = "smallTreeTex",
+
+    AD1_TEX = "ad1Tex",
+    AD2_TEX = "ad2Tex",
+    AD3_TEX = "ad3Tex",
+    AD4_TEX = "ad4Tex",
+    AD5_TEX = "ad5Tex",
+    AD6_TEX = "ad6Tex",
+    AD7_TEX = "ad7Tex",
+    
     
 
     //Objects:
@@ -374,11 +383,18 @@ public:
     MALL_LIGHT = "mallLight",
     BUILDING = "building",
     SMALL_TREE = "smallTree",
+    AD1 = "ad1",
+    AD2 = "ad2",
+    AD3 = "ad3",
+    AD4 = "ad4",
+    AD5 = "ad5",
+    AD6 = "ad6",
+    AD7 = "ad7",
 
 
 
 
-    STREND = "strend";
+    PROJECT_OBJECTS_END = "ProjectEnd";
 };
 
 #endif
