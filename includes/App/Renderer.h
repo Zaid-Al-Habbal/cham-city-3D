@@ -20,7 +20,7 @@ private:
     unordered_map<string, Shader> shaders;
     ISoundEngine* engine;
 
-    int cntMallDoor, cntEsc, cntGoingUpUsingESC, cntGoingDownUsingESC;
+    int cntMallDoor, cntEsc, cntGoingUpUsingESC, cntGoingDownUsingESC, cntSound;
     unsigned int mallCubemapTexture;
 
 

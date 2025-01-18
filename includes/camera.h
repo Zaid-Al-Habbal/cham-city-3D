@@ -33,8 +33,8 @@ public:
     glm::vec3 WorldUp;
     //car:
     glm::vec3 carPosition, cameraOffset, carDirection;
-    float carSpeed = 1200.0f;  // Car speed
-    float rotationSpeed = 1200.0f; // Rotation speed in degrees/second
+    float carSpeed = 1200.0f * 4.0f;  // Car speed
+    float rotationSpeed = 1700.0f; // Rotation speed in degrees/second
     float angle; //rotation angle:
 
     // euler Angles
@@ -55,7 +55,7 @@ public:
         Yaw = yaw;
         Pitch = pitch;
         fly = prevState = inDrivingMode = false;
-        cameraOffset = glm::vec3(0.0f, 2500.0f, -1000.0f);
+        cameraOffset = glm::vec3(0.0f, 2500.0f, -1500.0f);
         carPosition = glm::vec3(7864.24f, -711.639f, -14280.6f);
         carDirection = glm::vec3(-1.0f, 0.0f, 0.0f);
         updateCameraVectors();
@@ -68,7 +68,7 @@ public:
         Yaw = yaw;
         Pitch = pitch;
         fly = prevState = inDrivingMode = false;
-        cameraOffset = glm::vec3(0.0f, 2500.0f, -1000.0f);
+        cameraOffset = glm::vec3(0.0f, 2500.0f, -1500.0f);
         carPosition = glm::vec3(7864.24f, -711.639f, -14280.6f);
         carDirection = glm::vec3(-1.0f, 0.0f, 0.0f);
         updateCameraVectors();
@@ -101,13 +101,15 @@ public:
             if (direction == BACKWARD)
                 carPosition -= carDirection * velocity;
             if (direction == LEFT) {
+                float curAngle = glm::radians(30.0f * deltaTime);
                 float newAngle = glm::radians(rotationSpeed * deltaTime);
-                angle += newAngle;
+                angle += curAngle;
                 carDirection = rotateAroundY(carDirection, newAngle);
             }
             if (direction == RIGHT) {
+                float curAngle = glm::radians(-30.0f * deltaTime);
                 float newAngle = glm::radians(-rotationSpeed * deltaTime);
-                angle += newAngle;
+                angle += curAngle;
                 carDirection = rotateAroundY(carDirection, newAngle);
             }
             Position = carPosition - glm::normalize(carDirection) * glm::length(cameraOffset);
