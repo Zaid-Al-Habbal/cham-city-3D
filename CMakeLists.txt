@@ -30,7 +30,11 @@ message(STATUS "Found ASSIMP in ${ASSIMP_INCLUDE_DIR}")
 
 # for Windows:
 if(WIN32)
-  set(LIBS glfw3 opengl32 assimp freetype irrKlang)
+  set(IRRKLANG_ROOT "${CMAKE_SOURCE_DIR}/includes/irrKlang")
+  include_directories(${IRRKLANG_ROOT})
+  set(IRRKLANG_LIB lib/irrKlang.lib)
+  set(LIBS ${LIBS} ${IRRKLANG_LIB})
+  set(LIBS glfw3 opengl32 assimp irrKlang)
   add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 # for Linux:
 elseif(UNIX AND NOT APPLE)
@@ -109,12 +113,17 @@ file(GLOB SHADERS
             "src/*.fs"
 )
 # copy dlls
-file(GLOB DLLS "dlls/*.dll")
+file(GLOB DLLS "dlls/*.dll") 
+file(COPY ${DLLS} DESTINATION ${CMAKE_SOURCE_DIR}/bin)
+
 foreach(SHADER ${SHADERS})
     if(WIN32)
         # configure_file(${SHADER} "test")
         add_custom_command(TARGET ${NAME} PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${SHADER} $<TARGET_FILE_DIR:${NAME}>)
         add_custom_command(TARGET ${NAME} PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${DLLS} $<TARGET_FILE_DIR:${NAME}>)
+        add_custom_command(TARGET ${NAME} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy ${SHADER} $<TARGET_FILE_DIR:${NAME}>
+    )
     elseif(UNIX AND NOT APPLE)
         file(COPY ${SHADER} DESTINATION ${CMAKE_SOURCE_DIR}/bin/${chapter})
     elseif(APPLE)
