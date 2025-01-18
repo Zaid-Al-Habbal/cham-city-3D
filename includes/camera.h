@@ -31,6 +31,12 @@ public:
     glm::vec3 Up;
     glm::vec3 Right;
     glm::vec3 WorldUp;
+    //car:
+    glm::vec3 carPosition, cameraOffset, carDirection;
+    float carSpeed = 1200.0f;  // Car speed
+    float rotationSpeed = 1200.0f; // Rotation speed in degrees/second
+    float angle; //rotation angle:
+
     // euler Angles
     float Yaw;
     float Pitch;
@@ -39,7 +45,7 @@ public:
     float MouseSensitivity;
     float Zoom;
 
-    bool fly, prevState;
+    bool fly, prevState, inDrivingMode;
 
     // constructor with vectors
     Camera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f), float yaw = YAW, float pitch = PITCH) : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVITY), Zoom(ZOOM)
@@ -48,7 +54,10 @@ public:
         WorldUp = up;
         Yaw = yaw;
         Pitch = pitch;
-        fly = prevState = false;
+        fly = prevState = inDrivingMode = false;
+        cameraOffset = glm::vec3(0.0f, 2500.0f, -1000.0f);
+        carPosition = glm::vec3(7864.24f, -711.639f, -14280.6f);
+        carDirection = glm::vec3(-1.0f, 0.0f, 0.0f);
         updateCameraVectors();
     }
     // constructor with scalar values
@@ -58,42 +67,75 @@ public:
         WorldUp = glm::vec3(upX, upY, upZ);
         Yaw = yaw;
         Pitch = pitch;
-        fly = false;
+        fly = prevState = inDrivingMode = false;
+        cameraOffset = glm::vec3(0.0f, 2500.0f, -1000.0f);
+        carPosition = glm::vec3(7864.24f, -711.639f, -14280.6f);
+        carDirection = glm::vec3(-1.0f, 0.0f, 0.0f);
         updateCameraVectors();
     }
     void printPos(){
         std::cout << this->Position.x << "f, " << this->Position.y <<  "f, " << this->Position.z << "f \n";
+    }
+    void printCarPos(){
+        std::cout << "car postition:" << this->carPosition.x << "f, " << this->carPosition.y <<  "f, " << this->carPosition.z << "f \n";
     }
     // returns the view matrix calculated using Euler Angles and the LookAt Matrix
     glm::mat4 GetViewMatrix()
     {
         return glm::lookAt(Position, Position + Front, Up);
     }
+    // Example of rotating a vector around the Y-axis
+    glm::vec3 rotateAroundY(glm::vec3 vector, float angleDegrees) {
+        float angleRadians = glm::radians(angleDegrees);
+        glm::mat4 rotationMatrix = glm::rotate(glm::mat4(1.0f), angleRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+        return glm::vec3(rotationMatrix * glm::vec4(vector, 1.0f));
+    }
 
     // processes input received from any keyboard-like input system. Accepts input parameter in the form of camera defined ENUM (to abstract it from windowing systems)
     void ProcessKeyboard(Camera_Movement direction, float deltaTime)
     {
-        float velocity = MovementSpeed * deltaTime;
-        float curLevel = Position.y;
-        if (direction == FORWARD)
-            Position += Front * velocity;
-        if (direction == BACKWARD)
-            Position -= Front * velocity;
-        if (direction == LEFT)
-            Position -= Right * velocity;
-        if (direction == RIGHT)
-            Position += Right * velocity;
-        
-        // the ground level
-        // Position.y = -371.344f;
-        // Restaurant level:
-        // Position.y = -130.344f; 
-        //********************************* */
-        if(!fly){
-            Position.y = curLevel;
-            if(prevState) Position.y = -371.344f;
+        if(inDrivingMode){
+            float velocity = carSpeed * deltaTime;
+            if (direction == FORWARD)
+                carPosition += carDirection * velocity;
+            if (direction == BACKWARD)
+                carPosition -= carDirection * velocity;
+            if (direction == LEFT) {
+                float newAngle = glm::radians(rotationSpeed * deltaTime);
+                angle += newAngle;
+                carDirection = rotateAroundY(carDirection, newAngle);
+            }
+            if (direction == RIGHT) {
+                float newAngle = glm::radians(-rotationSpeed * deltaTime);
+                angle += newAngle;
+                carDirection = rotateAroundY(carDirection, newAngle);
+            }
+            Position = carPosition - glm::normalize(carDirection) * glm::length(cameraOffset);
+            Position.y += cameraOffset.y;
         }
-        prevState = fly;
+        else{
+            float velocity = MovementSpeed * deltaTime;
+            float curLevel = Position.y;
+            if (direction == FORWARD)
+                Position += Front * velocity;
+            if (direction == BACKWARD)
+                Position -= Front * velocity;
+            if (direction == LEFT)
+                Position -= Right * velocity;
+            if (direction == RIGHT)
+                Position += Right * velocity;
+            
+            // the ground level
+            // Position.y = -371.344f;
+            // Restaurant level:
+            // Position.y = -130.344f; 
+            //********************************* */
+            if(!fly){
+                Position.y = curLevel;
+                if(prevState) Position.y = -371.344f;
+            }
+            prevState = fly;
+        }
     }
 
     // processes input received from a mouse input system. Expects the offset value in both the x and y direction.

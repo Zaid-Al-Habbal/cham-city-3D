@@ -44,6 +44,7 @@ public:
     void escUp(Camera& camera);
     void escDown(Camera& camera);
     void handleElevator(Controller& controller, float camY);
+    void moveTheCar(Camera& camera);
 
 };
 #endif

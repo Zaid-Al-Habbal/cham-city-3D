@@ -6243,7 +6243,7 @@ Scene::Scene()
     //CAR1:
     threeDModels[CAR1] = Model("../resources/objects/cars/1998-lamborghini-diablo-sv-low-poly/source/Diablo SV.fbx");
     appModel = MODEL;
-    appModel = translate(appModel, vec3(3000.0f, -900.0f, -14300.0f));
+    appModel = translate(appModel, vec3(8000.0f, -900.0f, -14300.0f));
     appModel = rotate(appModel, radians(-90.0f), X);
     appModel = rotate(appModel, radians(-90.0f), Z);
     appModel = scale(appModel, vec3(600.0f, 600.0f, 600.0f));

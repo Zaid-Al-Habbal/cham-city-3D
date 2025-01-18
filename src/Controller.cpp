@@ -153,6 +153,11 @@ void Controller::processInput() {
     if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS && inElevator(camera.Position.x, camera.Position.z))
         SECOND_FLOOR = true;
 
+    //CAR:
+    if(glfwGetKey(window, GLFW_KEY_ENTER)){
+        camera.inDrivingMode^=1;
+    }
+
 
     if(camera.Position.x>2200 && camera.Position.x< 2700){
         if(isGoingDownStairsFromRest(camera.Position.x, camera.Position.y, camera.Position.z)){

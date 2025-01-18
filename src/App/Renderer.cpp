@@ -53,7 +53,12 @@ void Renderer::render(Controller& controller)
             
     glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom),
      (float)SCR_WIDTH / (float)SCR_HEIGHT, 2.0f, 35000.0f);
-    glm::mat4 view = camera.GetViewMatrix();
+    glm::mat4 view;
+    if(camera.inDrivingMode){
+        view =  glm::lookAt(camera.Position, camera.carPosition, camera.Up);
+        moveTheCar(camera);
+    }
+    else view = camera.GetViewMatrix();
     
 
     //REEEEEEEEEEEEEEEEEEEEEEF:---------------------------------------------
@@ -800,16 +805,17 @@ void Renderer::render(Controller& controller)
     
     draw(ESCALATOR, cubes[ESCALATOR].getIndexCount(), 0);
     if(cntGoingDownUsingESC) escDown(controller.camera);
-    else if(camY>880.0f && camY<940.0f && camX>380.8f && camX<400.0f && camZ<3096.0f && camZ>2880.0f) cntGoingDownUsingESC=400;
+    else if(camY>880.0f && camY<940.0f && camX>370.8f && camX<400.0f && camZ<3096.0f && camZ>2880.0f) cntGoingDownUsingESC=400;
     turnEsc2On();
     draw(ESCALATOR2, cubes[ESCALATOR2].getIndexCount(), 0);
     if(cntGoingUpUsingESC) escUp(controller.camera);
-    else if(camY>-420.0f && camY<-360.0f && camX>-1550.0f && camX<-1530.0f && camZ>3866.0f && camZ<4040.0f) cntGoingUpUsingESC=400;
+    else if(camY>-420.0f && camY<-360.0f && camX>-1555.0f && camX<-1510.0f && camZ>3866.0f && camZ<4040.0f) cntGoingUpUsingESC=400;
 
     
     
     //---------------------------------------------------------------------------------------
-    // camera.printPos();
+    camera.printPos();
+    camera.printCarPos();
     // SKYBOX:
     skybox.setEnvironment(!controller.isNight);
     skybox.draw(shaders[SKYBOX], view, projection);
@@ -946,6 +952,18 @@ void Renderer::render(Controller& controller)
     
     
 }
+void Renderer::moveTheCar(Camera& camera){
+    mat4 carModel = mat4(1.0f);
+    carModel = translate(carModel, camera.carPosition);
+    carModel = rotate(carModel, radians(-90.0f), vec3(1.0f, 0.0f, 0.0f));
+    carModel = rotate(carModel, radians(-90.0f), vec3(0.0f,0.0f, 1.0f));
+    carModel = rotate(carModel, camera.angle, vec3(0.0f, 0.0f, 1.0f));
+    carModel = scale(carModel, vec3(600.0f, 600.0f, 600.0f));
+    models[CAR1][0] = carModel;
+    threeDmodelBuffers(CAR1);
+
+}
+
 void Renderer::handleElevator(Controller& controller, float camY){
     if(controller.cntEleDoor<0){
         controller.cntEleDoor++;
