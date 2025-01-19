@@ -19,8 +19,9 @@ private:
     unordered_map<string, TextureManager> textures;
     unordered_map<string, Shader> shaders;
     ISoundEngine* engine;
+    ISound* carSound;
 
-    int cntMallDoor, cntEsc, cntGoingUpUsingESC, cntGoingDownUsingESC, cntSound;
+    int cntMallDoor, cntEsc, cntGoingUpUsingESC, cntGoingDownUsingESC;
     unsigned int mallCubemapTexture;
 
 

@@ -6,6 +6,11 @@
 #include <glm/glm.hpp>
 #include <iostream>
 #include "camera.h"
+#include <unordered_map>
+
+// Declare the key state tracking maps as extern
+extern std::unordered_map<int, bool> keyState;
+extern std::unordered_map<int, bool> keyProcessed;
 
 class Controller {
 private:
@@ -26,14 +31,17 @@ private:
     const unsigned int SCR_WIDTH;
     const unsigned int SCR_HEIGHT;
 
+
     // Private utility functions
     static void framebuffer_size_callback(GLFWwindow* window, int width, int height);
     static void mouse_callback(GLFWwindow* window, double xpos, double ypos);
     static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
     static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
+    static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
 public:
     Camera camera;
+    
     //morning/night
     bool isNight, groundFloor, firstFloor, secondFloor, moved;
     int cnt0to1, cnt0to2, cnt1to0, cnt1to2, cnt2to1, cnt2to0, cntEleDoor, thereIsMovement, cntMoved;

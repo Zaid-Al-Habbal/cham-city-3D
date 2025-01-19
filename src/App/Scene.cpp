@@ -6267,6 +6267,9 @@ Scene::Scene()
     }
     threeDmodelBuffers(CAR2);
 
+    //The logo:
+    
+
     
     
 }

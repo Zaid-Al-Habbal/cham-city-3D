@@ -2,7 +2,6 @@
 #define APP_H
 
 #include <iostream>
-#include <map>
 
 using namespace std;
 
@@ -212,15 +211,8 @@ public:
     CAR2_SPEC = "car2Spec",
     CAR3_TEX = "car1Tex3",
     CAR3_SPEC = "car3Spec",
-    CAR4_TEX = "car4Tex",
-    CAR4_SPEC = "car4Spec",
-    CAR5_TEX = "carTex5",
-    CAR5_SPEC = "carSpec5",
-    CAR6_TEX = "carTex6",
-    CAR6_SPEC = "carSpec6",
-    CAR7_TEX = "carTex7",
-    CAR7_SPEC = "carSpec7",
     
+    LOGO_TEX = "logoTex",
 
     
 
@@ -414,6 +406,7 @@ public:
     CAR6 = "car6",
     CAR7 = "car7",
 
+    LOGO = "logo",
 
 
 

@@ -85,6 +85,7 @@ bool Controller::initializeWindow(const std::string& title) {
     glfwSetScrollCallback(window, scroll_callback);
     // Set the mouse button callback
     glfwSetMouseButtonCallback(window, mouse_button_callback);
+    glfwSetKeyCallback(window, keyCallback);
 
 
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
@@ -112,6 +113,20 @@ void Controller::mouse_button_callback(GLFWwindow* window, int button, int actio
         }
     }
 
+}
+
+// Track key states
+std::unordered_map<int, bool> keyState;
+std::unordered_map<int, bool> keyProcessed;
+
+// Key callback function
+void Controller::keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+    if (action == GLFW_PRESS) {
+        keyState[key] = true;
+    } else if (action == GLFW_RELEASE) {
+        keyState[key] = false;
+        keyProcessed[key] = false; // Reset the processed state on release
+    }
 }
 
 void Controller::processInput() {
@@ -154,8 +169,9 @@ void Controller::processInput() {
         SECOND_FLOOR = true;
 
     //CAR:
-    if(glfwGetKey(window, GLFW_KEY_ENTER)){
+    if(keyState[GLFW_KEY_ENTER] && !keyProcessed[GLFW_KEY_ENTER]){
         camera.inDrivingMode^=1;
+        keyProcessed[GLFW_KEY_ENTER] = true; // Mark the key as processed
     }
 
 

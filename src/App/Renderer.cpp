@@ -23,13 +23,13 @@ Renderer::Renderer()
     //for Escalator:
     cntEsc = 55;
 
-    //for sound of the car:
-    cntSound = 50;
-
     cntGoingDownUsingESC = cntGoingUpUsingESC = 0;
 
     //MALL cubemap:
     mallCubemapTexture = loadMallCubemap();
+
+    //for sound of the car:
+    carSound = engine->play2D("../resources/audio/lamb2.wav", true, true);
     
 
 }
@@ -59,14 +59,13 @@ void Renderer::render(Controller& controller)
     glm::mat4 view = camera.GetViewMatrix();
     if(camera.inDrivingMode){
         // view =  glm::lookAt(camera.Position, camera.carPosition, vec3(0.0f, 1.0f, 0.0f));
-        if(cntSound==0){
-            engine->play2D("../resources/audio/lamb.wav");
-            cntSound=80;
-        }
-        cntSound--;
+        carSound->setIsPaused(false);
         moveTheCar(camera);
     }
-    else view = camera.GetViewMatrix();
+    else{
+        view = camera.GetViewMatrix();
+        carSound->setIsPaused(true);
+    } 
     
 
     //REEEEEEEEEEEEEEEEEEEEEEF:---------------------------------------------
