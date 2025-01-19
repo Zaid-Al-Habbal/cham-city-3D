@@ -55,15 +55,13 @@ void Renderer::render(Controller& controller)
         engine->play2D("../resources/audio/footsteps2.ogg");
             
     glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom),
-     (float)SCR_WIDTH / (float)SCR_HEIGHT, 2.0f, 35000.0f);
+     (float)SCR_WIDTH / (float)SCR_HEIGHT, 2.0f, 30000.0f);
     glm::mat4 view = camera.GetViewMatrix();
     if(camera.inDrivingMode){
-        // view =  glm::lookAt(camera.Position, camera.carPosition, vec3(0.0f, 1.0f, 0.0f));
         carSound->setIsPaused(false);
         moveTheCar(camera);
     }
     else{
-        view = camera.GetViewMatrix();
         carSound->setIsPaused(true);
     } 
     
@@ -92,15 +90,24 @@ void Renderer::render(Controller& controller)
 
     //refLight
     if(controller.isNight){
-        refLight.numOfPoints = 3;
+        refLight.numOfPoints = 5;
         refLight.pointLightSpecular[0] = refLight.pointLightSpecular[1] =
         refLight.pointLightSpecular[2] = vec3(0.05f);
         refLight.pointLightPosition[0] = vec3(1433.98f, 1437.68f, -7595.11f);
         refLight.pointLightPosition[1] = vec3(8055.57f, 1024.51f, 4461.24f);
         refLight.pointLightPosition[2] = vec3(-10006.6f, 1314.37f, -5178.68f);
+        //white:
+        refLight.pointLightPosition[3] = vec3(-6293.97f, 476.301f, -7008.96f);
+        refLight.pointLightPosition[4] = vec3(-2706.3f, 500.125f, -6985.35f);
+        
         
         refLight.pointLightColor[0] = refLight.pointLightColor[1] =
         refLight.pointLightColor[2] = Color::Blue;
+
+        refLight.pointLightColor[3] = refLight.pointLightColor[4] =Color::WhiteSmoke;
+        refLight.pointLightLinear[3] = refLight.pointLightLinear[4] =  0.0014f * 0.01f;
+        refLight.pointLightQuadratic[3] = refLight.pointLightQuadratic[4] =  0.000007f * 0.01f;
+        
 
         refLight.turnOnPoint(); 
         refLight.dirLightColor = vec3(0.5f); 
@@ -191,18 +198,26 @@ void Renderer::render(Controller& controller)
     TextureManager::enable(shaders[REF], textures[AD7_TEX], textures[AD7_TEX], 1);
     draw(AD7, cubes[AD7].getIndexCount(), 0);
     
-    shaders[REF].setFloat("refVal", 0.2f);
+    shaders[REF].setFloat("refVal", 0.3f);
+    shaders[REF].setFloat("shininess", 128.0f);
     //CAR1:
     TextureManager::enable(shaders[REF], textures[CAR1_TEX1], textures[CAR1_TEX1], 1);
     draw3Dmodel(CAR1);
+    shaders[REF].setFloat("shininess", 32.0f);
+
 
     //CAR2:
+    shaders[REF].setFloat("refVal", 0.2f);
+
     
     TextureManager::enable(shaders[REF], textures[CAR2_TEX], textures[CAR2_SPEC], 1);
     draw3Dmodel(CAR2);
 
     TextureManager::enable(shaders[REF], textures[CAR3_TEX], textures[CAR3_SPEC], 1);
     draw3Dmodel(CAR3);
+
+    shaders[REF].setFloat("shininess", 0.0f);
+    
 
     shaders[REF].setFloat("refVal", 0.0f);
 
@@ -831,6 +846,7 @@ void Renderer::render(Controller& controller)
     // ALPHA objects:
 
     shaders[REF].use();
+    shaders[REF].setFloat("shininess", 128.0f);
     shaders[REF].setFloat("refVal", 0.8f);
     //CYL_BUILDING  #ALPHA:
     shaders[REF].setFloat("alpha", 0.75f);
@@ -838,7 +854,6 @@ void Renderer::render(Controller& controller)
     draw(CYL_BUILDING, cylinders[CYL_BUILDING].getIndexCount(), 30);
 
     //GLASS_ROOF #ALPHA:
-    shaders[REF].setFloat("shininess", 128.0f);
     TextureManager::enable(shaders[REF], textures[WHITE_WINDOW], textures[WHITE_WINDOW_SPEC], 8);
     draw(GLASS_ROOF, cubes[GLASS_ROOF].getIndexCount(), 0);
 
@@ -871,6 +886,11 @@ void Renderer::render(Controller& controller)
     draw(ENTRY_BLOOR, cubes[ENTRY_BLOOR].getIndexCount(), 0);
     shaders[REF].setFloat("shininess", 32.0f);
 
+    shaders[REF].setFloat("refVal", 0.2f);
+    //logo:
+    TextureManager::enable(shaders[REF], textures[LOGO_TEX], textures[JUST_WHITE_SPEC], 1);
+    draw(LOGO, 6, 24);
+
     //for reflection inside the mall:
     //change refLight:
     refLight.numOfPoints = 4;
@@ -894,7 +914,7 @@ void Renderer::render(Controller& controller)
     //ELEVATOR_BODY:
     shaders[REF].setFloat("refVal", 0.1f);
     shaders[REF].setFloat("alpha", 1.0f);
-
+    
     //conf elevator logic:
     
 

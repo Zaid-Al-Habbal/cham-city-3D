@@ -77,6 +77,7 @@ void ResourceManager::setAudio()
     vec3df(-17154.4f, -371.344f, -18500.8f ),true);
 
 
+
     
 }
 
@@ -249,9 +250,9 @@ void ResourceManager::setTextures()
     textures[CIRCLE_GLASS_SPEC] = TextureManager("../resources/textures/round_glass.png", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGBA, GL_UNSIGNED_BYTE);
 
 
-
     //TEXTURES DO NOT FLIP::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     stbi_set_flip_vertically_on_load(false);
+    textures[LOGO_TEX] = TextureManager("../resources/textures/logo.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
     //CAR2:
     textures[CAR2_TEX] = TextureManager("../resources/objects/cars/55z27frcahz4-P911GT/skin07/0000.BMP", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGB, GL_UNSIGNED_BYTE);
     textures[CAR2_SPEC] = TextureManager("../resources/objects/cars/55z27frcahz4-P911GT/skin07/0000-a.BMP", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGB, GL_UNSIGNED_BYTE);

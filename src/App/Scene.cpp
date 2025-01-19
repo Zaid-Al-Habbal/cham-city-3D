@@ -6268,7 +6268,33 @@ Scene::Scene()
     threeDmodelBuffers(CAR2);
 
     //The logo:
-    
+    cubes[LOGO] = Cubesphere(1500.0f, 1, false);
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(-4500.0f, 3300.0f, -1200.0f));
+    appModel = rotate(appModel, radians(180.0f), Y);
+    appModel = scale(appModel, vec3(1.0f, 0.8f, 1.0f));
+    models[LOGO].PB(appModel);
+    for(int i=1; i<40; i++){
+        appModel = MODEL;
+        appModel = translate(appModel, vec3(-4500.0f, 3300.0f, -1200.0f - (0.5f * i)));
+        appModel = rotate(appModel, radians(180.0f), Y);
+        appModel = scale(appModel, vec3(1.0f, 0.6f, 1.5f));
+        models[LOGO].PB(appModel);
+    }
+    appModel = MODEL;
+    appModel = translate(appModel, vec3(2900.0f, 3550.0f, -1200.0f));
+    appModel = rotate(appModel, radians(90.0f), Y);
+    appModel = scale(appModel, vec3(1.0f, 0.5f, 1.0f));
+    models[LOGO].PB(appModel);
+    for(int i=1; i<40; i++){
+        appModel = MODEL;
+        appModel = translate(appModel, vec3(2900.0f + (i * 0.5f), 3550.0f, -1200.0f));
+        appModel = rotate(appModel, radians(90.0f), Y);
+        appModel = scale(appModel, vec3(1.0f, 0.5f, 1.0f));
+        models[LOGO].PB(appModel);
+    }
+
+    cubeBuffers(LOGO);
 
     
     
