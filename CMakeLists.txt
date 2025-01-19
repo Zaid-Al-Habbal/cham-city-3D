@@ -45,7 +45,7 @@ elseif(UNIX AND NOT APPLE)
   set(IRRKLANG_ROOT "${CMAKE_SOURCE_DIR}/includes/irrKlang")
   include_directories(${IRRKLANG_ROOT})
   set(IRRKLANG_LIB ${IRRKLANG_ROOT}/bin/linux-gcc-64/libIrrKlang.so)
-  set(LIBS ${GLFW3_LIBRARY} X11 Xrandr Xinerama Xi Xxf86vm Xcursor GL dl pthread freetype ${ASSIMP_LIBRARY} ${IRRKLANG_LIB})
+  set(LIBS ${GLFW3_LIBRARY} X11 Xrandr Xinerama Xi Xxf86vm Xcursor GL dl pthread ${ASSIMP_LIBRARY} ${IRRKLANG_LIB})
   set (CMAKE_CXX_LINK_EXECUTABLE "${CMAKE_CXX_LINK_EXECUTABLE} -ldl")
 # for Mac OS:
 elseif(APPLE)
