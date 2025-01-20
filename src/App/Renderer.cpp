@@ -836,8 +836,6 @@ void Renderer::render(Controller& controller)
     
     
     //---------------------------------------------------------------------------------------
-    camera.printPos();
-    camera.printCarPos();
     // SKYBOX:
     skybox.setEnvironment(!controller.isNight);
     skybox.draw(shaders[SKYBOX], view, projection);
