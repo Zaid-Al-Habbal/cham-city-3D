@@ -1,5 +1,7 @@
 # Cham City 3D
 
+![image from the project](https://github.com/Zaid-Al-Habbal/cham-city-3D/blob/main/screenshots/Screenshot%20from%202025-01-19%2018-57-31.png)
+
 ChamCity3D is an open-source 3D simulation project designed to replicate the Cham City Center, a prominent mall located in Damascus, Syria. Built with modern OpenGL (core profile), the project is designed for immersive graphics programming and rendering.
 
 ## Features
