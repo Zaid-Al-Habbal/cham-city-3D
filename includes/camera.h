@@ -17,6 +17,7 @@ enum Camera_Movement {
 const float YAW         = -90.0f;
 const float PITCH       =  0.0f;
 const float SPEED       =  1200.5f;
+const float RUN_MULTIPLIER = 2.0f;
 const float SENSITIVITY =  0.1f;
 const float ZOOM        =  45.0f;
 
@@ -44,30 +45,34 @@ public:
     float MovementSpeed;
     float MouseSensitivity;
     float Zoom;
+    float RunMultiplier;
 
     bool fly, prevState, inDrivingMode;
+    bool isRunning;
 
     // constructor with vectors
-    Camera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f), float yaw = YAW, float pitch = PITCH) : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVITY), Zoom(ZOOM)
+    Camera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f), float yaw = YAW, float pitch = PITCH) : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVITY), Zoom(ZOOM), RunMultiplier(RUN_MULTIPLIER)
     {
         Position = position;
         WorldUp = up;
         Yaw = yaw;
         Pitch = pitch;
         fly = prevState = inDrivingMode = false;
+        isRunning = false;
         cameraOffset = glm::vec3(0.0f, 2500.0f, -2000.0f);
         carPosition = glm::vec3(7864.24f, -711.639f, -14280.6f);
         carDirection = glm::vec3(-1.0f, 0.0f, 0.0f);
         updateCameraVectors();
     }
     // constructor with scalar values
-    Camera(float posX, float posY, float posZ, float upX, float upY, float upZ, float yaw, float pitch) : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVITY), Zoom(ZOOM)
+    Camera(float posX, float posY, float posZ, float upX, float upY, float upZ, float yaw, float pitch) : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVITY), Zoom(ZOOM), RunMultiplier(RUN_MULTIPLIER)
     {
         Position = glm::vec3(posX, posY, posZ);
         WorldUp = glm::vec3(upX, upY, upZ);
         Yaw = yaw;
         Pitch = pitch;
         fly = prevState = inDrivingMode = false;
+        isRunning = false;
         cameraOffset = glm::vec3(0.0f, 2500.0f, -2000.0f);
         carPosition = glm::vec3(7864.24f, -711.639f, -14280.6f);
         carDirection = glm::vec3(-1.0f, 0.0f, 0.0f);
@@ -116,7 +121,11 @@ public:
             Position.y += cameraOffset.y;
         }
         else{
-            float velocity = MovementSpeed * deltaTime;
+            float moveSpeed = MovementSpeed;
+            if (isRunning) {
+                moveSpeed *= RunMultiplier;
+            }
+            float velocity = moveSpeed * deltaTime;
             float curLevel = Position.y;
             if (direction == FORWARD)
                 Position += Front * velocity;
@@ -138,6 +147,11 @@ public:
             }
             prevState = fly;
         }
+    }
+
+    void SetRunning(bool running)
+    {
+        isRunning = running;
     }
 
     // processes input received from a mouse input system. Expects the offset value in both the x and y direction.

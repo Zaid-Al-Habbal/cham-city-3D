@@ -82,6 +82,7 @@ Platform notes:
    - **RIGHT_MOUSE_BOTTUN**: toggle camera mode.
    - **KEY_0 & KEY_1 & KEY_2**: to use elevator between the ground, first and second floor. 
    - **ENTER**: to enter or get out of the Lamborghini.
+   - **SHIFT**: to run.
 
 ## Project Structure
 - **src/**: Contains the source code for the application

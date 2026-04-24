@@ -133,6 +133,11 @@ void Controller::processInput() {
 
     moved = false;
 
+    const bool isShiftHeld =
+        glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS ||
+        glfwGetKey(window, GLFW_KEY_RIGHT_SHIFT) == GLFW_PRESS;
+    camera.SetRunning(isShiftHeld && !camera.inDrivingMode);
+
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 
