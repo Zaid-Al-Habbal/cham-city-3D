@@ -1,5 +1,9 @@
 #include "App/ResourceManager.h"
 
+#if CHAM_ENABLE_AUDIO
+using namespace irrklang;
+#endif
+
 ResourceManager::ResourceManager()
 {
     setShaders();
@@ -9,6 +13,7 @@ ResourceManager::ResourceManager()
 
 void ResourceManager::setAudio()
 {
+#if CHAM_ENABLE_AUDIO
     //ENGINE:
     engine = createIrrKlangDevice();
 
@@ -76,9 +81,9 @@ void ResourceManager::setAudio()
     engine->play3D("../resources/audio/outside.ogg",
     vec3df(-17154.4f, -371.344f, -18500.8f ),true);
 
-
-
-    
+#else
+    engine = nullptr;
+#endif
 }
 
 void ResourceManager::setShaders()

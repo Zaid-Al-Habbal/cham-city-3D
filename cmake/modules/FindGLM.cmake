@@ -30,9 +30,11 @@
 # default search dirs
 
 SET(_glm_HEADER_SEARCH_DIRS
+"${CMAKE_SOURCE_DIR}/includes"
 "/usr/include"
 "/usr/local/include"
-"${CMAKE_SOURCE_DIR}/includes"
+"/opt/homebrew/include"
+"C:/Program Files/glm"
 "C:/Program Files (x86)/glm" )
 # check environment variable
 SET(_glm_ENV_ROOT_DIR "$ENV{GLM_ROOT_DIR}")

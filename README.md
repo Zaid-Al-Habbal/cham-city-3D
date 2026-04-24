@@ -26,8 +26,13 @@ ChamCity3D is an open-source 3D simulation project designed to replicate the Cha
 Before building ChamCity3D, ensure you have the following installed on your system:
 
 - A C++17-compatible compiler
-- CMake (minimum version 3.0)
+- CMake (minimum version 3.16)
 - git
+
+Platform notes:
+- Linux: install OpenGL, X11, GLFW3, ASSIMP development packages if they are not already available.
+- Windows: use Visual Studio 2022 or MinGW-w64, and ensure GLFW3/ASSIMP are discoverable.
+- macOS: build is supported, audio is disabled by default in CMake.
 
 ## Building the Project
 
@@ -37,13 +42,14 @@ Before building ChamCity3D, ensure you have the following installed on your syst
    git clone https://github.com/Zaid-Al-Habbal/cham-city-3D.git
    cd cham-city-3D 
    ```
-2. Create a `build` directory and run CMake:
+2. Configure and build:
    ```sh
    mkdir build
    cd build
    cmake ..
+   cmake --build . --config Release
    ```
-3. Open the generated Visual Studio solution and build the project.
+3. The executable is generated in `bin` as `Cham-City-3D.exe`.
 
 ### Linux
 1. Clone the repository:
@@ -51,16 +57,18 @@ Before building ChamCity3D, ensure you have the following installed on your syst
    git clone https://github.com/Zaid-Al-Habbal/cham-city-3D.git
    cd cham-city-3D
    ```
-2. Create a `build` directory and run CMake:
+2. Configure and build:
    ```sh
    mkdir build
    cd build
    cmake ..
-   make
+   cmake --build . -j
    ```
+3. The executable is generated in `bin` as `Cham-City-3D`.
 
 ### MacOS
-1. Follow the Linux instructions, ensuring that your OpenGL framework is correctly linked.
+1. Follow the Linux instructions.
+2. Audio is optional and disabled by default on macOS in the current CMake configuration.
 
 ## Usage
 1. Run the generated executable from the `bin` directory:

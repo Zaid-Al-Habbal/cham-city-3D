@@ -18,8 +18,10 @@ private:
     Light refLight, mainLight;
     unordered_map<string, TextureManager> textures;
     unordered_map<string, Shader> shaders;
-    ISoundEngine* engine;
-    ISound* carSound;
+    AudioEngine* engine;
+#if CHAM_ENABLE_AUDIO
+    irrklang::ISound* carSound;
+#endif
 
     int cntMallDoor, cntEsc, cntGoingUpUsingESC, cntGoingDownUsingESC;
     unsigned int mallCubemapTexture;

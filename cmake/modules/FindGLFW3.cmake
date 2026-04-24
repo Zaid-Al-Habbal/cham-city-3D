@@ -15,15 +15,21 @@
 # Cmake file from: https://github.com/daw42/glslcookbook
 
 set( _glfw3_HEADER_SEARCH_DIRS
+"${CMAKE_SOURCE_DIR}/includes"
+"${CMAKE_SOURCE_DIR}/includes/GLFW"
 "/usr/include"
 "/usr/local/include"
-"${CMAKE_SOURCE_DIR}/includes"
+"/opt/homebrew/include"
+"C:/Program Files/glfw/include"
 "C:/Program Files (x86)/glfw/include" )
 set( _glfw3_LIB_SEARCH_DIRS
-"/usr/lib"
-"/usr/local/lib"
 "${CMAKE_SOURCE_DIR}/lib"
-"C:/Program Files (x86)/glfw/lib-msvc110" )
+"/usr/lib"
+"/usr/lib64"
+"/usr/local/lib"
+"/opt/homebrew/lib"
+"C:/Program Files/glfw/lib"
+"C:/Program Files (x86)/glfw/lib" )
 
 # Check environment for root search directory
 set( _glfw3_ENV_ROOT $ENV{GLFW3_ROOT} )
@@ -42,7 +48,7 @@ FIND_PATH(GLFW3_INCLUDE_DIR "GLFW/glfw3.h"
 PATHS ${_glfw3_HEADER_SEARCH_DIRS} )
 
 # Search for the library
-FIND_LIBRARY(GLFW3_LIBRARY NAMES glfw3 glfw
+FIND_LIBRARY(GLFW3_LIBRARY NAMES glfw3 glfw glfw3dll
 PATHS ${_glfw3_LIB_SEARCH_DIRS} )
 INCLUDE(FindPackageHandleStandardArgs)
 FIND_PACKAGE_HANDLE_STANDARD_ARGS(GLFW3 DEFAULT_MSG

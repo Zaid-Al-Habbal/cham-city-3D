@@ -1,6 +1,7 @@
 #include "Model.h"
 #include <iostream>
 #include <cstring>
+#include <filesystem>
 
 // Default constructor
 Model::Model() {}
@@ -31,7 +32,7 @@ void Model::loadModel(const std::string &path) {
         return;
     }
 
-    directory = path.substr(0, path.find_last_of('/'));
+    directory = std::filesystem::path(path).parent_path().string();
     processNode(scene->mRootNode, scene);
 }
 

@@ -2,6 +2,9 @@
 #include "Light.h"
 
 using namespace glm;
+#if CHAM_ENABLE_AUDIO
+using namespace irrklang;
+#endif
 
 Renderer::Renderer()
 {
@@ -28,9 +31,10 @@ Renderer::Renderer()
     //MALL cubemap:
     mallCubemapTexture = loadMallCubemap();
 
+#if CHAM_ENABLE_AUDIO
     //for sound of the car:
     carSound = engine->play2D("../resources/audio/lamb2.wav", true, true);
-    
+#endif
 
 }
 
@@ -46,6 +50,8 @@ void Renderer::render(Controller& controller)
     vec3 camPos = camera.Position;
     vec3 camUp = camera.WorldUp;
     float camX=camPos.x, camY=camPos.y, camZ=camPos.z;
+
+#if CHAM_ENABLE_AUDIO
     engine->setListenerPosition(vec3df(camPos.x, camPos.y, camPos.z),
      vec3df(camFro.x, camFro.y, camFro.z), vec3df(0,0,0),
       vec3df(camUp.x, camUp.y, camUp.z)); 
@@ -53,16 +59,21 @@ void Renderer::render(Controller& controller)
     //Footsteps:
     if(controller.cntMoved==30 && !camera.fly)
         engine->play2D("../resources/audio/footsteps2.ogg");
+#endif
             
     glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom),
      (float)SCR_WIDTH / (float)SCR_HEIGHT, 2.0f, 30000.0f);
     glm::mat4 view = camera.GetViewMatrix();
     if(camera.inDrivingMode){
+#if CHAM_ENABLE_AUDIO
         carSound->setIsPaused(false);
+#endif
         moveTheCar(camera);
     }
     else{
+#if CHAM_ENABLE_AUDIO
         carSound->setIsPaused(true);
+#endif
     } 
     
 
@@ -858,8 +869,10 @@ void Renderer::render(Controller& controller)
 
     //MALL_DOOR: $ALPHA:
     if(nearMallDoor(camX, camY, camZ) && cntMallDoor){
+        #if CHAM_ENABLE_AUDIO
         if(cntMallDoor==89) engine->play3D("../resources/audio/automaticdoor.wav", vec3df(-4501.33f, -320.344f, -2852.66f));
         if(cntMallDoor==30)  engine->play3D("../resources/audio/store-door-chime.wav", vec3df(-4501.33f, -320.344f, -2652.66f));
+        #endif
         cntMallDoor--;
         models[MALL_DOOR][0] = translate(models[MALL_DOOR][0], vec3(10.0f, 0.0f, 0.0f));
         models[MALL_DOOR][1] = translate(models[MALL_DOOR][1], vec3(-10.0f, 0.0f, 0.0f));

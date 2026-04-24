@@ -7,10 +7,13 @@
 #include "App.h"
 #include "shader.h"
 #include "TextureManager.h"
-#include <irrKlang.h>
-#pragma comment(lib, "irrKlang.lib") // link with irrKlang.dll
 
-using namespace irrklang;
+#if CHAM_ENABLE_AUDIO
+#include <irrKlang.h>
+using AudioEngine = irrklang::ISoundEngine;
+#else
+using AudioEngine = void;
+#endif
 
 using namespace std;
 
@@ -20,7 +23,7 @@ public:
 
     unordered_map<string, Shader> shaders;
     unordered_map<string, TextureManager> textures;
-    ISoundEngine* engine;
+    AudioEngine* engine;
 
     ResourceManager();
     void setShaders();

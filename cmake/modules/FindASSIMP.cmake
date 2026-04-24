@@ -5,17 +5,23 @@
 # ASSIMP_INCLUDE_DIR - the Assimp include directories
 # ASSIMP_LIBRARIES - link these to use Assimp
 FIND_PATH( ASSIMP_INCLUDE_DIR assimp/mesh.h
+	${CMAKE_SOURCE_DIR}/includes
 	/usr/include
 	/usr/local/include
 	/opt/local/include
-	${CMAKE_SOURCE_DIR}/includes
+	/opt/homebrew/include
+	"C:/Program Files/assimp/include"
+	"C:/Program Files (x86)/assimp/include"
 )
-FIND_LIBRARY( ASSIMP_LIBRARY assimp
+FIND_LIBRARY( ASSIMP_LIBRARY NAMES assimp libassimp assimp-vc143-mt assimp-vc142-mt assimp-vc141-mt assimp-vc140-mt
+	${CMAKE_SOURCE_DIR}/lib
 	/usr/lib64
 	/usr/lib
 	/usr/local/lib
 	/opt/local/lib
-	${CMAKE_SOURCE_DIR}/lib
+	/opt/homebrew/lib
+	"C:/Program Files/assimp/lib"
+	"C:/Program Files (x86)/assimp/lib"
 )
 IF(ASSIMP_INCLUDE_DIR AND ASSIMP_LIBRARY)
 	SET( ASSIMP_FOUND TRUE )
